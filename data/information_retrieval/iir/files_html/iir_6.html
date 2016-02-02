@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Scoring, term weighting and the vector space model</title> 
+  <meta name="description" content="Scoring, term weighting and the vector space model" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="computing-scores-in-a-complete-search-system-1.html" /> 
+  <link rel="previous" href="index-compression-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="parametric-and-zone-indexes-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1819" href="parametric-and-zone-indexes-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1813" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1807" href="references-and-further-reading-5.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1815" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1817" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1820" href="parametric-and-zone-indexes-1.html">Parametric and zone indexes</a> 
+  <b> Up:</b> 
+  <a name="tex2html1814" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1808" href="references-and-further-reading-5.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html1816" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1818" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001100000000000000000"></a> <a name="chap:tfidf"></a><a name="ch:zones"></a> <a name="ch:tfidf"></a> <a name="ch:termvspace"></a> <br /> Scoring, term weighting and the vector space model </h1> 
+  <p> Thus far we have dealt with indexes that support Boolean queries: a document either matches or does not match a query. In the case of large document collections, the resulting number of matching documents can far exceed the number a human user could possibly sift through. Accordingly, it is essential for a search engine to rank-order the documents matching a query. To do this, the search engine computes, for each matching document, a score with respect to the query at hand. In this chapter we initiate the study of assigning a score to a (query, document) pair. This chapter consists of three main ideas. </p> 
+  <ol> 
+   <li>We introduce parametric and zone indexes in Section <a href="parametric-and-zone-indexes-1.html#sec:parametricsection">6.1</a> , which serve two purposes. First, they allow us to index and retrieve documents by metadata such as the language in which a document is written. Second, they give us a simple means for scoring (and thereby ranking) documents in response to a query. </li> 
+   <li>Next, in Section <a href="term-frequency-and-weighting-1.html#sec:tfidf">6.2</a> we develop the idea of weighting the importance of a term in a document, based on the statistics of occurrence of the term. </li> 
+   <li>In Section <a href="the-vector-space-model-for-scoring-1.html#sec:docvectors">6.3</a> we show that by viewing each document as a vector of such weights, we can compute a score between a query and each document. This view is known as vector space scoring. </li> 
+  </ol> Section 
+  <a href="variant-tf-idf-functions-1.html#sec:variantsintfidf">6.4</a> develops several variants of term-weighting for the vector space model. Chapter 
+  <a href="computing-scores-in-a-complete-search-system-1.html#ch:cosine">7</a> develops computational aspects of vector space scoring, and related topics. 
+  <p> As we develop these ideas, the notion of a query will assume multiple nuances. In Section <a href="parametric-and-zone-indexes-1.html#sec:parametricsection">6.1</a> we consider queries in which specific query terms occur in specified regions of a matching document. Beginning Section <a href="term-frequency-and-weighting-1.html#sec:tfidf">6.2</a> we will in fact relax the requirement of matching specific regions of a document; instead, we will look at so-called <a name="7648"></a> <i>free text</i> queries that simply consist of query terms with no specification on their relative order, importance or where in a document they should be found. The bulk of our study of scoring will be in this latter notion of a query being such a set of terms. </p> 
+  <p> <br /></p> 
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html1821" href="parametric-and-zone-indexes-1.html">Parametric and zone indexes</a> 
+    <ul> 
+     <li><a name="tex2html1822" href="weighted-zone-scoring-1.html">Weighted zone scoring</a> </li> 
+     <li><a name="tex2html1823" href="learning-weights-1.html">Learning weights</a> </li> 
+     <li><a name="tex2html1824" href="the-optimal-weight-g-1.html">The optimal weight g</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html1825" href="term-frequency-and-weighting-1.html">Term frequency and weighting</a> 
+    <ul> 
+     <li><a name="tex2html1826" href="inverse-document-frequency-1.html">Inverse document frequency</a> </li> 
+     <li><a name="tex2html1827" href="tf-idf-weighting-1.html">Tf-idf weighting</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html1828" href="the-vector-space-model-for-scoring-1.html">The vector space model for scoring</a> 
+    <ul> 
+     <li><a name="tex2html1829" href="dot-products-1.html">Dot products</a> </li> 
+     <li><a name="tex2html1830" href="queries-as-vectors-1.html">Queries as vectors</a> </li> 
+     <li><a name="tex2html1831" href="computing-vector-scores-1.html">Computing vector scores</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html1832" href="variant-tf-idf-functions-1.html">Variant tf-idf functions</a> 
+    <ul> 
+     <li><a name="tex2html1833" href="sublinear-tf-scaling-1.html">Sublinear tf scaling</a> </li> 
+     <li><a name="tex2html1834" href="maximum-tf-normalization-1.html">Maximum tf normalization</a> </li> 
+     <li><a name="tex2html1835" href="document-and-query-weighting-schemes-1.html">Document and query weighting schemes</a> </li> 
+     <li><a name="tex2html1836" href="pivoted-normalized-document-length-1.html">Pivoted normalized document length</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html1837" href="references-and-further-reading-6.html">References and further reading</a> </li> 
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1819" href="parametric-and-zone-indexes-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1813" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1807" href="references-and-further-reading-5.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1815" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1817" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1820" href="parametric-and-zone-indexes-1.html">Parametric and zone indexes</a> 
+  <b> Up:</b> 
+  <a name="tex2html1814" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1808" href="references-and-further-reading-5.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html1816" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1818" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

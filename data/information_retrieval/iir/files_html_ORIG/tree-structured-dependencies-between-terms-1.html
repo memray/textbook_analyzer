@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Tree-structured dependencies between terms</title> 
+  <meta name="description" content="Tree-structured dependencies between terms" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="okapi-bm25-a-non-binary-model-1.html" /> 
+  <link rel="previous" href="an-appraisal-of-probabilistic-models-1.html" /> 
+  <link rel="up" href="an-appraisal-and-some-extensions-1.html" /> 
+  <link rel="next" href="okapi-bm25-a-non-binary-model-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3172" href="okapi-bm25-a-non-binary-model-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3166" href="an-appraisal-and-some-extensions-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3160" href="an-appraisal-of-probabilistic-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3168" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3170" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3173" href="okapi-bm25-a-non-binary-model-1.html">Okapi BM25: a non-binary</a> 
+  <b> Up:</b> 
+  <a name="tex2html3167" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3161" href="an-appraisal-of-probabilistic-models-1.html">An appraisal of probabilistic</a> &nbsp; 
+  <b> <a name="tex2html3169" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3171" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001642000000000000000"> Tree-structured dependencies between terms</a> </h2> 
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:rijsbergen-tree"></a><a name="p:rijsbergen-tree"></a></p>
+   <img width="556" height="301" border="0" src="img767.png" alt="\begin{figure}
+% latex2html id marker 14314
+\psset{unit=0.75cm}
+\begin{pspicture...
+...endent on a term $x_k$\ if there is an arrow $x_k \rightarrow x_i$.}\end{figure}" /> 
+  </div> 
+  <p> <a name="p:rijsbergentree"></a> Some of the assumptions of the BIM can be removed. For example, we can remove the assumption that terms are independent. This assumption is very far from true in practice. A case that particularly violates this assumption is term pairs like Hong and Kong, which are strongly dependent. But dependencies can occur in various complex configurations, such as between the set of terms New, York, England, City, Stock, Exchange, and University. <a href="bibliography-1.html#rij79">van&nbsp;Rijsbergen (1979)</a> proposed a simple, plausible model which allowed a tree structure of term dependencies, as in Figure <a href="#fig:rijsbergen-tree">11.1</a> . In this model each term can be directly dependent on only one other term, giving a tree structure of dependencies. When it was invented in the 1970s, estimation problems held back the practical success of this model, but the idea was reinvented as the Tree Augmented Naive Bayes model by <a href="bibliography-1.html#friedman96tan">Friedman and Goldszmidt (1996)</a>, who used it with some success on various machine learning data sets. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3172" href="okapi-bm25-a-non-binary-model-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3166" href="an-appraisal-and-some-extensions-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3160" href="an-appraisal-of-probabilistic-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3168" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3170" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3173" href="okapi-bm25-a-non-binary-model-1.html">Okapi BM25: a non-binary</a> 
+  <b> Up:</b> 
+  <a name="tex2html3167" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3161" href="an-appraisal-of-probabilistic-models-1.html">An appraisal of probabilistic</a> &nbsp; 
+  <b> <a name="tex2html3169" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3171" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

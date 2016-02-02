@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Language modeling versus other approaches in IR</title> 
+  <meta name="description" content="Language modeling versus other approaches in IR" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="extended-language-modeling-approaches-1.html" /> 
+  <link rel="previous" href="the-query-likelihood-model-1.html" /> 
+  <link rel="up" href="language-models-for-information-retrieval-1.html" /> 
+  <link rel="next" href="extended-language-modeling-approaches-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3370" href="extended-language-modeling-approaches-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3364" href="language-models-for-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3358" href="ponte-and-crofts-experiments-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3366" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3368" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3371" href="extended-language-modeling-approaches-1.html">Extended language modeling approaches</a> 
+  <b> Up:</b> 
+  <a name="tex2html3365" href="language-models-for-information-retrieval-1.html">Language models for information</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3359" href="ponte-and-crofts-experiments-1.html">Ponte and Croft's Experiments</a> &nbsp; 
+  <b> <a name="tex2html3367" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3369" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001730000000000000000"></a><a name="sec:lm-vs-other"></a> <a name="p:lm-vs-other"></a> <br /> Language modeling versus other approaches in IR </h1> 
+  <p> The language modeling approach provides a novel way of looking at the problem of text retrieval, which links it with a lot of recent work in speech and language processing. As <a href="bibliography-1.html#ponte98lm">Ponte and Croft (1998)</a> emphasize, the language modeling approach to IR provides a different approach to scoring matches between queries and documents, and the hope is that the probabilistic language modeling foundation improves the weights that are used, and hence the performance of the model. The major issue is estimation of the document model, such as choices of how to smooth it effectively. The model has achieved very good retrieval results. Compared to other probabilistic approaches, such as the BIM from Chapter <a href="probabilistic-information-retrieval-1.html#ch:probir">11</a> , the main difference initially appears to be that the LM approach does away with explicitly modeling relevance (whereas this is the central variable evaluated in the BIM approach). But this may not be the correct way to think about things, as some of the papers in Section <a href="references-and-further-reading-12.html#sec:lmir-refs">12.5</a> further discuss. The LM approach assumes that documents and expressions of information needs are objects of the same type, and assesses their match by importing the tools and methods of language modeling from speech and <a name="15493"></a>natural language processing. The resulting model is mathematically precise, conceptually simple, computationally tractable, and intuitively appealing. This seems similar to the situation with XML retrieval (Chapter <a href="xml-retrieval-1.html#ch:xml">10</a> ): there the approaches that assume <a name="15495"></a>queries and documents are objects of the same type are also among the most successful. </p> 
+  <p> On the other hand, like all IR models, you can also raise objections to the model. The assumption of equivalence between document and information need representation is unrealistic. Current LM approaches use very simple models of language, usually unigram models. Without an explicit notion of relevance, relevance feedback is difficult to integrate into the model, as are user preferences. It also seems necessary to move beyond a unigram model to accommodate notions of phrase or passage matching or Boolean retrieval operators. Subsequent work in the LM approach has looked at addressing some of these concerns, including putting relevance back into the model and allowing a language mismatch between the query language and the document language. </p> 
+  <p> The model has significant relations to traditional tf-idf models. Term frequency is directly represented in tf-idf models, and much recent work has recognized the importance of document length normalization. The effect of doing a mixture of document generation probability with collection generation probability is a little like idf: terms rare in the general collection but common in some documents will have a greater influence on the ranking of documents. In most concrete realizations, the models share treating terms as if they were independent. On the other hand, the intuitions are probabilistic rather than geometric, the mathematical models are more principled rather than heuristic, and the details of how statistics like term frequency and document length are used differ. If you are concerned mainly with performance numbers, recent work has shown the LM approach to be very effective in retrieval experiments, beating tf-idf and BM25 weights. Nevertheless, there is perhaps still insufficient evidence that its performance so greatly exceeds that of a well-tuned traditional vector space retrieval system as to justify changing an existing implementation. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3370" href="extended-language-modeling-approaches-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3364" href="language-models-for-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3358" href="ponte-and-crofts-experiments-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3366" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3368" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3371" href="extended-language-modeling-approaches-1.html">Extended language modeling approaches</a> 
+  <b> Up:</b> 
+  <a name="tex2html3365" href="language-models-for-information-retrieval-1.html">Language models for information</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3359" href="ponte-and-crofts-experiments-1.html">Ponte and Croft's Experiments</a> &nbsp; 
+  <b> <a name="tex2html3367" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3369" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

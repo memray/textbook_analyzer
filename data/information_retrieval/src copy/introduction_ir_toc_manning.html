@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org" />
+
+  <title>Contents</title>
+  <meta name="description" content="Contents" />
+  <meta name="keywords" content="irbook" />
+  <meta name="resource-type" content="document" />
+  <meta name="distribution" content="global" />
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <link rel="STYLESHEET" href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.css" type="text/css" />
+  <link rel="next" href="http://nlp.stanford.edu/IR-book/html/htmledition/list-of-tables-1.html" />
+  <link rel="previous" href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html" />
+  <link rel="up" href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html" />
+  <link rel="next" href="http://nlp.stanford.edu/IR-book/html/htmledition/list-of-tables-1.html" />
+</head>
+
+<body>
+   <!--Navigation Panel-->
+
+  <h2>Contents</h2><!--Table of Contents-->
+
+  <ul>
+    <li><a name="tex2html522" href="http://nlp.stanford.edu/IR-book/html/htmledition/list-of-tables-1.html" id="tex2html522">List of Tables</a></li>
+
+    <li><a name="tex2html523" href="http://nlp.stanford.edu/IR-book/html/htmledition/list-of-figures-1.html" id="tex2html523">List of Figures</a></li>
+
+    <li>
+      <a name="tex2html524" href="http://nlp.stanford.edu/IR-book/html/htmledition/boolean-retrieval-1.html" id="tex2html524">Boolean retrieval</a>
+
+      <ul>
+        <li><a name="tex2html525" href="http://nlp.stanford.edu/IR-book/html/htmledition/an-example-information-retrieval-problem-1.html" id="tex2html525">An example information retrieval problem</a></li>
+
+        <li><a name="tex2html526" href="http://nlp.stanford.edu/IR-book/html/htmledition/a-first-take-at-building-an-inverted-index-1.html" id="tex2html526">A first take at building an inverted index</a></li>
+
+        <li><a name="tex2html527" href="http://nlp.stanford.edu/IR-book/html/htmledition/processing-boolean-queries-1.html" id="tex2html527">Processing Boolean queries</a></li>
+
+        <li><a name="tex2html528" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-extended-boolean-model-versus-ranked-retrieval-1.html" id="tex2html528">The extended Boolean model versus ranked retrieval</a></li>
+
+        <li><a name="tex2html529" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-1.html" id="tex2html529">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html530" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-term-vocabulary-and-postings-lists-1.html" id="tex2html530">The term vocabulary and postings lists</a>
+
+      <ul>
+        <li>
+          <a name="tex2html531" href="http://nlp.stanford.edu/IR-book/html/htmledition/document-delineation-and-character-sequence-decoding-1.html" id="tex2html531">Document delineation and character sequence decoding</a>
+
+          <ul>
+            <li><a name="tex2html532" href="http://nlp.stanford.edu/IR-book/html/htmledition/obtaining-the-character-sequence-in-a-document-1.html" id="tex2html532">Obtaining the character sequence in a document</a></li>
+
+            <li><a name="tex2html533" href="http://nlp.stanford.edu/IR-book/html/htmledition/choosing-a-document-unit-1.html" id="tex2html533">Choosing a document unit</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html534" href="http://nlp.stanford.edu/IR-book/html/htmledition/determining-the-vocabulary-of-terms-1.html" id="tex2html534">Determining the vocabulary of terms</a>
+
+          <ul>
+            <li><a name="tex2html535" href="http://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html" id="tex2html535">Tokenization</a></li>
+
+            <li><a name="tex2html536" href="http://nlp.stanford.edu/IR-book/html/htmledition/dropping-common-terms-stop-words-1.html" id="tex2html536">Dropping common terms: stop words</a></li>
+
+            <li><a name="tex2html537" href="http://nlp.stanford.edu/IR-book/html/htmledition/normalization-equivalence-classing-of-terms-1.html" id="tex2html537">Normalization (equivalence classing of terms)</a></li>
+
+            <li><a name="tex2html538" href="http://nlp.stanford.edu/IR-book/html/htmledition/stemming-and-lemmatization-1.html" id="tex2html538">Stemming and lemmatization</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html539" href="http://nlp.stanford.edu/IR-book/html/htmledition/faster-postings-list-intersection-via-skip-pointers-1.html" id="tex2html539">Faster postings list intersection via skip pointers</a></li>
+
+        <li>
+          <a name="tex2html540" href="http://nlp.stanford.edu/IR-book/html/htmledition/positional-postings-and-phrase-queries-1.html" id="tex2html540">Positional postings and phrase queries</a>
+
+          <ul>
+            <li><a name="tex2html541" href="http://nlp.stanford.edu/IR-book/html/htmledition/biword-indexes-1.html" id="tex2html541">Biword indexes</a></li>
+
+            <li><a name="tex2html542" href="http://nlp.stanford.edu/IR-book/html/htmledition/positional-indexes-1.html" id="tex2html542">Positional indexes</a></li>
+
+            <li><a name="tex2html543" href="http://nlp.stanford.edu/IR-book/html/htmledition/combination-schemes-1.html" id="tex2html543">Combination schemes</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html544" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-2.html" id="tex2html544">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html545" href="http://nlp.stanford.edu/IR-book/html/htmledition/dictionaries-and-tolerant-retrieval-1.html" id="tex2html545">Dictionaries and tolerant retrieval</a>
+
+      <ul>
+        <li><a name="tex2html546" href="http://nlp.stanford.edu/IR-book/html/htmledition/search-structures-for-dictionaries-1.html" id="tex2html546">Search structures for dictionaries</a></li>
+
+        <li>
+          <a name="tex2html547" href="http://nlp.stanford.edu/IR-book/html/htmledition/wildcard-queries-1.html" id="tex2html547">Wildcard queries</a>
+
+          <ul>
+            <li><a name="tex2html548" href="http://nlp.stanford.edu/IR-book/html/htmledition/general-wildcard-queries-1.html" id="tex2html548">General wildcard queries</a></li>
+
+            <li><a name="tex2html549" href="http://nlp.stanford.edu/IR-book/html/htmledition/k-gram-indexes-for-wildcard-queries-1.html" id="tex2html549">k-gram indexes for wildcard queries</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html550" href="http://nlp.stanford.edu/IR-book/html/htmledition/spelling-correction-1.html" id="tex2html550">Spelling correction</a>
+
+          <ul>
+            <li><a name="tex2html551" href="http://nlp.stanford.edu/IR-book/html/htmledition/implementing-spelling-correction-1.html" id="tex2html551">Implementing spelling correction</a></li>
+
+            <li><a name="tex2html552" href="http://nlp.stanford.edu/IR-book/html/htmledition/forms-of-spelling-correction-1.html" id="tex2html552">Forms of spelling correction</a></li>
+
+            <li><a name="tex2html553" href="http://nlp.stanford.edu/IR-book/html/htmledition/edit-distance-1.html" id="tex2html553">Edit distance</a></li>
+
+            <li><a name="tex2html554" href="http://nlp.stanford.edu/IR-book/html/htmledition/k-gram-indexes-for-spelling-correction-1.html" id="tex2html554">k-gram indexes for spelling correction</a></li>
+
+            <li><a name="tex2html555" href="http://nlp.stanford.edu/IR-book/html/htmledition/context-sensitive-spelling-correction-1.html" id="tex2html555">Context sensitive spelling correction</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html556" href="http://nlp.stanford.edu/IR-book/html/htmledition/phonetic-correction-1.html" id="tex2html556">Phonetic correction</a></li>
+
+        <li><a name="tex2html557" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-3.html" id="tex2html557">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html558" href="http://nlp.stanford.edu/IR-book/html/htmledition/index-construction-1.html" id="tex2html558">Index construction</a>
+
+      <ul>
+        <li><a name="tex2html559" href="http://nlp.stanford.edu/IR-book/html/htmledition/hardware-basics-1.html" id="tex2html559">Hardware basics</a></li>
+
+        <li><a name="tex2html560" href="http://nlp.stanford.edu/IR-book/html/htmledition/blocked-sort-based-indexing-1.html" id="tex2html560">Blocked sort-based indexing</a></li>
+
+        <li><a name="tex2html561" href="http://nlp.stanford.edu/IR-book/html/htmledition/single-pass-in-memory-indexing-1.html" id="tex2html561">Single-pass in-memory indexing</a></li>
+
+        <li><a name="tex2html562" href="http://nlp.stanford.edu/IR-book/html/htmledition/distributed-indexing-1.html" id="tex2html562">Distributed indexing</a></li>
+
+        <li><a name="tex2html563" href="http://nlp.stanford.edu/IR-book/html/htmledition/dynamic-indexing-1.html" id="tex2html563">Dynamic indexing</a></li>
+
+        <li><a name="tex2html564" href="http://nlp.stanford.edu/IR-book/html/htmledition/other-types-of-indexes-1.html" id="tex2html564">Other types of indexes</a></li>
+
+        <li><a name="tex2html565" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-4.html" id="tex2html565">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html566" href="http://nlp.stanford.edu/IR-book/html/htmledition/index-compression-1.html" id="tex2html566">Index compression</a>
+
+      <ul>
+        <li>
+          <a name="tex2html567" href="http://nlp.stanford.edu/IR-book/html/htmledition/statistical-properties-of-terms-in-information-retrieval-1.html" id="tex2html567">Statistical properties of terms in information retrieval</a>
+
+          <ul>
+            <li><a name="tex2html568" href="http://nlp.stanford.edu/IR-book/html/htmledition/heaps-law-estimating-the-number-of-terms-1.html" id="tex2html568">Heaps' law: Estimating the number of terms</a></li>
+
+            <li><a name="tex2html569" href="http://nlp.stanford.edu/IR-book/html/htmledition/zipfs-law-modeling-the-distribution-of-terms-1.html" id="tex2html569">Zipf's law: Modeling the distribution of terms</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html570" href="http://nlp.stanford.edu/IR-book/html/htmledition/dictionary-compression-1.html" id="tex2html570">Dictionary compression</a>
+
+          <ul>
+            <li><a name="tex2html571" href="http://nlp.stanford.edu/IR-book/html/htmledition/dictionary-as-a-string-1.html" id="tex2html571">Dictionary as a string</a></li>
+
+            <li><a name="tex2html572" href="http://nlp.stanford.edu/IR-book/html/htmledition/blocked-storage-1.html" id="tex2html572">Blocked storage</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html573" href="http://nlp.stanford.edu/IR-book/html/htmledition/postings-file-compression-1.html" id="tex2html573">Postings file compression</a>
+
+          <ul>
+            <li><a name="tex2html574" href="http://nlp.stanford.edu/IR-book/html/htmledition/variable-byte-codes-1.html" id="tex2html574">Variable byte codes</a></li>
+
+            <li><a name="tex2html575" href="http://nlp.stanford.edu/IR-book/html/htmledition/gamma-codes-1.html" id="tex2html575">Gamma codes</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html576" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-5.html" id="tex2html576">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html577" href="http://nlp.stanford.edu/IR-book/html/htmledition/scoring-term-weighting-and-the-vector-space-model-1.html" id="tex2html577">Scoring, term weighting and the vector space model</a>
+
+      <ul>
+        <li>
+          <a name="tex2html578" href="http://nlp.stanford.edu/IR-book/html/htmledition/parametric-and-zone-indexes-1.html" id="tex2html578">Parametric and zone indexes</a>
+
+          <ul>
+            <li><a name="tex2html579" href="http://nlp.stanford.edu/IR-book/html/htmledition/weighted-zone-scoring-1.html" id="tex2html579">Weighted zone scoring</a></li>
+
+            <li><a name="tex2html580" href="http://nlp.stanford.edu/IR-book/html/htmledition/learning-weights-1.html" id="tex2html580">Learning weights</a></li>
+
+            <li><a name="tex2html581" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-optimal-weight-g-1.html" id="tex2html581">The optimal weight g</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html582" href="http://nlp.stanford.edu/IR-book/html/htmledition/term-frequency-and-weighting-1.html" id="tex2html582">Term frequency and weighting</a>
+
+          <ul>
+            <li><a name="tex2html583" href="http://nlp.stanford.edu/IR-book/html/htmledition/inverse-document-frequency-1.html" id="tex2html583">Inverse document frequency</a></li>
+
+            <li><a name="tex2html584" href="http://nlp.stanford.edu/IR-book/html/htmledition/tf-idf-weighting-1.html" id="tex2html584">Tf-idf weighting</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html585" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-vector-space-model-for-scoring-1.html" id="tex2html585">The vector space model for scoring</a>
+
+          <ul>
+            <li><a name="tex2html586" href="http://nlp.stanford.edu/IR-book/html/htmledition/dot-products-1.html" id="tex2html586">Dot products</a></li>
+
+            <li><a name="tex2html587" href="http://nlp.stanford.edu/IR-book/html/htmledition/queries-as-vectors-1.html" id="tex2html587">Queries as vectors</a></li>
+
+            <li><a name="tex2html588" href="http://nlp.stanford.edu/IR-book/html/htmledition/computing-vector-scores-1.html" id="tex2html588">Computing vector scores</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html589" href="http://nlp.stanford.edu/IR-book/html/htmledition/variant-tf-idf-functions-1.html" id="tex2html589">Variant tf-idf functions</a>
+
+          <ul>
+            <li><a name="tex2html590" href="http://nlp.stanford.edu/IR-book/html/htmledition/sublinear-tf-scaling-1.html" id="tex2html590">Sublinear tf scaling</a></li>
+
+            <li><a name="tex2html591" href="http://nlp.stanford.edu/IR-book/html/htmledition/maximum-tf-normalization-1.html" id="tex2html591">Maximum tf normalization</a></li>
+
+            <li><a name="tex2html592" href="http://nlp.stanford.edu/IR-book/html/htmledition/document-and-query-weighting-schemes-1.html" id="tex2html592">Document and query weighting schemes</a></li>
+
+            <li><a name="tex2html593" href="http://nlp.stanford.edu/IR-book/html/htmledition/pivoted-normalized-document-length-1.html" id="tex2html593">Pivoted normalized document length</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html594" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-6.html" id="tex2html594">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html595" href="http://nlp.stanford.edu/IR-book/html/htmledition/computing-scores-in-a-complete-search-system-1.html" id="tex2html595">Computing scores in a complete search system</a>
+
+      <ul>
+        <li>
+          <a name="tex2html596" href="http://nlp.stanford.edu/IR-book/html/htmledition/efficient-scoring-and-ranking-1.html" id="tex2html596">Efficient scoring and ranking</a>
+
+          <ul>
+            <li><a name="tex2html597" href="http://nlp.stanford.edu/IR-book/html/htmledition/inexact-top-k-document-retrieval-1.html" id="tex2html597">Inexact top K document retrieval</a></li>
+
+            <li><a name="tex2html598" href="http://nlp.stanford.edu/IR-book/html/htmledition/index-elimination-1.html" id="tex2html598">Index elimination</a></li>
+
+            <li><a name="tex2html599" href="http://nlp.stanford.edu/IR-book/html/htmledition/champion-lists-1.html" id="tex2html599">Champion lists</a></li>
+
+            <li><a name="tex2html600" href="http://nlp.stanford.edu/IR-book/html/htmledition/static-quality-scores-and-ordering-1.html" id="tex2html600">Static quality scores and ordering</a></li>
+
+            <li><a name="tex2html601" href="http://nlp.stanford.edu/IR-book/html/htmledition/impact-ordering-1.html" id="tex2html601">Impact ordering</a></li>
+
+            <li><a name="tex2html602" href="http://nlp.stanford.edu/IR-book/html/htmledition/cluster-pruning-1.html" id="tex2html602">Cluster pruning</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html603" href="http://nlp.stanford.edu/IR-book/html/htmledition/components-of-an-information-retrieval-system-1.html" id="tex2html603">Components of an information retrieval system</a>
+
+          <ul>
+            <li><a name="tex2html604" href="http://nlp.stanford.edu/IR-book/html/htmledition/tiered-indexes-1.html" id="tex2html604">Tiered indexes</a></li>
+
+            <li><a name="tex2html605" href="http://nlp.stanford.edu/IR-book/html/htmledition/query-term-proximity-1.html" id="tex2html605">Query-term proximity</a></li>
+
+            <li><a name="tex2html606" href="http://nlp.stanford.edu/IR-book/html/htmledition/designing-parsing-and-scoring-functions-1.html" id="tex2html606">Designing parsing and scoring functions</a></li>
+
+            <li><a name="tex2html607" href="http://nlp.stanford.edu/IR-book/html/htmledition/putting-it-all-together-1.html" id="tex2html607">Putting it all together</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html608" href="http://nlp.stanford.edu/IR-book/html/htmledition/vector-space-scoring-and-query-operator-interaction-1.html" id="tex2html608">Vector space scoring and query operator interaction</a></li>
+
+        <li><a name="tex2html609" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-7.html" id="tex2html609">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html610" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-in-information-retrieval-1.html" id="tex2html610">Evaluation in information retrieval</a>
+
+      <ul>
+        <li><a name="tex2html611" href="http://nlp.stanford.edu/IR-book/html/htmledition/information-retrieval-system-evaluation-1.html" id="tex2html611">Information retrieval system evaluation</a></li>
+
+        <li><a name="tex2html612" href="http://nlp.stanford.edu/IR-book/html/htmledition/standard-test-collections-1.html" id="tex2html612">Standard test collections</a></li>
+
+        <li><a name="tex2html613" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-unranked-retrieval-sets-1.html" id="tex2html613">Evaluation of unranked retrieval sets</a></li>
+
+        <li><a name="tex2html614" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html" id="tex2html614">Evaluation of ranked retrieval results</a></li>
+
+        <li>
+          <a name="tex2html615" href="http://nlp.stanford.edu/IR-book/html/htmledition/assessing-relevance-1.html" id="tex2html615">Assessing relevance</a>
+
+          <ul>
+            <li><a name="tex2html616" href="http://nlp.stanford.edu/IR-book/html/htmledition/critiques-and-justifications-of-the-concept-of-relevance-1.html" id="tex2html616">Critiques and justifications of the concept of relevance</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html617" href="http://nlp.stanford.edu/IR-book/html/htmledition/a-broader-perspective-system-quality-and-user-utility-1.html" id="tex2html617">A broader perspective: System quality and user utility</a>
+
+          <ul>
+            <li><a name="tex2html618" href="http://nlp.stanford.edu/IR-book/html/htmledition/system-issues-1.html" id="tex2html618">System issues</a></li>
+
+            <li><a name="tex2html619" href="http://nlp.stanford.edu/IR-book/html/htmledition/user-utility-1.html" id="tex2html619">User utility</a></li>
+
+            <li><a name="tex2html620" href="http://nlp.stanford.edu/IR-book/html/htmledition/refining-a-deployed-system-1.html" id="tex2html620">Refining a deployed system</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html621" href="http://nlp.stanford.edu/IR-book/html/htmledition/results-snippets-1.html" id="tex2html621">Results snippets</a></li>
+
+        <li><a name="tex2html622" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-8.html" id="tex2html622">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html623" href="http://nlp.stanford.edu/IR-book/html/htmledition/relevance-feedback-and-query-expansion-1.html" id="tex2html623">Relevance feedback and query expansion</a>
+
+      <ul>
+        <li>
+          <a name="tex2html624" href="http://nlp.stanford.edu/IR-book/html/htmledition/relevance-feedback-and-pseudo-relevance-feedback-1.html" id="tex2html624">Relevance feedback and pseudo relevance feedback</a>
+
+          <ul>
+            <li><a name="tex2html625" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-rocchio-algorithm-for-relevance-feedback-1.html" id="tex2html625">The Rocchio algorithm for relevance feedback</a></li>
+
+            <li><a name="tex2html626" href="http://nlp.stanford.edu/IR-book/html/htmledition/probabilistic-relevance-feedback-1.html" id="tex2html626">Probabilistic relevance feedback</a></li>
+
+            <li><a name="tex2html627" href="http://nlp.stanford.edu/IR-book/html/htmledition/when-does-relevance-feedback-work-1.html" id="tex2html627">When does relevance feedback work?</a></li>
+
+            <li><a name="tex2html628" href="http://nlp.stanford.edu/IR-book/html/htmledition/relevance-feedback-on-the-web-1.html" id="tex2html628">Relevance feedback on the web</a></li>
+
+            <li><a name="tex2html629" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-relevance-feedback-strategies-1.html" id="tex2html629">Evaluation of relevance feedback strategies</a></li>
+
+            <li><a name="tex2html630" href="http://nlp.stanford.edu/IR-book/html/htmledition/pseudo-relevance-feedback-1.html" id="tex2html630">Pseudo relevance feedback</a></li>
+
+            <li><a name="tex2html631" href="http://nlp.stanford.edu/IR-book/html/htmledition/indirect-relevance-feedback-1.html" id="tex2html631">Indirect relevance feedback</a></li>
+
+            <li><a name="tex2html632" href="http://nlp.stanford.edu/IR-book/html/htmledition/summary-1.html" id="tex2html632">Summary</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html633" href="http://nlp.stanford.edu/IR-book/html/htmledition/global-methods-for-query-reformulation-1.html" id="tex2html633">Global methods for query reformulation</a>
+
+          <ul>
+            <li><a name="tex2html634" href="http://nlp.stanford.edu/IR-book/html/htmledition/vocabulary-tools-for-query-reformulation-1.html" id="tex2html634">Vocabulary tools for query reformulation</a></li>
+
+            <li><a name="tex2html635" href="http://nlp.stanford.edu/IR-book/html/htmledition/query-expansion-1.html" id="tex2html635">Query expansion</a></li>
+
+            <li><a name="tex2html636" href="http://nlp.stanford.edu/IR-book/html/htmledition/automatic-thesaurus-generation-1.html" id="tex2html636">Automatic thesaurus generation</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html637" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-9.html" id="tex2html637">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html638" href="http://nlp.stanford.edu/IR-book/html/htmledition/xml-retrieval-1.html" id="tex2html638">XML retrieval</a>
+
+      <ul>
+        <li><a name="tex2html639" href="http://nlp.stanford.edu/IR-book/html/htmledition/basic-xml-concepts-1.html" id="tex2html639">Basic XML concepts</a></li>
+
+        <li><a name="tex2html640" href="http://nlp.stanford.edu/IR-book/html/htmledition/challenges-in-xml-retrieval-1.html" id="tex2html640">Challenges in XML retrieval</a></li>
+
+        <li><a name="tex2html641" href="http://nlp.stanford.edu/IR-book/html/htmledition/a-vector-space-model-for-xml-retrieval-1.html" id="tex2html641">A vector space model for XML retrieval</a></li>
+
+        <li><a name="tex2html642" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-xml-retrieval-1.html" id="tex2html642">Evaluation of XML retrieval</a></li>
+
+        <li><a name="tex2html643" href="http://nlp.stanford.edu/IR-book/html/htmledition/text-centric-vs-data-centric-xml-retrieval-1.html" id="tex2html643">Text-centric vs. data-centric XML retrieval</a></li>
+
+        <li><a name="tex2html644" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-10.html" id="tex2html644">References and further reading</a></li>
+
+        <li><a name="tex2html645" href="http://nlp.stanford.edu/IR-book/html/htmledition/exercises-1.html" id="tex2html645">Exercises</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html646" href="http://nlp.stanford.edu/IR-book/html/htmledition/probabilistic-information-retrieval-1.html" id="tex2html646">Probabilistic information retrieval</a>
+
+      <ul>
+        <li><a name="tex2html647" href="http://nlp.stanford.edu/IR-book/html/htmledition/review-of-basic-probability-theory-1.html" id="tex2html647">Review of basic probability theory</a></li>
+
+        <li>
+          <a name="tex2html648" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-probability-ranking-principle-1.html" id="tex2html648">The Probability Ranking Principle</a>
+
+          <ul>
+            <li><a name="tex2html649" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-10-loss-case-1.html" id="tex2html649">The 1/0 loss case</a></li>
+
+            <li><a name="tex2html650" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-prp-with-retrieval-costs-1.html" id="tex2html650">The PRP with retrieval costs</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html651" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-binary-independence-model-1.html" id="tex2html651">The Binary Independence Model</a>
+
+          <ul>
+            <li><a name="tex2html652" href="http://nlp.stanford.edu/IR-book/html/htmledition/deriving-a-ranking-function-for-query-terms-1.html" id="tex2html652">Deriving a ranking function for query terms</a></li>
+
+            <li><a name="tex2html653" href="http://nlp.stanford.edu/IR-book/html/htmledition/probability-estimates-in-theory-1.html" id="tex2html653">Probability estimates in theory</a></li>
+
+            <li><a name="tex2html654" href="http://nlp.stanford.edu/IR-book/html/htmledition/probability-estimates-in-practice-1.html" id="tex2html654">Probability estimates in practice</a></li>
+
+            <li><a name="tex2html655" href="http://nlp.stanford.edu/IR-book/html/htmledition/probabilistic-approaches-to-relevance-feedback-1.html" id="tex2html655">Probabilistic approaches to relevance feedback</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html656" href="http://nlp.stanford.edu/IR-book/html/htmledition/an-appraisal-and-some-extensions-1.html" id="tex2html656">An appraisal and some extensions</a>
+
+          <ul>
+            <li><a name="tex2html657" href="http://nlp.stanford.edu/IR-book/html/htmledition/an-appraisal-of-probabilistic-models-1.html" id="tex2html657">An appraisal of probabilistic models</a></li>
+
+            <li><a name="tex2html658" href="http://nlp.stanford.edu/IR-book/html/htmledition/tree-structured-dependencies-between-terms-1.html" id="tex2html658">Tree-structured dependencies between terms</a></li>
+
+            <li><a name="tex2html659" href="http://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html" id="tex2html659">Okapi BM25: a non-binary model</a></li>
+
+            <li><a name="tex2html660" href="http://nlp.stanford.edu/IR-book/html/htmledition/bayesian-network-approaches-to-ir-1.html" id="tex2html660">Bayesian network approaches to IR</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html661" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-11.html" id="tex2html661">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html662" href="http://nlp.stanford.edu/IR-book/html/htmledition/language-models-for-information-retrieval-1.html" id="tex2html662">Language models for information retrieval</a>
+
+      <ul>
+        <li>
+          <a name="tex2html663" href="http://nlp.stanford.edu/IR-book/html/htmledition/language-models-1.html" id="tex2html663">Language models</a>
+
+          <ul>
+            <li><a name="tex2html664" href="http://nlp.stanford.edu/IR-book/html/htmledition/finite-automata-and-language-models-1.html" id="tex2html664">Finite automata and language models</a></li>
+
+            <li><a name="tex2html665" href="http://nlp.stanford.edu/IR-book/html/htmledition/types-of-language-models-1.html" id="tex2html665">Types of language models</a></li>
+
+            <li><a name="tex2html666" href="http://nlp.stanford.edu/IR-book/html/htmledition/multinomial-distributions-over-words-1.html" id="tex2html666">Multinomial distributions over words</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html667" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-query-likelihood-model-1.html" id="tex2html667">The query likelihood model</a>
+
+          <ul>
+            <li><a name="tex2html668" href="http://nlp.stanford.edu/IR-book/html/htmledition/using-query-likelihood-language-models-in-ir-1.html" id="tex2html668">Using query likelihood language models in IR</a></li>
+
+            <li><a name="tex2html669" href="http://nlp.stanford.edu/IR-book/html/htmledition/estimating-the-query-generation-probability-1.html" id="tex2html669">Estimating the query generation probability</a></li>
+
+            <li><a name="tex2html670" href="http://nlp.stanford.edu/IR-book/html/htmledition/ponte-and-crofts-experiments-1.html" id="tex2html670">Ponte and Croft's Experiments</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html671" href="http://nlp.stanford.edu/IR-book/html/htmledition/language-modeling-versus-other-approaches-in-ir-1.html" id="tex2html671">Language modeling versus other approaches in IR</a></li>
+
+        <li><a name="tex2html672" href="http://nlp.stanford.edu/IR-book/html/htmledition/extended-language-modeling-approaches-1.html" id="tex2html672">Extended language modeling approaches</a></li>
+
+        <li><a name="tex2html673" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-12.html" id="tex2html673">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html674" href="http://nlp.stanford.edu/IR-book/html/htmledition/text-classification-and-naive-bayes-1.html" id="tex2html674">Text classification and Naive Bayes</a>
+
+      <ul>
+        <li><a name="tex2html675" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-text-classification-problem-1.html" id="tex2html675">The text classification problem</a></li>
+
+        <li>
+          <a name="tex2html676" href="http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html" id="tex2html676">Naive Bayes text classification</a>
+
+          <ul>
+            <li><a name="tex2html677" href="http://nlp.stanford.edu/IR-book/html/htmledition/relation-to-multinomial-unigram-language-model-1.html" id="tex2html677">Relation to multinomial unigram language model</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html678" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-bernoulli-model-1.html" id="tex2html678">The Bernoulli model</a></li>
+
+        <li>
+          <a name="tex2html679" href="http://nlp.stanford.edu/IR-book/html/htmledition/properties-of-naive-bayes-1.html" id="tex2html679">Properties of Naive Bayes</a>
+
+          <ul>
+            <li><a name="tex2html680" href="http://nlp.stanford.edu/IR-book/html/htmledition/a-variant-of-the-multinomial-model-1.html" id="tex2html680">A variant of the multinomial model</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html681" href="http://nlp.stanford.edu/IR-book/html/htmledition/feature-selection-1.html" id="tex2html681">Feature selection</a>
+
+          <ul>
+            <li><a name="tex2html682" href="http://nlp.stanford.edu/IR-book/html/htmledition/mutual-information-1.html" id="tex2html682">Mutual information</a></li>
+
+            <li><a name="tex2html683" href="http://nlp.stanford.edu/IR-book/html/htmledition/feature-selectionchi2-feature-selection-1.html" id="tex2html683"><img width="21" height="36" align="middle" border="0" src="img21.png" alt="$\chi ^2$" /> Feature selectionChi2 Feature selection</a></li>
+
+            <li><a name="tex2html684" href="http://nlp.stanford.edu/IR-book/html/htmledition/frequency-based-feature-selection-1.html" id="tex2html684">Frequency-based feature selection</a></li>
+
+            <li><a name="tex2html685" href="http://nlp.stanford.edu/IR-book/html/htmledition/feature-selection-for-multiple-classifiers-1.html" id="tex2html685">Feature selection for multiple classifiers</a></li>
+
+            <li><a name="tex2html686" href="http://nlp.stanford.edu/IR-book/html/htmledition/comparison-of-feature-selection-methods-1.html" id="tex2html686">Comparison of feature selection methods</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html687" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-text-classification-1.html" id="tex2html687">Evaluation of text classification</a></li>
+
+        <li><a name="tex2html688" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-13.html" id="tex2html688">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html689" href="http://nlp.stanford.edu/IR-book/html/htmledition/vector-space-classification-1.html" id="tex2html689">Vector space classification</a>
+
+      <ul>
+        <li><a name="tex2html690" href="http://nlp.stanford.edu/IR-book/html/htmledition/document-representations-and-measures-of-relatedness-in-vector-spaces-1.html" id="tex2html690">Document representations and measures of relatedness in vector spaces</a></li>
+
+        <li><a name="tex2html691" href="http://nlp.stanford.edu/IR-book/html/htmledition/rocchio-classification-1.html" id="tex2html691">Rocchio classification</a></li>
+
+        <li>
+          <a name="tex2html692" href="http://nlp.stanford.edu/IR-book/html/htmledition/k-nearest-neighbor-1.html" id="tex2html692">k nearest neighbor</a>
+
+          <ul>
+            <li><a name="tex2html693" href="http://nlp.stanford.edu/IR-book/html/htmledition/time-complexity-and-optimality-of-knn-1.html" id="tex2html693">Time complexity and optimality of kNN</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html694" href="http://nlp.stanford.edu/IR-book/html/htmledition/linear-versus-nonlinear-classifiers-1.html" id="tex2html694">Linear versus nonlinear classifiers</a></li>
+
+        <li><a name="tex2html695" href="http://nlp.stanford.edu/IR-book/html/htmledition/classification-with-more-than-two-classes-1.html" id="tex2html695">Classification with more than two classes</a></li>
+
+        <li><a name="tex2html696" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-bias-variance-tradeoff-1.html" id="tex2html696">The bias-variance tradeoff</a></li>
+
+        <li><a name="tex2html697" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-14.html" id="tex2html697">References and further reading</a></li>
+
+        <li><a name="tex2html698" href="http://nlp.stanford.edu/IR-book/html/htmledition/exercises-2.html" id="tex2html698">Exercises</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html699" href="http://nlp.stanford.edu/IR-book/html/htmledition/support-vector-machines-and-machine-learning-on-documents-1.html" id="tex2html699">Support vector machines and machine learning on documents</a>
+
+      <ul>
+        <li><a name="tex2html700" href="http://nlp.stanford.edu/IR-book/html/htmledition/support-vector-machines-the-linearly-separable-case-1.html" id="tex2html700">Support vector machines: The linearly separable case</a></li>
+
+        <li>
+          <a name="tex2html701" href="http://nlp.stanford.edu/IR-book/html/htmledition/extensions-to-the-svm-model-1.html" id="tex2html701">Extensions to the SVM model</a>
+
+          <ul>
+            <li><a name="tex2html702" href="http://nlp.stanford.edu/IR-book/html/htmledition/soft-margin-classification-1.html" id="tex2html702">Soft margin classification</a></li>
+
+            <li><a name="tex2html703" href="http://nlp.stanford.edu/IR-book/html/htmledition/multiclass-svms-1.html" id="tex2html703">Multiclass SVMs</a></li>
+
+            <li><a name="tex2html704" href="http://nlp.stanford.edu/IR-book/html/htmledition/nonlinear-svms-1.html" id="tex2html704">Nonlinear SVMs</a></li>
+
+            <li><a name="tex2html705" href="http://nlp.stanford.edu/IR-book/html/htmledition/experimental-results-1.html" id="tex2html705">Experimental results</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html706" href="http://nlp.stanford.edu/IR-book/html/htmledition/issues-in-the-classification-of-text-documents-1.html" id="tex2html706">Issues in the classification of text documents</a>
+
+          <ul>
+            <li><a name="tex2html707" href="http://nlp.stanford.edu/IR-book/html/htmledition/choosing-what-kind-of-classifier-to-use-1.html" id="tex2html707">Choosing what kind of classifier to use</a></li>
+
+            <li><a name="tex2html708" href="http://nlp.stanford.edu/IR-book/html/htmledition/improving-classifier-performance-1.html" id="tex2html708">Improving classifier performance</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html709" href="http://nlp.stanford.edu/IR-book/html/htmledition/machine-learning-methods-in-ad-hoc-information-retrieval-1.html" id="tex2html709">Machine learning methods in ad hoc information retrieval</a>
+
+          <ul>
+            <li><a name="tex2html710" href="http://nlp.stanford.edu/IR-book/html/htmledition/a-simple-example-of-machine-learned-scoring-1.html" id="tex2html710">A simple example of machine-learned scoring</a></li>
+
+            <li><a name="tex2html711" href="http://nlp.stanford.edu/IR-book/html/htmledition/result-ranking-by-machine-learning-1.html" id="tex2html711">Result ranking by machine learning</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html712" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-15.html" id="tex2html712">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html713" href="http://nlp.stanford.edu/IR-book/html/htmledition/flat-clustering-1.html" id="tex2html713">Flat clustering</a>
+
+      <ul>
+        <li><a name="tex2html714" href="http://nlp.stanford.edu/IR-book/html/htmledition/clustering-in-information-retrieval-1.html" id="tex2html714">Clustering in information retrieval</a></li>
+
+        <li>
+          <a name="tex2html715" href="http://nlp.stanford.edu/IR-book/html/htmledition/problem-statement-1.html" id="tex2html715">Problem statement</a>
+
+          <ul>
+            <li><a name="tex2html716" href="http://nlp.stanford.edu/IR-book/html/htmledition/cardinality---the-number-of-clusters-1.html" id="tex2html716">Cardinality - the number of clusters</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html717" href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-clustering-1.html" id="tex2html717">Evaluation of clustering</a></li>
+
+        <li>
+          <a name="tex2html718" href="http://nlp.stanford.edu/IR-book/html/htmledition/k-means-1.html" id="tex2html718">K-means</a>
+
+          <ul>
+            <li><a name="tex2html719" href="http://nlp.stanford.edu/IR-book/html/htmledition/cluster-cardinality-in-k-means-1.html" id="tex2html719">Cluster cardinality in K-means</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html720" href="http://nlp.stanford.edu/IR-book/html/htmledition/model-based-clustering-1.html" id="tex2html720">Model-based clustering</a></li>
+
+        <li><a name="tex2html721" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-16.html" id="tex2html721">References and further reading</a></li>
+
+        <li><a name="tex2html722" href="http://nlp.stanford.edu/IR-book/html/htmledition/exercises-3.html" id="tex2html722">Exercises</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html723" href="http://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-clustering-1.html" id="tex2html723">Hierarchical clustering</a>
+
+      <ul>
+        <li><a name="tex2html724" href="http://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-agglomerative-clustering-1.html" id="tex2html724">Hierarchical agglomerative clustering</a></li>
+
+        <li>
+          <a name="tex2html725" href="http://nlp.stanford.edu/IR-book/html/htmledition/single-link-and-complete-link-clustering-1.html" id="tex2html725">Single-link and complete-link clustering</a>
+
+          <ul>
+            <li><a name="tex2html726" href="http://nlp.stanford.edu/IR-book/html/htmledition/time-complexity-of-hac-1.html" id="tex2html726">Time complexity of HAC</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html727" href="http://nlp.stanford.edu/IR-book/html/htmledition/group-average-agglomerative-clustering-1.html" id="tex2html727">Group-average agglomerative clustering</a></li>
+
+        <li><a name="tex2html728" href="http://nlp.stanford.edu/IR-book/html/htmledition/centroid-clustering-1.html" id="tex2html728">Centroid clustering</a></li>
+
+        <li><a name="tex2html729" href="http://nlp.stanford.edu/IR-book/html/htmledition/optimality-of-hac-1.html" id="tex2html729">Optimality of HAC</a></li>
+
+        <li><a name="tex2html730" href="http://nlp.stanford.edu/IR-book/html/htmledition/divisive-clustering-1.html" id="tex2html730">Divisive clustering</a></li>
+
+        <li><a name="tex2html731" href="http://nlp.stanford.edu/IR-book/html/htmledition/cluster-labeling-1.html" id="tex2html731">Cluster labeling</a></li>
+
+        <li><a name="tex2html732" href="http://nlp.stanford.edu/IR-book/html/htmledition/implementation-notes-1.html" id="tex2html732">Implementation notes</a></li>
+
+        <li><a name="tex2html733" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-17.html" id="tex2html733">References and further reading</a></li>
+
+        <li><a name="tex2html734" href="http://nlp.stanford.edu/IR-book/html/htmledition/exercises-4.html" id="tex2html734">Exercises</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html735" href="http://nlp.stanford.edu/IR-book/html/htmledition/matrix-decompositions-and-latent-semantic-indexing-1.html" id="tex2html735">Matrix decompositions and latent semantic indexing</a>
+
+      <ul>
+        <li>
+          <a name="tex2html736" href="http://nlp.stanford.edu/IR-book/html/htmledition/linear-algebra-review-1.html" id="tex2html736">Linear algebra review</a>
+
+          <ul>
+            <li><a name="tex2html737" href="http://nlp.stanford.edu/IR-book/html/htmledition/matrix-decompositions-1.html" id="tex2html737">Matrix decompositions</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html738" href="http://nlp.stanford.edu/IR-book/html/htmledition/term-document-matrices-and-singular-value-decompositions-1.html" id="tex2html738">Term-document matrices and singular value decompositions</a></li>
+
+        <li><a name="tex2html739" href="http://nlp.stanford.edu/IR-book/html/htmledition/low-rank-approximations-1.html" id="tex2html739">Low-rank approximations</a></li>
+
+        <li><a name="tex2html740" href="http://nlp.stanford.edu/IR-book/html/htmledition/latent-semantic-indexing-1.html" id="tex2html740">Latent semantic indexing</a></li>
+
+        <li><a name="tex2html741" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-18.html" id="tex2html741">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html742" href="http://nlp.stanford.edu/IR-book/html/htmledition/web-search-basics-1.html" id="tex2html742">Web search basics</a>
+
+      <ul>
+        <li><a name="tex2html743" href="http://nlp.stanford.edu/IR-book/html/htmledition/background-and-history-1.html" id="tex2html743">Background and history</a></li>
+
+        <li>
+          <a name="tex2html744" href="http://nlp.stanford.edu/IR-book/html/htmledition/web-characteristics-1.html" id="tex2html744">Web characteristics</a>
+
+          <ul>
+            <li><a name="tex2html745" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-web-graph-1.html" id="tex2html745">The web graph</a></li>
+
+            <li><a name="tex2html746" href="http://nlp.stanford.edu/IR-book/html/htmledition/spam-1.html" id="tex2html746">Spam</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html747" href="http://nlp.stanford.edu/IR-book/html/htmledition/advertising-as-the-economic-model-1.html" id="tex2html747">Advertising as the economic model</a></li>
+
+        <li>
+          <a name="tex2html748" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-search-user-experience-1.html" id="tex2html748">The search user experience</a>
+
+          <ul>
+            <li><a name="tex2html749" href="http://nlp.stanford.edu/IR-book/html/htmledition/user-query-needs-1.html" id="tex2html749">User query needs</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html750" href="http://nlp.stanford.edu/IR-book/html/htmledition/index-size-and-estimation-1.html" id="tex2html750">Index size and estimation</a></li>
+
+        <li><a name="tex2html751" href="http://nlp.stanford.edu/IR-book/html/htmledition/near-duplicates-and-shingling-1.html" id="tex2html751">Near-duplicates and shingling</a></li>
+
+        <li><a name="tex2html752" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-19.html" id="tex2html752">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html753" href="http://nlp.stanford.edu/IR-book/html/htmledition/web-crawling-and-indexes-1.html" id="tex2html753">Web crawling and indexes</a>
+
+      <ul>
+        <li>
+          <a name="tex2html754" href="http://nlp.stanford.edu/IR-book/html/htmledition/overview-1.html" id="tex2html754">Overview</a>
+
+          <ul>
+            <li><a name="tex2html755" href="http://nlp.stanford.edu/IR-book/html/htmledition/features-a-crawler-must-provide-1.html" id="tex2html755">Features a crawler must provide</a></li>
+
+            <li><a name="tex2html756" href="http://nlp.stanford.edu/IR-book/html/htmledition/features-a-crawler-should-provide-1.html" id="tex2html756">Features a crawler should provide</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html757" href="http://nlp.stanford.edu/IR-book/html/htmledition/crawling-1.html" id="tex2html757">Crawling</a>
+
+          <ul>
+            <li><a name="tex2html758" href="http://nlp.stanford.edu/IR-book/html/htmledition/crawler-architecture-1.html" id="tex2html758">Crawler architecture</a></li>
+
+            <li><a name="tex2html759" href="http://nlp.stanford.edu/IR-book/html/htmledition/dns-resolution-1.html" id="tex2html759">DNS resolution</a></li>
+
+            <li><a name="tex2html760" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-url-frontier-1.html" id="tex2html760">The URL frontier</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html761" href="http://nlp.stanford.edu/IR-book/html/htmledition/distributing-indexes-1.html" id="tex2html761">Distributing indexes</a></li>
+
+        <li><a name="tex2html762" href="http://nlp.stanford.edu/IR-book/html/htmledition/connectivity-servers-1.html" id="tex2html762">Connectivity servers</a></li>
+
+        <li><a name="tex2html763" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-20.html" id="tex2html763">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li>
+      <a name="tex2html764" href="http://nlp.stanford.edu/IR-book/html/htmledition/link-analysis-1.html" id="tex2html764">Link analysis</a>
+
+      <ul>
+        <li>
+          <a name="tex2html765" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-web-as-a-graph-1.html" id="tex2html765">The Web as a graph</a>
+
+          <ul>
+            <li><a name="tex2html766" href="http://nlp.stanford.edu/IR-book/html/htmledition/anchor-text-and-the-web-graph-1.html" id="tex2html766">Anchor text and the web graph</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html767" href="http://nlp.stanford.edu/IR-book/html/htmledition/pagerank-1.html" id="tex2html767">PageRank</a>
+
+          <ul>
+            <li><a name="tex2html768" href="http://nlp.stanford.edu/IR-book/html/htmledition/markov-chains-1.html" id="tex2html768">Markov chains</a></li>
+
+            <li><a name="tex2html769" href="http://nlp.stanford.edu/IR-book/html/htmledition/the-pagerank-computation-1.html" id="tex2html769">The PageRank computation</a></li>
+
+            <li><a name="tex2html770" href="http://nlp.stanford.edu/IR-book/html/htmledition/topic-specific-pagerank-1.html" id="tex2html770">Topic-specific PageRank</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a name="tex2html771" href="http://nlp.stanford.edu/IR-book/html/htmledition/hubs-and-authorities-1.html" id="tex2html771">Hubs and Authorities</a>
+
+          <ul>
+            <li><a name="tex2html772" href="http://nlp.stanford.edu/IR-book/html/htmledition/choosing-the-subset-of-the-web-1.html" id="tex2html772">Choosing the subset of the Web</a></li>
+          </ul>
+        </li>
+
+        <li><a name="tex2html773" href="http://nlp.stanford.edu/IR-book/html/htmledition/references-and-further-reading-21.html" id="tex2html773">References and further reading</a></li>
+      </ul><br />
+    </li>
+
+    <li><a name="tex2html774" href="http://nlp.stanford.edu/IR-book/html/htmledition/bibliography-1.html" id="tex2html774">Bibliography</a></li>
+
+    <li><a name="tex2html775" href="http://nlp.stanford.edu/IR-book/html/htmledition/index-1.html" id="tex2html775">Index</a></li>
+  </ul><!--End of Table of Contents-->
+
+  <p><br /></p>
+  <hr />
+
+  <address>
+    &copy; 2008 Cambridge University Press<br />
+    This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://nlp.stanford.edu/IR-book/html/htmledition/http://informationretrieval.org">PDF edition</a> of the book.<br />
+    2009-04-07
+  </address>GET irbook.css http://nlp.stanford.edu/IR-book/html/htmledition/irbook.css 404 Not Found nlp.stanford.edu 318 B 194ms GET next.png http://nlp.stanford.edu/IR-book/html/icons/next.png 304 Not Modified nlp.stanford.edu 245 B 201ms GET up.png http://nlp.stanford.edu/IR-book/html/icons/up.png 304 Not Modified nlp.stanford.edu 211 B 200ms GET prev.png http://nlp.stanford.edu/IR-book/html/icons/prev.png 304 Not Modified nlp.stanford.edu 279 B 202ms GET index.png http://nlp.stanford.edu/IR-book/html/icons/index.png 304 Not Modified nlp.stanford.edu 246 B 201ms GET img21.png http://nlp.stanford.edu/IR-book/html/htmledition/img21.png 304 Not Modified nlp.stanford.edu 263 B 201ms Request_Count 29.1 KB (29.1 KB desde el cache) 201ms (onload: 528ms) Limit_Exceeded Preferencias "NetworkError: 404 Not Found - http://nlp.stanford.edu/IR-book/html/htmledition/irbook.css" irbook.css
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Cardinality - the number of clusters</title> 
+  <meta name="description" content="Cardinality - the number of clusters" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="problem-statement-1.html" /> 
+  <link rel="up" href="problem-statement-1.html" /> 
+  <link rel="next" href="evaluation-of-clustering-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4197" href="evaluation-of-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4191" href="problem-statement-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4187" href="a-note-on-terminology-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4193" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4195" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4198" href="evaluation-of-clustering-1.html">Evaluation of clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4192" href="problem-statement-1.html">Problem statement</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4188" href="a-note-on-terminology-1.html">A note on terminology.</a> &nbsp; 
+  <b> <a name="tex2html4194" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4196" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002121000000000000000"> Cardinality - the number of clusters</a> </h2> A difficult issue in clustering is determining the number of clusters or 
+  <a name="24241"></a> 
+  <i>cardinality</i> of a clustering, which we denote by 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />. Often 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> is nothing more than a good guess based on experience or domain knowledge. But for 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means, we will also introduce a heuristic method for choosing 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> and an attempt to incorporate the selection of 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> into the objective function. Sometimes the application puts constraints on the range of 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />. For example, the Scatter-Gather interface in Figure 
+  <a href="clustering-in-information-retrieval-1.html#fig:scatter">16.3</a> could not display more than about 
+  <img width="53" height="32" align="MIDDLE" border="0" src="img441.png" alt="$K=10$" /> clusters per layer because of the size and resolution of computer monitors in the early 1990s. 
+  <p> Since our goal is to optimize an objective function, clustering is essentially a search problem. The brute force solution would be to enumerate all possible clusterings and pick the best. <a name="p:numberofclusterings"></a> However, there are exponentially many partitions, so this approach is not feasible.<a name="tex2html180" href="footnode.html#foot25224"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> For this reason, most flat clustering algorithms refine an initial partitioning iteratively. If the search starts at an unfavorable initial point, we may miss the global optimum. Finding a good starting point is therefore another important problem we have to solve in flat clustering. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4197" href="evaluation-of-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4191" href="problem-statement-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4187" href="a-note-on-terminology-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4193" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4195" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4198" href="evaluation-of-clustering-1.html">Evaluation of clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4192" href="problem-statement-1.html">Problem statement</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4188" href="a-note-on-terminology-1.html">A note on terminology.</a> &nbsp; 
+  <b> <a name="tex2html4194" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4196" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

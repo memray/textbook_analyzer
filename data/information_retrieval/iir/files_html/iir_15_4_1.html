@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>A simple example of machine-learned scoring</title> 
+  <meta name="description" content="A simple example of machine-learned scoring" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="result-ranking-by-machine-learning-1.html" /> 
+  <link rel="previous" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html" /> 
+  <link rel="up" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html" /> 
+  <link rel="next" href="result-ranking-by-machine-learning-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4086" href="result-ranking-by-machine-learning-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4080" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4074" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4082" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4084" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4087" href="result-ranking-by-machine-learning-1.html">Result ranking by machine</a> 
+  <b> Up:</b> 
+  <a name="tex2html4081" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4075" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> &nbsp; 
+  <b> <a name="tex2html4083" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4085" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002041000000000000000"></a> <a name="sec:mls"></a> <a name="p:mls"></a> <br /> A simple example of machine-learned scoring </h2> 
+  <p> In this section we generalize the methodology of Section&nbsp;<a href="learning-weights-1.html#sec:mlr">6.1.2</a> (page&nbsp;<a href="learning-weights-1.html#p:mlr"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>) to <i>machine learning</i> of the scoring function. In Section <a href="learning-weights-1.html#sec:mlr">6.1.2</a> we considered a case where we had to combine Boolean indicators of relevance; here we consider more general factors to further develop the notion of <a name="23017"></a> <i>machine-learned relevance</i> . In particular, the factors we now consider go beyond Boolean functions of query term presence in document zones, as in Section <a href="learning-weights-1.html#sec:mlr">6.1.2</a> . </p> 
+  <p> We develop the ideas in a setting where the scoring function is a linear combination of two factors: (1)&nbsp;the vector space cosine similarity between query and document and (2)&nbsp;the minimum window width <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> within which the query terms lie. As we noted in Section&nbsp;<a href="query-term-proximity-1.html#sec:proximity">7.2.2</a> (page&nbsp;<a href="query-term-proximity-1.html#p:proximity"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>), query term proximity is often very indicative of a document being on topic, especially with longer documents and on the web. Among other things, this quantity gives us an implementation of implicit phrases. Thus we have one factor that depends on the statistics of query terms in the document as a bag of words, and another that depends on proximity weighting. We consider only two features in the development of the ideas because a two-feature exposition remains simple enough to visualize. The technique can be generalized to many more features. </p> 
+  <p> As in Section <a href="learning-weights-1.html#sec:mlr">6.1.2</a> , we are provided with a set of <em> training examples</em>, each of which is a pair consisting of a query and a document, together with a relevance judgment for that document on that query that is either <i>relevant</i> or <i>nonrelevant</i>. For each such example we can compute the vector space cosine similarity, as well as the window width <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />. The result is a training set as shown in Table <a href="#tab:mlrexamples">15.3</a> , which resembles Figure&nbsp;<a href="learning-weights-1.html#fig:weightexamples">6.5</a> (page&nbsp;<a href="learning-weights-1.html#p:weightexamples"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>) from Section <a href="learning-weights-1.html#sec:mlr">6.1.2</a> . </p> 
+  <p> <br /></p> 
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="23048"></a> 
+   <table> 
+    <caption> 
+     <strong>Table 15.3:</strong> Training examples for machine-learned scoring. 
+    </caption> 
+    <tbody> 
+     <tr> 
+      <td> 
+       <table cellpadding="3" border="1"> 
+        <tbody> 
+         <tr> 
+          <td align="CENTER">Example</td> 
+          <td align="RIGHT">DocID</td> 
+          <td align="LEFT">Query</td> 
+          <td align="RIGHT">Cosine score</td> 
+          <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /></td> 
+          <td align="LEFT">Judgment</td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="23" height="32" align="MIDDLE" border="0" src="img1362.png" alt="$\Phi_1$" /></td> 
+          <td align="RIGHT">37</td> 
+          <td align="LEFT">linux operating system</td> 
+          <td align="RIGHT">0.032</td> 
+          <td align="RIGHT">3</td> 
+          <td align="LEFT"><i>relevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="24" height="32" align="MIDDLE" border="0" src="img1363.png" alt="$\Phi_2$" /></td> 
+          <td align="RIGHT">37</td> 
+          <td align="LEFT">penguin logo</td> 
+          <td align="RIGHT">0.02</td> 
+          <td align="RIGHT">4</td> 
+          <td align="LEFT"><i>nonrelevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="23" height="32" align="MIDDLE" border="0" src="img1364.png" alt="$\Phi_3$" /></td> 
+          <td align="RIGHT">238</td> 
+          <td align="LEFT">operating system</td> 
+          <td align="RIGHT">0.043</td> 
+          <td align="RIGHT">2</td> 
+          <td align="LEFT"><i>relevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="24" height="32" align="MIDDLE" border="0" src="img1365.png" alt="$\Phi_4$" /></td> 
+          <td align="RIGHT">238</td> 
+          <td align="LEFT">runtime environment</td> 
+          <td align="RIGHT">0.004</td> 
+          <td align="RIGHT">2</td> 
+          <td align="LEFT"><i>nonrelevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="23" height="32" align="MIDDLE" border="0" src="img1366.png" alt="$\Phi_5$" /></td> 
+          <td align="RIGHT">1741</td> 
+          <td align="LEFT">kernel layer</td> 
+          <td align="RIGHT">0.022</td> 
+          <td align="RIGHT">3</td> 
+          <td align="LEFT"><i>relevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="24" height="32" align="MIDDLE" border="0" src="img1367.png" alt="$\Phi_6$" /></td> 
+          <td align="RIGHT">2094</td> 
+          <td align="LEFT">device driver</td> 
+          <td align="RIGHT">0.03</td> 
+          <td align="RIGHT">2</td> 
+          <td align="LEFT"><i>relevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="23" height="32" align="MIDDLE" border="0" src="img1368.png" alt="$\Phi_7$" /></td> 
+          <td align="RIGHT">3191</td> 
+          <td align="LEFT">device driver</td> 
+          <td align="RIGHT">0.027</td> 
+          <td align="RIGHT">5</td> 
+          <td align="LEFT"><i>nonrelevant</i></td> 
+         </tr> 
+         <tr> 
+          <td align="CENTER"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+          <td align="RIGHT"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+          <td align="LEFT"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+          <td align="RIGHT"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+          <td align="RIGHT"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+          <td align="LEFT"><img width="24" height="16" align="BOTTOM" border="0" src="img1369.png" alt="$\cdots$" /></td> 
+         </tr> 
+        </tbody> 
+       </table> <a name="tab:mlrexamples"></a> <a name="p:mlrexamples"></a> </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <p></p> 
+  <br /> 
+  <p> Here, the two features (cosine score denoted <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> and window width <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />) are real-valued predictors. If we once again quantify the judgment <i>relevant</i> as 1 and <i>nonrelevant</i> as 0, we seek a scoring function that combines the values of the features to generate a value that is (close to) 0 or 1. We wish this function to be in agreement with our set of training examples as far as possible. Without loss of generality, a linear classifier will use a linear combination of features of the form <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+Score(d,q) = Score(\alpha,\omega)=a\alpha + b\omega + c,
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="mlrlincomb"></a><img width="282" height="28" border="0" src="img1370.png" alt="\begin{displaymath}
+Score(d,q) = Score(\alpha,\omega)=a\alpha + b\omega + c,
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (179)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> with the coefficients 
+  <img width="40" height="31" align="MIDDLE" border="0" src="img1371.png" alt="$a,b,c$" /> to be learned from the training data. While it is possible to formulate this as an error minimization problem as we did in Section 
+  <a href="learning-weights-1.html#sec:mlr">6.1.2</a> , it is instructive to visualize the geometry of Equation&nbsp; 
+  <a href="#mlrlincomb">179</a>. The examples in Table 
+  <a href="#tab:mlrexamples">15.3</a> can be plotted on a two-dimensional plane with axes corresponding to the cosine score 
+  <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> and the window width 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />. This is depicted in Figure 
+  <a href="#fig:mlr1">15.7</a> . 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:mlr1"></a><a name="p:mlr1"></a></p> 
+   <img width="411" height="163" align="BOTTOM" border="0" src="img1372.png" alt="\includegraphics[width=9cm,angle=270]{Figure15.7.eps}" /> A collection of training examples.Each R denotes a training example labeled 
+   <i>relevant</i>, while each N is a training example labeled 
+   <i>nonrelevant</i>. 
+  </div> 
+  <p> In this setting, the function 
+   <!-- MATH
+ $Score(\alpha,\omega)$
+ --> <img width="82" height="33" align="MIDDLE" border="0" src="img1373.png" alt="$Score(\alpha,\omega)$" /> from Equation&nbsp;<a href="#mlrlincomb">179</a> represents a plane ``hanging above'' Figure <a href="#fig:mlr1">15.7</a> . Ideally this plane (in the direction perpendicular to the page containing Figure <a href="#fig:mlr1">15.7</a> ) assumes values close to 1 above the points marked R, and values close to 0 above the points marked N. Since a plane is unlikely to assume only values close to 0 or 1 above the training sample points, we make use of <i>thresholding</i>: given any query and document for which we wish to determine relevance, we pick a value <img width="12" height="31" align="MIDDLE" border="0" src="img425.png" alt="$\theta$" /> and if 
+   <!-- MATH
+ $Score(\alpha,\omega)>\theta$
+ --> <img width="112" height="33" align="MIDDLE" border="0" src="img1374.png" alt="$Score(\alpha,\omega)&gt;\theta$" /> we declare the document to be <i>relevant</i>, else we declare the document to be <i>nonrelevant</i>. As we know from Figure&nbsp;<a href="linear-versus-nonlinear-classifiers-1.html#fig:vclassline">14.8</a> (page&nbsp;<a href="linear-versus-nonlinear-classifiers-1.html#p:vclassline"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>), all points that satisfy 
+   <!-- MATH
+ $Score(\alpha,\omega)=\theta$
+ --> <img width="112" height="33" align="MIDDLE" border="0" src="img1375.png" alt="$Score(\alpha,\omega)=\theta$" /> form a line (shown as a dashed line in Figure <a href="#fig:mlr1">15.7</a> ) and we thus have a <a name="23078"></a> <i>linear classifier</i> that separates relevant from nonrelevant instances. Geometrically, we can find the separating line as follows. Consider the line passing through the plane 
+   <!-- MATH
+ $Score(\alpha,\omega)$
+ --> <img width="82" height="33" align="MIDDLE" border="0" src="img1373.png" alt="$Score(\alpha,\omega)$" /> whose height is <img width="12" height="31" align="MIDDLE" border="0" src="img425.png" alt="$\theta$" /> above the page containing Figure <a href="#fig:mlr1">15.7</a> . Project this line down onto Figure <a href="#fig:mlr1">15.7</a> ; this will be the dashed line in Figure <a href="#fig:mlr1">15.7</a> . Then, any subsequent query/document pair that falls below the dashed line in Figure <a href="#fig:mlr1">15.7</a> is deemed <i>nonrelevant</i>; above the dashed line, <i>relevant</i>. </p> 
+  <p> Thus, the problem of making a binary <i>relevant</i>/<i>nonrelevant</i> judgment given training examples as above turns into one of learning the dashed line in Figure <a href="#fig:mlr1">15.7</a> separating <i>relevant</i> training examples from the <i>nonrelevant</i> ones. Being in the <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" />-<img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> plane, this line can be written as a linear equation involving <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> and <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />, with two parameters (slope and intercept). The methods of linear classification that we have already looked at in classificationsvm provide methods for choosing this line. Provided we can build a sufficiently rich collection of training samples, we can thus altogether avoid hand-tuning score functions as in Section&nbsp;<a href="designing-parsing-and-scoring-functions-1.html#sec:queryparsing">7.2.3</a> (page&nbsp;<a href="designing-parsing-and-scoring-functions-1.html#p:queryparsing"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). The bottleneck of course is the ability to maintain a suitably representative set of training examples, whose relevance assessments must be made by experts. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4086" href="result-ranking-by-machine-learning-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4080" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4074" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4082" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4084" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4087" href="result-ranking-by-machine-learning-1.html">Result ranking by machine</a> 
+  <b> Up:</b> 
+  <a name="tex2html4081" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4075" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> &nbsp; 
+  <b> <a name="tex2html4083" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4085" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

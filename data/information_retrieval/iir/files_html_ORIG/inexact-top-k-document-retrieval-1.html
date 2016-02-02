@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Inexact top K document retrieval</title> 
+  <meta name="description" content="Inexact top K document retrieval" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="index-elimination-1.html" /> 
+  <link rel="previous" href="efficient-scoring-and-ranking-1.html" /> 
+  <link rel="up" href="efficient-scoring-and-ranking-1.html" /> 
+  <link rel="next" href="index-elimination-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2146" href="index-elimination-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2140" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2134" href="efficient-scoring-and-ranking-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2142" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2144" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2147" href="index-elimination-1.html">Index elimination</a> 
+  <b> Up:</b> 
+  <a name="tex2html2141" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2135" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> &nbsp; 
+  <b> <a name="tex2html2143" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2145" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001211000000000000000"></a> <a name="sec:inexacttopk"></a> <a name="p:inexacttopk"></a> <br /> Inexact top K document retrieval </h2> 
+  <p> Thus far, we have focused on retrieving precisely the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> highest-scoring documents for a query. We now consider schemes by which we produce <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents that are <em>likely</em> to be among the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> highest scoring documents for a query. In doing so, we hope to dramatically lower the cost of computing the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents we output, without materially altering the user's perceived relevance of the top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> results. Consequently, in most applications it suffices to retrieve <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents whose scores are very close to those of the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> best. In the sections that follow we detail schemes that retrieve <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> such documents while potentially avoiding computing scores for most of the <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> documents in the collection. </p>
+  <p> Such inexact top-<img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> retrieval is not necessarily, from the user's perspective, a bad thing. The top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents by the cosine measure are in any case not necessarily the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> best for the query: cosine similarity is only a proxy for the user's perceived relevance. In Sections <a href="index-elimination-1.html#sec:indelim">7.1.2</a> -<a href="cluster-pruning-1.html#sec:clusterpruning">7.1.6</a> below, we give heuristics using which we are likely to retrieve <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents with cosine scores close to those of the top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents. The principal cost in computing the output stems from computing cosine similarities between the query and a large number of documents. Having a large number of documents in contention also increases the selection cost in the final stage of culling the top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents from a heap. We now consider a series of ideas designed to eliminate a large number of documents without computing their cosine scores. The heuristics have the following two-step scheme: </p>
+  <ol> 
+   <li>Find a set <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> of documents that are contenders, where <img width="100" height="33" align="MIDDLE" border="0" src="img491.png" alt="$K &lt; \vert A\vert\ll N$" />. <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> does not necessarily contain the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> top-scoring documents for the query, but is likely to have many documents with scores near those of the top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />. </li> 
+   <li>Return the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> top-scoring documents in <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />. </li> 
+  </ol> From the descriptions of these ideas it will be clear that many of them require parameters to be tuned to the collection and application at hand; pointers to experience in setting these parameters may be found at the end of this chapter. It should also be noted that most of these heuristics are well-suited to free text queries, but not for Boolean or phrase queries. 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2146" href="index-elimination-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2140" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2134" href="efficient-scoring-and-ranking-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2142" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2144" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2147" href="index-elimination-1.html">Index elimination</a> 
+  <b> Up:</b> 
+  <a name="tex2html2141" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2135" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> &nbsp; 
+  <b> <a name="tex2html2143" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2145" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

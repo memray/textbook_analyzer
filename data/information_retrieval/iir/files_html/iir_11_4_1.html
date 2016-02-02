@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>An appraisal of probabilistic models</title> 
+  <meta name="description" content="An appraisal of probabilistic models" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="tree-structured-dependencies-between-terms-1.html" /> 
+  <link rel="previous" href="an-appraisal-and-some-extensions-1.html" /> 
+  <link rel="up" href="an-appraisal-and-some-extensions-1.html" /> 
+  <link rel="next" href="tree-structured-dependencies-between-terms-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3158" href="tree-structured-dependencies-between-terms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3152" href="an-appraisal-and-some-extensions-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3146" href="an-appraisal-and-some-extensions-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3154" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3156" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3159" href="tree-structured-dependencies-between-terms-1.html">Tree-structured dependencies between terms</a> 
+  <b> Up:</b> 
+  <a name="tex2html3153" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3147" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> &nbsp; 
+  <b> <a name="tex2html3155" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3157" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001641000000000000000"> An appraisal of probabilistic models</a> </h2> 
+  <p> Probabilistic methods are one of the oldest formal models in IR. Already in the 1970s they were held out as an opportunity to place IR on a firmer theoretical footing, and with the resurgence of probabilistic methods in computational linguistics in the 1990s, that hope has returned, and probabilistic methods are again one of the currently hottest topics in IR. Traditionally, probabilistic IR has had neat ideas but the methods have never won on performance. Getting reasonable approximations of the needed probabilities for a probabilistic IR model is possible, but it requires some major assumptions. In the BIM these are: </p> 
+  <ul> 
+   <li>a Boolean representation of documents/queries/relevance </li> 
+   <li>term independence </li> 
+   <li>terms not in the query don't affect the outcome </li> 
+   <li>document relevance values are independent </li> 
+  </ul> It is perhaps the severity of the modeling assumptions that makes achieving good performance difficult. A general problem seems to be that probabilistic models either require partial relevance information or else only allow for deriving apparently inferior term weighting models. 
+  <p> Things started to change in the 1990s when the BM25 weighting scheme, which we discuss in the next section, showed very good performance, and started to be adopted as a term weighting scheme by many groups. The difference between ``vector space'' and ``probabilistic'' IR systems is not that great: in either case, you build an information retrieval scheme in the exact same way that we discussed in Chapter <a href="computing-scores-in-a-complete-search-system-1.html#ch:ranking-ir-system">7</a> . For a probabilistic IR system, it's just that, at the end, you score queries not by cosine similarity and tf-idf in a vector space, but by a slightly different formula motivated by probability theory. Indeed, sometimes people have changed an existing vector-space IR system into an effectively probabilistic system simply by adopted term weighting formulas from probabilistic models. In this section, we briefly present three extensions of the traditional probabilistic model, and in the next chapter, we look at the somewhat different probabilistic language modeling approach to IR. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3158" href="tree-structured-dependencies-between-terms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3152" href="an-appraisal-and-some-extensions-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3146" href="an-appraisal-and-some-extensions-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3154" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3156" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3159" href="tree-structured-dependencies-between-terms-1.html">Tree-structured dependencies between terms</a> 
+  <b> Up:</b> 
+  <a name="tex2html3153" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3147" href="an-appraisal-and-some-extensions-1.html">An appraisal and some</a> &nbsp; 
+  <b> <a name="tex2html3155" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3157" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Challenges in XML retrieval</title> 
+  <meta name="description" content="Challenges in XML retrieval" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="a-vector-space-model-for-xml-retrieval-1.html" /> 
+  <link rel="previous" href="basic-xml-concepts-1.html" /> 
+  <link rel="up" href="xml-retrieval-1.html" /> 
+  <link rel="next" href="a-vector-space-model-for-xml-retrieval-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2883" href="a-vector-space-model-for-xml-retrieval-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2877" href="xml-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2871" href="basic-xml-concepts-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2879" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2881" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2884" href="a-vector-space-model-for-xml-retrieval-1.html">A vector space model</a> 
+  <b> Up:</b> 
+  <a name="tex2html2878" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2872" href="basic-xml-concepts-1.html">Basic XML concepts</a> &nbsp; 
+  <b> <a name="tex2html2880" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2882" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001520000000000000000"></a> <a name="sec:xmlchallenge"></a> <a name="p:xmlchallenge"></a> <br /> Challenges in XML retrieval </h1> 
+  <p> In this section, we discuss a number of challenges that make structured retrieval more difficult than unstructured retrieval. Recall from page <a href="xml-retrieval-1.html#p:strretrieval">10</a> the basic setting we assume in structured retrieval: the collection consists of structured documents and queries are either structured (as in Figure <a href="basic-xml-concepts-1.html#fig:nexitopic">10.3</a> ) or unstructured (e.g., summer holidays). </p>
+  <p> The first challenge in structured retrieval is that users want us to return parts of documents (i.e., XML elements), not entire documents as IR systems usually do in unstructured retrieval. If we query Shakespeare's plays for Macbeth's castle, should we return the scene, the act or the entire play in Figure <a href="basic-xml-concepts-1.html#fig:xmldom">10.2</a> ? In this case, the user is probably looking for the scene. On the other hand, an otherwise unspecified search for Macbeth should return the play of this name, not a subunit. </p>
+  <p> One criterion for selecting the most appropriate part of a document is the <a name="12383"></a> <i>structured document retrieval principle</i> : </p>
+  <blockquote> 
+   <b>Structured document retrieval principle.</b> A system should always retrieve the most specific part of a document answering the query. 
+  </blockquote> This principle motivates a retrieval strategy that returns the smallest unit that contains the information sought, but does not go below this level. However, it can be hard to implement this principle algorithmically. Consider the query 
+  <code>title#&quot;Macbeth&quot;</code> applied to Figure 
+  <a href="basic-xml-concepts-1.html#fig:xmldom">10.2</a> . The title of the tragedy, 
+  <i>Macbeth</i>, and the title of Act I, Scene vii, 
+  <i>Macbeth's castle</i>, are both good hits because they contain the matching term Macbeth. But in this case, the title of the tragedy, the higher node, is preferred. Deciding which level of the tree is right for answering a query is difficult. 
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:xmldocfuhr"></a>
+   <a name="p:xmldocfuhr"></a>
+   <a name="12394"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 10.5:</strong> Partitioning an XML document into non-overlapping indexing units.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="543" height="201" align="BOTTOM" border="0" src="img621.png" alt="\includegraphics[width=12cm]{xmldocfuhr.eps}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> Parallel to the issue of which parts of a document to return to the user is the issue of which parts of a document to index. In Section&nbsp;<a href="choosing-a-document-unit-1.html#sec:documentunit">2.1.2</a> (page&nbsp;<a href="choosing-a-document-unit-1.html#p:documentunit"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>), we discussed the need for a document unit or <a name="12400"></a> <i>indexing unit</i> in indexing and retrieval. In unstructured retrieval, it is usually clear what the right document unit is: files on your desktop, email messages, web pages on the web etc. In structured retrieval, there are a number of different approaches to defining the indexing unit. </p>
+  <p> One approach is to group nodes into non-overlapping pseudodocuments as shown in Figure <a href="#fig:xmldocfuhr">10.5</a> . In the example, books, chapters and sections have been designated to be indexing units, but without overlap. For example, the leftmost dashed indexing unit contains only those parts of the tree dominated by book that are not already part of other indexing units. The disadvantage of this approach is that pseudodocuments may not make sense to the user because they are not coherent units. For instance, the leftmost indexing unit in Figure <a href="#fig:xmldocfuhr">10.5</a> merges three disparate elements, the class, author and title elements. </p>
+  <p> We can also use one of the largest elements as the indexing unit, for example, the book element in a collection of books or the play element for Shakespeare's works. We can then postprocess search results to find for each book or play the subelement that is the best hit. For example, the query Macbeth's castle may return the play <i>Macbeth</i>, which we can then postprocess to identify act I, scene vii as the best-matching subelement. Unfortunately, this two-stage retrieval process fails to return the best subelement for many queries because the relevance of a whole book is often not a good predictor of the relevance of small subelements within it. </p>
+  <p> Instead of retrieving large units and identifying subelements (top down), we can also search all leaves, select the most relevant ones and then extend them to larger units in postprocessing (bottom up). For the query Macbeth's castle in Figure <a href="basic-xml-concepts-1.html#fig:xmldocex">10.1</a> , we would retrieve the title <i>Macbeth's castle</i> in the first pass and then decide in a postprocessing step whether to return the title, the scene, the act or the play. This approach has a similar problem as the last one: The relevance of a leaf element is often not a good predictor of the relevance of elements it is contained in. </p>
+  <p> The least restrictive approach is to index all elements. This is also problematic. Many XML elements are not meaningful search results, e.g., typographical elements like <a name="p:definitely"></a> <code>&lt;b&gt;definitely&lt;/b&gt;</code> or an ISBN number which cannot be interpreted without context. Also, indexing all elements means that search results will be highly redundant. For the query Macbeth's castle and the document in Figure <a href="basic-xml-concepts-1.html#fig:xmldocex">10.1</a> , we would return all of the play, act, scene and title elements on the path between the root node and Macbeth's castle. The leaf node would then occur four times in the result set, once directly and three times as part of other elements. We call elements that are contained within each other <a name="p:nested"></a> <a name="12424"></a> <i>nested</i> . Returning redundant nested elements in a list of returned hits is not very user-friendly. </p>
+  <p> Because of the redundancy caused by nested elements it is common to restrict the set of elements that are eligible to be returned. Restriction strategies include: </p>
+  <ul> 
+   <li>discard all small elements </li> 
+   <li>discard all element types that users do not look at (this requires a working XML retrieval system that logs this information) </li> 
+   <li>discard all element types that assessors generally do not judge to be relevant (if relevance assessments are available) </li> 
+   <li>only keep element types that a system designer or librarian has deemed to be useful search results </li> 
+  </ul> In most of these approaches, result sets will still contain nested elements. Thus, we may want to remove some elements in a postprocessing step to reduce redundancy. Alternatively, we can collapse several nested elements in the results list and use 
+  <a name="12428"></a> 
+  <i>highlighting</i> of query terms to draw the user's attention to the relevant passages. If query terms are highlighted, then scanning a medium-sized element (e.g., a section) takes little more time than scanning a small subelement (e.g., a paragraph). Thus, if the section and the paragraph both occur in the results list, it is sufficient to show the section. An additional advantage of this approach is that the paragraph is presented together with its context (i.e., the embedding section). This context may be helpful in interpreting the paragraph (e.g., the source of the information reported) even if the paragraph on its own satisfies the query. 
+  <p> If the user knows the schema of the collection and is able to specify the desired type of element, then the problem of redundancy is alleviated as few nested elements have the same type. But as we discussed in the introduction, users often don't know what the name of an element in the collection is (Is the Vatican a country or a city?) or they may not know how to compose structured queries at all. </p>
+  <p> A challenge in XML retrieval related to nesting is that we may need to distinguish different contexts of a term when we compute term statistics for ranking, in particular inverse document frequency (<a name="12433"></a> <i>idf</i> ) statistics as defined in Section&nbsp;<a href="inverse-document-frequency-1.html#sec:idf">6.2.1</a> (page&nbsp;<a href="inverse-document-frequency-1.html#p:idf"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). For example, the term Gates under the node author is unrelated to an occurrence under a content node like section if used to refer to the plural of gate. It makes little sense to compute a single document frequency for Gates in this example. </p>
+  <p> One solution is to compute idf for XML-contextterm pairs, e.g., to compute different idf weights for <code>author#&quot;Gates&quot;</code> and <code>section#&quot;Gates&quot;</code>. Unfortunately, this scheme will run into sparse data problems - that is, many XML-context pairs occur too rarely to reliably estimate df (see Section <a href="naive-bayes-text-classification-1.html#sec:naivebayes">13.2</a> , page <a href="naive-bayes-text-classification-1.html#p:sparseness">13.2</a> , for a discussion of sparseness). A compromise is only to consider the parent node <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" /> of the term and not the rest of the path from the root to <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" /> to distinguish contexts. There are still conflations of contexts that are harmful in this scheme. For instance, we do not distinguish names of authors and names of corporations if both have the parent node name. But most important distinctions, like the example contrast <code>author#&quot;Gates&quot;</code> vs. <code>section#&quot;Gates&quot;</code>, will be respected. </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:xmlhetero"></a>
+   <a name="p:xmlhetero"></a>
+   <a name="12477"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 10.6:</strong> Schema heterogeneity: intervening nodes and mismatched names.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="457" height="260" border="0" src="img622.png" alt="\begin{figure}\psset{unit=0.75cm}
+\begin{pspicture}(0,1.5)(14,9.5)
+\psellipse( 4...
+...$q_4$}
+\rput(7,1.75){$d_2$}
+\rput(11.5,1.75){$d_3$}
+\end{pspicture}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> In many cases, several different XML schemas occur in a collection since the XML documents in an IR application often come from more than one source. This phenomenon is called <a name="12481"></a> <i>schema heterogeneity</i> or <a name="12483"></a> <i>schema diversity</i> and presents yet another challenge. As illustrated in Figure <a href="#fig:xmlhetero">10.6</a> comparable elements may have different names: creator in <img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> vs. author in <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" />. In other cases, the structural organization of the schemas may be different: Author names are direct descendants of the node author in <img width="18" height="32" align="MIDDLE" border="0" src="img624.png" alt="$q_3$" />, but there are the intervening nodes firstname and lastname in <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" />. If we employ strict matching of trees, then <img width="18" height="32" align="MIDDLE" border="0" src="img624.png" alt="$q_3$" /> will retrieve neither <img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> nor <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" /> although both documents are relevant. Some form of approximate matching of element names in combination with semi-automatic matching of different document structures can help here. Human editing of correspondences of elements in different schemas will usually do better than automatic methods. </p>
+  <p> Schema heterogeneity is one reason for query-document mismatches like <img width="44" height="31" align="MIDDLE" border="0" src="img625.png" alt="$q_3/d_2$" /> and <img width="43" height="31" align="MIDDLE" border="0" src="img626.png" alt="$q_3/d_3$" />. Another reason is that users often are not familiar with the element names and the structure of the schemas of collections they search as mentioned. This poses a challenge for interface design in XML retrieval. Ideally, the user interface should expose the tree structure of the collection and allow users to specify the elements they are querying. If we take this approach, then designing the query interface in structured retrieval is more complex than a search box for keyword queries in unstructured retrieval. </p>
+  <p> We can also support the user by interpreting all parent-child relationships in queries as descendant relationships with any number of intervening nodes allowed. We call such queries <a name="12491"></a> <i>extended queries</i> . The tree in Figure <a href="basic-xml-concepts-1.html#fig:nexitopic">10.3</a> and <img width="19" height="32" align="MIDDLE" border="0" src="img627.png" alt="$q_4$" /> in Figure <a href="#fig:xmlhetero">10.6</a> are examples of extended queries. We show edges that are interpreted as descendant relationships as dashed arrows. In <img width="19" height="32" align="MIDDLE" border="0" src="img627.png" alt="$q_4$" />, a dashed arrow connects book and Gates. As a pseudo-XPath notation for <img width="19" height="32" align="MIDDLE" border="0" src="img627.png" alt="$q_4$" />, we adopt <code>book//#&quot;Gates&quot;</code>: a book that somewhere in its structure contains the word Gates where the path from the book node to Gates can be arbitrarily long. The pseudo-XPath notation for the extended query that in addition specifies that Gates occurs in a section of the book is <code>book//section//#&quot;Gates&quot;</code>. It is convenient for users to be able to issue such extended queries without having to specify the exact structural configuration in which a query term should occur - either because they do not care about the exact configuration or because they do not know enough about the schema of the collection to be able to specify it. </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:structmismatch"></a>
+   <a name="p:structmismatch"></a>
+   <a name="12533"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 10.7:</strong> A structural mismatch between two queries and a document.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="360" height="260" border="0" src="img628.png" alt="\begin{figure}\psset{unit=0.75cm}
+\begin{pspicture}(3,1.5)(14,9.5)
+\par
+\psellip...
+...5$}
+\rput(7.01,1.75){$q_6$}
+\rput(11.5,1.75){$d_4$}
+\end{pspicture}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> In Figure <a href="#fig:structmismatch">10.7</a> , the user is looking for a chapter entitled FFT (<img width="19" height="32" align="MIDDLE" border="0" src="img629.png" alt="$q_5$" />). Suppose there is no such chapter in the collection, but that there are references to books on FFT (<img width="19" height="31" align="MIDDLE" border="0" src="img630.png" alt="$d_4$" />). A reference to a book on FFT is not exactly what the user is looking for, but it is better than returning nothing. Extended queries do not help here. The extended query <img width="19" height="32" align="MIDDLE" border="0" src="img631.png" alt="$q_6$" /> also returns nothing. This is a case where we may want to interpret the structural constraints specified in the query as hints as opposed to as strict conditions. As we will discuss in Section <a href="evaluation-of-xml-retrieval-1.html#sec:inex">10.4</a> , users prefer a relaxed interpretation of structural constraints: Elements that do not meet structural constraints perfectly should be ranked lower, but they should not be omitted from search results. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2883" href="a-vector-space-model-for-xml-retrieval-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2877" href="xml-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2871" href="basic-xml-concepts-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2879" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2881" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2884" href="a-vector-space-model-for-xml-retrieval-1.html">A vector space model</a> 
+  <b> Up:</b> 
+  <a name="tex2html2878" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2872" href="basic-xml-concepts-1.html">Basic XML concepts</a> &nbsp; 
+  <b> <a name="tex2html2880" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2882" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

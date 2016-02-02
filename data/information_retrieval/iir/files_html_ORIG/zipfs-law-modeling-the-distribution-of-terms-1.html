@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Zipf's law: Modeling the distribution of terms</title> 
+  <meta name="description" content="Zipf's law: Modeling the distribution of terms" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="heaps-law-estimating-the-number-of-terms-1.html" /> 
+  <link rel="up" href="statistical-properties-of-terms-in-information-retrieval-1.html" /> 
+  <link rel="next" href="dictionary-compression-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1707" href="dictionary-compression-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1701" href="statistical-properties-of-terms-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1697" href="heaps-law-estimating-the-number-of-terms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1703" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1705" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1708" href="dictionary-compression-1.html">Dictionary compression</a> 
+  <b> Up:</b> 
+  <a name="tex2html1702" href="statistical-properties-of-terms-in-information-retrieval-1.html">Statistical properties of terms</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1698" href="heaps-law-estimating-the-number-of-terms-1.html">Heaps' law: Estimating the</a> &nbsp; 
+  <b> <a name="tex2html1704" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1706" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001012000000000000000"></a> <a name="sec:zipf"></a> <a name="p:zipf"></a> <br /> Zipf's law: Modeling the distribution of terms </h2> We also want to understand how terms are distributed across documents. This helps us to characterize the properties of the algorithms for compressing postings lists in Section 
+  <a href="postings-file-compression-1.html#sec:postingscompression">5.3</a> . 
+  <p> A commonly used model of the distribution of terms in a collection is <a name="5958"></a> <i>Zipf's law</i> . It states that, if <img width="17" height="32" align="MIDDLE" border="0" src="img243.png" alt="$t_1$" /> is the most common term in the collection, <img width="16" height="32" align="MIDDLE" border="0" src="img244.png" alt="$t_2$" /> is the next most common, and so on, then the collection frequency <img width="21" height="31" align="MIDDLE" border="0" src="img245.png" alt="$\collf_i$" /><a name="collf-i-notation"></a> of the <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" />th most common term is proportional to <img width="26" height="31" align="MIDDLE" border="0" src="img246.png" alt="$1/i$" />: <br /> </p>
+  <div align="CENTER">
+   <a name="zipf"></a> 
+   <!-- MATH
+ \begin{eqnarray}
+\collf_i \propto \frac{1}{i}.
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="56" height="52" align="MIDDLE" border="0" src="img247.png" alt="$\displaystyle \collf_i \propto \frac{1}{i}.$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (3)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> So if the most frequent term occurs 
+  <img width="23" height="31" align="MIDDLE" border="0" src="img248.png" alt="$\collf_1$" /> times, then the second most frequent term has half as many occurrences, the third most frequent term a third as many occurrences, and so on. The intuition is that frequency decreases very rapidly with rank. Equation 
+  <a href="#zipf">3</a> is one of the simplest ways of formalizing such a rapid decrease and it has been found to be a reasonably good model. 
+  <p> Equivalently, we can write Zipf's law as 
+   <!-- MATH
+ $\collf_i = c i^k$
+ --> <img width="61" height="37" align="MIDDLE" border="0" src="img249.png" alt="$ \collf_i = c i^k$" /> or as 
+   <!-- MATH
+ $\log \collf_i = \log c + k \log i$
+ --> <img width="158" height="31" align="MIDDLE" border="0" src="img250.png" alt="$\log \collf_i = \log c + k \log i$" /> where <img width="55" height="31" align="MIDDLE" border="0" src="img251.png" alt="$k=-1$" /> and <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> is a constant to be defined in Section <a href="gamma-codes-1.html#sec:gamma-code">5.3.2</a> . It is therefore a <a name="5968"></a> <i>power law</i> with exponent <img width="55" height="31" align="MIDDLE" border="0" src="img251.png" alt="$k=-1$" />. See Chapter <a href="web-search-basics-1.html#ch:webchar">19</a> , page <a href="the-web-graph-1.html#p:webpowerlaw">19.2.1</a> , for another power law, a law characterizing the distribution of links on web pages. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:zipfnew"></a><a name="p:zipfnew"></a></p>
+   <img width="406" height="371" align="BOTTOM" border="0" src="img253.png" alt="\includegraphics[width=9cm]{art/zipfnew.eps}" /> 
+   <a name="5974"></a> Zipf's law for Reuters-RCV1. Frequency is plotted as a function of frequency rank for the terms in the collection. The line is the distribution predicted by Zipf's law (weighted least-squares fit; intercept is 6.95). 
+  </div> 
+  <p> The log-log graph in Figure <a href="#fig:zipfnew">5.2</a> plots the collection frequency of a term as a function of its rank for Reuters-RCV1. A line with slope -1, corresponding to the Zipf function 
+   <!-- MATH
+ $\log \collf_i = \log c -\log i$
+ --> <img width="148" height="31" align="MIDDLE" border="0" src="img254.png" alt="$\log \collf_i = \log c -\log i$" />, is also shown. The fit of the data to the law is not particularly good, but good enough to serve as a model for term distributions in our calculations in Section <a href="postings-file-compression-1.html#sec:postingscompression">5.3</a> . </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>Assuming one machine word per posting, what is the size of the uncompressed (nonpositional) index for different tokenizations based on Table <a href="statistical-properties-of-terms-in-information-retrieval-1.html#tab:icompresstb5">5.1</a> ? How do these numbers compare with Table <a href="gamma-codes-1.html#tab:summaryicompress">5.6</a> ? <a name="5986"></a> <a name="5987"></a> <p> </p></li> 
+  </ul> 
+  <a name="5989"></a> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1707" href="dictionary-compression-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1701" href="statistical-properties-of-terms-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1697" href="heaps-law-estimating-the-number-of-terms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1703" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1705" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1708" href="dictionary-compression-1.html">Dictionary compression</a> 
+  <b> Up:</b> 
+  <a name="tex2html1702" href="statistical-properties-of-terms-in-information-retrieval-1.html">Statistical properties of terms</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1698" href="heaps-law-estimating-the-number-of-terms-1.html">Heaps' law: Estimating the</a> &nbsp; 
+  <b> <a name="tex2html1704" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1706" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

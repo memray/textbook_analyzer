@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Information retrieval system evaluation</title> 
+  <meta name="description" content="Information retrieval system evaluation" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="standard-test-collections-1.html" /> 
+  <link rel="previous" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="up" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="next" href="standard-test-collections-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2403" href="standard-test-collections-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2397" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2391" href="evaluation-in-information-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2399" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2401" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2404" href="standard-test-collections-1.html">Standard test collections</a> 
+  <b> Up:</b> 
+  <a name="tex2html2398" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2392" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> &nbsp; 
+  <b> <a name="tex2html2400" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2402" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001310000000000000000"></a><a name="sec:ir-eval"></a> <a name="p:ir-eval"></a> <br /> Information retrieval system evaluation </h1> 
+  <p> To measure ad hoc information retrieval effectiveness in the standard way, we need a test collection consisting of three things: </p> 
+  <ol> 
+   <li>A document collection </li> 
+   <li>A test suite of information needs, expressible as queries </li> 
+   <li>A set of relevance judgments, standardly a binary assessment of either <i>relevant</i> or <i>nonrelevant</i> for each query-document pair. </li> 
+  </ol> The standard approach to information retrieval system evaluation revolves around the notion of 
+  <a name="10554"></a> 
+  <i>relevant</i> and 
+  <i>nonrelevant</i> documents. With respect to a user information need, a document in the test collection is given a binary classification as either relevant or nonrelevant. This decision is referred to as the 
+  <a name="p:goldstandard"></a> 
+  <a name="10558"></a> 
+  <i>gold standard</i> or 
+  <a name="10560"></a> 
+  <i>ground truth</i> judgment of relevance. The test document collection and suite of information needs have to be of a reasonable size: you need to average performance over fairly large test sets, as results are highly variable over different documents and information needs. As a rule of thumb, 50 information needs has usually been found to be a sufficient minimum. 
+  <p> Relevance is assessed relative to an <a name="10562"></a> , <i>not</i> a query. For example, an information need might be: </p> 
+  <blockquote>
+    Information on whether drinking red wine is more effective at reducing your risk of heart attacks than white wine. 
+  </blockquote> This might be translated into a query such as: 
+  <blockquote>
+    wine and red and white and heart and attack and effective 
+  </blockquote> A document is relevant if it addresses the stated information need, not because it just happens to contain all the words in the query. This distinction is often misunderstood in practice, because the information need is not overt. But, nevertheless, an information need is present. If a user types python into a web search engine, they might be wanting to know where they can purchase a pet python. Or they might be wanting information on the programming language Python. From a one word query, it is very difficult for a system to know what the information need is. But, nevertheless, the user has one, and can judge the returned results on the basis of their relevance to it. To evaluate a system, we require an overt expression of an information need, which can be used for judging returned documents as relevant or nonrelevant. At this point, we make a simplification: relevance can reasonably be thought of as a scale, with some documents highly relevant and others marginally so. But for the moment, we will use just a binary decision of relevance. We discuss the reasons for using binary relevance judgments and alternatives in Section 
+  <a href="critiques-and-justifications-of-the-concept-of-relevance-1.html#sec:relevance">8.5.1</a> . 
+  <p> Many systems contain various weights (often known as parameters) that can be adjusted to <a name="10582"></a>tune system performance. It is wrong to report results on a test collection which were obtained by tuning these parameters to maximize performance on that collection. That is because such tuning overstates the expected performance of the system, because the weights will be set to maximize performance on one particular set of queries rather than for a random sample of queries. In such cases, the correct procedure is to have one or more <a name="10583"></a> <i>development test collections</i> ,<a name="p:dev-test"></a> and to tune the parameters on the development test collection. The tester then runs the system with those weights on the test collection and reports the results on that collection as an unbiased estimate of performance. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2403" href="standard-test-collections-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2397" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2391" href="evaluation-in-information-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2399" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2401" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2404" href="standard-test-collections-1.html">Standard test collections</a> 
+  <b> Up:</b> 
+  <a name="tex2html2398" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2392" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> &nbsp; 
+  <b> <a name="tex2html2400" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2402" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

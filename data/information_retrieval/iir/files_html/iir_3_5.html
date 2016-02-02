@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="phonetic-correction-1.html" /> 
+  <link rel="up" href="dictionaries-and-tolerant-retrieval-1.html" /> 
+  <link rel="next" href="index-construction-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1522" href="index-construction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1516" href="dictionaries-and-tolerant-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1512" href="phonetic-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1518" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1520" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1523" href="index-construction-1.html">Index construction</a> 
+  <b> Up:</b> 
+  <a name="tex2html1517" href="dictionaries-and-tolerant-retrieval-1.html">Dictionaries and tolerant retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1513" href="phonetic-correction-1.html">Phonetic correction</a> &nbsp; 
+  <b> <a name="tex2html1519" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1521" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION00850000000000000000"></a> <a name="sec:wildcardrefs"></a> <a name="p:wildcardrefs"></a> <br /> References and further reading </h1> 
+  <p> <a href="bibliography-1.html#knuthvol3">Knuth (1997)</a> is a comprehensive source for information on search trees, including B-trees and their use in searching through dictionaries. </p> 
+  <p> <a href="bibliography-1.html#permuterm">Garfield (1976)</a> gives one of the first complete descriptions of the permuterm index. <a href="bibliography-1.html#comperm">Ferragina and Venturini (2007)</a> give an approach to addressing the space blowup in permuterm indexes. </p> 
+  <p> One of the earliest formal treatments of spelling correction was due to <a href="bibliography-1.html#363994">Damerau (1964)</a>. The notion of edit distance that we have used is due to <a href="bibliography-1.html#editdistance">Levenshtein (1965)</a> and the algorithm in Figure <a href="edit-distance-1.html#fig:alg:edit">3.5</a> is due to <a href="bibliography-1.html#wagner74string">Wagner and Fischer (1974)</a>. <a href="bibliography-1.html#359041">Peterson (1980)</a> and <a href="bibliography-1.html#146380">Kukich (1992)</a> developed variants of methods based on edit distances, culminating in a detailed empirical study of several methods by <a href="bibliography-1.html#zobel95finding">Zobel and Dart (1995)</a>, which shows that <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />-gram indexing is very effective for finding candidate mismatches, but should be combined with a more fine-grained technique such as edit distance to determine the most likely misspellings. <a href="bibliography-1.html#gusfield97algorithms">Gusfield (1997)</a> is a standard reference on string algorithms such as edit distance. </p> 
+  <p> Probabilistic models (``noisy channel'' models) for spelling correction were pioneered by <a href="bibliography-1.html#kernighan90spelling">Kernighan et&nbsp;al. (1990)</a> and further developed by <a href="bibliography-1.html#brill00improved">Brill and Moore (2000)</a> and <a href="bibliography-1.html#toutanova02pronunciation">Toutanova and Moore (2002)</a>. In these models, the mis-spelled query is viewed as a probabilistic corruption of a correct query. They have a similar mathematical basis to the language model methods presented in Chapter <a href="language-models-for-information-retrieval-1.html#ch:lmodels">12</a> , and also provide ways of incorporating phonetic similarity, closeness on the keyboard, and data from the actual spelling mistakes of users. Many would regard them as the state-of-the-art approach. <a href="bibliography-1.html#cucerzan04spelling">Cucerzan and Brill (2004)</a> show how this work can be extended to learning spelling correction models based on query reformulations in search engine logs. </p> 
+  <p> The soundex algorithm is attributed to Margaret K. Odell and Robert C. Russelli (from U.S. patents granted in 1918 and 1922); the version described here draws on <a href="bibliography-1.html#321094">Bourne and Ford (1961)</a>. <a href="bibliography-1.html#zobel96phonetic">Zobel and Dart (1996)</a> evaluate various phonetic matching algorithms, finding that a variant of the soundex algorithm performs poorly for general spelling correction, but that other algorithms based on the phonetic similarity of term pronunciations perform well. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1522" href="index-construction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1516" href="dictionaries-and-tolerant-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1512" href="phonetic-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1518" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1520" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1523" href="index-construction-1.html">Index construction</a> 
+  <b> Up:</b> 
+  <a name="tex2html1517" href="dictionaries-and-tolerant-retrieval-1.html">Dictionaries and tolerant retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1513" href="phonetic-correction-1.html">Phonetic correction</a> &nbsp; 
+  <b> <a name="tex2html1519" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1521" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

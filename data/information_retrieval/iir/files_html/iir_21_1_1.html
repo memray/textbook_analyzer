@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Anchor text and the web graph</title> 
+  <meta name="description" content="Anchor text and the web graph" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="the-web-as-a-graph-1.html" /> 
+  <link rel="up" href="the-web-as-a-graph-1.html" /> 
+  <link rel="next" href="pagerank-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4993" href="pagerank-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4987" href="the-web-as-a-graph-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4983" href="the-web-as-a-graph-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4989" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4991" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4994" href="pagerank-1.html">PageRank</a> 
+  <b> Up:</b> 
+  <a name="tex2html4988" href="the-web-as-a-graph-1.html">The Web as a</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4984" href="the-web-as-a-graph-1.html">The Web as a</a> &nbsp; 
+  <b> <a name="tex2html4990" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4992" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002611000000000000000"></a> <a name="sec:anchor"></a> <a name="p:anchor"></a> <br /> Anchor text and the web graph </h2> The following fragment of HTML code from a web page shows a hyperlink pointing to the home page of the Journal of the ACM: 
+  <pre>
+&lt;a href=&quot;http://www.acm.org/jacm/&quot;&gt;Journal of the ACM.&lt;/a&gt;
+</pre> In this case, the link points to the page 
+  <tt>http://www.acm.org/jacm/</tt> and the anchor text is 
+  <em>Journal of the ACM.</em> Clearly, in this example the anchor is descriptive of the target page. But then the target page (B = 
+  <tt>http://www.acm.org/jacm/</tt>) itself contains the same description as well as considerable additional information on the journal. So what use is the anchor text? 
+  <p> The Web is full of instances where the page B does not provide an accurate description of itself. In many cases this is a matter of how the publishers of page B choose to present themselves; this is especially common with corporate web pages, where a web presence is a marketing statement. For example, at the time of the writing of this book the home page of the IBM corporation (<tt>http://www.ibm.com</tt>) did not contain the term computer anywhere in its HTML code, despite the fact that IBM is widely viewed as the world's largest computer maker. Similarly, the HTML code for the home page of Yahoo! (<tt>http://www.yahoo.com</tt>) does not at this time contain the word portal. </p> 
+  <p> Thus, there is often a gap between the terms in a web page, and how web users would describe that web page. Consequently, web searchers need not use the terms in a page to query for it. In addition, many web pages are rich in graphics and images, and/or embed their text in these images; in such cases, the HTML parsing performed when crawling will not extract text that is useful for indexing these pages. The ``standard IR'' approach to this would be to use the methods outlined in Chapter <a href="relevance-feedback-and-query-expansion-1.html#ch:queryexpansion">9</a> and Section <a href="extended-language-modeling-approaches-1.html#sec:extended-lm">12.4</a> . The insight behind anchor text is that such methods can be supplanted by anchor text, thereby tapping the power of the community of web page authors. </p> 
+  <p> The fact that the anchors of many hyperlinks pointing to <tt>http://www.ibm.com</tt> include the word computer can be exploited by web search engines. For instance, the anchor text terms can be included as terms under which to index the target web page. Thus, the postings for the term computer would include the document <tt>http://www.ibm.com</tt> and that for the term portal would include the document <tt>http://www.yahoo.com</tt>, using a special indicator to show that these terms occur as anchor (rather than in-page) text. As with in-page terms, anchor text terms are generally weighted based on frequency, with a penalty for terms that occur very often (the most common terms in anchor text across the Web are Click and here, using methods very similar to idf). The actual weighting of terms is determined by machine-learned scoring, as in Section <a href="a-simple-example-of-machine-learned-scoring-1.html#sec:mls">15.4.1</a> ; current web search engines appear to assign a substantial weighting to anchor text terms. </p> 
+  <p> The use of anchor text has some interesting side-effects. Searching for big blue on most web search engines returns the home page of the IBM corporation as the top hit; this is consistent with the popular nickname that many people use to refer to IBM. On the other hand, there have been (and continue to be) many instances where derogatory anchor text such as evil empire leads to somewhat unexpected results on querying for these terms on web search engines. This phenomenon has been exploited in orchestrated campaigns against specific sites. Such orchestrated anchor text may be a form of spamming, since a website can create misleading anchor text pointing to itself, to boost its ranking on selected query terms. Detecting and combating such systematic abuse of anchor text is another form of spam detection that web search engines perform. </p> 
+  <p> The window of text surrounding anchor text (sometimes referred to as <i>extended anchor text</i>) is often usable in the same manner as anchor text itself; consider for instance the fragment of web text <tt>there is good discussion of vedic scripture &lt;a&gt;here&lt;/a&gt;</tt>. This has been considered in a number of settings and the useful width of this window has been studied; see Section <a href="references-and-further-reading-21.html#sec:linkcite">21.4</a> for references. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>Is it always possible to follow directed edges (hyperlinks) in the web graph from any node (web page) to any other? Why or why not? <p> </p></li> 
+   <li>Find an instance of misleading anchor-text on the Web. <p> </p></li> 
+   <li>Given the collection of anchor-text phrases for a web page <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" />, suggest a heuristic for choosing one term or phrase from this collection that is most descriptive of <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" />. <p> </p></li> 
+   <li>Does your heuristic in the previous exercise take into account a single domain <img width="17" height="32" align="MIDDLE" border="0" src="img1484.png" alt="$D$" /> repeating anchor text for <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" /> from multiple pages in <img width="17" height="32" align="MIDDLE" border="0" src="img1484.png" alt="$D$" />? <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4993" href="pagerank-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4987" href="the-web-as-a-graph-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4983" href="the-web-as-a-graph-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4989" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4991" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4994" href="pagerank-1.html">PageRank</a> 
+  <b> Up:</b> 
+  <a name="tex2html4988" href="the-web-as-a-graph-1.html">The Web as a</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4984" href="the-web-as-a-graph-1.html">The Web as a</a> &nbsp; 
+  <b> <a name="tex2html4990" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4992" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

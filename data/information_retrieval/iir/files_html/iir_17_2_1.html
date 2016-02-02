@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Time complexity of HAC</title> 
+  <meta name="description" content="Time complexity of HAC" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="single-link-and-complete-link-clustering-1.html" /> 
+  <link rel="up" href="single-link-and-complete-link-clustering-1.html" /> 
+  <link rel="next" href="group-average-agglomerative-clustering-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4365" href="group-average-agglomerative-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4359" href="single-link-and-complete-link-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4355" href="single-link-and-complete-link-clustering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4361" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4363" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4366" href="group-average-agglomerative-clustering-1.html">Group-average agglomerative clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4360" href="single-link-and-complete-link-clustering-1.html">Single-link and complete-link clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4356" href="single-link-and-complete-link-clustering-1.html">Single-link and complete-link clustering</a> &nbsp; 
+  <b> <a name="tex2html4362" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4364" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002221000000000000000"> Time complexity of HAC</a> </h2> 
+  <p> The complexity of the naive HAC algorithm in Figure <a href="hierarchical-agglomerative-clustering-1.html#fig:hacalgorithm">17.2</a> is <img width="51" height="36" align="MIDDLE" border="0" src="img1571.png" alt="$\Theta(N^3)$" /> because we exhaustively scan the <img width="51" height="32" align="MIDDLE" border="0" src="img1555.png" alt="$N \times N$" /> matrix <img width="15" height="32" align="MIDDLE" border="0" src="img616.png" alt="$C$" /> for the largest similarity in each of <img width="45" height="32" align="MIDDLE" border="0" src="img1556.png" alt="$N-1$" /> iterations. </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:completecomplexity"></a><a name="p:completecomplexity"></a></p> 
+   <img width="555" height="797" border="0" src="img1572.png" alt="\begin{figure}
+% latex2html id marker 26593
+\begin{algorithm}{EfficientHAC}{\vec...
+...a made up example
+showing $P[5]$\ for
+a $5 \times 5$\ matrix $C$.
+}
+\end{figure}" /> 
+  </div> 
+  <p> For the four HAC methods discussed in this chapter a more efficient algorithm is the priority-queue algorithm shown in Figure <a href="#fig:completecomplexity">17.8</a> . Its time complexity is 
+   <!-- MATH
+ $\Theta(N^2 \log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" />. The rows <img width="32" height="33" align="MIDDLE" border="0" src="img1574.png" alt="$C[k]$" /> of the <img width="51" height="32" align="MIDDLE" border="0" src="img1555.png" alt="$N \times N$" /> similarity matrix <img width="15" height="32" align="MIDDLE" border="0" src="img616.png" alt="$C$" /> are sorted in decreasing order of similarity in the priority queues <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" />. 
+   <!-- MATH
+ $P[k].\mbox{\sc max()}$
+ --> <img width="81" height="33" align="MIDDLE" border="0" src="img1575.png" alt="$P[k].\mbox{\sc max()}$" /> then returns the cluster in <img width="32" height="33" align="MIDDLE" border="0" src="img1576.png" alt="$P[k]$" /> that currently has the highest similarity with <img width="22" height="32" align="MIDDLE" border="0" src="img1396.png" alt="$\omega_k$" />, where we use <img width="22" height="32" align="MIDDLE" border="0" src="img1396.png" alt="$\omega_k$" /> to denote the <img width="23" height="37" align="MIDDLE" border="0" src="img753.png" alt="$k^{th}$" /> cluster as in Chapter <a href="flat-clustering-1.html#ch:flatclust">16</a> . After creating the merged cluster of <img width="28" height="32" align="MIDDLE" border="0" src="img1577.png" alt="$\omega_{k_1}$" /> and <img width="28" height="32" align="MIDDLE" border="0" src="img1578.png" alt="$\omega_{k_2}$" />, <img width="28" height="32" align="MIDDLE" border="0" src="img1577.png" alt="$\omega_{k_1}$" /> is used as its representative. The function <small>SIM</small> computes the similarity function for potential merge pairs: largest similarity for single-link, smallest similarity for complete-link, average similarity for GAAC (Section <a href="group-average-agglomerative-clustering-1.html#sec:groupaverage">17.3</a> ), and centroid similarity for centroid clustering (Section <a href="centroid-clustering-1.html#sec:centroidsec">17.4</a> ). We give an example of how a row of <img width="15" height="32" align="MIDDLE" border="0" src="img616.png" alt="$C$" /> is processed (Figure <a href="#fig:completecomplexity">17.8</a> , bottom panel). The loop in lines 1-7 is <img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" /> and the loop in lines 9-21 is 
+   <!-- MATH
+ $\Theta(N^2 \log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" /> for an implementation of priority queues that supports deletion and insertion in 
+   <!-- MATH
+ $\Theta(\log
+N)$
+ --> <img width="69" height="33" align="MIDDLE" border="0" src="img1580.png" alt="$\Theta(\log
+N)$" />. The overall complexity of the algorithm is therefore 
+   <!-- MATH
+ $\Theta(N^2\log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" />. In the definition of the function <small>SIM</small>, <img width="23" height="32" align="MIDDLE" border="0" src="img1581.png" alt="$\vec{v}_m$" /> and 
+   <!-- MATH
+ $\vec{v}_\oldell$
+ --> <img width="16" height="32" align="MIDDLE" border="0" src="img1582.png" alt="$\vec{v}_\oldell$" /> are the vector sums of 
+   <!-- MATH
+ $\omega_{k_1} \cup \omega_{k_2}$
+ --> <img width="70" height="32" align="MIDDLE" border="0" src="img1583.png" alt="$\omega_{k_1} \cup \omega_{k_2}$" /> and 
+   <!-- MATH
+ $\omega_\oldell$
+ --> <img width="20" height="32" align="MIDDLE" border="0" src="img1584.png" alt="$\omega_\oldell$" />, respectively, and <img width="27" height="32" align="MIDDLE" border="0" src="img1585.png" alt="$N_m$" /> and <img width="21" height="32" align="MIDDLE" border="0" src="img1586.png" alt="$N_\oldell$" /> are the number of documents in 
+   <!-- MATH
+ $\omega_{k_1} \cup
+\omega_{k_2}$
+ --> <img width="70" height="32" align="MIDDLE" border="0" src="img1583.png" alt="$\omega_{k_1} \cup \omega_{k_2}$" /> and 
+   <!-- MATH
+ $\omega_\oldell$
+ --> <img width="20" height="32" align="MIDDLE" border="0" src="img1584.png" alt="$\omega_\oldell$" />, respectively. </p> 
+  <p> The argument of E<small>FFICIENT</small>HAC in Figure <a href="#fig:completecomplexity">17.8</a> is a set of vectors (as opposed to a set of generic documents) because GAAC and centroid clustering ( and <a href="centroid-clustering-1.html#sec:centroidsec">17.4</a> ) require vectors as input. The complete-link version of E<small>FFICIENT</small>HAC can also be applied to documents that are not represented as vectors. </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:singlecomplexity"></a><a name="p:singlecomplexity"></a></p> 
+   <img width="556" height="474" border="0" src="img1587.png" alt="\begin{figure}
+% latex2html id marker 26700
+\begin{algorithm}{SingleLinkClusteri...
+...y $I[i]$\ and will therefore be ignored when
+updating $NBM[i_1]$.
+}
+\end{figure}" /> 
+  </div> 
+  <p> For single-link, we can introduce a next-best-merge array (NBM) as a further optimization as shown in Figure <a href="#fig:singlecomplexity">17.9</a> . NBM keeps track of what the best merge is for each cluster. Each of the two top level for-loops in Figure <a href="#fig:singlecomplexity">17.9</a> are <img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" />, thus the overall complexity of single-link clustering is <img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" />. </p> 
+  <p> Can we also speed up the other three HAC algorithms with an NBM array? We cannot because only single-link clustering is <a name="26747"></a> <i>best-merge persistent</i> . Suppose that the best merge cluster for <img width="22" height="32" align="MIDDLE" border="0" src="img1396.png" alt="$\omega_k$" /> is <img width="21" height="32" align="MIDDLE" border="0" src="img1588.png" alt="$\omega_j$" /> in single-link clustering. Then after merging <img width="21" height="32" align="MIDDLE" border="0" src="img1588.png" alt="$\omega_j$" /> with a third cluster 
+   <!-- MATH
+ $\omega_i \neq \omega_k$
+ --> <img width="62" height="31" align="MIDDLE" border="0" src="img1589.png" alt="$\omega_i \neq \omega_k$" />, the merge of <img width="20" height="32" align="MIDDLE" border="0" src="img1590.png" alt="$\omega_i$" /> and <img width="21" height="32" align="MIDDLE" border="0" src="img1588.png" alt="$\omega_j$" /> will be <img width="22" height="32" align="MIDDLE" border="0" src="img1396.png" alt="$\omega_k$" />'s best merge cluster (Exercise <a href="exercises-4.html#ex:singlelinkbestmerge">17.10</a> ). In other words, the best-merge candidate for the merged cluster is one of the two best-merge candidates of its components in single-link clustering. This means that <img width="15" height="32" align="MIDDLE" border="0" src="img616.png" alt="$C$" /> can be updated in <img width="44" height="33" align="MIDDLE" border="0" src="img61.png" alt="$\Theta(N)$" /> in each iteration - by taking a simple max of two values on line 14 in Figure <a href="#fig:singlecomplexity">17.9</a> for each of the remaining <img width="36" height="32" align="MIDDLE" border="0" src="img1591.png" alt="$\leq N$" /> clusters. </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:completelinkex"></a><a name="p:completelinkex"></a></p> 
+   <img width="556" height="154" border="0" src="img1592.png" alt="\begin{figure}
+% latex2html id marker 26751
+\par
+\psset{unit=0.5cm}
+\par
+\begin{...
+...ke single-link, $d_3$'s best-merge cluster would be
+$\{d_1,d_2\}$.}
+\end{figure}" /> 
+  </div> 
+  <p> Figure <a href="#fig:completelinkex">17.10</a> demonstrates that best-merge persistence does not hold for complete-link clustering, which means that we cannot use an NBM array to speed up clustering. After merging <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" />'s best merge candidate <img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> with cluster <img width="19" height="31" align="MIDDLE" border="0" src="img412.png" alt="$d_1$" />, an unrelated cluster <img width="19" height="31" align="MIDDLE" border="0" src="img630.png" alt="$d_4$" /> becomes the best merge candidate for <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" />. This is because the complete-link merge criterion is non-local and can be affected by points at a great distance from the area where two merge candidates meet. </p> 
+  <p> In practice, the efficiency penalty of the 
+   <!-- MATH
+ $\Theta(N^2\log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" /> algorithm is small compared with the <img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" /> single-link algorithm since computing the similarity between two documents (e.g., as a dot product) is an order of magnitude slower than comparing two scalars in sorting. All four HAC algorithms in this chapter are <img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" /> with respect to similarity computations. So the difference in complexity is rarely a concern in practice when choosing one of the algorithms. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li><a name="ex:exclinkoutlier"></a>Show that complete-link clustering creates the two-cluster clustering depicted in Figure <a href="single-link-and-complete-link-clustering-1.html#fig:clinkoutlier">17.7</a> . <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4365" href="group-average-agglomerative-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4359" href="single-link-and-complete-link-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4355" href="single-link-and-complete-link-clustering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4361" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4363" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4366" href="group-average-agglomerative-clustering-1.html">Group-average agglomerative clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4360" href="single-link-and-complete-link-clustering-1.html">Single-link and complete-link clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4356" href="single-link-and-complete-link-clustering-1.html">Single-link and complete-link clustering</a> &nbsp; 
+  <b> <a name="tex2html4362" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4364" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

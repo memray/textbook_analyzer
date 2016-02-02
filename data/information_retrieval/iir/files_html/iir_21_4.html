@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="hubs-and-authorities-1.html" /> 
+  <link rel="up" href="link-analysis-1.html" /> 
+  <link rel="next" href="bibliography-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html5103" href="bibliography-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html5097" href="link-analysis-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html5093" href="choosing-the-subset-of-the-web-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html5099" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html5101" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html5104" href="bibliography-1.html">Bibliography</a> 
+  <b> Up:</b> 
+  <a name="tex2html5098" href="link-analysis-1.html">Link analysis</a> 
+  <b> Previous:</b> 
+  <a name="tex2html5094" href="choosing-the-subset-of-the-web-1.html">Choosing the subset of</a> &nbsp; 
+  <b> <a name="tex2html5100" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html5102" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002640000000000000000"></a> <a name="sec:linkcite"></a> <a name="p:linkcite"></a> <br /> References and further reading </h1> 
+  <p> <a href="bibliography-1.html#garfield55">Garfield (1955)</a> is seminal in the science of citation analysis. This was built on by <a href="bibliography-1.html#pinskinarin">Pinski and Narin (1976)</a> to develop a <i>journal influence weight</i>, whose definition is remarkably similar to that of the PageRank measure. </p> 
+  <p> The use of anchor text as an aid to searching and ranking stems from the work of <a href="bibliography-1.html#mcbryan94genvl">McBryan (1994)</a>. Extended anchor-text was implicit in his work, with systematic experiments reported in <a href="bibliography-1.html#chakrabarti98automatic">Chakrabarti et&nbsp;al. (1998)</a>. </p> 
+  <p> <a href="bibliography-1.html#kemenysnell">Kemeny and Snell (1976)</a> is a classic text on Markov chains. The PageRank measure was developed in <a href="bibliography-1.html#brinpageanatomy">Brin and Page (1998)</a> and in <a href="bibliography-1.html#page98pagerank">Page et&nbsp;al. (1998)</a>. A number of methods for the fast computation of PageRank values are surveyed in <a href="bibliography-1.html#berkhinpagerank">Berkhin (2005)</a> and in <a href="bibliography-1.html#langville">Langville and Meyer (2006)</a>; the former also details how the PageRank eigenvector solution may be viewed as solving a linear system, leading to one way of solving Exercise <a href="topic-specific-pagerank-1.html#ex:prob:perspagerank">21.2.3</a> . The effect of the teleport probability <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> has been studied by <a href="bibliography-1.html#baeza05choice">Baeza-Yates et&nbsp;al. (2005)</a> and by <a href="bibliography-1.html#boldi05pagerank">Boldi et&nbsp;al. (2005)</a>. Topic-specific PageRank and variants were developed in <a href="bibliography-1.html#haveliwala02topicsensitive">Haveliwala (2002)</a>, <a href="bibliography-1.html#haveliwala03topicsensitive">Haveliwala (2003)</a> and in <a href="bibliography-1.html#jehwidom">Jeh and Widom (2003)</a>. <a href="bibliography-1.html#berkhinbsa">Berkhin (2006a)</a> develops an alternate view of topic-specific PageRank. </p> 
+  <p> <a href="bibliography-1.html#ng01link">Ng et&nbsp;al. (2001b)</a> suggests that the PageRank score assignment is more robust than HITS in the sense that scores are less sensitive to small changes in graph topology. However, it has also been noted that the teleport operation contributes significantly to PageRank's robustness in this sense. Both PageRank and HITS can be ``spammed'' by the orchestrated insertion of links into the web graph; indeed, the Web is known to have such <a name="32694"></a> <i>link farms</i> that collude to increase the score assigned to certain pages by various link analysis algorithms. </p> 
+  <p> The HITS algorithm is due to <a href="bibliography-1.html#kleinberg99authoritative">Kleinberg (1999)</a>. <a href="bibliography-1.html#chakrabarti98automatic">Chakrabarti et&nbsp;al. (1998)</a> developed variants that weighted links in the iterative computation based on the presence of query terms in the pages being linked and compared these to results from several web search engines. <a href="bibliography-1.html#bharat98improved">Bharat and Henzinger (1998)</a> further developed these and other heuristics, showing that certain combinations outperformed the basic HITS algorithm. <a href="bibliography-1.html#borodintsaparas">Borodin et&nbsp;al. (2001)</a> provides a systematic study of several variants of the HITS algorithm. <a href="bibliography-1.html#ng01link">Ng et&nbsp;al. (2001b)</a> introduces a notion of <i>stability</i> for link analysis, arguing that small changes to link topology should not lead to significant changes in the ranked list of results for a query. Numerous other variants of HITS have been developed by a number of authors, the best know of which is perhaps SALSA (<a href="bibliography-1.html#lempel00stochastic">Lempel and Moran, 2000</a>). </p> 
+  <p> </p> 
+  <p> </p> 
+  <p> We use the following abbreviated journal and conference names in the bibliography: </p> 
+  <dl> 
+   <dt> 
+    <strong><i>CACM</i></strong> 
+   </dt> 
+   <dd>
+     Communications of the Association for Computing Machinery. 
+   </dd> 
+   <dt> 
+    <strong><i>IP&amp;M</i></strong> 
+   </dt> 
+   <dd>
+     Information Processing and Management. 
+   </dd> 
+   <dt> 
+    <strong><i>IR</i></strong> 
+   </dt> 
+   <dd>
+     Information Retrieval. 
+   </dd> 
+   <dt> 
+    <strong><i>JACM</i></strong> 
+   </dt> 
+   <dd>
+     Journal of the Association for Computing Machinery. 
+   </dd> 
+   <dt> 
+    <strong><i>JASIS</i></strong> 
+   </dt> 
+   <dd>
+     Journal of the American Society for Information Science. 
+   </dd> 
+   <dt> 
+    <strong><i>JASIST</i></strong> 
+   </dt> 
+   <dd>
+     Journal of the American Society for Information Science and Technology. 
+   </dd> 
+   <dt> 
+    <strong><i>JMLR</i></strong> 
+   </dt> 
+   <dd>
+     Journal of Machine Learning Research. 
+   </dd> 
+   <dt> 
+    <strong><i>TOIS</i></strong> 
+   </dt> 
+   <dd>
+     ACM Transactions on Information Systems. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. ACL</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Annual Meeting of the Association for Computational Linguistics. Available from: 
+    <tt><a name="tex2html230" href="http://www.aclweb.org/anthology-index/">http://www.aclweb.org/anthology-index/</a></tt> 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. CIKM</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the ACM CIKM Conference on Information and Knowledge Management. ACM Press. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. ECIR</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the European Conference on Information Retrieval. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. ECML</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the European Conference on Machine Learning. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. ICML</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the International Conference on Machine Learning. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. IJCAI</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the International Joint Conference on Artificial Intelligence. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. INEX</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Initiative for the Evaluation of XML Retrieval. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. KDD</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. NIPS</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Neural Information Processing Systems Conference. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. PODS</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the ACM Conference on Principles of Database Systems. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. SDAIR</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Annual Symposium on Document Analysis and Information Retrieval. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. SIGIR</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Annual International ACM/SIGIR Conference on Research and Development in Information Retrieval. Available from: 
+    <tt><a name="tex2html231" href="http://www.sigir.org/proceedings/Proc-Browse.html">http://www.sigir.org/proceedings/Proc-Browse.html</a></tt> 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. SPIRE</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Symposium on String Processing and Information Retrieval. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. TREC</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Text Retrieval Conference. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. UAI</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Conference on Uncertainty in Artificial Intelligence. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. VLDB</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the Very Large Data Bases Conference. 
+   </dd> 
+   <dt> 
+    <strong><i>Proc. WWW</i></strong> 
+   </dt> 
+   <dd>
+     Proceedings of the International World Wide Web Conference. 
+   </dd> 
+  </dl> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html5103" href="bibliography-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html5097" href="link-analysis-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html5093" href="choosing-the-subset-of-the-web-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html5099" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html5101" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html5104" href="bibliography-1.html">Bibliography</a> 
+  <b> Up:</b> 
+  <a name="tex2html5098" href="link-analysis-1.html">Link analysis</a> 
+  <b> Previous:</b> 
+  <a name="tex2html5094" href="choosing-the-subset-of-the-web-1.html">Choosing the subset of</a> &nbsp; 
+  <b> <a name="tex2html5100" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html5102" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

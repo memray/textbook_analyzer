@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>The term vocabulary and postings lists</title> 
+  <meta name="description" content="The term vocabulary and postings lists" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="dictionaries-and-tolerant-retrieval-1.html" /> 
+  <link rel="previous" href="boolean-retrieval-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="document-delineation-and-character-sequence-decoding-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1006" href="document-delineation-and-character-sequence-decoding-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1000" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html994" href="references-and-further-reading-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1002" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1004" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1007" href="document-delineation-and-character-sequence-decoding-1.html">Document delineation and character</a> 
+  <b> Up:</b> 
+  <a name="tex2html1001" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html995" href="references-and-further-reading-1.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html1003" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1005" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION00700000000000000000"></a><a name="ch:dictionary"></a> <a name="ch:vocabulary-postings"></a> <br /> The term vocabulary and postings lists </h1> 
+  <p> Recall the major steps in inverted index construction: </p>
+  <ol> 
+   <li>Collect the documents to be indexed. </li> 
+   <li>Tokenize the text. </li> 
+   <li>Do linguistic preprocessing of tokens. </li> 
+   <li>Index the documents that each term occurs in. </li> 
+  </ol> In this chapter we first briefly mention how the basic unit of a document can be defined and how the character sequence that it comprises is determined (Section 
+  <a href="document-delineation-and-character-sequence-decoding-1.html#sec:document-charset">2.1</a> ). We then examine in detail some of the substantive linguistic issues of tokenization and linguistic preprocessing, which determine the vocabulary of terms which a system uses (Section 
+  <a href="determining-the-vocabulary-of-terms-1.html#sec:dictionary-terms">2.2</a> ). Tokenization is the process of chopping character streams into 
+  <a name="2019"></a> 
+  <i>tokens</i> , while linguistic preprocessing then deals with building equivalence classes of tokens which are the set of 
+  <a name="2021"></a> 
+  <i>terms</i> that are indexed. Indexing itself is covered in Chapters 
+  <a href="boolean-retrieval-1.html#ch:intro">1</a> 
+  <a href="index-construction-1.html#ch:iconst">4</a> . Then we return to the implementation of postings lists. In Section 
+  <a href="faster-postings-list-intersection-via-skip-pointers-1.html#sec:skip-pointers">2.3</a> , we examine an extended postings list data structure that supports faster querying, while Section 
+  <a href="positional-postings-and-phrase-queries-1.html#sec:phrasequery">2.4</a> covers building postings data structures suitable for handling phrase and proximity queries, of the sort that commonly appear in both extended Boolean models and on the web. 
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html1008" href="document-delineation-and-character-sequence-decoding-1.html">Document delineation and character sequence decoding</a> 
+    <ul> 
+     <li><a name="tex2html1009" href="obtaining-the-character-sequence-in-a-document-1.html">Obtaining the character sequence in a document</a> </li>
+     <li><a name="tex2html1010" href="choosing-a-document-unit-1.html">Choosing a document unit</a> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html1011" href="determining-the-vocabulary-of-terms-1.html">Determining the vocabulary of terms</a> 
+    <ul> 
+     <li><a name="tex2html1012" href="tokenization-1.html">Tokenization</a> </li>
+     <li><a name="tex2html1013" href="dropping-common-terms-stop-words-1.html">Dropping common terms: stop words</a> </li>
+     <li><a name="tex2html1014" href="normalization-equivalence-classing-of-terms-1.html">Normalization (equivalence classing of terms)</a> 
+      <ul> 
+       <li><a name="tex2html1015" href="accents-and-diacritics-1.html">Accents and diacritics.</a> </li>
+       <li><a name="tex2html1016" href="capitalizationcase-folding-1.html">Capitalization/case-folding.</a> </li>
+       <li><a name="tex2html1017" href="other-issues-in-english-1.html">Other issues in English.</a> </li>
+       <li><a name="tex2html1018" href="other-languages-1.html">Other languages.</a> </li>
+      </ul> </li>
+     <li><a name="tex2html1019" href="stemming-and-lemmatization-1.html">Stemming and lemmatization</a> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html1020" href="faster-postings-list-intersection-via-skip-pointers-1.html">Faster postings list intersection via skip pointers</a> </li>
+   <li><a name="tex2html1021" href="positional-postings-and-phrase-queries-1.html">Positional postings and phrase queries</a> 
+    <ul> 
+     <li><a name="tex2html1022" href="biword-indexes-1.html">Biword indexes</a> </li>
+     <li><a name="tex2html1023" href="positional-indexes-1.html">Positional indexes</a> 
+      <ul> 
+       <li><a name="tex2html1024" href="positional-index-size-1.html">Positional index size.</a> </li>
+      </ul> </li>
+     <li><a name="tex2html1025" href="combination-schemes-1.html">Combination schemes</a> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html1026" href="references-and-further-reading-2.html">References and further reading</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1006" href="document-delineation-and-character-sequence-decoding-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1000" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html994" href="references-and-further-reading-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1002" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1004" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1007" href="document-delineation-and-character-sequence-decoding-1.html">Document delineation and character</a> 
+  <b> Up:</b> 
+  <a name="tex2html1001" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html995" href="references-and-further-reading-1.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html1003" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1005" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

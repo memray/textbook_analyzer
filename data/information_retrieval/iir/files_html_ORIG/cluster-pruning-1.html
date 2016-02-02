@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Cluster pruning</title> 
+  <meta name="description" content="Cluster pruning" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="impact-ordering-1.html" /> 
+  <link rel="up" href="efficient-scoring-and-ranking-1.html" /> 
+  <link rel="next" href="components-of-an-information-retrieval-system-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2214" href="components-of-an-information-retrieval-system-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2208" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2204" href="impact-ordering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2210" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2212" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2215" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> 
+  <b> Up:</b> 
+  <a name="tex2html2209" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2205" href="impact-ordering-1.html">Impact ordering</a> &nbsp; 
+  <b> <a name="tex2html2211" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2213" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001216000000000000000"></a> <a name="sec:clusterpruning"></a> <a name="p:clusterpruning"></a> <br /> Cluster pruning </h2> In 
+  <em>cluster pruning</em> we have a preprocessing step during which we cluster the document vectors. Then at query time, we consider only documents in a small number of clusters as candidates for which we compute cosine scores. Specifically, the preprocessing step is as follows: 
+  <ol> 
+   <li>Pick <img width="32" height="38" align="MIDDLE" border="0" src="img497.png" alt="$\sqrt{N}$" /> documents at random from the collection. Call these <em>leaders</em>. </li> 
+   <li>For each document that is not a leader, we compute its nearest leader. </li> 
+  </ol> We refer to documents that are not leaders as 
+  <em>followers</em>. Intuitively, in the partition of the followers induced by the use of 
+  <img width="32" height="38" align="MIDDLE" border="0" src="img497.png" alt="$\sqrt{N}$" /> randomly chosen leaders, the expected number of followers for each leader is 
+  <!-- MATH
+ $\approx N/\sqrt{N} = \sqrt{N}$
+ --> 
+  <img width="123" height="38" align="MIDDLE" border="0" src="img498.png" alt="$\approx N/\sqrt{N} = \sqrt{N}$" />. Next, query processing proceeds as follows: 
+  <ol> 
+   <li>Given a query <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />, find the leader <img width="14" height="32" align="MIDDLE" border="0" src="img127.png" alt="$L$" /> that is closest to <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. This entails computing cosine similarities from <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" /> to each of the <img width="32" height="38" align="MIDDLE" border="0" src="img497.png" alt="$\sqrt{N}$" /> leaders. </li> 
+   <li>The candidate set <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> consists of <img width="14" height="32" align="MIDDLE" border="0" src="img127.png" alt="$L$" /> together with its followers. We compute the cosine scores for all documents in this candidate set. </li> 
+  </ol> 
+  <p> The use of randomly chosen leaders for clustering is fast and likely to reflect the distribution of the document vectors in the vector space: a region of the vector space that is dense in documents is likely to produce multiple leaders and thus a finer partition into sub-regions. This illustrated in Figure <a href="#fig:figclusterpruning">7.3</a> . </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:figclusterpruning"></a>
+   <a name="p:figclusterpruning"></a>
+   <a name="9971"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 7.3:</strong> Cluster pruning.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="361" height="290" align="BOTTOM" border="0" src="img499.png" alt="\includegraphics[width=8cm]{clusterpruning.eps}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> Variations of cluster pruning introduce additional parameters <img width="18" height="31" align="MIDDLE" border="0" src="img500.png" alt="$b_1$" /> and <img width="18" height="31" align="MIDDLE" border="0" src="img501.png" alt="$b_2$" />, both of which are positive integers. In the pre-processing step we attach each follower to its <img width="18" height="31" align="MIDDLE" border="0" src="img500.png" alt="$b_1$" /> closest leaders, rather than a single closest leader. At query time we consider the <img width="18" height="31" align="MIDDLE" border="0" src="img501.png" alt="$b_2$" /> leaders closest to the query <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. Clearly, the basic scheme above corresponds to the case <img width="85" height="31" align="MIDDLE" border="0" src="img502.png" alt="$b_1=b_2=1$" />. Further, increasing <img width="18" height="31" align="MIDDLE" border="0" src="img500.png" alt="$b_1$" /> or <img width="18" height="31" align="MIDDLE" border="0" src="img501.png" alt="$b_2$" /> increases the likelihood of finding <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents that are more likely to be in the set of true top-scoring <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents, at the expense of more computation. We reiterate this approach when describing clustering in Chapter <a href="flat-clustering-1.html#ch:flatclust">16</a> (page <a href="clustering-in-information-retrieval-1.html#p:cluster4fastsearch">16.1</a> ). </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>We suggested above (Figure <a href="static-quality-scores-and-ordering-1.html#fig:gd">7.2</a> ) that the postings for static quality ordering be in decreasing order of <img width="34" height="33" align="MIDDLE" border="0" src="img492.png" alt="$g(d)$" />. Why do we use the decreasing rather than the increasing order? <p> </p></li> 
+   <li>When discussing champion lists, we simply used the <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> documents with the largest tf values to create the champion list for <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />. But when considering global champion lists, we used idf as well, identifying documents with the largest values of 
+    <!-- MATH
+ $g(d)+\mbox{tf-idf}_{t,d}$
+ --> <img width="104" height="33" align="MIDDLE" border="0" src="img496.png" alt="$g(d)+\mbox{tf-idf}_{t,d}$" />. Why do we differentiate between these two cases? <p> </p></li> 
+   <li>If we were to only have one-term queries, explain why the use of global champion lists with <img width="44" height="32" align="MIDDLE" border="0" src="img503.png" alt="$r=K$" /> suffices for identifying the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> highest scoring documents. What is a simple modification to this idea if we were to only have <img width="11" height="32" align="MIDDLE" border="0" src="img175.png" alt="$s$" />-term queries for any fixed integer <img width="40" height="32" align="MIDDLE" border="0" src="img504.png" alt="$s&gt;1$" />? <p> </p></li> 
+   <li>Explain how the common global ordering by <img width="34" height="33" align="MIDDLE" border="0" src="img492.png" alt="$g(d)$" /> values in all high and low lists helps make the score computation efficient. <p> </p></li> 
+   <li>Consider again the data of Exercise&nbsp;<a href="pivoted-normalized-document-length-1.html#ex:tfidfscoring">6.4.4</a> with <tt>nnn.atc</tt> for the query-dependent scoring. Suppose that we were given static quality scores of 1 for Doc1 and 2 for Doc2. Determine under Equation&nbsp;<a href="static-quality-scores-and-ordering-1.html#eqn:netscore">35</a> what ranges of static quality score for Doc3 result in it being the first, second or third result for the query best car insurance. <p> </p></li> 
+   <li>Sketch the frequency-ordered postings for the data in Figure <a href="tf-idf-weighting-1.html#fig:tfgraph">6.9</a> . <p> </p></li> 
+   <li>Let the static quality scores for Doc1, Doc2 and Doc3 in Figure <a href="dot-products-1.html#fig:tfeuc">6.11</a> be respectively 0.25, 0.5 and 1. Sketch the postings for impact ordering when each postings list is ordered by the sum of the static quality score and the Euclidean normalized tf values in Figure <a href="dot-products-1.html#fig:tfeuc">6.11</a> . <p> </p></li> 
+   <li>The nearest-neighbor problem in the plane is the following: given a set of <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> data points on the plane, we preprocess them into some data structure such that, given a query point <img width="17" height="32" align="MIDDLE" border="0" src="img146.png" alt="$Q$" />, we seek the point in <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> that is closest to <img width="17" height="32" align="MIDDLE" border="0" src="img146.png" alt="$Q$" /> in Euclidean distance. Clearly cluster pruning can be used as an approach to the nearest-neighbor problem in the plane, if we wished to avoid computing the distance from <img width="17" height="32" align="MIDDLE" border="0" src="img146.png" alt="$Q$" /> to every one of the query points. Devise a simple example on the plane so that with two leaders, the answer returned by cluster pruning is incorrect (it is not the data point closest to <img width="17" height="32" align="MIDDLE" border="0" src="img146.png" alt="$Q$" />). <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2214" href="components-of-an-information-retrieval-system-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2208" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2204" href="impact-ordering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2210" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2212" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2215" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> 
+  <b> Up:</b> 
+  <a name="tex2html2209" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2205" href="impact-ordering-1.html">Impact ordering</a> &nbsp; 
+  <b> <a name="tex2html2211" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2213" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

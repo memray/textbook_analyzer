@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Text-centric vs. data-centric XML retrieval</title> 
+  <meta name="description" content="Text-centric vs. data-centric XML retrieval" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="references-and-further-reading-10.html" /> 
+  <link rel="previous" href="evaluation-of-xml-retrieval-1.html" /> 
+  <link rel="up" href="xml-retrieval-1.html" /> 
+  <link rel="next" href="references-and-further-reading-10.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2925" href="references-and-further-reading-10.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2919" href="xml-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2913" href="evaluation-of-xml-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2921" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2923" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2926" href="references-and-further-reading-10.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html2920" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2914" href="evaluation-of-xml-retrieval-1.html">Evaluation of XML retrieval</a> &nbsp; 
+  <b> <a name="tex2html2922" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2924" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001550000000000000000"></a> <a name="sec:xmladvanced"></a> <a name="p:xmladvanced"></a> <br /> Text-centric vs. data-centric XML retrieval </h1> In the type of structured retrieval we cover in this chapter, XML structure serves as a framework within which we match the text of the query with the text of the XML documents. This exemplifies a system that is optimized for 
+  <a name="12896"></a> 
+  <i>text-centric XML</i> . While both text and structure are important, we give higher priority to text. We do this by adapting unstructured retrieval methods to handling additional structural constraints. The premise of our approach is that XML document retrieval is characterized by (i) long text fields (e.g., sections of a document), (ii) inexact matching, and (iii) relevance-ranked results. Relational databases do not deal well with this 
+  <a name="12898"></a>
+  <a name="12899"></a> use case. 
+  <p> In contrast, <a name="12900"></a> <i>data-centric XML</i> mainly encodes numerical and non-text attribute-value data. When querying data-centric XML, we want to impose exact match conditions in most cases. This puts the emphasis on the structural aspects of XML documents and queries. An example is: </p>
+  <blockquote>
+    Find employees whose salary is the same this month as it was 12 months ago. 
+  </blockquote> This query requires no ranking. It is purely structural and an exact matching of the salaries in the two time periods is probably sufficient to meet the user's information need. 
+  <p> Text-centric approaches are appropriate for data that are essentially text documents, marked up as XML to capture document structure. This is becoming a de facto standard for publishing text databases since most text documents have some form of interesting structure - paragraphs, sections, footnotes etc. Examples include assembly manuals, issues of journals, Shakespeare's collected works and newswire articles. </p>
+  <p> Data-centric approaches are commonly used for data collections with complex structures that mainly contain non-text data. A text-centric retrieval engine will have a hard time with proteomic data in bioinformatics or with the representation of a city map that (together with street names and other textual descriptions) forms a navigational database. </p>
+  <p> Two other types of queries that are difficult to handle in a text-centric structured retrieval model are joins and ordering constraints. The query for employees with unchanged salary requires a join. The following query imposes an ordering constraint: </p>
+  <blockquote>
+    Retrieve the chapter of the book Introduction to algorithms that follows the chapter Binomial heaps. 
+  </blockquote> This query relies on the ordering of elements in XML - in this case the ordering of chapter elements underneath the book node. There are powerful query languages for XML that can handle numerical attributes, joins and ordering constraints. The best known of these is 
+  <a name="p:xquery"></a> XQuery, a language proposed for standardization by the W3C. It is designed to be broadly applicable in all areas where XML is used. Due to its complexity, it is challenging to implement an XQuery-based ranked retrieval system with the performance characteristics that users have come to expect in information retrieval. This is currently one of the most active areas of research in XML retrieval. 
+  <p> Relational databases are better equipped to handle many structural constraints, particularly joins (but ordering is also difficult in a database framework - the tuples of a relation in the relational calculus are not ordered). For this reason, most data-centric XML retrieval systems are extensions of relational databases (see the references in Section <a href="references-and-further-reading-10.html#sec:xmlfurther">10.6</a> ). If text fields are short, exact matching meets user needs and retrieval results in form of unordered sets are acceptable, then using a relational database for XML retrieval is appropriate. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2925" href="references-and-further-reading-10.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2919" href="xml-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2913" href="evaluation-of-xml-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2921" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2923" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2926" href="references-and-further-reading-10.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html2920" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2914" href="evaluation-of-xml-retrieval-1.html">Evaluation of XML retrieval</a> &nbsp; 
+  <b> <a name="tex2html2922" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2924" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

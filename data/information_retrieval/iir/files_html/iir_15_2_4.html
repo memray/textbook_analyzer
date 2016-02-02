@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Experimental results</title> 
+  <meta name="description" content="Experimental results" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="nonlinear-svms-1.html" /> 
+  <link rel="up" href="extensions-to-the-svm-model-1.html" /> 
+  <link rel="next" href="issues-in-the-classification-of-text-documents-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3917" href="issues-in-the-classification-of-text-documents-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3911" href="extensions-to-the-svm-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3907" href="nonlinear-svms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3913" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3915" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3918" href="issues-in-the-classification-of-text-documents-1.html">Issues in the classification</a> 
+  <b> Up:</b> 
+  <a name="tex2html3912" href="extensions-to-the-svm-model-1.html">Extensions to the SVM</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3908" href="nonlinear-svms-1.html">Nonlinear SVMs</a> &nbsp; 
+  <b> <a name="tex2html3914" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3916" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002024000000000000000"></a><a name="sec:svm-experiments"></a> <a name="p:svm-experiments"></a> <br /> Experimental results </h2> 
+  <p> <br /></p> 
+  <p></p> 
+  <div align="CENTER"> 
+   <table cellpadding="3" border="1"> 
+    <tbody> 
+     <tr> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="LEFT" colspan="1">Roc-</td> 
+      <td align="LEFT" colspan="1">Dec.</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" colspan="2">linear SVM</td> 
+      <td align="RIGHT">rbf-SVM</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="RIGHT">NB</td> 
+      <td align="RIGHT">chio</td> 
+      <td align="RIGHT">Trees</td> 
+      <td align="RIGHT">kNN</td> 
+      <td align="RIGHT"><img width="57" height="32" align="MIDDLE" border="0" src="img1356.png" alt="$C=0.5$" /></td> 
+      <td align="RIGHT"><img width="57" height="32" align="MIDDLE" border="0" src="img1357.png" alt="$C=1.0$" /></td> 
+      <td align="RIGHT"> 
+       <!-- MATH
+ $\sigma \approx 7$
+ --> <img width="43" height="32" align="MIDDLE" border="0" src="img1358.png" alt="$\sigma \approx 7$" /></td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">earn</td> 
+      <td align="RIGHT">96.0</td> 
+      <td align="RIGHT">96.1</td> 
+      <td align="RIGHT">96.1</td> 
+      <td align="RIGHT">97.8</td> 
+      <td align="RIGHT">98.0</td> 
+      <td align="RIGHT">98.2</td> 
+      <td align="RIGHT">98.1</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">acq</td> 
+      <td align="RIGHT">90.7</td> 
+      <td align="RIGHT">92.1</td> 
+      <td align="RIGHT">85.3</td> 
+      <td align="RIGHT">91.8</td> 
+      <td align="RIGHT">95.5</td> 
+      <td align="RIGHT">95.6</td> 
+      <td align="RIGHT">94.7</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">money-fx</td> 
+      <td align="RIGHT">59.6</td> 
+      <td align="RIGHT">67.6</td> 
+      <td align="RIGHT">69.4</td> 
+      <td align="RIGHT">75.4</td> 
+      <td align="RIGHT">78.8</td> 
+      <td align="RIGHT">78.5</td> 
+      <td align="RIGHT">74.3</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">grain</td> 
+      <td align="RIGHT">69.8</td> 
+      <td align="RIGHT">79.5</td> 
+      <td align="RIGHT">89.1</td> 
+      <td align="RIGHT">82.6</td> 
+      <td align="RIGHT">91.9</td> 
+      <td align="RIGHT">93.1</td> 
+      <td align="RIGHT">93.4</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">crude</td> 
+      <td align="RIGHT">81.2</td> 
+      <td align="RIGHT">81.5</td> 
+      <td align="RIGHT">75.5</td> 
+      <td align="RIGHT">85.8</td> 
+      <td align="RIGHT">89.4</td> 
+      <td align="RIGHT">89.4</td> 
+      <td align="RIGHT">88.7</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">trade</td> 
+      <td align="RIGHT">52.2</td> 
+      <td align="RIGHT">77.4</td> 
+      <td align="RIGHT">59.2</td> 
+      <td align="RIGHT">77.9</td> 
+      <td align="RIGHT">79.2</td> 
+      <td align="RIGHT">79.2</td> 
+      <td align="RIGHT">76.6</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">interest</td> 
+      <td align="RIGHT">57.6</td> 
+      <td align="RIGHT">72.5</td> 
+      <td align="RIGHT">49.1</td> 
+      <td align="RIGHT">76.7</td> 
+      <td align="RIGHT">75.6</td> 
+      <td align="RIGHT">74.8</td> 
+      <td align="RIGHT">69.1</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">ship</td> 
+      <td align="RIGHT">80.9</td> 
+      <td align="RIGHT">83.1</td> 
+      <td align="RIGHT">80.9</td> 
+      <td align="RIGHT">79.8</td> 
+      <td align="RIGHT">87.4</td> 
+      <td align="RIGHT">86.5</td> 
+      <td align="RIGHT">85.8</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">wheat</td> 
+      <td align="RIGHT">63.4</td> 
+      <td align="RIGHT">79.4</td> 
+      <td align="RIGHT">85.5</td> 
+      <td align="RIGHT">72.9</td> 
+      <td align="RIGHT">86.6</td> 
+      <td align="RIGHT">86.8</td> 
+      <td align="RIGHT">82.4</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">corn</td> 
+      <td align="RIGHT">45.2</td> 
+      <td align="RIGHT">62.2</td> 
+      <td align="RIGHT">87.7</td> 
+      <td align="RIGHT">71.4</td> 
+      <td align="RIGHT">87.5</td> 
+      <td align="RIGHT">87.8</td> 
+      <td align="RIGHT">84.6</td> 
+     </tr> 
+     <tr> 
+      <td align="LEFT">microavg.</td> 
+      <td align="RIGHT">72.3</td> 
+      <td align="RIGHT">79.9</td> 
+      <td align="RIGHT">79.4</td> 
+      <td align="RIGHT">82.6</td> 
+      <td align="RIGHT">86.7</td> 
+      <td align="RIGHT">87.5</td> 
+      <td align="RIGHT">86.4</td> 
+     </tr> 
+    </tbody> 
+   </table> SVM classifier break-even F 
+   <img width="10" height="32" align="MIDDLE" border="0" src="img26.png" alt="$_1$" /> from ( 
+   <a href="bibliography-1.html#joachims2002classify">Joachims, 2002a</a>, p.&nbsp;114). Results are shown for the 10 largest categories and for microaveraged performance over all 90 categories on the Reuters-21578 data set. 
+   <a name="tab:reuters-joachims"></a> 
+   <a name="p:reuters-joachims"></a> 
+  </div> 
+  <br /> 
+  <p> We presented results in Section <a href="evaluation-of-text-classification-1.html#sec:textcat-eval">13.6</a> showing that an SVM is a very effective text classifier. The results of <a href="bibliography-1.html#dumais98inductive">Dumais et&nbsp;al. (1998)</a> given in Table <a href="#tab:nbeffectiveness">13.9</a> show SVMs clearly performing the best. This was one of several pieces of work from this time that established the strong reputation of SVMs for text classification. Another pioneering work on scaling and evaluating SVMs for text classification was (<a href="bibliography-1.html#joachims98text">Joachims, 1998</a>). We present some of his results from (<a href="bibliography-1.html#joachims2002classify">Joachims, 2002a</a>) in Table <a href="#tab:reuters-joachims">15.2</a> .<a name="tex2html172" href="footnode.html#foot23223"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a>Joachims used a large number of term features in contrast to <a href="bibliography-1.html#dumais98inductive">Dumais et&nbsp;al. (1998)</a>, who used MI feature selection (Section <a href="mutual-information-1.html#sec:mutualinfo">13.5.1</a> , page <a href="mutual-information-1.html#p:mutualinfo">13.5.1</a> ) to build classifiers with a much more limited number of features. The success of the linear SVM mirrors the results discussed in Section&nbsp;<a href="the-bias-variance-tradeoff-1.html#sec:secbiasvariance">14.6</a> (page&nbsp;<a href="the-bias-variance-tradeoff-1.html#p:secbiasvariance"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>) on other linear approaches like Naive Bayes. It seems that working with simple term features can get one a long way. It is again noticeable the extent to which different papers' results for the same machine learning methods differ. In particular, based on replications by other researchers, the Naive Bayes results of (<a href="bibliography-1.html#joachims98text">Joachims, 1998</a>) appear too weak, and the results in Table <a href="#tab:nbeffectiveness">13.9</a> should be taken as representative. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3917" href="issues-in-the-classification-of-text-documents-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3911" href="extensions-to-the-svm-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3907" href="nonlinear-svms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3913" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3915" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3918" href="issues-in-the-classification-of-text-documents-1.html">Issues in the classification</a> 
+  <b> Up:</b> 
+  <a name="tex2html3912" href="extensions-to-the-svm-model-1.html">Extensions to the SVM</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3908" href="nonlinear-svms-1.html">Nonlinear SVMs</a> &nbsp; 
+  <b> <a name="tex2html3914" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3916" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

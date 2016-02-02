@@ -1,0 +1,3 @@
+// DEPRECATED
+public class BookParserFilter {
+}

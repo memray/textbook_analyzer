@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Assessing relevance</title> 
+  <meta name="description" content="Assessing relevance" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="a-broader-perspective-system-quality-and-user-utility-1.html" /> 
+  <link rel="previous" href="evaluation-of-ranked-retrieval-results-1.html" /> 
+  <link rel="up" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="next" href="critiques-and-justifications-of-the-concept-of-relevance-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2459" href="critiques-and-justifications-of-the-concept-of-relevance-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2453" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2447" href="evaluation-of-ranked-retrieval-results-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2455" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2457" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2460" href="critiques-and-justifications-of-the-concept-of-relevance-1.html">Critiques and justifications of</a> 
+  <b> Up:</b> 
+  <a name="tex2html2454" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2448" href="evaluation-of-ranked-retrieval-results-1.html">Evaluation of ranked retrieval</a> &nbsp; 
+  <b> <a name="tex2html2456" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2458" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001350000000000000000"></a><a name="sec:test-collections"></a> <a name="p:test-collections"></a> <br /> Assessing relevance </h1> 
+  <p> To properly evaluate a system, your test information needs must be germane to the documents in the test document collection, and appropriate for predicted usage of the system. These information needs are best designed by domain experts. Using random combinations of query terms as an information need is generally not a good idea because typically they will not resemble the actual distribution of information needs. </p>
+  <p> Given information needs and documents, you need to collect relevance assessments. This is a time-consuming and expensive process involving human beings. For tiny collections like Cranfield, exhaustive judgments of relevance for each query and document pair were obtained. For large modern collections, it is usual for relevance to be assessed only for a subset of the documents for each query. The most standard approach is <a name="10841"></a> <i>pooling</i> , where relevance is assessed over a subset of the collection that is formed from the top <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> documents returned by a number of different IR systems (usually the ones to be evaluated), and perhaps other sources such as the results of Boolean keyword searches or documents found by expert searchers in an interactive process. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER">
+   <a name="10862"></a> 
+   <table> 
+    <caption>
+     <strong>Table 8.2:</strong> Calculating the kappa statistic.
+    </caption> 
+    <tbody>
+     <tr>
+      <td>
+       <table cellpadding="3" border="1"> 
+        <tbody>
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT" colspan="1">&nbsp;</td> 
+          <td align="LEFT" colspan="3">Judge 2 Relevance</td> 
+          <td align="RIGHT">&nbsp;</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT" colspan="2">&nbsp;</td> 
+          <td align="RIGHT">Yes</td> 
+          <td align="LEFT">&nbsp;</td>
+          <td align="RIGHT">No</td> 
+          <td align="RIGHT" colspan="1">Total</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">Judge 1</td> 
+          <td align="LEFT">Yes</td> 
+          <td align="RIGHT">300</td> 
+          <td align="LEFT">&nbsp;</td>
+          <td align="RIGHT">20</td> 
+          <td align="RIGHT">320</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">Relevance</td> 
+          <td align="LEFT">No</td> 
+          <td align="RIGHT">10</td> 
+          <td align="LEFT">&nbsp;</td>
+          <td align="RIGHT">70</td> 
+          <td align="RIGHT">80</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">Total</td> 
+          <td align="RIGHT">310</td> 
+          <td align="LEFT">&nbsp;</td>
+          <td align="RIGHT">90</td> 
+          <td align="RIGHT">400</td> 
+         </tr> 
+        </tbody>
+       </table> <p> <br /> <br /> <br /> </p><p> Observed proportion of the times the judges agreed 
+        <!-- MATH
+ $P(A) = (300+70)/400 = 370/400 = 0.925$
+ --> <img width="308" height="33" align="MIDDLE" border="0" src="img557.png" alt="$P(A) = (300+70)/400 = 370/400 = 0.925$" /> <br /> Pooled marginals 
+        <!-- MATH
+ $P(nonrelevant) = (80+90)/(400+400) = 170/800 = 0.2125$
+ --> <img width="433" height="33" align="MIDDLE" border="0" src="img558.png" alt="$P(nonrelevant) = (80+90)/(400+400) = 170/800 = 0.2125$" /> <br />
+        <!-- MATH
+ $P(relevant) = (320+310)/(400+400) = 630/800 = 0.7878$
+ --> <img width="424" height="33" align="MIDDLE" border="0" src="img559.png" alt="$P(relevant) = (320+310)/(400+400) = 630/800 = 0.7878$" /> <br /> Probability that the two judges agreed by chance 
+        <!-- MATH
+ $P(E) = P(nonrelevant)^2 + P(relevant)^2 = 0.2125^2 + 0.7878^2 = 0.665$
+ --> <img width="480" height="36" align="MIDDLE" border="0" src="img560.png" alt="$P(E) = P(nonrelevant)^2 + P(relevant)^2 = 0.2125^2 + 0.7878^2 = 0.665$" /> <br /> Kappa statistic 
+        <!-- MATH
+ $\kappa = (P(A) - P(E))/(1-P(E)) = (0.925 - 0.665)/(1 - 0.665) = 0.776$
+ --> <img width="496" height="33" align="MIDDLE" border="0" src="img561.png" alt="$\kappa = (P(A) - P(E))/(1-P(E)) = (0.925 - 0.665)/(1 - 0.665) = 0.776$" /> <a name="tab:kappa"></a> <a name="p:kappa"></a> </p></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div>
+  <p></p> 
+  <br /> 
+  <p> A human is not a device that reliably reports a gold standard judgment of relevance of a document to a query. Rather, humans and their relevance judgments are quite idiosyncratic and variable. But this is not a problem to be solved: in the final analysis, the success of an IR system depends on how good it is at satisfying the needs of these idiosyncratic humans, one information need at a time. </p>
+  <p> Nevertheless, it is interesting to consider and measure how much agreement between judges there is on relevance judgments. In the social sciences, a common measure for agreement between judges is the <a name="10866"></a> <i>kappa statistic</i> . It is designed for categorical judgments and corrects a simple agreement rate for the rate of chance agreement. <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{\emph{kappa}} = \frac{P(A) - P(E)}{1 - P(E)}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="152" height="45" border="0" src="img562.png" alt="\begin{displaymath}
+\mbox{\emph{kappa}} = \frac{P(A) - P(E)}{1 - P(E)}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (46)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> where 
+  <img width="41" height="33" align="MIDDLE" border="0" src="img563.png" alt="$P(A)$" /> is the proportion of the times the judges agreed, and 
+  <img width="38" height="33" align="MIDDLE" border="0" src="img564.png" alt="$P(E)$" /> is the proportion of the times they would be expected to agree by chance. There are choices in how the latter is estimated: if we simply say we are making a two-class decision and assume nothing more, then the expected chance agreement rate is 0.5. However, normally the class distribution assigned is skewed, and it is usual to use 
+  <a name="p:marginal"></a> 
+  <a name="10874"></a> 
+  <i>marginal</i> statistics to calculate expected agreement.
+  <a name="tex2html82" href="footnode.html#foot11024"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a>There are still two ways to do it depending on whether one pools the marginal distribution across judges or uses the marginals for each judge separately; both forms have been used, but we present the pooled version because it is more conservative in the presence of systematic differences in assessments across judges. The calculations are shown in Table 
+  <a href="#tab:kappa">8.2</a> . The kappa value will be 1 if two judges always agree, 0 if they agree only at the rate given by chance, and negative if they are worse than random. If there are more than two judges, it is normal to calculate an average pairwise kappa value. As a rule of thumb, a kappa value above 0.8 is taken as good agreement, a kappa value between 0.67 and 0.8 is taken as fair agreement, and agreement below 0.67 is seen as data providing a dubious basis for an evaluation, though the precise cutoffs depend on the purposes for which the data will be used. 
+  <p> Interjudge agreement of relevance has been measured within the TREC evaluations and for medical IR collections. Using the above rules of thumb, the level of agreement normally falls in the range of ``fair'' (0.67-0.8). The fact that human agreement on a binary relevance judgment is quite modest is one reason for not requiring more fine-grained relevance labeling from the test set creator. To answer the question of whether IR evaluation results are valid despite the variation of individual assessors' judgments, people have experimented with evaluations taking one or the other of two judges' opinions as the gold standard. The choice can make a considerable <i>absolute</i> difference to reported scores, but has in general been found to have little impact on the <i>relative</i> effectiveness ranking of either different systems or variants of a single system which are being compared for effectiveness. </p>
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html2461" href="critiques-and-justifications-of-the-concept-of-relevance-1.html">Critiques and justifications of the concept of relevance</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2459" href="critiques-and-justifications-of-the-concept-of-relevance-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2453" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2447" href="evaluation-of-ranked-retrieval-results-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2455" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2457" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2460" href="critiques-and-justifications-of-the-concept-of-relevance-1.html">Critiques and justifications of</a> 
+  <b> Up:</b> 
+  <a name="tex2html2454" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2448" href="evaluation-of-ranked-retrieval-results-1.html">Evaluation of ranked retrieval</a> &nbsp; 
+  <b> <a name="tex2html2456" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2458" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

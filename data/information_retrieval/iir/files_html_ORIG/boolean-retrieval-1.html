@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Boolean retrieval</title> 
+  <meta name="description" content="Boolean retrieval" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="the-term-vocabulary-and-postings-lists-1.html" /> 
+  <link rel="previous" href="preface-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="an-example-information-retrieval-problem-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html917" href="an-example-information-retrieval-problem-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html911" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html905" href="web-and-contact-information-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html913" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html915" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html918" href="an-example-information-retrieval-problem-1.html">An example information retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html912" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html906" href="web-and-contact-information-1.html">Web and contact information</a> &nbsp; 
+  <b> <a name="tex2html914" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html916" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION00600000000000000000"></a><a name="ch:intro"></a> <br /> Boolean retrieval </h1> 
+  <p> The meaning of the term <a name="808"></a> <i>information retrieval</i> can be very broad. Just getting a credit card out of your wallet so that you can type in the card number is a form of information retrieval. However, as an academic field of study, <a name="810"></a> <i>information retrieval</i> might be defined thus: </p>
+  <blockquote>
+    Information retrieval (IR) is finding material (usually documents) of an unstructured nature (usually text) that satisfies an information need from within large collections (usually stored on computers). 
+  </blockquote> As defined in this way, information retrieval used to be an activity that only a few people engaged in: reference librarians, paralegals, and similar professional searchers. Now the world has changed, and hundreds of millions of people engage in information retrieval every day when they use a web search engine or search their email.
+  <a name="tex2html4" href="footnode.html#foot814"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a>Information retrieval is fast becoming the dominant form of information access, overtaking traditional 
+  <a name="815"></a>database-style searching (the sort that is going on when a clerk says to you: ``I'm sorry, I can only look up your order if you can give me your Order ID''). 
+  <p> IR can also cover other kinds of data and information problems beyond that specified in the core definition above. The term ``unstructured data'' refers to data which does not have clear, semantically overt, easy-for-a-computer structure. It is the opposite of structured data, the canonical example of which is a relational database, of the sort companies usually use to maintain product inventories and personnel records. In reality, almost no data are truly ``unstructured''. This is definitely true of all text data if you count the latent linguistic structure of human languages. But even accepting that the intended notion of structure is overt structure, most text has structure, such as headings and paragraphs and footnotes, which is commonly represented in documents by explicit markup (such as the coding underlying web pages). IR is also used to facilitate <a name="816"></a>``semistructured'' search such as finding a document where the title contains Java and the body contains threading. </p>
+  <p> The field of information retrieval also covers supporting users in browsing or filtering document collections or further processing a set of retrieved documents. Given a set of documents, clustering is the task of coming up with a good grouping of the documents based on their contents. It is similar to arranging books on a bookshelf according to their topic. Given a set of topics, standing information needs, or other categories (such as suitability of texts for different age groups), classification is the task of deciding which class(es), if any, each of a set of documents belongs to. It is often approached by first manually classifying some documents and then hoping to be able to classify new documents automatically. </p>
+  <p> Information retrieval systems can also be distinguished by the scale at which they operate, and it is useful to distinguish three prominent scales. In <a name="819"></a> <i>web search</i> , the system has to provide search over billions of documents stored on millions of computers. Distinctive issues are needing to gather documents for indexing, being able to build systems that work efficiently at this enormous scale, and handling particular aspects of the web, such as the exploitation of hypertext and not being fooled by site providers manipulating page content in an attempt to boost their search engine rankings, given the commercial importance of the web. We focus on all these issues in webcharlink. At the other extreme is <a name="823"></a> <i>personal information retrieval</i> . In the last few years, consumer operating systems have integrated information retrieval (such as Apple's Mac OS X Spotlight or Windows Vista's Instant Search). Email programs usually not only provide search but also text classification: they at least provide a spam (junk mail) filter, and commonly also provide either manual or automatic means for classifying mail so that it can be placed directly into particular folders. Distinctive issues here include handling the broad range of document types on a typical personal computer, and making the search system maintenance free and sufficiently lightweight in terms of startup, processing, and disk space usage that it can run on one machine without annoying its owner. In between is the space of <a name="825"></a> <i>enterprise, institutional, and domain-specific search</i> , where retrieval might be provided for collections such as a corporation's internal documents, a database of patents, or research articles on biochemistry. In this case, the documents will typically be stored on centralized file systems and one or a handful of dedicated machines will provide search over the collection. This book contains techniques of value over this whole spectrum, but our coverage of some aspects of parallel and distributed search in web-scale search systems is comparatively light owing to the relatively small published literature on the details of such systems. However, outside of a handful of web search companies, a software developer is most likely to encounter the personal search and enterprise scenarios. </p>
+  <p> In this chapter we begin with a very simple example of an information retrieval problem, and introduce the idea of a term-document matrix (Section <a href="an-example-information-retrieval-problem-1.html#sec:example-problem">1.1</a> ) and the central inverted index data structure (Section <a href="a-first-take-at-building-an-inverted-index-1.html#sec:indexfirsttake">1.2</a> ). We will then examine the Boolean retrieval model and how Boolean queries are processed ( and <a href="the-extended-boolean-model-versus-ranked-retrieval-1.html#sec:boolean-querying">1.4</a> ). </p>
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html919" href="an-example-information-retrieval-problem-1.html">An example information retrieval problem</a> </li>
+   <li><a name="tex2html920" href="a-first-take-at-building-an-inverted-index-1.html">A first take at building an inverted index</a> </li>
+   <li><a name="tex2html921" href="processing-boolean-queries-1.html">Processing Boolean queries</a> </li>
+   <li><a name="tex2html922" href="the-extended-boolean-model-versus-ranked-retrieval-1.html">The extended Boolean model versus ranked retrieval</a> </li>
+   <li><a name="tex2html923" href="references-and-further-reading-1.html">References and further reading</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html917" href="an-example-information-retrieval-problem-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html911" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html905" href="web-and-contact-information-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html913" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html915" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html918" href="an-example-information-retrieval-problem-1.html">An example information retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html912" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html906" href="web-and-contact-information-1.html">Web and contact information</a> &nbsp; 
+  <b> <a name="tex2html914" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html916" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

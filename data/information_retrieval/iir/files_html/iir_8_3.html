@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Evaluation of unranked retrieval sets</title> 
+  <meta name="description" content="Evaluation of unranked retrieval sets" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="evaluation-of-ranked-retrieval-results-1.html" /> 
+  <link rel="previous" href="standard-test-collections-1.html" /> 
+  <link rel="up" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="next" href="evaluation-of-ranked-retrieval-results-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2431" href="evaluation-of-ranked-retrieval-results-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2425" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2419" href="standard-test-collections-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2427" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2429" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2432" href="evaluation-of-ranked-retrieval-results-1.html">Evaluation of ranked retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2426" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2420" href="standard-test-collections-1.html">Standard test collections</a> &nbsp; 
+  <b> <a name="tex2html2428" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2430" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001330000000000000000"></a> <a name="sec:measuresperf"></a> <a name="p:measuresperf"></a> <a name="sec:unranked-evaluation"></a> <a name="p:unranked-evaluation"></a> <br /> Evaluation of unranked retrieval sets </h1> 
+  <p> Given these ingredients, how is system effectiveness measured? The two most frequent and basic measures for information retrieval effectiveness are precision and recall. These are first defined for the simple case where an IR system returns a set of documents for a query. We will see later how to extend these notions to ranked retrieval situations. </p> 
+  <dl> 
+   <dt></dt> 
+   <dd> 
+    <a name="10625"></a> 
+    <i>Precision</i> ( 
+    <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" /> 
+    <a name="P-notation"></a>) is the fraction of retrieved documents that are relevant 
+    <br /> 
+    <div align="RIGHT"> 
+     <!-- MATH
+ \begin{equation}
+\mbox{Precision} = \frac{\#(\mbox{relevant items retrieved})}{\#(\mbox{retrieved items})}
+= P(\mbox{relevant}|\mbox{retrieved})
+\end{equation}
+ --> 
+     <table width="100%" align="CENTER"> 
+      <tbody> 
+       <tr valign="MIDDLE"> 
+        <td align="CENTER" nowrap=""><img width="449" height="45" border="0" src="img509.png" alt="\begin{displaymath}
+\mbox{Precision} = \frac{\char93 (\mbox{relevant items retri...
+...x{retrieved items})}
+= P(\mbox{relevant}\vert\mbox{retrieved})
+\end{displaymath}" /></td> 
+        <td width="10" align="RIGHT"> (36)</td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <br clear="ALL" /> 
+    </div> 
+    <p></p> 
+   </dd> 
+   <dt></dt> 
+   <dd> 
+    <a name="10635"></a> 
+    <i>Recall</i> ( 
+    <img width="15" height="32" align="MIDDLE" border="0" src="img143.png" alt="$R$" /> 
+    <a name="R-notation"></a>) is the fraction of relevant documents that are retrieved 
+    <br /> 
+    <div align="RIGHT"> 
+     <!-- MATH
+ \begin{equation}
+\mbox{Recall} = \frac{\#(\mbox{relevant items retrieved})}{\#(\mbox{relevant items})} =
+ P(\mbox{retrieved}|\mbox{relevant})
+\end{equation}
+ --> 
+     <table width="100%" align="CENTER"> 
+      <tbody> 
+       <tr valign="MIDDLE"> 
+        <td align="CENTER" nowrap=""><img width="428" height="45" border="0" src="img510.png" alt="\begin{displaymath}
+\mbox{Recall} = \frac{\char93 (\mbox{relevant items retrieve...
+...x{relevant items})} =
+P(\mbox{retrieved}\vert\mbox{relevant})
+\end{displaymath}" /></td> 
+        <td width="10" align="RIGHT"> (37)</td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <br clear="ALL" /> 
+    </div> 
+    <p></p> 
+   </dd> 
+  </dl> These notions can be made clear by examining the following contingency table: 
+  <br /> 
+  <img width="459" height="72" align="BOTTOM" border="0" src="img511.png" alt="\begin{example}
+\begin{tabular}[t]{\vert l\vert l\vert l\vert}
+\hline
+&amp; Releva...
+... false negatives (fn) &amp; true negatives (tn) \\ \hline
+\end{tabular}\end{example}" /> 
+  <br /> Then: 
+  <br /> 
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+P &=& tp/(tp + fp) \\
+R &=& tp/(tp + fn)
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td nowrap="" align="RIGHT"><img width="14" height="32" align="MIDDLE" border="0" src="img512.png" alt="$\displaystyle P$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="95" height="33" align="MIDDLE" border="0" src="img513.png" alt="$\displaystyle tp/(tp + fp)$" /></td> 
+      <td width="10" align="RIGHT"> (38)</td> 
+     </tr> 
+     <tr valign="MIDDLE"> 
+      <td nowrap="" align="RIGHT"><img width="15" height="32" align="MIDDLE" border="0" src="img514.png" alt="$\displaystyle R$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="95" height="33" align="MIDDLE" border="0" src="img515.png" alt="$\displaystyle tp/(tp + fn)$" /></td> 
+      <td width="10" align="RIGHT"> (39)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <br clear="ALL" /> 
+  <p></p> 
+  <p> <a name="p:accuracy"></a> An obvious alternative that may occur to the reader is to judge an information retrieval system by its <a name="10654"></a> <i>accuracy</i> , that is, the fraction of its classifications that are correct. In terms of the contingency table above, 
+   <!-- MATH
+ $\mbox{accuracy} = (tp + tn)/(tp +
+fp + fn + tn)$
+ --> <img width="299" height="33" align="MIDDLE" border="0" src="img516.png" alt="$\mbox{accuracy} = (tp + tn)/(tp +
+fp + fn + tn)$" />. This seems plausible, since there are two actual classes, relevant and nonrelevant, and an information retrieval system can be thought of as a two-class classifier which attempts to label them as such (it retrieves the subset of documents which it believes to be relevant). This is precisely the effectiveness measure often used for evaluating machine learning classification problems. </p> 
+  <p> There is a good reason why accuracy is not an appropriate measure for information retrieval problems. In almost all circumstances, the data is extremely skewed: normally over 99.9% of the documents are in the nonrelevant category. A system tuned to maximize accuracy can appear to perform well by simply deeming all documents nonrelevant to all queries. Even if the system is quite good, trying to label some documents as relevant will almost always lead to a high rate of false positives. However, labeling all documents as nonrelevant is completely unsatisfying to an information retrieval system user. Users are always going to want to see some documents, and can be assumed to have a certain tolerance for seeing some false positives providing that they get some useful information. The measures of precision and recall concentrate the evaluation on the return of true positives, asking what percentage of the relevant documents have been found and how many false positives have also been returned. </p> 
+  <p> The advantage of having the two numbers for precision and recall is that one is more important than the other in many circumstances. Typical web surfers would like every result on the first page to be relevant (high precision) but have not the slightest interest in knowing let alone looking at every document that is relevant. In contrast, various professional searchers such as paralegals and intelligence analysts are very concerned with trying to get as high recall as possible, and will tolerate fairly low precision results in order to get it. Individuals searching their hard disks are also often interested in high recall searches. Nevertheless, the two quantities clearly trade off against one another: you can always get a recall of 1 (but very low precision) by retrieving all documents for all queries! Recall is a non-decreasing function of the number of documents retrieved. On the other hand, in a good system, precision usually decreases as the number of documents retrieved is increased. In general we want to get some amount of recall while tolerating only a certain percentage of false positives. </p> 
+  <p> A single measure that trades off precision versus recall is the <a name="10657"></a> <i>F&nbsp;measure</i> , which is the weighted harmonic mean of precision and recall: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+F = \frac{1}{\alpha\frac{1}{P} + (1-\alpha)\frac{1}{R}} 
+= \frac{(\beta^2 + 1)PR}{\beta^2P + R} 
+\mbox{\quad where \quad} \beta^2 = \frac{1-\alpha}{\alpha}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="f-measure"></a><img width="400" height="50" border="0" src="img517.png" alt="\begin{displaymath}
+F = \frac{1}{\alpha\frac{1}{P} + (1-\alpha)\frac{1}{R}}
+= \...
+...
+\mbox{\quad where \quad} \beta^2 = \frac{1-\alpha}{\alpha}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (40)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> where 
+  <!-- MATH
+ $\alpha \in [0,1]$
+ --> 
+  <img width="65" height="33" align="MIDDLE" border="0" src="img518.png" alt="$\alpha \in [0,1]$" /> and thus 
+  <!-- MATH
+ $\beta^2
+\in [0, \infty]$
+ --> 
+  <img width="79" height="36" align="MIDDLE" border="0" src="img519.png" alt="$\beta^2
+\in [0, \infty]$" />. The default 
+  <a name="10672"></a> 
+  <i>balanced F&nbsp;measure</i> equally weights precision and recall, which means making 
+  <img width="61" height="31" align="MIDDLE" border="0" src="img520.png" alt="$\alpha = 1/2$" /> or 
+  <img width="44" height="31" align="MIDDLE" border="0" src="img521.png" alt="$\beta = 1$" />. It is commonly written as 
+  <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" />, which is short for 
+  <img width="36" height="32" align="MIDDLE" border="0" src="img523.png" alt="$F_{\beta=1}$" />, even though the formulation in terms of 
+  <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> more transparently exhibits the F&nbsp;measure as a weighted harmonic mean. When using 
+  <img width="44" height="31" align="MIDDLE" border="0" src="img521.png" alt="$\beta = 1$" />, the formula on the right simplifies to: 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+F_{\beta=1} = \frac{2PR}{P+R}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="98" height="41" border="0" src="img525.png" alt="\begin{displaymath}
+F_{\beta=1} = \frac{2PR}{P+R}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (41)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> However, using an even weighting is not the only choice. Values of 
+  <img width="43" height="31" align="MIDDLE" border="0" src="img526.png" alt="$\beta &lt; 1$" /> emphasize precision, while values of 
+  <img width="44" height="31" align="MIDDLE" border="0" src="img527.png" alt="$\beta &gt; 1$" /> emphasize recall. For example, a value of 
+  <img width="43" height="31" align="MIDDLE" border="0" src="img528.png" alt="$\beta=3$" /> or 
+  <img width="44" height="31" align="MIDDLE" border="0" src="img529.png" alt="$\beta=5$" /> might be used if recall is to be emphasized. Recall, precision, and the F&nbsp;measure are inherently measures between 0 and 1, but they are also very commonly written as percentages, on a scale between 0 and 100. 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:harmonic"></a><a name="p:harmonic"></a></p> 
+   <img width="493" height="345" align="BOTTOM" border="0" src="img530.png" alt="\includegraphics[totalheight=3in,clip=true]{HarmonicMean.eps}" /> Graph comparing the harmonic mean to other means.The graph shows a slice through the calculation of various means of precision and recall for the fixed recall value of 70%. The harmonic mean is always less than either the arithmetic or geometric mean, and often quite close to the minimum of the two numbers. When the precision is also 70%, all the measures coincide. 
+  </div> 
+  <p> Why do we use a harmonic mean rather than the simpler average (arithmetic mean)? Recall that we can always get 100% recall by just returning all documents, and therefore we can always get a 50% arithmetic mean by the same process. This strongly suggests that the arithmetic mean is an unsuitable measure to use. In contrast, if we assume that 1&nbsp;document in 10,000 is relevant to the query, the harmonic mean score of this strategy is 0.02%. The harmonic mean is always less than or equal to the arithmetic mean and the geometric mean. When the values of two numbers differ greatly, the harmonic mean is closer to their minimum than to their arithmetic mean; see Figure <a href="#fig:harmonic">8.1</a> . </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>An IR system returns 8 relevant documents, and 10 nonrelevant documents. There are a total of 20 relevant documents in the collection. What is the precision of the system on this search, and what is its recall? <p> </p></li> 
+   <li>The balanced F measure (a.k.a. F<img width="10" height="32" align="MIDDLE" border="0" src="img26.png" alt="$_1$" />) is defined as the harmonic mean of precision and recall. What is the advantage of using the harmonic mean rather than ``averaging'' (using the arithmetic mean)? <p> </p></li> 
+   <li>Derive the equivalence between the two formulas for F measure shown in Equation&nbsp;<a href="#f-measure">40</a>, given that 
+    <!-- MATH
+ $\alpha = 1/(\beta^2 + 1)$
+ --> <img width="110" height="36" align="MIDDLE" border="0" src="img531.png" alt="$\alpha = 1/(\beta^2 + 1)$" />. <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2431" href="evaluation-of-ranked-retrieval-results-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2425" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2419" href="standard-test-collections-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2427" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2429" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2432" href="evaluation-of-ranked-retrieval-results-1.html">Evaluation of ranked retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2426" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2420" href="standard-test-collections-1.html">Standard test collections</a> &nbsp; 
+  <b> <a name="tex2html2428" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2430" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

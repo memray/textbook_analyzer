@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Result ranking by machine learning</title> 
+  <meta name="description" content="Result ranking by machine learning" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="a-simple-example-of-machine-learned-scoring-1.html" /> 
+  <link rel="up" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html" /> 
+  <link rel="next" href="references-and-further-reading-15.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4098" href="references-and-further-reading-15.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4092" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4088" href="a-simple-example-of-machine-learned-scoring-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4094" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4096" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4099" href="references-and-further-reading-15.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html4093" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4089" href="a-simple-example-of-machine-learned-scoring-1.html">A simple example of</a> &nbsp; 
+  <b> <a name="tex2html4095" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4097" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002042000000000000000"></a><a name="sec:ranking-svm"></a> <a name="p:ranking-svm"></a> <br /> Result ranking by machine learning </h2> 
+  <p> The above ideas can be readily generalized to functions of many more than two variables. There are lots of other scores that are indicative of the relevance of a document to a query, including static quality (PageRank-style measures, discussed in Chapter <a href="link-analysis-1.html#ch:link">21</a> ), document age, zone contributions, document length, and so on. Providing that these measures can be calculated for a training document collection with relevance judgments, any number of such measures can be used to train a machine learning classifier. For instance, we could train an SVM over binary relevance judgments, and order documents based on their probability of relevance, which is monotonic with the documents' signed distance from the decision boundary. </p>
+  <p> However, approaching IR result ranking like this is not necessarily the right way to think about the problem. Statisticians normally first divide problems into <a name="23099"></a> <i>classification</i> problems (where a categorical variable is predicted) versus <a name="23101"></a> <i>regression</i> problems (where a real number is predicted). In between is the specialized field of <a name="23103"></a> <i>ordinal regression</i> where a ranking is predicted. Machine learning for ad hoc retrieval is most properly thought of as an ordinal regression problem, where the goal is to rank a set of documents for a query, given training data of the same sort. This formulation gives some additional power, since documents can be evaluated relative to other candidate documents for the same query, rather than having to be mapped to a global scale of goodness, while also weakening the problem space, since just a ranking is required rather than an absolute measure of relevance. Issues of ranking are especially germane in web search, where the ranking at the very top of the results list is exceedingly important, whereas decisions of relevance of a document to a query may be much less important. Such work can and has been pursued using the <a name="23105"></a> <i>structural SVM</i> framework which we mentioned in Section <a href="multiclass-svms-1.html#sec:structural-svm">15.2.2</a> , where the class being predicted is a ranking of results for a query, but here we will present the slightly simpler ranking SVM. </p>
+  <p> The construction of a <a name="23108"></a> <i>ranking SVM</i> proceeds as follows. We begin with a set of judged queries. For each training query <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />, we have a set of documents returned in response to the query, which have been totally ordered by a person for relevance to the query. We construct a vector of features 
+   <!-- MATH
+ $\psi_j = \psi(d_j,
+q)$
+ --> <img width="93" height="33" align="MIDDLE" border="0" src="img1376.png" alt="$\psi_j = \psi(d_j,
+q)$" /> for each document/query pair, using features such as those discussed in Section <a href="a-simple-example-of-machine-learned-scoring-1.html#sec:mls">15.4.1</a> , and many more. For two documents <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> and <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" />, we then form the vector of feature differences: <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\Phi(d_i, d_j, q) = \psi(d_i, q) - \psi(d_j, q)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="217" height="30" border="0" src="img1377.png" alt="\begin{displaymath}
+\Phi(d_i, d_j, q) = \psi(d_i, q) - \psi(d_j, q)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (180)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <p> By hypothesis, one of <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> and <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" /> has been judged more relevant. If <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> is judged more relevant than <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" />, denoted <img width="52" height="31" align="MIDDLE" border="0" src="img1378.png" alt="$d_i \prec d_j$" /> (<img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> should precede <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" /> in the results ordering), then we will assign the vector 
+   <!-- MATH
+ $\Phi(d_i, d_j, q)$
+ --> <img width="78" height="33" align="MIDDLE" border="0" src="img1379.png" alt="$\Phi(d_i, d_j, q)$" /> the class <img width="70" height="32" align="MIDDLE" border="0" src="img1380.png" alt="$y_{ijq} = +1$" />; otherwise <img width="25" height="32" align="MIDDLE" border="0" src="img1267.png" alt="$-1$" />. The goal then is to build a classifier which will return <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\vec{w}^{T}\Phi(d_i, d_j, q) > 0 \mbox{\quad iff\quad} d_i \prec d_j
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="218" height="30" border="0" src="img1381.png" alt="\begin{displaymath}
+\vec{w}^{T}\Phi(d_i, d_j, q) &gt; 0 \mbox{\quad iff\quad} d_i \prec d_j
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (181)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> This SVM learning task is formalized in a manner much like the other examples that we saw before: 
+  <br /> 
+  <img width="467" height="84" align="BOTTOM" border="0" src="img1382.png" alt="\begin{example}
+Find $\vec{w}$, and $\xi_{i,j} \ge 0$\ such that:
+\begin{itemize...
+...}$,
+$\vec{w}^{T}\Phi(d_i, d_j, q) \ge 1 - \xi_{i,j}$
+\end{itemize}\end{example}" /> 
+  <br /> We can leave out 
+  <img width="27" height="32" align="MIDDLE" border="0" src="img1383.png" alt="$y_{ijq}$" /> in the statement of the constraint, since we only need to consider the constraint for document pairs ordered in one direction, since 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1384.png" alt="$\prec$" /> is antisymmetric. These constraints are then solved, as before, to give a linear classifier which can rank pairs of documents. This approach has been used to build ranking functions which outperform standard hand-built ranking functions in IR evaluations on standard data sets; see the references for papers that present such results. 
+  <p> Both of the methods that we have just looked at use a linear weighting of document features that are indicators of relevance, as has most work in this area. It is therefore perhaps interesting to note that much of traditional IR weighting involves <i>nonlinear</i> scaling of basic measurements (such as log-weighting of term frequency, or idf). At the present time, machine learning is very good at producing optimal weights for features in a linear combination (or other similar restricted model classes), but it is not good at coming up with good nonlinear scalings of basic measurements. This area remains the domain of human feature engineering. </p>
+  <p> The idea of learning ranking functions has been around for a number of years, but it is only very recently that sufficient machine learning knowledge, training document collections, and computational power have come together to make this method practical and exciting. It is thus too early to write something definitive on machine learning approaches to ranking in information retrieval, but there is every reason to expect the use and importance of machine learned ranking approaches to grow over time. While skilled humans can do a very good job at defining ranking functions by hand, hand tuning is difficult, and it has to be done again for each new document collection and class of users. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>Plot the first 7 rows of Table <a href="a-simple-example-of-machine-learned-scoring-1.html#tab:mlrexamples">15.3</a> in the <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" />-<img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> plane to produce a figure like that in Figure <a href="a-simple-example-of-machine-learned-scoring-1.html#fig:mlr1">15.7</a> . <p> </p></li> 
+   <li>Write down the equation of a line in the <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" />-<img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> plane separating the Rs from the Ns. <p> </p></li> 
+   <li>Give a training example (consisting of values for 
+    <!-- MATH
+ $\alpha, \omega$
+ --> <img width="32" height="32" align="MIDDLE" border="0" src="img1385.png" alt="$\alpha, \omega$" /> and the relevance judgment) that when added to the training set makes it impossible to separate the R's from the N's using a line in the <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" />-<img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> plane. <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4098" href="references-and-further-reading-15.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4092" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4088" href="a-simple-example-of-machine-learned-scoring-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4094" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4096" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4099" href="references-and-further-reading-15.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html4093" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4089" href="a-simple-example-of-machine-learned-scoring-1.html">A simple example of</a> &nbsp; 
+  <b> <a name="tex2html4095" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4097" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

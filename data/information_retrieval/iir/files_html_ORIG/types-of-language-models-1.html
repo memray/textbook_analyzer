@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Types of language models</title> 
+  <meta name="description" content="Types of language models" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="multinomial-distributions-over-words-1.html" /> 
+  <link rel="previous" href="finite-automata-and-language-models-1.html" /> 
+  <link rel="up" href="language-models-1.html" /> 
+  <link rel="next" href="multinomial-distributions-over-words-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3285" href="multinomial-distributions-over-words-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3279" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3273" href="finite-automata-and-language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3281" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3283" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3286" href="multinomial-distributions-over-words-1.html">Multinomial distributions over words</a> 
+  <b> Up:</b> 
+  <a name="tex2html3280" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3274" href="finite-automata-and-language-models-1.html">Finite automata and language</a> &nbsp; 
+  <b> <a name="tex2html3282" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3284" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001712000000000000000"> Types of language models</a> </h2> 
+  <p> How do we build probabilities over sequences of terms? We can always use the chain rule from Equation&nbsp;<a href="review-of-basic-probability-theory-1.html#chain-rule">56</a> to decompose the probability of a sequence of events into the probability of each successive event conditioned on earlier events: <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P(t_1t_2t_3t_4) = P(t_1)P(t_2|t_1)P(t_3|t_1t_2)P(t_4|t_1t_2t_3)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="331" height="28" border="0" src="img807.png" alt="\begin{displaymath}
+P(t_1t_2t_3t_4) = P(t_1)P(t_2\vert t_1)P(t_3\vert t_1t_2)P(t_4\vert t_1t_2t_3)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (94)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> The simplest form of language model simply throws away all conditioning context, and estimates each term independently. Such a model is called a 
+  <a name="15269"></a> 
+  <i>unigram language model</i> : 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P_{uni}(t_1t_2t_3t_4) = P(t_1)P(t_2)P(t_3)P(t_4)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="258" height="28" border="0" src="img808.png" alt="\begin{displaymath}
+P_{uni}(t_1t_2t_3t_4) = P(t_1)P(t_2)P(t_3)P(t_4)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (95)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> There are many more complex kinds of language models, such as 
+  <a name="15274"></a> 
+  <i>bigram language models</i> , which condition on the previous term, 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P_{bi}(t_1t_2t_3t_4) = P(t_1)P(t_2|t_1)P(t_3|t_2)P(t_4|t_3)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="302" height="28" border="0" src="img809.png" alt="\begin{displaymath}
+P_{bi}(t_1t_2t_3t_4) = P(t_1)P(t_2\vert t_1)P(t_3\vert t_2)P(t_4\vert t_3)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (96)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> and even more complex grammar-based language models such as probabilistic context-free grammars. Such models are vital for tasks like 
+  <a name="15279"></a> 
+  <i>speech recognition</i> , 
+  <a name="15281"></a> 
+  <i>spelling correction</i> , and 
+  <a name="15283"></a> 
+  <i>machine translation</i> , where you need the probability of a term conditioned on surrounding context. However, most language-modeling work in IR has used unigram language models. IR is not the place where you most immediately need complex language models, since IR does not directly depend on the structure of sentences to the extent that other tasks like speech recognition do. Unigram models are often sufficient to judge the topic of a text. Moreover, as we shall see, IR language models are frequently estimated from a single document and so it is questionable whether there is enough training data to do more. Losses from data 
+  <a name="15285"></a> 
+  <i>sparseness</i> (see the discussion on page 
+  <a href="naive-bayes-text-classification-1.html#p:sparseness">13.2</a> ) tend to outweigh any gains from richer models. This is an example of the 
+  <a name="15288"></a> 
+  <i>bias-variance tradeoff</i> (cf. secbiasvariance): With limited training data, a more constrained model tends to perform better. In addition, unigram models are more efficient to estimate and apply than higher-order models. Nevertheless, the importance of phrase and proximity queries in IR in general suggests that future work should make use of more sophisticated language models, and some has begun to lmir-refs. Indeed, making this move parallels the model of van Rijsbergen in Chapter 
+  <a href="probabilistic-information-retrieval-1.html#ch:probir">11</a> (page 
+  <a href="tree-structured-dependencies-between-terms-1.html#p:rijsbergentree">11.4.2</a> ). 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3285" href="multinomial-distributions-over-words-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3279" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3273" href="finite-automata-and-language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3281" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3283" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3286" href="multinomial-distributions-over-words-1.html">Multinomial distributions over words</a> 
+  <b> Up:</b> 
+  <a name="tex2html3280" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3274" href="finite-automata-and-language-models-1.html">Finite automata and language</a> &nbsp; 
+  <b> <a name="tex2html3282" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3284" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

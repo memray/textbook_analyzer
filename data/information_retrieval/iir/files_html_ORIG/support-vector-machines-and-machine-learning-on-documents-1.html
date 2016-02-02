@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Support vector machines and machine learning on documents</title> 
+  <meta name="description" content="Support vector machines and machine learning on documents" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="flat-clustering-1.html" /> 
+  <link rel="previous" href="vector-space-classification-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="support-vector-machines-the-linearly-separable-case-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3812" href="support-vector-machines-the-linearly-separable-case-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3806" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3800" href="exercises-2.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3808" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3810" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3813" href="support-vector-machines-the-linearly-separable-case-1.html">Support vector machines: The</a> 
+  <b> Up:</b> 
+  <a name="tex2html3807" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3801" href="exercises-2.html">Exercises</a> &nbsp; 
+  <b> <a name="tex2html3809" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3811" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002000000000000000000"></a><a name="ch:svm"></a> <br /> Support vector machines and machine learning on documents </h1> 
+  <p> Improving classifier effectiveness has been an area of intensive machine-learning research over the last two decades, and this work has led to a new generation of state-of-the-art classifiers, such as support vector machines, boosted decision trees, regularized logistic regression, neural networks, and random forests. Many of these methods, including support vector machines (SVMs), the main topic of this chapter, have been applied with success to information retrieval problems, particularly text classification. An <a name="23202"></a><a name="22325"></a>SVM is a kind of large-margin classifier: it is a vector space based machine learning method where the goal is to find a decision boundary between two classes that is maximally far from any point in the training data (possibly discounting some points as outliers or noise). </p>
+  <p> We will initially motivate and develop SVMs for the case of two-class data sets that are separable by a linear classifier (Section <a href="support-vector-machines-the-linearly-separable-case-1.html#sec:svm-separable">15.1</a> ), and then extend the model in Section <a href="extensions-to-the-svm-model-1.html#sec:svm-extensions">15.2</a> to non-separable data, multi-class problems, and nonlinear models, and also present some additional discussion of SVM performance. The chapter then moves to consider the practical deployment of text classifiers in Section <a href="issues-in-the-classification-of-text-documents-1.html#sec:svm-text">15.3</a> : what sorts of classifiers are appropriate when, and how can you exploit domain-specific text features in classification? Finally, we will consider how the machine learning technology that we have been building for text classification can be applied back to the problem of learning how to rank documents in ad hoc retrieval (Section <a href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html#sec:svm-ranking">15.4</a> ). While several machine learning methods have been applied to this task, use of SVMs has been prominent. Support vector machines are not necessarily better than other machine learning methods (except perhaps in situations with little training data), but they perform at the state-of-the-art level and have much current theoretical and empirical appeal. </p>
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html3814" href="support-vector-machines-the-linearly-separable-case-1.html">Support vector machines: The linearly separable case</a> </li>
+   <li><a name="tex2html3815" href="extensions-to-the-svm-model-1.html">Extensions to the SVM model</a> 
+    <ul> 
+     <li><a name="tex2html3816" href="soft-margin-classification-1.html">Soft margin classification</a> </li>
+     <li><a name="tex2html3817" href="multiclass-svms-1.html">Multiclass SVMs</a> </li>
+     <li><a name="tex2html3818" href="nonlinear-svms-1.html">Nonlinear SVMs</a> </li>
+     <li><a name="tex2html3819" href="experimental-results-1.html">Experimental results</a> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html3820" href="issues-in-the-classification-of-text-documents-1.html">Issues in the classification of text documents</a> 
+    <ul> 
+     <li><a name="tex2html3821" href="choosing-what-kind-of-classifier-to-use-1.html">Choosing what kind of classifier to use</a> </li>
+     <li><a name="tex2html3822" href="improving-classifier-performance-1.html">Improving classifier performance</a> 
+      <ul> 
+       <li><a name="tex2html3823" href="large-and-difficult-category-taxonomies-1.html">Large and difficult category taxonomies</a> </li>
+       <li><a name="tex2html3824" href="features-for-text-1.html">Features for text</a> </li>
+       <li><a name="tex2html3825" href="document-zones-in-text-classification-1.html">Document zones in text classification</a> 
+        <ul> 
+         <li><a name="tex2html3826" href="upweighting-document-zones-1.html">Upweighting document zones.</a> </li>
+         <li><a name="tex2html3827" href="separate-feature-spaces-for-document-zones-1.html">Separate feature spaces for document zones.</a> </li>
+         <li><a name="tex2html3828" href="connections-to-text-summarization-1.html">Connections to text summarization.</a> </li>
+        </ul> </li>
+      </ul> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html3829" href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html">Machine learning methods in ad hoc information retrieval</a> 
+    <ul> 
+     <li><a name="tex2html3830" href="a-simple-example-of-machine-learned-scoring-1.html">A simple example of machine-learned scoring</a> </li>
+     <li><a name="tex2html3831" href="result-ranking-by-machine-learning-1.html">Result ranking by machine learning</a> </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html3832" href="references-and-further-reading-15.html">References and further reading</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3812" href="support-vector-machines-the-linearly-separable-case-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3806" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3800" href="exercises-2.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3808" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3810" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3813" href="support-vector-machines-the-linearly-separable-case-1.html">Support vector machines: The</a> 
+  <b> Up:</b> 
+  <a name="tex2html3807" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3801" href="exercises-2.html">Exercises</a> &nbsp; 
+  <b> <a name="tex2html3809" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3811" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>
