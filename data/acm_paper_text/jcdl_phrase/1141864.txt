@@ -1,0 +1,1 @@
+pilot-testing the digiqual protocol : lessons-learned the association of research libraries is developing the digiqual protocol to assess the service-quality provided by digital-libraries (dls) . in 2005 , statements about dl service-quality were put through a two-step validation-process with dl developers and then with users in an online-survey . .

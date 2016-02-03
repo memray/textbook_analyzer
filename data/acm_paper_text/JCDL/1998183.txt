@@ -1,0 +1,2 @@
+FRBRPedia: a tool for FRBRizing web products and linking FRBR entities to DBpedia
+The FRBR model has received much attention due to its potential for greatly improving user interaction with digital libraries. However, the amount of information found on the Web is far larger than in digital libraries. In this demo, we present an approach to transform Web-based resources to a FRBR compatible form, a process known as FRBRization. The FRBRized collection is then linked to DBpedia, thus providing a basis for information sharing and verification.

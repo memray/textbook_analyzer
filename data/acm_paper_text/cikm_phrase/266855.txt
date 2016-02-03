@@ -1,0 +1,1 @@
+a uniform approach to global concurrency-control and recovery in multidatabase environment an abstract is not available .

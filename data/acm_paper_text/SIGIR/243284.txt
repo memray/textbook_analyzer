@@ -1,0 +1,2 @@
+A novel client-server protocol for the demanding Opac user
+An abstract is not available.

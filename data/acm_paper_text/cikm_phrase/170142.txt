@@ -1,0 +1,1 @@
+termination and confluence of rule execution an abstract is not available .

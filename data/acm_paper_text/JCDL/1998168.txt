@@ -1,0 +1,2 @@
+Building a research social network from an individual perspective
+In this poster paper, we present an overview of CiênciaBrasil, a research social network involving researchers within the Brazilian INCT program. We describe its architecture and the solutions adopted for data collection, extraction, and deduplication, and for materializing and visualizing the network.

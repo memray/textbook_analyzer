@@ -1,0 +1,2 @@
+Semantic query processing in object-oriented databases using deductive approach
+An abstract is not available.

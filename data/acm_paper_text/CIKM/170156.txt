@@ -1,0 +1,2 @@
+Separating semantics from representation in a temporal object database domain
+An abstract is not available.

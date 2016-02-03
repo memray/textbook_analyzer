@@ -1,0 +1,1 @@
+a workbench for information-quality evaluation this paper describes the architecture of an information-quality evaluation workbench for rapid design and operationalization of information-quality assessment models .

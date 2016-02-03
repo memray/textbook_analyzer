@@ -1,0 +1,2 @@
+The new ACM CCS and a computing ontology
+This poster presents an overview of the new ACM Computing Classification system and compares it with work done in creating an ontology of all computing-related topics. There are similarities and differences and the differences lead to conclusions about both approaches.

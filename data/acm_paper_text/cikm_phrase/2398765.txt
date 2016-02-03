@@ -1,0 +1,1 @@
+dolap 2012 workshop-summary the acm dolap workshop presents research on data-warehousing and on-line-analytical-processing (olap) . the dolap 2012 program is organized in four interesting sessions on data-warehouse-design and maintainability , olap querying and trends , warehousing of complex-data , performance-optimization and benchmarking .

@@ -1,0 +1,2 @@
+DRIADE: a data repository for evolutionary biology
+NESCent (The National Evolutionary Synthesis Center) is developing DRIADE (Digital Repository of Information and Data for Evolution) to address synthetic research challenges fundamental to advancing the field of evolutionary biology. This poster highlights results from a survey of selected repositories' functionalities, DRIADE's functional requirements, and DRIADE's functional model. We also summarize ongoing research activities, studying evolutionary biologists' data preservation practices and use requirements.

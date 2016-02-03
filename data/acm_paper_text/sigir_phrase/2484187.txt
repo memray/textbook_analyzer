@@ -1,0 +1,1 @@
+diversity and novelty in information-retrieval this tutorial aims to provide a unifying account of current-research on diversity and novelty in different ir domains , namely , in the context of search-engines , recommender-systems , and data-streams .

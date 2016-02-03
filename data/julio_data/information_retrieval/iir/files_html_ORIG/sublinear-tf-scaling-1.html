@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Sublinear tf scaling</title> 
+  <meta name="description" content="Sublinear tf scaling" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="maximum-tf-normalization-1.html" /> 
+  <link rel="previous" href="variant-tf-idf-functions-1.html" /> 
+  <link rel="up" href="variant-tf-idf-functions-1.html" /> 
+  <link rel="next" href="maximum-tf-normalization-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2024" href="maximum-tf-normalization-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2018" href="variant-tf-idf-functions-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2012" href="variant-tf-idf-functions-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2020" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2022" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2025" href="maximum-tf-normalization-1.html">Maximum tf normalization</a> 
+  <b> Up:</b> 
+  <a name="tex2html2019" href="variant-tf-idf-functions-1.html">Variant tf-idf functions</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2013" href="variant-tf-idf-functions-1.html">Variant tf-idf functions</a> &nbsp; 
+  <b> <a name="tex2html2021" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2023" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001141000000000000000"></a> <a name="sec:sublin"></a> <br /> Sublinear tf scaling </h2> It seems unlikely that twenty occurrences of a term in a document truly carry twenty times the significance of a single occurrence. Accordingly, there has been considerable research into variants of term frequency that go beyond counting the number of occurrences of a term. A common modification is to use instead the logarithm of the term frequency, which assigns a weight given by 
+  <p> <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{wf}_{t,d}=\left\{
+\begin{array}{ll}
+      1+\log \mbox{tf}_{t,d} & \mbox{if } \mbox{tf}_{t,d}>0 \\
+      0 & \mbox{otherwise}
+    \end{array}.
+   \right.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:logweight"></a><img width="250" height="45" border="0" src="img449.png" alt="\begin{displaymath}
+\mbox{wf}_{t,d}=\left\{
+\begin{array}{ll}
+1+\log \mbox{tf}...
+...x{tf}_{t,d}&gt;0 \\
+0 &amp; \mbox{otherwise}
+\end{array}.
+\right.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (28)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <p> In this form, we may replace <img width="14" height="31" align="MIDDLE" border="0" src="img401.png" alt="$\mbox{tf}$" /> by some other function <img width="22" height="31" align="MIDDLE" border="0" src="img450.png" alt="$\mbox{wf}$" /> as in (<a href="#eqn:logweight">28</a>), to obtain: <a name="p:eqn:wfidf"></a> <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{wf-idf}_{t,d} = \mbox{wf}_{t,d} \times \mbox{idf}_t.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:wfidf"></a><img width="161" height="29" border="0" src="img451.png" alt="\begin{displaymath}
+\mbox{wf-idf}_{t,d} = \mbox{wf}_{t,d} \times \mbox{idf}_t.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (29)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> Equation&nbsp;(
+  <a href="tf-idf-weighting-1.html#eqn:docscore">23</a>) can then be modified by replacing tf-idf by wf-idf as defined in (
+  <a href="#eqn:wfidf">29</a>). 
+  <p> <br /></p>
+  <hr /> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

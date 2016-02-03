@@ -1,0 +1,2 @@
+Cross-language information retrieval based on parallel texts and automatic mining of parallel texts from the Web
+An abstract is not available.

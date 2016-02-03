@@ -1,0 +1,2 @@
+The time index + : an incremental access structure for temporal databases
+An abstract is not available.

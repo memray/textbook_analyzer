@@ -1,0 +1,2 @@
+Extended boolean retrieval: a heuristic approach?
+We show that the similarity measures for p-norm retrieval, as defined by Salton, Fox and Wu have some undesirable mathematical properties. We propose a new function that remedies some of these drawbacks. Still, even for this new similarity measure the extended Boolean model has some properties which can only be described as 'heuristic'.

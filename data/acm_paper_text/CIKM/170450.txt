@@ -1,0 +1,2 @@
+A recovery scheme for multidatabase systems
+An abstract is not available.

@@ -1,0 +1,1 @@
+facetedpedia : enabling query-dependent faceted-search for wikipedia facetedpedia is a faceted-search system that dynamically discovers query-dependent faceted interfaces for wikipedia search result articles . in this paper , we give an overview of facetedpedia , present the system-architecture and implementation-techniques , and elaborate on a demonstration scenario .

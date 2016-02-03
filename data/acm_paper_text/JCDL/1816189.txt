@@ -1,0 +1,2 @@
+A search engine for Japanese academic papers
+A search engine for Japanese academic papers rendered in PDF is described. Evaluation results indicate fewer zero-result queries and higher precision in the top-10 documents than was obtained for the same Japanese queries using Google Scholar or Scirus.

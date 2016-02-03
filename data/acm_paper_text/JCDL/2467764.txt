@@ -1,0 +1,2 @@
+A memento web browser for iOS
+The Memento framework allows web browsers to request and view archived web pages in a transparent fashion. However, Memento is still in the early stages of adoption, and browser-plugins are often required to enable Memento support. We report on a new iOS app called the Memento Browser, a web browser that supports Memento and gives iPhone and iPad users transparent access to the world's largest web archives.

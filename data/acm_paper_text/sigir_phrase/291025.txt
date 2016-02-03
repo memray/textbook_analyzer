@@ -1,0 +1,1 @@
+the use of mmr , diversity-based reranking for reordering documents and producing summaries an abstract is not available .

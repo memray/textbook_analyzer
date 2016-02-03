@@ -1,0 +1,1 @@
+alf : a client side logger and server for capturing user-interactions in web-applications this demonstration paper introduces alf which provides a light-weight client side logging application and a server for collecting user-interaction data . alf has been designed as a loosely coupled independent service that runs in parallel with the ir web-application that requires logging

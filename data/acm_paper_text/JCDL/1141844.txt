@@ -1,0 +1,2 @@
+Interface design for browsing faceted metadata
+The team developing the new version of the Computational Science Education Reference Desk (CSERD) has recognized the need for, and implemented, a more flexible and interactive system for finding resources using a combination of browsing and searching.

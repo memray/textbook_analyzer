@@ -1,0 +1,2 @@
+Learning from artifacts: metadata utilization analysis
+Describes the MARC Content Designation Utilization Project, which is examining a very large set of metadata records as artifacts of the library cataloging enterprise. This is the first large-scale examination of descriptive metadata utilization. Presents an overview of study activities and suggests the study's significance to the broader use of metadata in digital libraries.

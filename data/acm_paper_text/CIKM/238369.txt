@@ -1,0 +1,2 @@
+A terrain database representation based on an extended vector product format (EVPF)
+An abstract is not available.

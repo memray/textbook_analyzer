@@ -1,0 +1,2 @@
+Toolkits for visualizing co-authorship graph
+Visualization eases insight into complex systems such as co-authorship networks. We present an initial deployment of an author navigator application for convenient visual examination of JCDL and LANL co--authorship networks.

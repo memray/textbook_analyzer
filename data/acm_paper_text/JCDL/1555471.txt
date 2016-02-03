@@ -1,0 +1,2 @@
+Tailoring greenstone for seniors
+We present a re-design of Greenstone to support seniors (aged over 65) in managing documents reflecting their life history.

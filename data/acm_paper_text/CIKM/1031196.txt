@@ -1,0 +1,2 @@
+BioDIFF: an effective fast change detection algorithm for genomic and proteomic data
+An abstract is not available.

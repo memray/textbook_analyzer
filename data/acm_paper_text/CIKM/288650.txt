@@ -1,0 +1,2 @@
+A comparison of regression, neural net, and pattern recognition approaches to IR
+An abstract is not available.

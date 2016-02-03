@@ -1,0 +1,2 @@
+Incentives for social annotation
+The effectiveness of community-driven annotation, such as social bookmarking, depends on user participation. Since the participation of many users is motivated by selfish reasons, an effective way to encourage participation is to create useful or entertaining applications. We demo two such tools -- a browser extension and a game.

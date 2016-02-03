@@ -1,0 +1,2 @@
+Space efficient bitmap indexing
+An abstract is not available.

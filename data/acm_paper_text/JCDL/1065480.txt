@@ -1,0 +1,2 @@
+Real-time genre classification for music digital libraries
+This poster describes a real-time audio-based automatic music genre classifier for use in organizing, browsing, and searching musical digital libraries. A decision tree classifier trained on a 40-dimension feature space is used to categorize music into one of 14 different genres with the results being displayed to a continuously updating user interface.

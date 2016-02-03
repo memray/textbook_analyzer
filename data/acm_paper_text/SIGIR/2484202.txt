@@ -1,0 +1,2 @@
+TopicVis: a GUI for topic-based feedback and navigation
+This paper describes a search system which includes topic model visualization to improve the user search experience. The system graphically renders the topics in a retrieved set of documents, enables a user to selectively refine search results and allows easy navigation through information on selective topics within documents.

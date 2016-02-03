@@ -1,0 +1,2 @@
+Tools for view generation in object-oriented databases
+An abstract is not available.

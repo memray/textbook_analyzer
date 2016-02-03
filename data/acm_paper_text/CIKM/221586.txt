@@ -1,0 +1,2 @@
+MessageWorld: a new approach to facilitating asynchronous group communication
+An abstract is not available.

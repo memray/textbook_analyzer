@@ -1,0 +1,2 @@
+Creating meta-indexes for digital domains
+The back-of-book indexes for test collections of digital books in the domains of Economics and Geology have been deconstructed and analyzed, and the entries aggregated to create domain-level meta-indexes. Metrics comparing the two domains are presented.

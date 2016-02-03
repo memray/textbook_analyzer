@@ -1,0 +1,2 @@
+A system for indexing tables, algorithms and figures
+Indexing objects such as documents, figures, tables and algorithms in a single system presents challenges in schema mapping, detecting overlapping objects in documents, presenting results from such an system to users. We propose a federated approach to indexing and retrieving such objects in academic papers

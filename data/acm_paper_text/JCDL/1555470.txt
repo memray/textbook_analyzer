@@ -1,0 +1,2 @@
+An interoperability service framework for high-resolution image applications
+This poster presents a prototype architecture and potential use-cases for a standards-based service framework to simplify development of high-resolution image viewing clients.

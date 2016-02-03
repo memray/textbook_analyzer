@@ -1,0 +1,2 @@
+ETANA-ADD: an interactive tool for integrating archaeological DL collections
+ETANA-DL is an archaeology digital library built based on the principles of Open Digital Libraries. A key challenge addressed in ETANA-DL is integration of new archaeological sites. To enable archaeologists to build OAI data providers for easy integration, we developed an interactive software tool for database-to-XML generation, schema mapping, and global archive generation. This tool greatly enhances our ability to build new Open Archives. We tested the tool with data from the Umm el-Jimal site.

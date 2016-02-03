@@ -1,0 +1,2 @@
+The learning matrix: cataloging resources with rich metadata
+Effective searching of a digital library requires that the library keep rich metadata about each of its resources. Entering complex metadata efficiently, accurately, and consistently can be confusing and time consuming. A demonstration of the Learning Matrix's Cataloging Tool, a web-based solution for creating metadata while uploading resources to the digital library, will be presented.

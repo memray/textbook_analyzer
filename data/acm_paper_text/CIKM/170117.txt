@@ -1,0 +1,2 @@
+Facilitating the creation of a multiple index on graph-described documents by transforming their descriptions
+An abstract is not available.

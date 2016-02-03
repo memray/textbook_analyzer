@@ -1,0 +1,2 @@
+Categorization of computing education resources with utilization of crowdsourcing
+The Ensemble Portal harvests resources from multiple heterogeneous federated collections. Managing these dynamically increasing collections requires an automatic mechanism to categorize records in to corresponding topics. We propose an approach to use existing ACM DL metadata to build classifiers for harvested resources in the Ensemble project. We also present our experience with utilizing the Amazon Mechanical Turk platform to build ground truth training data sets from Ensemble collections.

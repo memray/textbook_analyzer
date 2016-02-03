@@ -1,0 +1,2 @@
+Adaptive query optimization in a deductive database system
+An abstract is not available.

@@ -1,0 +1,2 @@
+Improving navigation interaction in digital documents
+This paper investigates novel interactions for supporting within-document navigation. We focus on one specific interaction: the following of figure references. Through this interaction we illuminate factors also found in other forms of navigation. Three alternative interactions for supporting figure navigation are described and evaluated through a user study. Experimentation proves the advantages of our interaction design, and the degree to which the interaction of existing reader software can be improved.

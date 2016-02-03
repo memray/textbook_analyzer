@@ -1,0 +1,2 @@
+Exploitation of the wikipedia category system for enhancing the value of LCSH
+This paper addresses an approach that integrates two different types of information resources: the Web and libraries. Our method begins from any keywords in Wikipedia, and induces related subject headings of LCSH through the Wikipedia category system.

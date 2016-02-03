@@ -1,0 +1,2 @@
+Distributed indexing: a scalable mechanism for distributed information retrieval
+An abstract is not available.

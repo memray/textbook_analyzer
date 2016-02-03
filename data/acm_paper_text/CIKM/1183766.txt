@@ -1,0 +1,2 @@
+Pseudo-anchor text extraction for searching vertical objects
+This paper examines the problem of utilizing pseudo-anchor text to help ranking Web objects in vertical search. We adopt a machine learning based approach to extract pseudo-anchor text for a vertical object from its candidate anchor blocks. Experiments in academic search domain indicate that our approach is able to dramatically improve search performance.

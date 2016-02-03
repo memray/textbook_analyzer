@@ -1,0 +1,2 @@
+S-signature: a new scheme for efficient query processing of complex objects in OODB
+An abstract is not available.

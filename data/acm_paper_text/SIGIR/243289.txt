@@ -1,0 +1,2 @@
+WebCompass: an agent-based metasearch and metadata discovery tool for the Web
+An abstract is not available.

@@ -1,0 +1,2 @@
+Information visualization of nuclear decay chain libraries
+This poster presents multiple information visualization techniques for scientific visualization of the nuclear isotope decay process, including (but not limited to) circle packing and directed graphs. The practical goal of this visualization process is to support nuclear forensics, the identification of the origin of intercepted smuggled nuclear materials.

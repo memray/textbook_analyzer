@@ -1,0 +1,2 @@
+Adaptive query-based sampling for distributed IR
+An abstract is not available.

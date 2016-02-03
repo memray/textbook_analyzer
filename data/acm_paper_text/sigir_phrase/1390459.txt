@@ -1,0 +1,1 @@
+a longitudinal-study of real-time-search assistance adoption we present findings from a log_based study designed to track the adoption of features of a new real-time-query refinement interface deployed on the yahoo search-engine . several trends from the first four months are noted and discussed .

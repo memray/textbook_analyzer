@@ -1,0 +1,2 @@
+Correlation of music charts and search engine rankings
+We investigate the question whether expert rankings of real-world entities correlate with search engine (SE) rankings of corresponding web resources. We compare Billboards "Hot 100 Airplay" music charts with SE rankings of associated web resources. Out of nine comparisons we found two strong, two moderate, two weak and one negative correlation. The remaining two comparisons were inconclusive.

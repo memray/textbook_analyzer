@@ -1,0 +1,2 @@
+Supporting fast search in time series for movement patterns in multiple scales
+An abstract is not available.

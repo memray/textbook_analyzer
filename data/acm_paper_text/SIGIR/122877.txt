@@ -1,0 +1,2 @@
+Data conversion, aggregation and deduction for advanced retrieval from the heterogeneous fact databases
+An abstract is not available.

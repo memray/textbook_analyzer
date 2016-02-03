@@ -1,0 +1,2 @@
+Variations2: improving music findability in a digital library through work--centric metadata
+The Variations2 Indiana University Digital Music Library is a large test-bed project funded in part by Phase 2 of the Digital Libraries Initiative, with support from the National Science Foundation and the National Endowment for the Humanities. This demonstration will show the current state of the Variations2 test-bed software, focusing on the search user interface.

@@ -1,0 +1,2 @@
+Technical architecture overview: tools for acquisition, packaging and ingest of web objects into multiple repositories
+This poster describes a model for acquiring, packaging and ingesting web objects for archiving in multiple repositories. This ongoing work is part of the ECHO DEPository Project, a 3-year NDIIPP-partner digital preservation project at the University of Illinois at Urbana-Champaign with partners OCLC, a consortium of content provider partners, and the Library of Congress.

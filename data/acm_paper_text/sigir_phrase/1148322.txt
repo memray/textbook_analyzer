@@ -1,0 +1,1 @@
+give me just one highly relevant-document : p-measure we introduce an evaluation-metric called p-measure for the task of retrieving < ione highly relevant-document . it models user-behaviour in practical tasks such as known-item search , and is more stable and sensitive than reciprocal rank which can not handle graded-relevance .

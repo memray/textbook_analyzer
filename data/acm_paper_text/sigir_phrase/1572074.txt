@@ -1,0 +1,1 @@
+an evaluation of entity and frequency_based query-completion methods we present a semantic-approach to suggesting query completions which leverages entity and type information . when compared to a frequency-based approach , we show that such information mostly helps rare-queries .

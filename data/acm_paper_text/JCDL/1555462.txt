@@ -1,0 +1,2 @@
+Collaborative digital library: enhancing digital collections to improve learning in educational programs
+In this article, a universal collaborative and competitive approach is introduced for deployment of digital collections in an ideal Digital Library (DL) for future's educational system. The collaborative and open-source aspects of the system guarantee its growth and the competitive aspects guarantee the accuracy.

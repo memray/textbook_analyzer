@@ -1,0 +1,2 @@
+Performance evaluation of a distributed architecture for information retrieval
+An abstract is not available.

@@ -1,0 +1,2 @@
+Binary relationship imposition rules on ternary relationships in ER modeling
+An abstract is not available.

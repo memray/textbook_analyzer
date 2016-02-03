@@ -1,0 +1,1 @@
+selectivity-estimation of window-queries for line-segment datasets an abstract is not available .

@@ -1,0 +1,2 @@
+XSLT for tailored access to a digtal video library
+Surrogates, summaries, and visualizations have been developed and eval uated for accessing a digital video library containing thousands of documents and terabytes of data. These interfaces, formerly implemented within a monolithic stand-alone application, are being migrated to XML and XSLT for delivery through web browsers. The merits of these interfaces are presented, along with a discussion of the benefits in using W3C recommendations such as XML and XSLT for delivering tailored access to video over the web.

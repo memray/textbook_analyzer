@@ -1,0 +1,2 @@
+Introducing Docear's research paper recommender system
+In this demo paper we present Docear's research paper recommender system. Docear is an academic literature suite to search, organize, and create research articles. The users' data (papers, references, annotations, etc.) is managed in mind maps and these mind maps are utilized for the recommendations. Using content-based filtering methods, Docear's recommender achieves click-through rates around 6%, in some scenarios even over 10%.

@@ -1,0 +1,2 @@
+Digital library education: some international course structure comparisons
+Following our recent review of progress in Digital Library (DL) education [1], we present here a brief overview of current work to investigate the commonality/diversity of course structure between ten institutions outside North America which offer DL education in their library schools. The weighting of specifically DL module topic credits as a proportion of the overall course taught credits varies between 13\% and 63\%, and coverage of a proposed core topic set [2] is as high as 85\%.

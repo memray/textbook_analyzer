@@ -1,0 +1,2 @@
+Information extraction from case law and retrieval of prior cases by partial parsing and query generation
+An abstract is not available.

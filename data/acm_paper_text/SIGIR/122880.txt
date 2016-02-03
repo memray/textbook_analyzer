@@ -1,0 +1,2 @@
+Using the cosine measure in a neural network for document retrieval
+An abstract is not available.

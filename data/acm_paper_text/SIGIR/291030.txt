@@ -1,0 +1,2 @@
+Comparison between proximity operation and dependency operation in Japanese full-text retrieval
+An abstract is not available.

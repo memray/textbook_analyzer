@@ -1,0 +1,1 @@
+contextual-evaluation of query-reformulations in a search-session by user-simulation we propose a method to dynamically estimate the utility of documents in a search-session by modeling the users ' browsing-behaviors and novelty . the method can be applied to evaluate query-reformulations in a search-session .

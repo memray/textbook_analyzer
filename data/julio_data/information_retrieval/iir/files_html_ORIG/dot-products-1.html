@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Dot products</title> 
+  <meta name="description" content="Dot products" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="queries-as-vectors-1.html" /> 
+  <link rel="previous" href="the-vector-space-model-for-scoring-1.html" /> 
+  <link rel="up" href="the-vector-space-model-for-scoring-1.html" /> 
+  <link rel="next" href="queries-as-vectors-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1966" href="queries-as-vectors-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1960" href="the-vector-space-model-for-scoring-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1954" href="the-vector-space-model-for-scoring-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1962" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1964" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1967" href="queries-as-vectors-1.html">Queries as vectors</a> 
+  <b> Up:</b> 
+  <a name="tex2html1961" href="the-vector-space-model-for-scoring-1.html">The vector space model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1955" href="the-vector-space-model-for-scoring-1.html">The vector space model</a> &nbsp; 
+  <b> <a name="tex2html1963" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1965" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001131000000000000000"></a> <a name="sec:inner"></a> <a name="p:inner"></a> <br /> Dot products </h2> We denote by 
+  <img width="38" height="40" align="MIDDLE" border="0" src="img410.png" alt="$\vec{V}(d)$" />
+  <a name="p:vec-V-notation"></a> the vector derived from document 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, with one component in the vector for each dictionary term. Unless otherwise specified, the reader may assume that the components are computed using the tf-idf weighting scheme, although the particular weighting scheme is immaterial to the discussion that follows. The set of documents in a collection then may be viewed as a set of vectors in a vector space, in which there is one axis for each term. This representation loses the relative ordering of the terms in each document; recall our example from Section&nbsp;
+  <a href="term-frequency-and-weighting-1.html#sec:secbagofwords">6.2</a> (page&nbsp;
+  <a href="term-frequency-and-weighting-1.html#p:secbagofwords"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>), where we pointed out that the documents Mary is quicker than John and John is quicker than Mary are identical in such a 
+  <i>bag of words</i> representation. 
+  <p> How do we quantify the similarity between two documents in this vector space? A first attempt might consider the magnitude of the vector difference between two document vectors. This measure suffers from a drawback: two documents with very similar content can have a significant vector difference simply because one is much longer than the other. Thus the relative distributions of terms may be identical in the two documents, but the absolute term frequencies of one may be far larger. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:cossim"></a><a name="p:cossim"></a></p>
+   <img width="406" height="271" border="0" src="img411.png" alt="\begin{figure}
+% latex2html id marker 8047
+\psset{unit=4cm}
+\begin{pspicture}(-0...
+...osine similarity illustrated.}{$\mbox{sim}(d_1,d_2) = \cos\theta$.}
+\end{figure}" /> 
+  </div> 
+  <a name="sec:euclidean"></a> 
+  <a name="p:euclidean"></a> To compensate for the effect of document length, the standard way of quantifying the similarity between two documents 
+  <img width="19" height="31" align="MIDDLE" border="0" src="img412.png" alt="$d_1$" /> and 
+  <img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> is to compute the 
+  <a name="8077"></a> 
+  <i>cosine similarity</i> 
+  <a name="sim-notation"></a> of their vector representations 
+  <img width="45" height="40" align="MIDDLE" border="0" src="img414.png" alt="$\vec{V}(d_1)$" /> and 
+  <img width="45" height="40" align="MIDDLE" border="0" src="img415.png" alt="$\vec{V}(d_2)$" /> 
+  <a name="p:eqncosine"></a> 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{sim}(d_1,d_2)= \frac{\vec{V}(d_1)\cdot \vec{V}(d_2)}{|\vec{V}(d_1)| |\vec{V}(d_2)|},
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:cosine"></a><img width="208" height="50" border="0" src="img416.png" alt="\begin{displaymath}
+\mbox{sim}(d_1,d_2)= \frac{\vec{V}(d_1)\cdot \vec{V}(d_2)}{\vert\vec{V}(d_1)\vert \vert\vec{V}(d_2)\vert},
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (24)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> where the numerator represents the 
+  <a name="8091"></a> 
+  <i>dot product</i> (also known as the 
+  <a name="8093"></a> 
+  <i>inner product</i> ) of the vectors 
+  <img width="45" height="40" align="MIDDLE" border="0" src="img414.png" alt="$\vec{V}(d_1)$" /> and 
+  <img width="45" height="40" align="MIDDLE" border="0" src="img415.png" alt="$\vec{V}(d_2)$" />, while the denominator is the product of their 
+  <a name="p:euclideanlength"></a> 
+  <a name="8098"></a> 
+  <i>Euclidean lengths</i> . The dot product 
+  <!-- MATH
+ $\vec{x} \cdot \vec{y}$
+ --> 
+  <img width="32" height="32" align="MIDDLE" border="0" src="img417.png" alt="$\vec{x} \cdot \vec{y}$" /> of two vectors is defined as 
+  <!-- MATH
+ $\sum_{i=1}^Mx_iy_i$
+ --> 
+  <img width="65" height="38" align="MIDDLE" border="0" src="img418.png" alt="$\sum_{i=1}^Mx_iy_i$" />. Let 
+  <img width="38" height="40" align="MIDDLE" border="0" src="img410.png" alt="$\vec{V}(d)$" /> denote the document vector for 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, with 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> components 
+  <!-- MATH
+ $\vec{V}_1(d)\ldots \vec{V}_M(d)$
+ --> 
+  <img width="112" height="40" align="MIDDLE" border="0" src="img419.png" alt="$\vec{V}_1(d)\ldots \vec{V}_M(d)$" />. The Euclidean length of 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> is defined to be 
+  <!-- MATH
+ $\sqrt{\sum_{i=1}^M\vec{V}_i^2(d)}$
+ --> 
+  <img width="97" height="49" align="MIDDLE" border="0" src="img420.png" alt="$\sqrt{\sum_{i=1}^M\vec{V}_i^2(d)}$" />. 
+  <p> The effect of the denominator of Equation&nbsp;<a href="#eqn:cosine">24</a> is thus to <a name="8109"></a> <i>length-normalize</i> the vectors <img width="45" height="40" align="MIDDLE" border="0" src="img414.png" alt="$\vec{V}(d_1)$" /> and <img width="45" height="40" align="MIDDLE" border="0" src="img415.png" alt="$\vec{V}(d_2)$" /> to unit vectors 
+   <!-- MATH
+ $\vec{v}(d_1)=\vec{V}(d_1)/|\vec{V}(d_1)|$
+ --> <img width="166" height="40" align="MIDDLE" border="0" src="img421.png" alt="$\vec{v}(d_1)=\vec{V}(d_1)/\vert\vec{V}(d_1)\vert$" /> and 
+   <!-- MATH
+ $\vec{v}(d_2)=\vec{V}(d_2)/|\vec{V}(d_2)|$
+ --> <img width="165" height="40" align="MIDDLE" border="0" src="img422.png" alt="$\vec{v}(d_2)=\vec{V}(d_2)/\vert\vec{V}(d_2)\vert$" />. We can then rewrite (<a href="#eqn:cosine">24</a>) as <a name="p:eqnnormcosine"></a> <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{sim}(d_1,d_2)= \vec{v}(d_1)\cdot \vec{v}(d_2).
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:normcosine"></a><img width="187" height="28" border="0" src="img423.png" alt="\begin{displaymath}
+\mbox{sim}(d_1,d_2)= \vec{v}(d_1)\cdot \vec{v}(d_2).
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (25)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <p> <b>Worked example.</b> Consider the documents in Figure <a href="tf-idf-weighting-1.html#fig:tfgraph">6.9</a> . We now apply Euclidean normalization to the tf values from the table, for each of the three documents in the table. The quantity 
+   <!-- MATH
+ $\sqrt{\sum_{i=1}^M\vec{V}_i^2(d)}$
+ --> <img width="97" height="49" align="MIDDLE" border="0" src="img420.png" alt="$\sqrt{\sum_{i=1}^M\vec{V}_i^2(d)}$" /> has the values 30.56, 46.84 and 41.30 respectively for Doc1, Doc2 and Doc3. The resulting Euclidean normalized tf values for these documents are shown in Figure <a href="#fig:tfeuc">6.11</a> . </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:tfeuc"></a>
+   <a name="p:tfeuc"></a>
+   <a name="8657"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 6.11:</strong> Euclidean normalized tf values for documents in Figure 
+     <a href="tf-idf-weighting-1.html#fig:tfgraph">6.9</a> .
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="261" height="98" border="0" src="img424.png" alt="\begin{figure}\begin{tabular}{\vert\vert l\vert l\vert l\vert l\vert\vert}
+\hlin...
+...0 &amp; 0.71 &amp; 0.70 \\
+best &amp; 0.46 &amp; 0 &amp; 0.41 \\
+\hline
+\end{tabular}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <b>End worked example.</b> 
+  <p> <a name="p:mostsimilar"></a> Thus, (<a href="#eqn:normcosine">25</a>) can be viewed as the dot product of the normalized versions of the two document vectors. This measure is the cosine of the angle <img width="12" height="31" align="MIDDLE" border="0" src="img425.png" alt="$\theta$" /> between the two vectors, shown in Figure <a href="#fig:cossim">6.10</a> . What use is the similarity measure 
+   <!-- MATH
+ $\mbox{sim}(d_1,d_2)$
+ --> <img width="80" height="33" align="MIDDLE" border="0" src="img426.png" alt="$\mbox{sim}(d_1,d_2)$" />? Given a document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> (potentially one of the <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> in the collection), consider searching for the documents in the collection most similar to <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />. Such a search is useful in a system where a user may identify a document and seek others like it - a feature available in the results lists of search engines as a <em>more like this</em> feature. We reduce the problem of finding the document(s) most similar to <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> to that of finding the <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> with the highest dot products (<img width="29" height="32" align="MIDDLE" border="0" src="img427.png" alt="$\mbox{sim}$" /> values) 
+   <!-- MATH
+ $\vec{v}(d)\cdot \vec{v}(d_i)$
+ --> <img width="80" height="33" align="MIDDLE" border="0" src="img428.png" alt="$\vec{v}(d)\cdot \vec{v}(d_i)$" />. We could do this by computing the dot products between <img width="34" height="33" align="MIDDLE" border="0" src="img429.png" alt="$\vec{v}(d)$" /> and each of 
+   <!-- MATH
+ $\vec{v}(d_1),\ldots,\vec{v}(d_N)$
+ --> <img width="117" height="33" align="MIDDLE" border="0" src="img430.png" alt="$\vec{v}(d_1),\ldots,\vec{v}(d_N)$" />, then picking off the highest resulting <img width="29" height="32" align="MIDDLE" border="0" src="img427.png" alt="$\mbox{sim}$" /> values. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="tab:3termfreqs"></a></p>
+   <img width="555" height="128" border="0" src="img431.png" alt="\begin{figure}
+% latex2html id marker 8153
+\begin{tabular}{\vert\vert l\vert r\v...
+...Pride and Prejudice} and Bront\uml {e}'s \emph{Wuthering Heights.}}
+\end{figure}" /> 
+  </div> 
+  <p> <b>Worked example.</b> Figure&nbsp;<a href="#tab:3termfreqs">6.12</a> shows the number of occurrences of three terms (affection, jealous and gossip) in each of the following three novels: Jane Austen's <em>Sense and Sensibility</em> (SaS) and <em>Pride and Prejudice</em> (PaP) and Emily Bront&euml;'s <em>Wuthering Heights</em> (WH). Of course, there are many other terms occurring in each of these novels. In this example we represent each of these novels as a unit vector in three dimensions, corresponding to these three terms (only); we use raw term frequencies here, with no idf multiplier. The resulting weights are as shown in Figure&nbsp;<a href="#tab:3tfidfs">6.13</a>. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="tab:3tfidfs"></a></p>
+   <img width="555" height="162" border="0" src="img432.png" alt="\begin{figure}
+% latex2html id marker 8173
+\par
+\begin{tabular}{\vert\vert l\ver...
+...e documents, their tf-idf weight would be 0 in most formulations.)}
+\end{figure}" /> 
+  </div> 
+  <p> Now consider the cosine similarities between pairs of the resulting three-dimensional vectors. A simple computation shows that sim(<img width="12" height="32" align="MIDDLE" border="0" src="img433.png" alt="$\vec{v}$" />(SAS), <img width="12" height="32" align="MIDDLE" border="0" src="img433.png" alt="$\vec{v}$" />(PAP)) is 0.999, whereas sim(<img width="12" height="32" align="MIDDLE" border="0" src="img433.png" alt="$\vec{v}$" />(SAS), <img width="12" height="32" align="MIDDLE" border="0" src="img433.png" alt="$\vec{v}$" />(WH)) is 0.888; thus, the two books authored by Austen (SaS and PaP) are considerably closer to each other than to Bront&euml;'s <i>Wuthering Heights</i>. In fact, the similarity between the first two is almost perfect (when restricted to the three terms we consider). Here we have considered tf weights, but we could of course use other term weight functions. <b>End worked example.</b> </p>
+  <p> Viewing a collection of <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> documents as a collection of vectors leads to a natural view of a collection as a <a name="p:termdocumentmatrix"></a> <a name="8190"></a> <i>term-document matrix</i> and jealousy would under stemming be considered as a single dimension. This matrix view will prove to be useful in Chapter <a href="matrix-decompositions-and-latent-semantic-indexing-1.html#ch:lsi">18</a> . </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1966" href="queries-as-vectors-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1960" href="the-vector-space-model-for-scoring-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1954" href="the-vector-space-model-for-scoring-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1962" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1964" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1967" href="queries-as-vectors-1.html">Queries as vectors</a> 
+  <b> Up:</b> 
+  <a name="tex2html1961" href="the-vector-space-model-for-scoring-1.html">The vector space model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1955" href="the-vector-space-model-for-scoring-1.html">The vector space model</a> &nbsp; 
+  <b> <a name="tex2html1963" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1965" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

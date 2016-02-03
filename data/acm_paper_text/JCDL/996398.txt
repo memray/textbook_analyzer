@@ -1,0 +1,2 @@
+Question answering on lecture videos: a multifaceted approach
+In this paper, we introduce a multifaceted approach for question answering on lecture videos Text extracted from PowerPoint slides associated with the lecture videos is used as a source of domain knowledge to boost the answer extraction performance on these domain specific videos. The three steps of this approach are described and the evaluation plan is discussed.

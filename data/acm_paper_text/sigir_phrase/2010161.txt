@@ -1,0 +1,1 @@
+crowdtracker : enabling community-based real-time-web monitoring crowdtracker is a community-based web monitoring-system optimized for real-time-web streams like twitter , facebook , and google buzz . in this demo summary , we provide an overview of the system and architecture , and outline the demonstration plan .

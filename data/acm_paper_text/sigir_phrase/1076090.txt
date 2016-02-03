@@ -1,0 +1,1 @@
+publish/subscribe functionality in ir environments using structured-overlay-networks we study the problem of offering publish/subscribe functionality on top of structured-overlay-networks using data models and languages from ir . we show how to achieve this by extending the distributed-hash-table chord and present a detailed experimental-evaluation of our proposals .

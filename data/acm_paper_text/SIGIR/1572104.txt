@@ -1,0 +1,2 @@
+On efficient posting list intersection with multicore processors
+An abstract is not available.

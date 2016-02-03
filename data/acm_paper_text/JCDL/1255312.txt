@@ -1,0 +1,2 @@
+The internet public library: an online learning laboratory for digital libraries
+This demonstration explores the Internet Public Library (www.ipl.org), a shared online facility for testing innovations in digital libraries and for training a skilled work force in digital library services, systems, and collections. Hypatia 2.0 and QRC software used in IPL's digital library collections and services are shown, with discussion of IPL in education, digital collections, digital reference services, digital library systems, and research.

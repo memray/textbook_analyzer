@@ -1,0 +1,2 @@
+Taking internet's temperature: prescriptions for the 21st century
+This talk will discuss the current state of the Internet, near term projections, the importance of security and privacy on the Internet especially for health care applications, the impact of RFID, and the effect of Internet--enabling everything ("at home, in your car, in the operating room, in the office, and all the stuff you hang on your body").

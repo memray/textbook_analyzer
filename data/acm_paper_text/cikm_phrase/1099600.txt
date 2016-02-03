@@ -1,0 +1,1 @@
+applying cosine-series to join size-estimation this paper provides a general overview of two innovative-applications of cosine-series in xml joins and data-stream-joins .

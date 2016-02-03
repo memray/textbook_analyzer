@@ -1,0 +1,2 @@
+The distributed interoperable object model and its application to large-scale interoperable database systems
+An abstract is not available.

@@ -1,0 +1,2 @@
+Selectivity estimation of Window queries for line segment datasets
+An abstract is not available.

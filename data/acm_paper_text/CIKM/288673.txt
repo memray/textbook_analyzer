@@ -1,0 +1,2 @@
+An incremental approach to schema integration by refining extensional relationships
+An abstract is not available.

@@ -1,0 +1,2 @@
+Extending sitemaps for ResourceSync
+The documents used in the ResourceSync synchronization framework are based on the widely adopted document format defined by the Sitemap protocol. In order to address requirements of the framework, extensions to the Sitemap format were necessary. This short paper describes the concerns we had about introducing such extensions, the tests we did to evaluate their validity, and aspects of the framework to address them.

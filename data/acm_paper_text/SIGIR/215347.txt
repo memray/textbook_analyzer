@@ -1,0 +1,2 @@
+A new character-based indexing method using frequency data for Japanese documents
+An abstract is not available.

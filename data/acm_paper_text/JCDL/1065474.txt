@@ -1,0 +1,2 @@
+Using strand maps to engage digital library users with science content
+Our research examined whether using strand maps as an interface for digital library search tasks would change learners' cognitive processes when seeking educational resources. Results demonstrated that strand maps can help learners engage with science content and that semantic-spatial interfaces can support meaningful search processes.

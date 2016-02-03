@@ -1,0 +1,2 @@
+Computation of term associations by a neural network
+An abstract is not available.

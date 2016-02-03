@@ -1,0 +1,2 @@
+XML as the articulation between information retrieval and multimedia in a musical heritage dissemination
+The Cité de la musique in Paris has recently opened a new media Library. One of the Library's assignments is the dissemination of the Cité de la musique's collection of recorded concerts. This paper presents the concert's description model implemented into the MARC Catalogue and emphasizes the central position in the library information system architecture of automatically generated XML representations of each concert.

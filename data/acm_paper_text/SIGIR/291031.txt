@@ -1,0 +1,2 @@
+Term-ordered query evaluation versus document-ordered query evaluation for large document databases
+An abstract is not available.

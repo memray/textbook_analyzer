@@ -1,0 +1,2 @@
+OLISTICO: an evaluation environment for interactive IR applications
+An abstract is not available.

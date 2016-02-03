@@ -1,0 +1,1 @@
+testing algorithms is like testing students in this paper , we apply methods from educational testing to measure the reliability of an ir collection .

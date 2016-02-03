@@ -1,0 +1,2 @@
+EuroHCIR2013: the 3rd European workshop on human-computer interaction and information retrieval
+A proposal summary for the EuroHCIR workshop at SIGIR2013.

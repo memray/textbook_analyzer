@@ -1,0 +1,2 @@
+Inter-search engine lexical signature performance
+We generate lexical signatures (LSs) from web pages and acquire the mandatory document frequency values from three dierent search engine (SE) indexes. We cross-query the LSs against the two SEs they were not generated from and compare the retrieval performance by parsing the result set and analyzing the rank of the source URL.

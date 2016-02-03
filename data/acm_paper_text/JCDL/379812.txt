@@ -1,0 +1,2 @@
+A versatile facsimile and transcription service for manuscripts and rare old books at the Miguel de Cervantes digital library
+The purpose of this poster is to describe our approach to provide facsimiles of manuscripts and old books as one of our DL services publicly available by Internet.

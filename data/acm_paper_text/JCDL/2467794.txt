@@ -1,0 +1,2 @@
+The apollo archive explorer
+A system for exploring the rich recorded legacy of the Apollo missions to the Moon, using the event structure of each mission as an organizing principle, will be demonstrated. A scalable implementation is achieved by automating temporal, spatial, and topical content alignment across diverse media. Multiple access points are supported, including event-based access through the flight plan, time-based access using event timelines, and content-based access using information retrieval techniques.

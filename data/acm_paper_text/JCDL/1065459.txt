@@ -1,0 +1,2 @@
+Toward a metadata standard for digitized historical newspapers
+This paper is a case study of metadata development in the early stages of the National Digital Newspaper Program, a twenty-year digital initiative to expand access to historical newspapers in support of research and education. Some of the issues involved in newspaper metadata are examined, and a new XML-based standard is described that is suited to the large volume of data, while remaining flexible into the future.

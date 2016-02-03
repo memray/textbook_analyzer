@@ -1,0 +1,2 @@
+PDLib: personal digital libraries with universal access
+We propose a universally available personal digital library system. It is "personal" in the sense that each user is provided with a general purpose document repository (i.e. a personal digital library). It is "universally available" in the sense that it allows the user to access her/his personal personal digital library from most computing devices connected to the Internet, including mobile phones, PDAs and laptops, therefore granting access "from anyplace at anytime."

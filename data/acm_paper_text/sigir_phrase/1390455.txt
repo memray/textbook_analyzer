@@ -1,0 +1,1 @@
+relevance thresholds in system evaluations we introduce and explore the concept of an individual 's relevance threshold as a way of reconciling differences in outcomes between batch and user-experiments .

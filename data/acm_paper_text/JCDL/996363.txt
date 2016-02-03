@@ -1,0 +1,2 @@
+Improving video browsing with an eye-tracking evaluation of feature-based color bars
+This paper explains a method for leveraging the standard video time line widget as an interactive visualization of image features. An eye-tracking experiment is described with results that indicate that such a widget increases task efficiency without increasing complexity while being easily learned by experiment participants .

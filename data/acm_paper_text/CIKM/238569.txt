@@ -1,0 +1,2 @@
+A case study of Venus and a declarative basis for rule modules
+An abstract is not available.

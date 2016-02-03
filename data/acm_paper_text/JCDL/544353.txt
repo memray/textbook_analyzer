@@ -1,0 +1,2 @@
+Integrating expertise into the NSDL: putting a human face on the digital library
+This paper describes work currently underway at the Information Institute of Syracuse to build an operational digital reference system to support the National Science, Mathematics, Engineering, and Technology Education Digital Library (NSDL).

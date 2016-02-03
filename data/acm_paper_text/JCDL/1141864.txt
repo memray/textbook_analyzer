@@ -1,0 +1,2 @@
+Pilot testing the DigiQUAL™ protocol: lessons learned
+The Association of Research Libraries is developing the DigiQUAL™ protocol to assess the service quality provided by digital libraries (DLs). In 2005, statements about DL service quality were put through a two-step validation process with DL developers and then with users in an online survey..

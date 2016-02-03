@@ -1,0 +1,2 @@
+Selective harvesting of regional digital libraries and national metadata aggregators
+The poster presents the concept, implementation and practical application of the OAI-PMH protocol extension which allows OAI-PMH service providers to dynamically create and harvest sets of items from OAI-PMH data providers. The implementation of the presented concept is based on the encoding of dynamic set specifications in OAI-PMH requests with the CQL language. The extension was developed and widely applied in Poland and now it is used in several projects funded by the European Commission.

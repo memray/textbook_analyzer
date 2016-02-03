@@ -1,0 +1,2 @@
+Efficient processing of one and two dimensional proximity queries in associative memory
+An abstract is not available.

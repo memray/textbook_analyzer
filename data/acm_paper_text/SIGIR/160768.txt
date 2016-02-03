@@ -1,0 +1,2 @@
+A common query interface for multilingual document retrieval from databases of the European Community Institutions (abstract)
+An abstract is not available.

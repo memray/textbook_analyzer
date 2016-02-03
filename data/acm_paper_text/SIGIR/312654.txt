@@ -1,0 +1,2 @@
+Using a belief revision operator for document ranking in extended Boolean models
+An abstract is not available.

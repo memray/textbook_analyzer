@@ -1,0 +1,2 @@
+A practical approach to static analysis and execution of rules in active databases
+An abstract is not available.

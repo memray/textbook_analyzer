@@ -1,0 +1,1 @@
+metadata data-dictionary for analog-sound-recordings this paper introduces a new metadata data-dictionary design to assist in the consistent creation of digital-libraries of analog sound recording and to promote their interoperability .

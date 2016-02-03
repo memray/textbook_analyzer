@@ -1,0 +1,1 @@
+long-duration transaction support in design databases an abstract is not available .

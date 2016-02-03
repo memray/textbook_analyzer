@@ -1,0 +1,2 @@
+The role of the dikw hierarchy in the design of a digital library system for the scientific data of large-scale evaluation campaigns
+This paper exploit the DIKW hierarchy as a framework for modelling the scientific data produced during large-scale evaluation campaigns for information retrieval systems in order to design a digital library system able to manage and support the course of such evaluation campaigns.

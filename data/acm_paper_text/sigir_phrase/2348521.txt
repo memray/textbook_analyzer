@@ -1,0 +1,1 @@
+using eye-tracking with dynamic areas-of-interest for analyzing interactive-information-retrieval based on a new framework for capturing dynamic areas-of-interest in eye-tracking , we model the user-search process as a markov-chain . the analysis indicates possible system improvements and yields parameter estimates for the interactive probability-ranking-principle (iprp) .

@@ -1,0 +1,2 @@
+An efficient and reliable reservation algorithm for mobile transactions
+An abstract is not available.

@@ -1,0 +1,2 @@
+Dynamic skew handling in parallel mining of association rules
+An abstract is not available.

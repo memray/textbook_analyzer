@@ -1,0 +1,2 @@
+Handling temporal grouping and pattern-matching queries in a temporal object model
+An abstract is not available.

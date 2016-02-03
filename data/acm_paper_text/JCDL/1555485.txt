@@ -1,0 +1,2 @@
+Analyzing OPAC use with screen views and eye tracking
+Eye tracking was used to analyze which elements of which screens were viewed by users searching an Online Public Access Catalog (OPAC). Eye tracking data was obtained for 32 participants performing a known-item search task. The results show that more than 30\% of participants did not make effective use of screens offering additional details, and that participants who did, and found the correct answer, gazed at specific screen elements more frequently than participants who gave incorrect answers.

@@ -1,0 +1,2 @@
+Many-to-many information connection connections in a distributed digital library portal
+The Ensemble computing education portal is part of the US NSF's National Science Digital Library (NSDL). The underlying assumption in Ensemble's design is that people will not come just because we build something new. The information must be available from wherever potential users are. This poster describes early efforts to provide multiple community oriented entry points to multiple sources relevant to computing educators.

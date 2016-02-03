@@ -1,0 +1,2 @@
+Research discovery through linked open data
+VIVO is an open source semantic web platform that contains information about scholars and their interests and activities. This demonstration will highlight the platform and ontology, data sources, features of the software and the ways that VIVO data can be leveraged for a variety of purposes within and beyond an institution to facilitate collaboration and research discovery.

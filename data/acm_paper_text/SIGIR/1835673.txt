@@ -1,0 +1,2 @@
+A survival modeling approach to biomedical search result diversification using wikipedia
+In this paper, we propose a probabilistic survival model derived from the survival analysis theory for measuring aspect novelty. The retrieved documents' query-relevance and novelty are combined at the aspect level for re-ranking. Experiments conducted on the TREC 2006 and 2007 Genomics collections demonstrate the effectiveness of the proposed approach in promoting ranking diversity for biomedical information retrieval.

@@ -1,0 +1,2 @@
+Dynamic query optimization on a distributed object management platform
+An abstract is not available.

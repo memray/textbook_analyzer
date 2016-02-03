@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Feature selectionChi2 Feature selection</title> 
+  <meta name="description" content="Feature selectionChi2 Feature selection" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="frequency-based-feature-selection-1.html" /> 
+  <link rel="previous" href="mutual-information-1.html" /> 
+  <link rel="up" href="feature-selection-1.html" /> 
+  <link rel="next" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3563" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3557" href="feature-selection-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3551" href="mutual-information-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3559" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3561" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3564" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html">Assessing as a feature</a> 
+  <b> Up:</b> 
+  <a name="tex2html3558" href="feature-selection-1.html">Feature selection</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3552" href="mutual-information-1.html">Mutual information</a> &nbsp; 
+  <b> <a name="tex2html3560" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3562" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001852000000000000000"> <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> Feature selectionChi2 Feature selection</a> </h2> 
+  <a name="17860"></a> 
+  <a name="sec:chisquare"></a> 
+  <a name="p:chisquare"></a> Another popular feature selection method is 
+  <a name="17231"></a> 
+  <i><img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /></i> . In statistics, the 
+  <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> test is applied to test the independence of two events, where two events A and B are defined to be 
+  <a name="17233"></a> 
+  <a name="p:statindependence"></a> 
+  <a name="17235"></a> 
+  <i>independent</i> if 
+  <!-- MATH
+ $P(AB) = P(A)P(B)$
+ --> 
+  <img width="144" height="33" align="MIDDLE" border="0" src="img1044.png" alt="$P(AB) = P(A)P(B)$" /> or, equivalently, 
+  <img width="115" height="33" align="MIDDLE" border="0" src="img1045.png" alt="$P(A\vert B)=P(A)$" /> and 
+  <img width="113" height="33" align="MIDDLE" border="0" src="img1046.png" alt="$P(B\vert A)=P(B)$" />. In feature selection, the two events are occurrence of the term and occurrence of the class. We then rank terms with respect to the following quantity: 
+  <br /> 
+  <div align="CENTER">
+   <a name="eqn:chisquare"></a> 
+   <!-- MATH
+ \begin{eqnarray}
+X^2(\docsetlabeled,\tcword,c) =
+\sum_{e_\tcword \in \{ 0,1 \} }
+\sum_{e_c \in \{ 0,1 \} }
+\frac{(\observationo_{e_\tcword e_c}-E_{e_\tcword e_c})^2}{E_{e_\tcword e_c}}
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="304" height="58" align="MIDDLE" border="0" src="img1047.png" alt="$\displaystyle X^2(\docsetlabeled,\tcword,c) =
+\sum_{e_\tcword \in \{ 0,1 \} }
+\...
+...}
+\frac{(\observationo_{e_\tcword e_c}-E_{e_\tcword e_c})^2}{E_{e_\tcword e_c}}$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (133)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> where 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img1022.png" alt="$e_\tcword$" /> and 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1023.png" alt="$e_c$" /> are defined as in Equation&nbsp;
+  <a href="mutual-information-1.html#mifeatsel">130</a>. 
+  <img width="18" height="32" align="MIDDLE" border="0" src="img1021.png" alt="$\observationo$" /> is the 
+  <i>observed</i> frequency in 
+  <!-- MATH
+ $\docsetlabeled$
+ --> 
+  <img width="18" height="32" align="MIDDLE" border="0" src="img856.png" alt="$\docsetlabeled$" /> and 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img1048.png" alt="$E$" /> the 
+  <i>expected</i> frequency. For example, 
+  <img width="26" height="32" align="MIDDLE" border="0" src="img1010.png" alt="$E_{11}$" /> is the expected frequency of 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img891.png" alt="$\tcword$" /> and 
+  <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> occurring together in a document assuming that term and class are independent. 
+  <p> <b>Worked example.</b> We first compute <img width="26" height="32" align="MIDDLE" border="0" src="img1010.png" alt="$E_{11}$" /> for the data in Example&nbsp;<a href="mutual-information-1.html#miworkedeg">13.5.1</a>: </p>
+  <p> <br /> </p>
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+E_{11} &= &N\times P(\tcword) \times P(c) = N\times \frac{\observationo_{11}+\observationo_{10}}{N} \times
+\frac{\observationo_{11}+\observationo_{01}}{N} \\
+ & = & N \times \frac{49+141}{N}
+\times \frac{49+27652}{N}\approx 6.6
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="27" height="32" align="MIDDLE" border="0" src="img1049.png" alt="$\displaystyle E_{11}$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="340" height="53" align="MIDDLE" border="0" src="img1050.png" alt="$\displaystyle N\times P(\tcword) \times P(c) = N\times \frac{\observationo_{11}+\observationo_{10}}{N} \times
+\frac{\observationo_{11}+\observationo_{01}}{N}$" /></td> 
+      <td width="10" align="RIGHT"> (134)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="241" height="52" align="MIDDLE" border="0" src="img1051.png" alt="$\displaystyle N \times \frac{49+141}{N}
+\times \frac{49+27652}{N}\approx 6.6$" /></td> 
+      <td width="10" align="RIGHT"> (135)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> where 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> is the total number of documents as before. 
+  <p> We compute the other 
+   <!-- MATH
+ $E_{e_\tcword e_c}$
+ --> <img width="33" height="32" align="MIDDLE" border="0" src="img1052.png" alt="$E_{e_\tcword e_c}$" /> in the same way: </p>
+  <blockquote> 
+   <a name="p:chisquareex"></a> 
+  </blockquote> 
+  <p> </p>
+  <blockquote>
+   <table cellpadding="3" border="1"> 
+    <tbody>
+     <tr>
+      <td align="CENTER" colspan="1">&nbsp;</td> 
+      <td align="CENTER" colspan="2">
+       <!-- MATH
+ $e_{\class{poultry}}=1$
+ --> <img width="89" height="32" align="MIDDLE" border="0" src="img1053.png" alt="$e_{\class{poultry}}=1$" /></td> 
+      <td align="CENTER" colspan="2">
+       <!-- MATH
+ $e_{\class{poultry}}=0$
+ --> <img width="89" height="32" align="MIDDLE" border="0" src="img1054.png" alt="$e_{\class{poultry}}=0$" /></td> 
+      <td align="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">
+       <!-- MATH
+ $e_{\term{export}} = 1$
+ --> <img width="81" height="32" align="MIDDLE" border="0" src="img1055.png" alt="$e_{\term{export}} = 1$" /></td> 
+      <td align="LEFT">
+       <!-- MATH
+ $\observationo_{11} = 49$
+ --> <img width="67" height="32" align="MIDDLE" border="0" src="img1032.png" alt="$ \observationo_{11}=49$" /></td> 
+      <td align="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td align="LEFT">
+       <!-- MATH
+ $E_{11}\approx 6.6$
+ --> <img width="68" height="32" align="MIDDLE" border="0" src="img1056.png" alt="$E_{11}\approx 6.6$" /></td> 
+      <td align="LEFT">
+       <!-- MATH
+ $\observationo_{10} = 
+27{,}652$
+ --> <img width="95" height="32" align="MIDDLE" border="0" src="img1033.png" alt="$\observationo_{10} = 27{,}652$" /></td> 
+      <td align="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td align="LEFT">
+       <!-- MATH
+ $E_{10}\approx 27{,}694.4$
+ --> <img width="105" height="32" align="MIDDLE" border="0" src="img1057.png" alt="$E_{10}\approx 27{,}694.4$" /></td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">
+       <!-- MATH
+ $e_{\term{export}} = 0$
+ --> <img width="81" height="32" align="MIDDLE" border="0" src="img1058.png" alt="$e_{\term{export}} = 0$" /></td> 
+      <td align="LEFT">
+       <!-- MATH
+ $\observationo_{01} = 141$
+ --> <img width="75" height="32" align="MIDDLE" border="0" src="img1035.png" alt="$ \observationo_{01} = 141$" /></td> 
+      <td align="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td align="LEFT">
+       <!-- MATH
+ $E_{01}\approx 183.4$
+ --> <img width="85" height="32" align="MIDDLE" border="0" src="img1059.png" alt="$E_{01}\approx 183.4$" /></td> 
+      <td align="LEFT">
+       <!-- MATH
+ $\observationo_{00} = 774{,}106$
+ --> <img width="103" height="32" align="MIDDLE" border="0" src="img1036.png" alt="$ \observationo_{00}=774{,}106$" /></td> 
+      <td align="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td align="LEFT">
+       <!-- MATH
+ $E_{00}\approx 774{,}063.6$
+ --> <img width="112" height="32" align="MIDDLE" border="0" src="img1060.png" alt="$ E_{00}\approx 774{,}063.6$" /></td> 
+     </tr> 
+    </tbody>
+   </table> 
+  </blockquote> 
+  <p> Plugging these values into Equation&nbsp;<a href="#eqn:chisquare">133</a>, we get a <img width="23" height="36" align="MIDDLE" border="0" src="img1061.png" alt="$X^2$" /> value of 284: <br /> </p>
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+X^2(\docsetlabeled,\tcword,c) = \sum_{e_\tcword \in \{ 0,1 \} }
+\sum_{e_c \in \{ 0,1 \} }
+\frac{(\observationo_{e_\tcword e_c}-E_{e_\tcword e_c})^2}{E_{e_\tcword e_c}}
+\approx 284
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="350" height="58" align="MIDDLE" border="0" src="img1062.png" alt="$\displaystyle X^2(\docsetlabeled,\tcword,c) = \sum_{e_\tcword \in \{ 0,1 \} }
+\...
+...servationo_{e_\tcword e_c}-E_{e_\tcword e_c})^2}{E_{e_\tcword e_c}}
+\approx 284$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (136)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> 
+  <b>End worked example.</b> 
+  <p> <img width="23" height="36" align="MIDDLE" border="0" src="img1061.png" alt="$X^2$" /> is a measure of how much expected counts <img width="14" height="32" align="MIDDLE" border="0" src="img1048.png" alt="$E$" /> and observed counts <img width="18" height="32" align="MIDDLE" border="0" src="img1021.png" alt="$\observationo$" /> deviate from each other. A high value of <img width="23" height="36" align="MIDDLE" border="0" src="img1061.png" alt="$X^2$" /> indicates that the hypothesis of independence, which implies that expected and observed counts are similar, is incorrect. In our example, 
+   <!-- MATH
+ $X^2 \approx 284 > 10.83$
+ --> <img width="127" height="36" align="MIDDLE" border="0" src="img1063.png" alt="$X^2 \approx 284 &gt; 10.83$" />. Based on Table <a href="#tab:chicritical">13.6</a> , we can reject the hypothesis that poultry and export are independent with only a 0.001 chance of being wrong.<a name="tex2html141" href="footnode.html#foot17916"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a>Equivalently, we say that the outcome 
+   <!-- MATH
+ $X^{\kern.5pt2} \approx 284 >
+10.83$
+ --> <img width="128" height="36" align="MIDDLE" border="0" src="img1065.png" alt="$X^{\kern.5pt2} \approx 284 &gt;
+10.83$" /> is <a name="17315"></a> <a name="17316"></a> <i>statistically significant</i> at the 0.001 level. If the two events are dependent, then the occurrence of the term makes the occurrence of the class more likely (or less likely), so it should be helpful as a feature. This is the rationale of <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> feature selection. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="17873"></a> 
+   <table cellpadding="3" border="1"> 
+    <caption>
+     <strong>Table 13.6:</strong> Critical values of the 
+     <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> distribution with one degree of freedom. For example, if the two events are independent, then 
+     <!-- MATH
+ $P(X^{\kern.5pt2}>6.63)<0.01$
+ --> 
+     <img width="148" height="36" align="MIDDLE" border="0" src="img22.png" alt="$P(X^{\kern .5pt2}&gt;6.63)&lt;0.01$" />. So for 
+     <!-- MATH
+ $X^{\kern.5pt2}>6.63$
+ --> 
+     <img width="74" height="36" align="MIDDLE" border="0" src="img23.png" alt="$X^{\kern .5pt2}&gt;6.63$" /> the assumption of independence can be rejected with 99% confidence. 
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT"><img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /></td> 
+      <td align="LEFT"><img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> critical value</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0.1</td> 
+      <td align="LEFT">2.71</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0.05</td> 
+      <td align="LEFT">3.84</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0.01</td> 
+      <td align="LEFT">6.63</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0.005</td> 
+      <td align="LEFT">7.88</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0.001</td> 
+      <td align="LEFT">10.83</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <br /> 
+  <p> An arithmetically simpler way of computing 
+   <!-- MATH
+ $X^{\kern.5pt2}$
+ --> <img width="24" height="36" align="MIDDLE" border="0" src="img1066.png" alt="$X^{\kern.5pt2}$" /> is the following: <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+X^2(\docsetlabeled,\tcword,c) = \frac{(\observationo_{11}+\observationo_{10}+\observationo_{01}+\observationo_{00})\times (\observationo_{11}\observationo_{00}-\observationo_{10}\observationo_{01})^2}{(\observationo_{11}+\observationo_{01})\times
+(\observationo_{11}+\observationo_{10})\times (\observationo_{10}+\observationo_{00})\times (\observationo_{01}+\observationo_{00})}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:chisquareform2"></a><img width="492" height="46" border="0" src="img1067.png" alt="\begin{displaymath}
+X^2(\docsetlabeled,\tcword,c) = \frac{(\observationo_{11}+\o...
+...ervationo_{00})\times (\observationo_{01}+\observationo_{00})}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (137)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> This is equivalent to Equation&nbsp;
+  <a href="#eqn:chisquare">133</a> (Exercise 
+  <a href="evaluation-of-text-classification-1.html#ex:chisquareformulas">13.6</a> ). 
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html3565" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html">Assessing <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> as a feature selection methodAssessing chi-square as a feature selection method</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3563" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3557" href="feature-selection-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3551" href="mutual-information-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3559" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3561" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3564" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html">Assessing as a feature</a> 
+  <b> Up:</b> 
+  <a name="tex2html3558" href="feature-selection-1.html">Feature selection</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3552" href="mutual-information-1.html">Mutual information</a> &nbsp; 
+  <b> <a name="tex2html3560" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3562" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

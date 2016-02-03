@@ -1,0 +1,2 @@
+Scalable hierarchical topic detection: exploring a sample based approach
+Hierarchical topic detection is a new task in the TDT 2004 evaluation program, which aims to organize an unstructured news collection in a directed acyclic graph (DAG) structure, reflecting the topics discussed. We present a scalable architecture for HTD and compare several alternative choices for agglomerative clustering and DAG optimization in order to minimize the HTD cost metric.

@@ -1,0 +1,2 @@
+Personal name-matching through name transformation
+A graph theory based method is proposed to exploit name transformation for personal name-matching. Experiment results on three personal name datasets show that the method is effective.

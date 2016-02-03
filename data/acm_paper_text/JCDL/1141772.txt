@@ -1,0 +1,2 @@
+The processing of digitized works
+This paper describes the processing of digitised works at the National Library of Portugal, as done in the scope of the National Digital Library initiate (BND). This comprises the normalization of the names of the images, the creation of technical metadata, image processing, OCR, indexing, and the creation of derived copies for preservation and copies for access in PNG, JPG, GIF, and PDF. The structural descriptions of all the objects are done in METS.

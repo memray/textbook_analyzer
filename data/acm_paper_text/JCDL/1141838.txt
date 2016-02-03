@@ -1,0 +1,2 @@
+Multi-linguistic collaborative distance learning: from information translation to knowledge translation
+A new Video-based Muti-linguistic Collaborative Distance Learning (VMC-DE) was proposed to support knowledge translation by integrating information, translation, interactive learning, knowledge and context into an interactive learning environment. Two types of user interfaces are under development.

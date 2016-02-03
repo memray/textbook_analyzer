@@ -1,0 +1,2 @@
+Constructing digital library interfaces
+The software technologies used to create web interfaces for digital libraries are discussed using examples from Greenstone 3.

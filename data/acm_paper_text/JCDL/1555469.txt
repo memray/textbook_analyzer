@@ -1,0 +1,2 @@
+Summarizing user-generated reviews in digital libraries: a visual clustering approach
+In this paper, we describe a visual clustering approach to summarizing user-generated reviews of digital library items and services. The approach consists of the steps of sentence extraction, aspect identification, opinion classification, and review summarization. Our work augments existing work by considering non-standard input and by incorporating clustering and visualization in summarization.

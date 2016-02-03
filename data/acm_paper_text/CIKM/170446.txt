@@ -1,0 +1,2 @@
+Efficient availability mechanisms in distributed database systems
+An abstract is not available.

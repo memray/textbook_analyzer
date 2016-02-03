@@ -1,0 +1,2 @@
+User perceptions of a federated search system
+To examine how users make sense of a federated search system we collected data from professional and novice searchers, using a survey instrument that contained simulated searches. A main task of participants was to provide a narrative and a drawing of their understanding of how MetaLib works. The poster presents the methodology and findings, identifies design issues related to federated search systems, and discusses strategies for increasing information literacy in federated search.

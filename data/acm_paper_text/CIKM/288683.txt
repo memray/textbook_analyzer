@@ -1,0 +1,2 @@
+Dynamic restructuring of transactional workflow activities: a practical implementation method
+An abstract is not available.

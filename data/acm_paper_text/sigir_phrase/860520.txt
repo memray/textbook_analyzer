@@ -1,0 +1,1 @@
+document-self expansion for text-categorization approaches to increase training-examples to hopefully improve classification effectiveness are proposed in this work . the approaches were verified by use of two chinese collections classified by two top-performing classifiers .

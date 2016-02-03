@@ -1,0 +1,1 @@
+data-compression-techniques for economic processing of large commercial files the application of compact-coding , differencing and other techniques to indexed-sequential-files is discussed . the effects on system-performance are discussed and reductions of almost 80 \ % in mass-storage requirements for a particular file are reported .

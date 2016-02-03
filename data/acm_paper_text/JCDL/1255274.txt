@@ -1,0 +1,2 @@
+A publisher of last resort: enduring document access
+Ensuring long-term access to valuable online content is complicated by legal constraints and practical difficulties. We introduce a new technique for ensuring the long-term availability of digital content on the internet. The technique combines legal and technical measures to guarantee that a document remains available when its original goes offline, either permanently or long-term: a "publisher of last resort".

@@ -1,0 +1,1 @@
+user-oriented text-segmentation evaluation-measure the paper describes a user-oriented performance-evaluation measure for text-segmentation . experiments show that the proposed measure differentiates well between error distributions with varying user-impact .

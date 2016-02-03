@@ -1,0 +1,2 @@
+Building cross-browser interfaces for digital libraries with scalable vector graphics (SVG)
+We share our experience with developing interactive, crossbrowser strand maps using SVG. These maps will provide educators with free and easy access to carefully selected instructional resources linked to national and state learning goals. We will show the interface in at least two browsers, Internet Explorer with Adobe's SVG Viewer plug-in and Mozilla Firefox.

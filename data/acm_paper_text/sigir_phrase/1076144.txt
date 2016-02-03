@@ -1,0 +1,1 @@
+expectation of f-measures : tractable exact-computation and some empirical-observations of its properties we derive a tractable and exact-computation for the expectation of f - measures . we also demonstrate the non-convexity of this expectation , and investigate errors of approximating the expectation under different settings .

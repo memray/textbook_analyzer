@@ -1,0 +1,2 @@
+MedTextus: an intelligent web-based medical meta-search system
+We propose to demonstrate a web-based prototype system that integrates the meta-search approach with existing information analysis and visualization technologies to facilitate concept-based searching behavior over the medical domain. The system distinguishes itself from other meta-search engines through two features. It incorporates the co-occurrence analysis and existing ontology to understand user's query. It also utilizes the self-organizing map (SOM) to categorize and visualize search results.

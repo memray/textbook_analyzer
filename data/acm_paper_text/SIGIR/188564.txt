@@ -1,0 +1,2 @@
+A system for discovering relationships by feature extraction from text databases
+An abstract is not available.

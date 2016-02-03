@@ -1,0 +1,1 @@
+site-based dynamic-pruning for query-processing in search-engines web-search-engines typically index and retrieve at the page level . in this study , we investigate a dynamic-pruning strategy that allows the query-processor to first determine the most promising websites and then proceed with the similarity computations for those pages only within these sites .

@@ -1,0 +1,1 @@
+using speculation to reduce server load and service-time on the www an abstract is not available .

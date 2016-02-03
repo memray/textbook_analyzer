@@ -1,0 +1,2 @@
+If you harvest arXiv.org, will they come?
+We examine which NASA Technical Report Server (NTRS) repositories have received the most downloads during 15 months of operation. In particular, we explore the collection development policy of including non-NASA scientific, technology and medicine (STM) repositories. We found that three of the four non-NASA repositories included in NTRS contributed little to the overall download totals.

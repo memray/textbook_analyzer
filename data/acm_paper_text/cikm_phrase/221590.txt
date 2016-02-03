@@ -1,0 +1,1 @@
+effective clustering of objects stored by linear-hashing an abstract is not available .

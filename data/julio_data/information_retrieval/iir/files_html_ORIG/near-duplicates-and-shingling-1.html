@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Near-duplicates and shingling</title> 
+  <meta name="description" content="Near-duplicates and shingling" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="references-and-further-reading-19.html" /> 
+  <link rel="previous" href="index-size-and-estimation-1.html" /> 
+  <link rel="up" href="web-search-basics-1.html" /> 
+  <link rel="next" href="references-and-further-reading-19.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4746" href="references-and-further-reading-19.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4740" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4734" href="index-size-and-estimation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4742" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4744" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4747" href="references-and-further-reading-19.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html4741" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4735" href="index-size-and-estimation-1.html">Index size and estimation</a> &nbsp; 
+  <b> <a name="tex2html4743" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4745" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002460000000000000000"></a> <a name="sec:dup"></a> <a name="p:dup"></a> <br /> Near-duplicates and shingling </h1> One aspect we have ignored in the discussion of index size in Section 
+  <a href="index-size-and-estimation-1.html#sec:size">19.5</a> is 
+  <i>duplication</i>: the Web contains multiple copies of the same content. By some estimates, as many as 40% of the pages on the Web are duplicates of other pages. Many of these are legitimate copies; for instance, certain information repositories are mirrored simply to provide redundancy and access reliability. Search engines try to avoid indexing multiple copies of the same content, to keep down storage and processing overheads. 
+  <p> The simplest approach to detecting duplicates is to compute, for each web page, a <i>fingerprint</i> that is a succinct (say 64-bit) digest of the characters on that page. Then, whenever the fingerprints of two web pages are equal, we test whether the pages themselves are equal and if so declare one of them to be a duplicate copy of the other. This simplistic approach fails to capture a crucial and widespread phenomenon on the Web: <i>near duplication</i>. In many cases, the contents of one web page are identical to those of another except for a few characters - say, a notation showing the date and time at which the page was last modified. Even in such cases, we want to be able to declare the two pages to be close enough that we only index one copy. Short of exhaustively comparing all pairs of web pages, an infeasible task at the scale of billions of pages, how can we detect and filter out such near duplicates? </p>
+  <p> <a name="sec:shingling"></a> <a name="p:shingling"></a> We now describe a solution to the problem of detecting near-duplicate web pages. The answer lies in a technique known as <a name="30453"></a> <i>shingling</i> . Given a positive integer <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> and a sequence of terms in a document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, define the <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />-shingles of <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> to be the set of all consecutive sequences of <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> terms in <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />. As an example, consider the following text: a rose is a rose is a rose. The 4-shingles for this text (<img width="42" height="31" align="MIDDLE" border="0" src="img11.png" alt="$k=4$" /> is a typical value used in the detection of near-duplicate web pages) are a rose is a, rose is a rose and is a rose is. The first two of these shingles each occur twice in the text. Intuitively, two documents are near duplicates if the sets of shingles generated from them are nearly the same. We now make this intuition precise, then develop a method for efficiently computing and comparing the sets of shingles for all web pages. </p>
+  <p> Let <img width="40" height="33" align="MIDDLE" border="0" src="img1845.png" alt="$S(d_j)$" /> denote the set of shingles of document <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" />. Recall the <a name="30459"></a> <i>Jaccard coefficient</i> from page <a href="k-gram-indexes-for-spelling-correction-1.html#p:jaccard">3.3.4</a> , which measures the degree of overlap between the sets <img width="42" height="33" align="MIDDLE" border="0" src="img1846.png" alt="$S(d_1)$" /> and <img width="42" height="33" align="MIDDLE" border="0" src="img1847.png" alt="$S(d_2)$" /> as 
+   <!-- MATH
+ $|S(d_1) \cap S(d_2)|/|S(d_1) \cup S(d_2)|$
+ --> <img width="221" height="33" align="MIDDLE" border="0" src="img1848.png" alt="$\vert S(d_1) \cap S(d_2)\vert/\vert S(d_1) \cup S(d_2)\vert$" />; denote this by 
+   <!-- MATH
+ $J(S(d_1),S(d_2))$
+ --> <img width="108" height="33" align="MIDDLE" border="0" src="img1849.png" alt="$J(S(d_1),S(d_2))$" />. Our test for near duplication between <img width="19" height="31" align="MIDDLE" border="0" src="img412.png" alt="$d_1$" /> and <img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> is to compute this Jaccard coefficient; if it exceeds a preset threshold (say, <img width="24" height="32" align="MIDDLE" border="0" src="img1850.png" alt="$0.9$" />), we declare them near duplicates and eliminate one from indexing. However, this does not appear to have simplified matters: we still have to compute Jaccard coefficients pairwise. </p>
+  <p> To avoid this, we use a form of hashing. First, we map every shingle into a hash value over a large space, say 64 bits. For <img width="54" height="31" align="MIDDLE" border="0" src="img1851.png" alt="$j=1,2$" />, let <img width="44" height="33" align="MIDDLE" border="0" src="img1852.png" alt="$H(d_j)$" /> be the corresponding set of 64-bit hash values derived from <img width="40" height="33" align="MIDDLE" border="0" src="img1845.png" alt="$S(d_j)$" />. We now invoke the following trick to detect document pairs whose sets <img width="31" height="33" align="MIDDLE" border="0" src="img1853.png" alt="$H()$" /> have large Jaccard overlaps. Let <img width="15" height="32" align="MIDDLE" border="0" src="img1854.png" alt="$\pi$" /> be a random permutation from the 64-bit integers to the 64-bit integers. Denote by <img width="45" height="33" align="MIDDLE" border="0" src="img1855.png" alt="$\Pi(d_j)$" /> the set of permuted hash values in <img width="44" height="33" align="MIDDLE" border="0" src="img1852.png" alt="$H(d_j)$" />; thus for each <img width="73" height="33" align="MIDDLE" border="0" src="img1856.png" alt="$h\in H(d_j)$" />, there is a corresponding value 
+   <!-- MATH
+ $\pi(h)\in \Pi(d_j)$
+ --> <img width="98" height="33" align="MIDDLE" border="0" src="img1857.png" alt="$\pi(h)\in \Pi(d_j)$" />. </p>
+  <div align="CENTER"> 
+   <p><a name="fig:figshingling"></a><a name="p:figshingling"></a></p>
+   <img width="573" height="432" border="0" src="img1858.png" alt="\begin{figure}
+% latex2html id marker 30462
+\begin{picture}(600,200)
+\multiput(0...
+...s the minimum values $x_1^\pi$\ and $x_2^\pi$\ for each document.
+}\end{figure}" /> 
+  </div> 
+  <p> Let <img width="22" height="33" align="MIDDLE" border="0" src="img1859.png" alt="$x_j^\pi$" /> be the smallest integer in <img width="45" height="33" align="MIDDLE" border="0" src="img1855.png" alt="$\Pi(d_j)$" />. Then </p>
+  <p> <b>Theorem.</b> <a name="thm:shingling"></a> <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+J(S(d_1),S(d_2)) = P(x_1^\pi=x_2^\pi).
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="212" height="29" border="0" src="img1860.png" alt="\begin{displaymath}
+J(S(d_1),S(d_2)) = P(x_1^\pi=x_2^\pi).
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (247)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <b>End theorem.</b> 
+  <p> <b>Proof.</b> We give the proof in a slightly more general setting: consider a family of sets whose elements are drawn from a common universe. View the sets as columns of a matrix <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />, with one row for each element in the universe. The element <img width="50" height="32" align="MIDDLE" border="0" src="img1861.png" alt="$a_{ij} = 1$" /> if element <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> is present in the set <img width="18" height="32" align="MIDDLE" border="0" src="img1862.png" alt="$S_j$" /> that the <img width="9" height="31" align="MIDDLE" border="0" src="img9.png" alt="$j$" />th column represents. </p>
+  <p> Let <img width="18" height="32" align="MIDDLE" border="0" src="img1863.png" alt="$\Pi$" /> be a random permutation of the rows of <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />; denote by <img width="45" height="33" align="MIDDLE" border="0" src="img1864.png" alt="$\Pi(S_j)$" /> the column that results from applying <img width="18" height="32" align="MIDDLE" border="0" src="img1863.png" alt="$\Pi$" /> to the <img width="9" height="31" align="MIDDLE" border="0" src="img9.png" alt="$j$" />th column. Finally, let <img width="22" height="33" align="MIDDLE" border="0" src="img1859.png" alt="$x_j^\pi$" /> be the index of the first row in which the column <img width="45" height="33" align="MIDDLE" border="0" src="img1864.png" alt="$\Pi(S_j)$" /> has a <img width="12" height="32" align="MIDDLE" border="0" src="img291.png" alt="$1$" />. We then prove that for any two columns <img width="34" height="31" align="MIDDLE" border="0" src="img1865.png" alt="$j_1,j_2$" />, <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P(x_{j_1}^\pi=x_{j_2}^\pi)=J(S_{j_1},S_{j_2}).
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="175" height="32" border="0" src="img1866.png" alt="\begin{displaymath}
+P(x_{j_1}^\pi=x_{j_2}^\pi)=J(S_{j_1},S_{j_2}).
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (248)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> If we can prove this, the theorem follows. 
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:sketch"></a>
+   <a name="p:sketch"></a>
+   <a name="30676"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 19.9:</strong> Two sets 
+     <img width="23" height="32" align="MIDDLE" border="0" src="img34.png" alt="$S_{j_1}$" /> and 
+     <img width="23" height="32" align="MIDDLE" border="0" src="img35.png" alt="$S_{j_2}$" />; their Jaccard coefficient is 
+     <img width="30" height="31" align="MIDDLE" border="0" src="img36.png" alt="$2/5$" />.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="58" height="136" border="0" src="img1867.png" alt="\begin{figure}\begin{tabular}{\vert c\vert c\vert}
+\hline
+% after \\ : \hline ...
+... 0\\
+1 &amp; 1\\
+0 &amp; 0\\
+1 &amp; 1\\
+0 &amp; 1\\
+\hline
+\end{tabular} \end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> Consider two columns <img width="34" height="31" align="MIDDLE" border="0" src="img1865.png" alt="$j_1,j_2$" /> as shown in Figure <a href="#fig:sketch">19.9</a> . The ordered pairs of entries of <img width="23" height="32" align="MIDDLE" border="0" src="img34.png" alt="$S_{j_1}$" /> and <img width="23" height="32" align="MIDDLE" border="0" src="img35.png" alt="$S_{j_2}$" /> partition the rows into four types: those with 0's in both of these columns, those with a 0 in <img width="23" height="32" align="MIDDLE" border="0" src="img34.png" alt="$S_{j_1}$" /> and a 1 in <img width="23" height="32" align="MIDDLE" border="0" src="img35.png" alt="$S_{j_2}$" />, those with a 1 in <img width="23" height="32" align="MIDDLE" border="0" src="img34.png" alt="$S_{j_1}$" /> and a 0 in <img width="23" height="32" align="MIDDLE" border="0" src="img35.png" alt="$S_{j_2}$" />, and finally those with 1's in both of these columns. Indeed, the first four rows of Figure <a href="#fig:sketch">19.9</a> exemplify all of these four types of rows. Denote by <img width="27" height="32" align="MIDDLE" border="0" src="img1868.png" alt="$C_{00}$" /> the number of rows with 0's in both columns, <img width="27" height="32" align="MIDDLE" border="0" src="img1869.png" alt="$C_{01}$" /> the second, <img width="27" height="32" align="MIDDLE" border="0" src="img1870.png" alt="$C_{10}$" /> the third and <img width="27" height="32" align="MIDDLE" border="0" src="img1871.png" alt="$C_{11}$" /> the fourth. Then, <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+J(S_{j_1},S_{j_2})=\frac{C_{11}}{C_{01}+C_{10}+C_{11}}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:011011"></a><img width="204" height="43" border="0" src="img1872.png" alt="\begin{displaymath}
+J(S_{j_1},S_{j_2})=\frac{C_{11}}{C_{01}+C_{10}+C_{11}}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (249)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> To complete the proof by showing that the right-hand side of Equation&nbsp;
+  <a href="#eqn:011011">249</a> equals 
+  <!-- MATH
+ $P(x_{j_1}^\pi=x_{j_2}^\pi)$
+ --> 
+  <img width="88" height="33" align="MIDDLE" border="0" src="img1873.png" alt="$P(x_{j_1}^\pi=x_{j_2}^\pi)$" />, consider scanning columns 
+  <img width="34" height="31" align="MIDDLE" border="0" src="img1865.png" alt="$j_1,j_2$" /> in increasing row index until the first non-zero entry is found in either column. Because 
+  <img width="18" height="32" align="MIDDLE" border="0" src="img1863.png" alt="$\Pi$" /> is a random permutation, the probability that this smallest row has a 1 in both columns is exactly the right-hand side of Equation&nbsp;
+  <a href="#eqn:011011">249</a>. 
+  <b>End proof.</b> 
+  <p> Thus, our test for the Jaccard coefficient of the shingle sets is probabilistic: we compare the computed values <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> from different documents. If a pair coincides, we have candidate near duplicates. Repeat the process independently for 200 random permutations <img width="15" height="32" align="MIDDLE" border="0" src="img1854.png" alt="$\pi$" /> (a choice suggested in the literature). Call the set of the 200 resulting values of <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> the <i>sketch</i> <img width="41" height="33" align="MIDDLE" border="0" src="img1875.png" alt="$\psi(d_i)$" /> of <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" />. We can then estimate the Jaccard coefficient for any pair of documents <img width="36" height="31" align="MIDDLE" border="0" src="img1876.png" alt="$d_i,d_j$" /> to be 
+   <!-- MATH
+ $|\psi_i\cap\psi_j|/200$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img1877.png" alt="$\vert\psi_i\cap\psi_j\vert/200$" />; if this exceeds a preset threshold, we declare that <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> and <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" /> are similar. </p>
+  <p> How can we quickly compute 
+   <!-- MATH
+ $|\psi_i\cap\psi_j|/200$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img1877.png" alt="$\vert\psi_i\cap\psi_j\vert/200$" /> for all pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" />? Indeed, how do we represent all pairs of documents that are similar, without incurring a blowup that is quadratic in the number of documents? First, we use fingerprints to remove all but one copy of <i>identical</i> documents. We may also remove common HTML tags and integers from the shingle computation, to eliminate shingles that occur very commonly in documents without telling us anything about duplication. <a name="p:unionfind"></a> Next we use a <a name="30584"></a><i>union-find</i> algorithm to create clusters that contain documents that are similar. To do this, we must accomplish a crucial step: going from the set of sketches to the set of pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> such that <img width="16" height="31" align="MIDDLE" border="0" src="img190.png" alt="$d_i$" /> and <img width="17" height="31" align="MIDDLE" border="0" src="img376.png" alt="$d_j$" /> are similar. </p>
+  <p> To this end, we compute the number of shingles in common for any pair of documents whose sketches have any members in common. We begin with the list 
+   <!-- MATH
+ $<x_i^\pi, d_i>$
+ --> <img width="77" height="33" align="MIDDLE" border="0" src="img1879.png" alt="$&lt;x_i^\pi, d_i&gt;$" /> sorted by <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> pairs. For each <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" />, we can now generate all pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> for which <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> is present in both their sketches. From these we can compute, for each pair <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> with non-zero sketch overlap, a count of the number of <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> values they have in common. By applying a preset threshold, we know which pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> have heavily overlapping sketches. For instance, if the threshold were 80%, we would need the count to be at least 160 for any <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" />. As we identify such pairs, we run the union-find to group documents into near-duplicate ``syntactic clusters''. This is essentially a variant of the single-link clustering algorithm introduced in Section&nbsp;<a href="single-link-and-complete-link-clustering-1.html#sec:singlecomplete">17.2</a> (page&nbsp;<a href="single-link-and-complete-link-clustering-1.html#p:singlecomplete"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). </p>
+  <p> One final trick cuts down the space needed in the computation of 
+   <!-- MATH
+ $|\psi_i\cap\psi_j|/200$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img1877.png" alt="$\vert\psi_i\cap\psi_j\vert/200$" /> for pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" />, which in principle could still demand space quadratic in the number of documents. To remove from consideration those pairs <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> whose sketches have few shingles in common, we preprocess the sketch for each document as follows: sort the <img width="22" height="33" align="MIDDLE" border="0" src="img1874.png" alt="$x_i^\pi$" /> in the sketch, then shingle this sorted sequence to generate a set of <i>super-shingles</i> for each document. If two documents have a super-shingle in common, we proceed to compute the precise value of 
+   <!-- MATH
+ $|\psi_i\cap\psi_j|/200$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img1877.png" alt="$\vert\psi_i\cap\psi_j\vert/200$" />. This again is a heuristic but can be highly effective in cutting down the number of <img width="20" height="31" align="MIDDLE" border="0" src="img1878.png" alt="$i,j$" /> pairs for which we accumulate the sketch overlap counts. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>Web search engines A and B each crawl a random subset of the same size of the Web. Some of the pages crawled are duplicates - exact textual copies of each other at different URLs. Assume that duplicates are distributed uniformly amongst the pages crawled by A and B. Further, assume that a duplicate is a page that has exactly two copies - no pages have more than two copies. A indexes pages without duplicate elimination whereas B indexes only one copy of each duplicate page. The two random subsets have the same size before duplicate elimination. If, 45% of A's indexed URLs are present in B's index, while 50% of B's indexed URLs are present in A's index, what fraction of the Web consists of pages that do not have a duplicate? <p> </p></li> 
+   <li>Instead of using the process depicted in Figure <a href="#fig:figshingling">19.8</a> , consider instead the following process for estimating the Jaccard coefficient of the overlap between two sets <img width="20" height="32" align="MIDDLE" border="0" src="img1880.png" alt="$S_1$" /> and <img width="20" height="32" align="MIDDLE" border="0" src="img1881.png" alt="$S_2$" />. We pick a random subset of the elements of the universe from which <img width="20" height="32" align="MIDDLE" border="0" src="img1880.png" alt="$S_1$" /> and <img width="20" height="32" align="MIDDLE" border="0" src="img1881.png" alt="$S_2$" /> are drawn; this corresponds to picking a random subset of the rows of the matrix <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> in the proof. We exhaustively compute the Jaccard coefficient of these random subsets. Why is this estimate an unbiased estimator of the Jaccard coefficient for <img width="20" height="32" align="MIDDLE" border="0" src="img1880.png" alt="$S_1$" /> and <img width="20" height="32" align="MIDDLE" border="0" src="img1881.png" alt="$S_2$" />? <p> </p></li> 
+   <li>Explain why this estimator would be very difficult to use in practice. <p> </p></li> 
+  </ul>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4746" href="references-and-further-reading-19.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4740" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4734" href="index-size-and-estimation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4742" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4744" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4747" href="references-and-further-reading-19.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html4741" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4735" href="index-size-and-estimation-1.html">Index size and estimation</a> &nbsp; 
+  <b> <a name="tex2html4743" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4745" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

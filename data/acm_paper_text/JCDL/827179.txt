@@ -1,0 +1,2 @@
+A quantified fidelity criterion for parameter-embedded watermarking of audio archives
+A novel algorithm for speech watermarking through parametric modeling is enhanced by inclusion of a quantified fidelity criterion. Watermarking is effected through solution of a set-membership filtering (SMF) problem, subject to an l? fidelity criterion in the signal space. The SMF approach provides flexibility in obtaining watermark solutions that trade-off watermark robustness and stegosignal fidelity.

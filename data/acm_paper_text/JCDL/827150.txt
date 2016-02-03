@@ -1,0 +1,2 @@
+Towards a cultural heritage digital library
+This paper surveys research areas relevant to cultural heritage digital libraries. The emerging National Science Digital Library promises to establish the foundation on which those of us beyond the scientific and engineering community will likely build. This paper thus articulates the particular issues that we have encountered in developing cultural heritage collections. We provide a broad overview of audiences, collections, and services.

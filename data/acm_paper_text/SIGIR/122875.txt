@@ -1,0 +1,2 @@
+A case-based architecture for a dialogue manager for information-seeking processes
+An abstract is not available.

@@ -1,0 +1,2 @@
+Scholars portal: beyond simple metasearch
+The Scholars Portal Project is a collaborative venture joining seven ARL Libraries and a software vendor to develop an integrated web--based system that will connect researchers, instructors and students with appropriate, vetted information resources. The Project's initial focus has been on the meta--search discovery" and direct linking "delivery" tools that provide the software and metadata foundation for the Scholars Portal This paper will provide the current progress of implementation and plans for the future".

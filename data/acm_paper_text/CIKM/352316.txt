@@ -1,0 +1,2 @@
+Impact of timing constraints on real-time database recovery
+An abstract is not available.

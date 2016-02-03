@@ -1,0 +1,2 @@
+Extracting geometry from digital models in a cultural heritage digital library
+This paper describes research to enhance the integration between digital models and the services provided by the document management systems of digital libraries. Processing techniques designed for XML texts are applied to X3D models, allowing specific geometry to be automatically retrieved and displayed. The research demonstrates that models designed on object-oriented paradigms are most easily exploited by XML document management systems.

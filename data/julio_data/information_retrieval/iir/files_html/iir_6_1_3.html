@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>The optimal weight g</title> 
+  <meta name="description" content="The optimal weight g" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="learning-weights-1.html" /> 
+  <link rel="up" href="parametric-and-zone-indexes-1.html" /> 
+  <link rel="next" href="term-frequency-and-weighting-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1893" href="term-frequency-and-weighting-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1887" href="parametric-and-zone-indexes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1883" href="learning-weights-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1889" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1891" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1894" href="term-frequency-and-weighting-1.html">Term frequency and weighting</a> 
+  <b> Up:</b> 
+  <a name="tex2html1888" href="parametric-and-zone-indexes-1.html">Parametric and zone indexes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1884" href="learning-weights-1.html">Learning weights</a> &nbsp; 
+  <b> <a name="tex2html1890" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1892" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001113000000000000000"></a> <a name="sec:1varmlr"></a> <a name="p:1varmlr"></a> <br /> The optimal weight g </h2> 
+  <p> We begin by noting that for any training example <img width="21" height="32" align="MIDDLE" border="0" src="img380.png" alt="$\Phi_j$" /> for which 
+   <!-- MATH
+ $s_T(d_j,q_j)=0$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img387.png" alt="$s_T(d_j,q_j)=0$" /> and 
+   <!-- MATH
+ $s_B(d_j,q_j)=1$
+ --> <img width="95" height="33" align="MIDDLE" border="0" src="img388.png" alt="$s_B(d_j,q_j)=1$" />, the score computed by Equation&nbsp;<a href="learning-weights-1.html#eqn:1varmlr">14</a> is <img width="40" height="32" align="MIDDLE" border="0" src="img389.png" alt="$1-g$" />. In similar fashion, we may write down the score computed by Equation&nbsp;<a href="learning-weights-1.html#eqn:1varmlr">14</a> for the three other possible combinations of <img width="66" height="33" align="MIDDLE" border="0" src="img381.png" alt="$s_T(d_j,q_j)$" /> and <img width="65" height="33" align="MIDDLE" border="0" src="img382.png" alt="$s_B(d_j,q_j)$" />; this is summarized in Figure <a href="#fig:fourcombos">6.6</a> . </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <a name="fig:fourcombos"></a> 
+   <a name="p:fourcombos"></a> 
+   <a name="7856"></a> 
+   <table> 
+    <caption align="BOTTOM"> 
+     <strong>Figure 6.6:</strong> The four possible combinations of 
+     <img width="19" height="32" align="MIDDLE" border="0" src="img18.png" alt="$s_T$" /> and 
+     <img width="19" height="32" align="MIDDLE" border="0" src="img19.png" alt="$s_B$" />. 
+    </caption> 
+    <tbody> 
+     <tr> 
+      <td><img width="131" height="98" border="0" src="img390.png" alt="\begin{figure}\begin{tabular}{\vert c\vert c\vert\vert c\vert}
+\hline
+$s_T$\ &amp;...
+... &amp; 1 &amp; $1-g$\\
+1 &amp; 0 &amp; $g$\\
+1 &amp; 1 &amp; 1\\
+\hline
+\end{tabular}
+\end{figure}" /></td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <p> Let <img width="31" height="32" align="MIDDLE" border="0" src="img391.png" alt="$n_{01r}$" /> (respectively, <img width="33" height="32" align="MIDDLE" border="0" src="img392.png" alt="$n_{01n}$" />) denote the number of training examples for which 
+   <!-- MATH
+ $s_T(d_j,q_j)=0$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img387.png" alt="$s_T(d_j,q_j)=0$" /> and 
+   <!-- MATH
+ $s_B(d_j,q_j)=1$
+ --> <img width="95" height="33" align="MIDDLE" border="0" src="img388.png" alt="$s_B(d_j,q_j)=1$" /> and the editorial judgment is <i>Relevant</i> (respectively, <i>Non-relevant</i>). Then the contribution to the total error in Equation&nbsp;<a href="learning-weights-1.html#eqn:mlroerror">17</a> from training examples for which 
+   <!-- MATH
+ $s_T(d_j,q_j)=0$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img387.png" alt="$s_T(d_j,q_j)=0$" /> and 
+   <!-- MATH
+ $s_B(d_j,q_j)=1$
+ --> <img width="95" height="33" align="MIDDLE" border="0" src="img388.png" alt="$s_B(d_j,q_j)=1$" /> is <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+[1-(1-g)]^2n_{01r} + [0-(1-g)]^2n_{01n}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="266" height="28" border="0" src="img393.png" alt="\begin{displaymath}[1-(1-g)]^2n_{01r} + [0-(1-g)]^2n_{01n}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (18)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> By writing in similar fashion the error contributions from training examples of the other three combinations of values for 
+  <img width="66" height="33" align="MIDDLE" border="0" src="img381.png" alt="$s_T(d_j,q_j)$" /> and 
+  <img width="65" height="33" align="MIDDLE" border="0" src="img382.png" alt="$s_B(d_j,q_j)$" /> (and extending the notation in the obvious manner), the total error corresponding to Equation&nbsp; 
+  <a href="learning-weights-1.html#eqn:mlroerror">17</a> is 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+(n_{01r}+n_{10n})g^2+(n_{10r}+n_{01n})(1-g)^2 + n_{00r} + n_{11n}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="eqn:werror"></a><img width="367" height="28" border="0" src="img394.png" alt="\begin{displaymath}
+(n_{01r}+n_{10n})g^2+(n_{10r}+n_{01n})(1-g)^2 + n_{00r} + n_{11n}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (19)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> 
+  <p> By differentiating Equation&nbsp;<a href="#eqn:werror">19</a> with respect to <img width="12" height="32" align="MIDDLE" border="0" src="img374.png" alt="$g$" /> and setting the result to zero, it follows that the optimal value of <img width="12" height="32" align="MIDDLE" border="0" src="img374.png" alt="$g$" /> is <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\frac{n_{10r}+n_{01n}}{n_{10r}+n_{10n}+n_{01r}+n_{01n}}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="eqn:dubya"></a><img width="177" height="41" border="0" src="img395.png" alt="\begin{displaymath}
+\frac{n_{10r}+n_{01n}}{n_{10r}+n_{10n}+n_{01r}+n_{01n}}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (20)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>When using weighted zone scoring, is it necessary for all zones to use the same Boolean match function? <p> </p></li> 
+   <li>In Example&nbsp;<a href="weighted-zone-scoring-1.html#example:235">6.1.1</a> above with weights 
+    <!-- MATH
+ $g_1=0.2, g_2=0.31$
+ --> <img width="133" height="32" align="MIDDLE" border="0" src="img396.png" alt="$g_1=0.2, g_2=0.31$" /> and <img width="69" height="32" align="MIDDLE" border="0" src="img397.png" alt="$g_3=0.49$" />, what are all the distinct score values a document may get? <p> </p></li> 
+   <li>Rewrite the algorithm in Figure <a href="weighted-zone-scoring-1.html#fig:weighted-merge-algorithm">6.4</a> to the case of more than two query terms. <p> </p></li> 
+   <li>Write pseudocode for the function WeightedZone for the case of two postings lists in Figure <a href="weighted-zone-scoring-1.html#fig:weighted-merge-algorithm">6.4</a> . <p> </p></li> 
+   <li><a name="ex:sampleestimate"></a>Apply Equation&nbsp;<a href="#eqn:dubya">20</a> to the sample training set in Figure <a href="learning-weights-1.html#fig:weightexamples">6.5</a> to estimate the best value of <img width="12" height="32" align="MIDDLE" border="0" src="img374.png" alt="$g$" /> for this sample. <p> </p></li> 
+   <li>For the value of <img width="12" height="32" align="MIDDLE" border="0" src="img374.png" alt="$g$" /> estimated in Exercise&nbsp;<a href="#ex:sampleestimate">6.1.3</a>, compute the weighted zone score for each (query, document) example. How do these scores relate to the relevance judgments in Figure <a href="learning-weights-1.html#fig:weightexamples">6.5</a> (quantized to 0/1)? <p> </p></li> 
+   <li>Why does the expression for <img width="12" height="32" align="MIDDLE" border="0" src="img374.png" alt="$g$" /> in (<a href="#eqn:dubya">20</a>) not involve training examples in which <img width="66" height="33" align="MIDDLE" border="0" src="img398.png" alt="$s_T(d_t,q_t)$" /> and <img width="66" height="33" align="MIDDLE" border="0" src="img399.png" alt="$s_B(d_t,q_t)$" /> have the same value? <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1893" href="term-frequency-and-weighting-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1887" href="parametric-and-zone-indexes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1883" href="learning-weights-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1889" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1891" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1894" href="term-frequency-and-weighting-1.html">Term frequency and weighting</a> 
+  <b> Up:</b> 
+  <a name="tex2html1888" href="parametric-and-zone-indexes-1.html">Parametric and zone indexes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1884" href="learning-weights-1.html">Learning weights</a> &nbsp; 
+  <b> <a name="tex2html1890" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1892" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

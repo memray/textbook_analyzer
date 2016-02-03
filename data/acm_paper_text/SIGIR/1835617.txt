@@ -1,0 +1,2 @@
+Crowdsourcing a wikipedia vandalism corpus
+We report on the construction of the PAN Wikipedia vandalism corpus, PAN-WVC-10, using Amazon's Mechanical Turk. The corpus compiles 32452 edits on 28468 Wikipedia articles, among which 2391 vandalism edits have been identified. 753 human annotators cast a total of 193022 votes on the edits, so that each edit was reviewed by at least 3 annotators, whereas the achieved level of agreement was analyzed in order to label an edit as "regular" or "vandalism." The corpus is available free of charge.

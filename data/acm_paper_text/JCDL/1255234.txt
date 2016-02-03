@@ -1,0 +1,2 @@
+Annotation functionality for digital libraries supporting collaborative performance: an example of musical scores
+This paper describes the findings of an ethnographic study that examined the annotation behaviors of musicians working with musical scores for the purpose of performance. Annotation was found to be an important part of the rehearsal process, and specific annotation functionalities are recommended for future digital library development.

@@ -1,0 +1,1 @@
+information-retrieval with commonsense-knowledge this paper employs conceptnet , which covers a rich set of commonsense concepts , to retrieve images with text descriptions by focusing on spatial-relationships . evaluation on test-data of the 2005 imageclef shows that integrating commonsense-knowledge in information-retrieval is feasible .

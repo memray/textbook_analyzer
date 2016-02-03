@@ -1,0 +1,1 @@
+using a mediated query approach for matching unstructured query with structured resources an abstract is not available .

@@ -1,0 +1,2 @@
+Cooperative collection building in NSDL MatDL pathway through IVIa data fountains
+This poster describes a collaboration involving two NSDL projects: the Materials Digital Library Pathway (MatDL) and the iVia Data Fountains Project. MatDL is testing and providing feedback for refinement of the iVia tools while streamlining its metadata assignment process.

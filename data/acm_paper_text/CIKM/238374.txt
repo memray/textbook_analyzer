@@ -1,0 +1,2 @@
+Spatial query processing using object decomposition method
+An abstract is not available.

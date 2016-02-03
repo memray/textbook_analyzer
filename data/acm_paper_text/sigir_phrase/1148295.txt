@@ -1,0 +1,1 @@
+nmf and plsi : equivalence and a hybrid-algorithm in this paper , we show that plsi and nmf optimize the same objective-function , although plsi and nmf are different algorithms as verified by experiments . in addition , we also propose a new hybrid-method that runs plsi and nmf alternatively to achieve better solutions .

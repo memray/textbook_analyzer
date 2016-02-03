@@ -1,0 +1,2 @@
+Multiple query optimization with Depth-First Branch-and-Bound and dynamic query ordering
+An abstract is not available.

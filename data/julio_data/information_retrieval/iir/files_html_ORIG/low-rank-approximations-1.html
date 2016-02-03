@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Low-rank approximations</title> 
+  <meta name="description" content="Low-rank approximations" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="latent-semantic-indexing-1.html" /> 
+  <link rel="previous" href="term-document-matrices-and-singular-value-decompositions-1.html" /> 
+  <link rel="up" href="matrix-decompositions-and-latent-semantic-indexing-1.html" /> 
+  <link rel="next" href="latent-semantic-indexing-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4569" href="latent-semantic-indexing-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4563" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4557" href="term-document-matrices-and-singular-value-decompositions-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4565" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4567" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4570" href="latent-semantic-indexing-1.html">Latent semantic indexing</a> 
+  <b> Up:</b> 
+  <a name="tex2html4564" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4558" href="term-document-matrices-and-singular-value-decompositions-1.html">Term-document matrices and singular</a> &nbsp; 
+  <b> <a name="tex2html4566" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4568" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002330000000000000000"></a> <a name="sec:lsi"></a> <a name="p:lsi"></a> <br /> Low-rank approximations </h1> 
+  <p> We next state a matrix approximation problem that at first seems to have little to do with information retrieval. We describe a solution to this matrix problem using singular-value decompositions, then develop its application to information retrieval. </p>
+  <p> Given an 
+   <!-- MATH
+ $\lsinoterms\times \lsinodocs$
+ --> <img width="53" height="32" align="MIDDLE" border="0" src="img1664.png" alt="$\lsinoterms\times \lsinodocs$" /> matrix <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" /> and a positive integer <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />, we wish to find an 
+   <!-- MATH
+ $\lsinoterms\times \lsinodocs$
+ --> <img width="53" height="32" align="MIDDLE" border="0" src="img1664.png" alt="$\lsinoterms\times \lsinodocs$" /> matrix <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> of rank at most <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />, so as to minimize the <a name="28830"></a> <i>Frobenius norm</i> of the matrix difference 
+   <!-- MATH
+ $X=\lsimatrix-\lsimatrix_k$
+ --> <img width="86" height="32" align="MIDDLE" border="0" src="img1743.png" alt="$X=\lsimatrix-\lsimatrix_k$" />, defined to be <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\| X \|_F = \sqrt{\sum_{i=1}^\lsinoterms \sum_{j=1}^\lsinodocs X_{ij}^2}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:frob"></a><img width="144" height="64" border="0" src="img1744.png" alt="\begin{displaymath}
+\Vert X \Vert _F = \sqrt{\sum_{i=1}^\lsinoterms \sum_{j=1}^\lsinodocs X_{ij}^2}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (238)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> Thus, the Frobenius norm of 
+  <img width="16" height="32" align="MIDDLE" border="0" src="img295.png" alt="$X$" /> measures the discrepancy between 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> and 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />; our goal is to find a matrix 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> that minimizes this discrepancy, while constraining 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> to have rank at most 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />. If 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> is the rank of 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />, clearly 
+  <!-- MATH
+ $\lsimatrix_r=\lsimatrix$
+ --> 
+  <img width="54" height="32" align="MIDDLE" border="0" src="img1745.png" alt="$\lsimatrix_r=\lsimatrix$" /> and the Frobenius norm of the discrepancy is zero in this case. When 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> is far smaller than 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" />, we refer to 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> as a 
+  <a name="28838"></a> 
+  <i>low-rank approximation</i> . 
+  <p> The singular value decomposition can be used to solve the low-rank matrix approximation problem. We then derive from it an application to approximating term-document matrices. We invoke the following three-step procedure to this end: </p>
+  <ol> 
+   <li>Given <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />, construct its SVD in the form shown in (<a href="term-document-matrices-and-singular-value-decompositions-1.html#eqn:svd">232</a>); thus, 
+    <!-- MATH
+ $\lsimatrix=U\Sigma V^T$
+ --> <img width="82" height="38" align="MIDDLE" border="0" src="img1746.png" alt="$\lsimatrix=U\Sigma V^T$" />. </li> 
+   <li>Derive from <img width="15" height="32" align="MIDDLE" border="0" src="img793.png" alt="$\Sigma$" /> the matrix <img width="21" height="32" align="MIDDLE" border="0" src="img1542.png" alt="$\Sigma_k$" /> formed by replacing by zeros the <img width="38" height="31" align="MIDDLE" border="0" src="img1747.png" alt="$r-k$" /> smallest singular values on the diagonal of <img width="15" height="32" align="MIDDLE" border="0" src="img793.png" alt="$\Sigma$" />. </li> 
+   <li>Compute and output 
+    <!-- MATH
+ $\lsimatrix_k=U\Sigma_k V^T$
+ --> <img width="95" height="38" align="MIDDLE" border="0" src="img1748.png" alt="$\lsimatrix_k=U\Sigma_k V^T$" /> as the rank-<img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> approximation to <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />. </li> 
+  </ol> The rank of 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> is at most 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />: this follows from the fact that 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1542.png" alt="$\Sigma_k$" /> has at most 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> non-zero values. Next, we recall the intuition of Example&nbsp;
+  <a href="linear-algebra-review-1.html#eg:3eigen">18.1</a>: the effect of small eigenvalues on matrix products is small. Thus, it seems plausible that replacing these small eigenvalues by zero will not substantially alter the product, leaving it ``close'' to 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />. The following theorem due to Eckart and Young tells us that, in fact, this procedure yields the matrix of rank 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> with the lowest possible Frobenius error. 
+  <p> <b>Theorem.</b> <a name="thm:eckartyoung"></a> <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\min_{Z | \mbox{ rank}(Z)=k} \|\lsimatrix-Z\|_F = \|\lsimatrix-\lsimatrix_k\|_F = \sigma_{k+1}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="eqn:eckartyoung"></a><img width="306" height="43" border="0" src="img1749.png" alt="\begin{displaymath}
+\min_{Z \vert \mbox{ rank}(Z)=k} \Vert\lsimatrix-Z\Vert _F = \Vert\lsimatrix-\lsimatrix_k\Vert _F = \sigma_{k+1}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (239)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <b>End theorem.</b> 
+  <p> Recalling that the singular values are in decreasing order 
+   <!-- MATH
+ $\sigma_1\geq \sigma_2 \geq \cdots$
+ --> <img width="98" height="32" align="MIDDLE" border="0" src="img1750.png" alt="$\sigma_1\geq \sigma_2 \geq \cdots$" />, we learn from Theorem&nbsp;<a href="#thm:eckartyoung">18.3</a> that <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> is the best rank-<img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> approximation to <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" />, incurring an error (measured by the Frobenius norm of 
+   <!-- MATH
+ $\lsimatrix-\lsimatrix_k$
+ --> <img width="52" height="32" align="MIDDLE" border="0" src="img1751.png" alt="$\lsimatrix-\lsimatrix_k$" />) equal to <img width="34" height="32" align="MIDDLE" border="0" src="img1752.png" alt="$\sigma_{k+1}$" />. Thus the larger <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> is, the smaller this error (and in particular, for <img width="40" height="31" align="MIDDLE" border="0" src="img1753.png" alt="$k=r$" />, the error is zero since 
+   <!-- MATH
+ $\Sigma_r=\Sigma$
+ --> <img width="54" height="32" align="MIDDLE" border="0" src="img1754.png" alt="$\Sigma_r=\Sigma$" />; provided <img width="69" height="32" align="MIDDLE" border="0" src="img1755.png" alt="$r&lt;M,N$" />, then 
+   <!-- MATH
+ $\sigma_{r+1}=0$
+ --> <img width="64" height="32" align="MIDDLE" border="0" src="img1756.png" alt="$\sigma_{r+1}=0$" /> and thus 
+   <!-- MATH
+ $\lsimatrix_r=\lsimatrix$
+ --> <img width="54" height="32" align="MIDDLE" border="0" src="img1745.png" alt="$\lsimatrix_r=\lsimatrix$" />). </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:lowrank"></a><a name="p:lowrank"></a></p>
+   <img width="555" height="190" border="0" src="img1757.png" alt="\begin{figure}
+% latex2html id marker 28855
+\begin{picture}(600,100)
+\put(65,65)...
+... entries affected by \lq\lq zeroing out'' the smallest singular values.}
+\end{figure}" /> 
+  </div> 
+  <p> To derive further insight into why the process of truncating the smallest <img width="38" height="31" align="MIDDLE" border="0" src="img1747.png" alt="$r-k$" /> singular values in <img width="15" height="32" align="MIDDLE" border="0" src="img793.png" alt="$\Sigma$" /> helps generate a rank-<img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> approximation of low error, we examine the form of <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" />: <br /> </p>
+  <div align="CENTER">
+   <a name="eqn:usigmavt"></a> 
+   <!-- MATH
+ \begin{eqnarray}
+\lsimatrix_k &=& U\Sigma_k V^T \\
+  &=&U \left(
+              \begin{array}{ccccc}
+                \sigma_1 & 0 & 0 & 0 & 0 \\
+                0 & \cdots & 0 & 0 & 0 \\
+                0 & 0 & \sigma_k & 0 & 0 \\
+                0 & 0 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 0 & \cdots \\
+              \end{array}
+            \right)
+   V^T \\
+   &=& \sum_{i=1}^k \sigma_i \vec{u}_i \vec{v}_i^T,
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="21" height="32" align="MIDDLE" border="0" src="img1758.png" alt="$\displaystyle \lsimatrix_k$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="56" height="38" align="MIDDLE" border="0" src="img1759.png" alt="$\displaystyle U\Sigma_k V^T$" /></td> 
+      <td width="10" align="RIGHT"> (240)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="230" height="113" align="MIDDLE" border="0" src="img1760.png" alt="$\displaystyle U \left(
+\begin{array}{ccccc}
+\sigma_1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 ...
+...
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots \\
+\end{array} \right)
+V^T$" /></td> 
+      <td width="10" align="RIGHT"> (241)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="74" height="63" align="MIDDLE" border="0" src="img1761.png" alt="$\displaystyle \sum_{i=1}^k \sigma_i \vec{u}_i \vec{v}_i^T,$" /></td> 
+      <td width="10" align="RIGHT"> (242)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> where 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1762.png" alt="$\vec{u_i}$" /> and 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1763.png" alt="$\vec{v_i}$" /> are the 
+  <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" />th columns of 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1702.png" alt="$U$" /> and 
+  <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />, respectively. Thus, 
+  <!-- MATH
+ $\vec{u}_i \vec{v}_i^T$
+ --> 
+  <img width="35" height="38" align="MIDDLE" border="0" src="img1764.png" alt="$\vec{u}_i \vec{v}_i^T$" /> is a rank-1 matrix, so that we have just expressed 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1742.png" alt="$\lsimatrix_k$" /> as the sum of 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> rank-1 matrices each weighted by a singular value. As 
+  <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> increases, the contribution of the rank-1 matrix 
+  <!-- MATH
+ $\vec{u}_i \vec{v}_i^T$
+ --> 
+  <img width="35" height="38" align="MIDDLE" border="0" src="img1764.png" alt="$\vec{u}_i \vec{v}_i^T$" /> is weighted by a sequence of shrinking singular values 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img1729.png" alt="$\sigma_i$" />. 
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li><a name="ex:lowrankex"></a> <a name="p:lowrankex"></a> Compute a rank 1 approximation <img width="21" height="32" align="MIDDLE" border="0" src="img687.png" alt="$C_1$" /> to the matrix <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" /> in Example&nbsp;<a href="term-document-matrices-and-singular-value-decompositions-1.html#eqn:svdexercise">235</a>, using the SVD as in Exercise&nbsp;<a href="term-document-matrices-and-singular-value-decompositions-1.html#eqn:svdexercise2">236</a>. What is the Frobenius norm of the error of this approximation? <p> </p></li> 
+   <li><a name="ex:reduced"></a> <a name="p:reduced"></a> Consider now the computation in Exercise <a href="#ex:lowrankex">18.3</a> . Following the schematic in Figure <a href="#fig:lowrank">18.2</a> , notice that for a rank 1 approximation we have <img width="19" height="32" align="MIDDLE" border="0" src="img1765.png" alt="$\sigma_1$" /> being a scalar. Denote by <img width="23" height="32" align="MIDDLE" border="0" src="img1766.png" alt="$U_1$" /> the first column of <img width="17" height="32" align="MIDDLE" border="0" src="img1702.png" alt="$U$" /> and by <img width="21" height="32" align="MIDDLE" border="0" src="img1767.png" alt="$V_1$" /> the first column of <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />. Show that the rank-1 approximation to <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" /> can then be written as 
+    <!-- MATH
+ $U_1\sigma_1V_1^T=\sigma_1U_1V_1^T$
+ --> <img width="136" height="38" align="MIDDLE" border="0" src="img1768.png" alt="$U_1\sigma_1V_1^T=\sigma_1U_1V_1^T$" />. <p> </p></li> 
+   <li>reduced can be generalized to rank <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> approximations: we let <img width="23" height="35" align="MIDDLE" border="0" src="img1769.png" alt="$U'_k$" /> and <img width="21" height="35" align="MIDDLE" border="0" src="img1770.png" alt="$V'_k$" /> denote the ``reduced'' matrices formed by retaining only the first <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> columns of <img width="17" height="32" align="MIDDLE" border="0" src="img1702.png" alt="$U$" /> and <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />, respectively. Thus <img width="23" height="35" align="MIDDLE" border="0" src="img1769.png" alt="$U'_k$" /> is an 
+    <!-- MATH
+ $\lsinoterms\times k$
+ --> <img width="47" height="31" align="MIDDLE" border="0" src="img1771.png" alt="$\lsinoterms\times k$" /> matrix while <img width="30" height="41" align="MIDDLE" border="0" src="img1772.png" alt="${V'}_k^T$" /> is a 
+    <!-- MATH
+ $k\times \lsinodocs$
+ --> <img width="45" height="31" align="MIDDLE" border="0" src="img1773.png" alt="$k\times \lsinodocs$" /> matrix. Then, we have <br /> 
+    <div align="RIGHT"> 
+     <!-- MATH
+ \begin{equation}
+\lsimatrix_k=U'_k\Sigma'_k{V'}_k^T,
+\end{equation}
+ --> 
+     <table width="100%" align="CENTER"> 
+      <tbody>
+       <tr valign="MIDDLE">
+        <td align="CENTER" nowrap=""><a name="eqn:reducedmatrix"></a><img width="105" height="29" border="0" src="img1774.png" alt="\begin{displaymath}
+\lsimatrix_k=U'_k\Sigma'_k{V'}_k^T,
+\end{displaymath}" /></td> 
+        <td width="10" align="RIGHT"> (243)</td>
+       </tr> 
+      </tbody>
+     </table> 
+     <br clear="ALL" />
+    </div><p></p> where <img width="22" height="35" align="MIDDLE" border="0" src="img1775.png" alt="$\Sigma'_k$" /> is the square <img width="38" height="31" align="MIDDLE" border="0" src="img1776.png" alt="$k\times k$" /> submatrix of <img width="21" height="32" align="MIDDLE" border="0" src="img1542.png" alt="$\Sigma_k$" /> with the singular values 
+    <!-- MATH
+ $\sigma_1,\ldots,\sigma_k$
+ --> <img width="68" height="32" align="MIDDLE" border="0" src="img1777.png" alt="$\sigma_1,\ldots,\sigma_k$" /> on the diagonal. The primary advantage of using (<a href="#eqn:reducedmatrix">243</a>) is to eliminate a lot of redundant columns of zeros in <img width="17" height="32" align="MIDDLE" border="0" src="img1702.png" alt="$U$" /> and <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />, thereby explicitly eliminating multiplication by columns that do not affect the low-rank approximation; this version of the SVD is sometimes known as the <a name="28921"></a> <i>reduced SVD</i> or <a name="28923"></a> <i>truncated SVD</i> and is a computationally simpler representation from which to compute the low rank approximation. <p> For the matrix <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" /> in Example&nbsp;<a href="term-document-matrices-and-singular-value-decompositions-1.html#example:svd">18.2</a>, write down both <img width="21" height="32" align="MIDDLE" border="0" src="img1778.png" alt="$\Sigma_2$" /> and <img width="22" height="35" align="MIDDLE" border="0" src="img1779.png" alt="$\Sigma'_2$" />. </p><p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4569" href="latent-semantic-indexing-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4563" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4557" href="term-document-matrices-and-singular-value-decompositions-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4565" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4567" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4570" href="latent-semantic-indexing-1.html">Latent semantic indexing</a> 
+  <b> Up:</b> 
+  <a name="tex2html4564" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4558" href="term-document-matrices-and-singular-value-decompositions-1.html">Term-document matrices and singular</a> &nbsp; 
+  <b> <a name="tex2html4566" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4568" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

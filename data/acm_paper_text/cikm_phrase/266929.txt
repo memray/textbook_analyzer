@@ -1,0 +1,1 @@
+dealing with partial failures in multiple processor primary-backup systems an abstract is not available .

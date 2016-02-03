@@ -1,0 +1,2 @@
+InPhO: a system for collaboratively populating and extending a dynamic ontology
+InPhO is a system that combines statistical text processing, information extraction, human expert feedback, and logic programming to populate and extend a dynamic ontology for the field of philosophy. Integrated in the editorial workflow of the Stanford Encyclopedia of Philosophy (SEP), it will provide important metadata features such as automated generation of cross-references, semantic search, and ontology driven conceptual navigation.

@@ -1,0 +1,2 @@
+Slide image retrieval: a preliminary study
+We consider the task of automatic slide image retrieval, in which slide images are ranked for relevance against a textual query. Our implemented system, SLIDIR caters specifically for this task using features specifically designed for synthetic images embedded within slide presentation. We show promising results in both the ranking and binary relevance task and analyze the contribution of different features in the task performance.

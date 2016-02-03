@@ -1,0 +1,2 @@
+Event-based retrieval from a digital library containing medical streams
+We describe a digital library that contains streams and supports event-based retrieval. Streams used in the digital library are CT scan, medical text, and audio streams. Events, such as 'tumor appeared', were generated and represented in the user interface to enable doctors to retrieve and playback segments of the streams. This paper concentrates on describing the data organization and the user interface.

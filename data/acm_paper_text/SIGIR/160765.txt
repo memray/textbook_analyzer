@@ -1,0 +1,2 @@
+BRAQUE (abstract): an interface to support browsing and interactive query formulation in information retrieval systems
+An abstract is not available.

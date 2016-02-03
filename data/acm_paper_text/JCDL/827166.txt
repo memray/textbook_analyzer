@@ -1,0 +1,2 @@
+Graded access to sensitive materials at the archive of the indigenous languages of Latin America
+The Archive of the Indigenous Languages of Latin America (AILLA) is a web-accessible repository of multi-media resources in and about the indigenous languages of Latin America. In this paper, I describe the Graded Access System developed at AILLA to protect sensitive materials by allowing resource producers - academics and indigenous people - finely-grained control over the resources they house in the archive.

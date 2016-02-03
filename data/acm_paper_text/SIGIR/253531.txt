@@ -1,0 +1,2 @@
+RUBRIC: an environment for full text information retrieval
+An abstract is not available.

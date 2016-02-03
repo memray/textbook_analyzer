@@ -1,0 +1,2 @@
+XEB: a markup language document container format suitable for handheld devices
+We propose a new document container format (XEB, eXtensible Electronic Book) based on block mechanism to efficiently process markup language documents in handheld devices. And random document access is also supported in the format through a pagination mechanism. The format has already been applied to a number of handheld devices' Chinese E-book readersand XEB documents can be downloaded from a Chinese E-book store.

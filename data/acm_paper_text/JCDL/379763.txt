@@ -1,0 +1,2 @@
+Towards an electronic variorum dition of Don Quixote
+The Cervantes Project is creating an Electronic Variorum Edition of Ce rvantes well-known Don Quixote. This paper gives an overview of the computer-based tools that we are using in this endeavor, and summarizes the current status of the project. The Electronic Variorum Edition will join the other content elements maintained by the project, which focuses on electronic resources in support of the study of Cervantes, his works, and his times.

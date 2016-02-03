@@ -1,0 +1,2 @@
+Distributed constraint management for collaborative engineering databases
+An abstract is not available.

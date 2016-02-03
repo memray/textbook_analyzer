@@ -1,0 +1,2 @@
+Locking objects and classes in multiversion object-oriented databases
+An abstract is not available.

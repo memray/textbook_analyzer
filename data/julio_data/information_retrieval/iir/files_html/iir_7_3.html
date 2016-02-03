@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Vector space scoring and query operator interaction</title> 
+  <meta name="description" content="Vector space scoring and query operator interaction" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="references-and-further-reading-7.html" /> 
+  <link rel="previous" href="components-of-an-information-retrieval-system-1.html" /> 
+  <link rel="up" href="computing-scores-in-a-complete-search-system-1.html" /> 
+  <link rel="next" href="boolean-retrieval-2.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2300" href="boolean-retrieval-2.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2294" href="computing-scores-in-a-complete-search-system-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2288" href="putting-it-all-together-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2296" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2298" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2301" href="boolean-retrieval-2.html">Boolean retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2295" href="computing-scores-in-a-complete-search-system-1.html">Computing scores in a</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2289" href="putting-it-all-together-1.html">Putting it all together</a> &nbsp; 
+  <b> <a name="tex2html2297" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2299" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001230000000000000000"></a> <a name="sec:interactions"></a> <a name="p:interactions"></a> <br /> Vector space scoring and query operator interaction </h1> We introduced the vector space model as a paradigm for free text queries. We conclude this chapter by discussing how the vector space scoring model relates to the query operators we have studied in earlier chapters. The relationship should be viewed at two levels: in terms of the expressiveness of queries that a sophisticated user may pose, and in terms of the index that supports the evaluation of the various retrieval methods. In building a search engine, we may opt to support multiple query operators for an end user. In doing so we need to understand what components of the index can be shared for executing various query operators, as well as how to handle user queries that mix various query operators. 
+  <p> Vector space scoring supports so-called <a name="10065"></a> <i>free text</i> retrieval, in which a query is specified as a set of words without any query operators connecting them. It allows documents matching the query to be scored and thus ranked, unlike the Boolean, wildcard and phrase queries studied earlier. Classically, the interpretation of such free text queries was that at least one of the query terms be present in any retrieved document. However more recently, web search engines such as Google have popularized the notion that a set of terms typed into their query boxes (thus on the face of it, a free text query) carries the semantics of a conjunctive query that only retrieves documents containing all or most query terms. </p> 
+  <p> <br /></p> 
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li> 
+    <ul> 
+     <li><a name="tex2html2302" href="boolean-retrieval-2.html">Boolean retrieval</a> </li> 
+     <li><a name="tex2html2303" href="wildcard-queries-2.html">Wildcard queries</a> </li> 
+     <li><a name="tex2html2304" href="phrase-queries-1.html">Phrase queries</a> </li> 
+    </ul></li> 
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2300" href="boolean-retrieval-2.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2294" href="computing-scores-in-a-complete-search-system-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2288" href="putting-it-all-together-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2296" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2298" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2301" href="boolean-retrieval-2.html">Boolean retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2295" href="computing-scores-in-a-complete-search-system-1.html">Computing scores in a</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2289" href="putting-it-all-together-1.html">Putting it all together</a> &nbsp; 
+  <b> <a name="tex2html2297" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2299" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

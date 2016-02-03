@@ -1,0 +1,2 @@
+Self-arranging preservation networks
+We pose the question: what if digital library objects could self-arrange without intervention from repositories and minimal intervention from administrators? We present background information about networks, techniques on how networks can be created based on locally discovered information, and how a small set of controlling policies can profoundly affect network configuration. This poster reflects a work in progress, providing information about the project's genesis, current status and future efforts.

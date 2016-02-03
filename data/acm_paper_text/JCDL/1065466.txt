@@ -1,0 +1,2 @@
+A reciprocal platform for archiving interview videos about arts and crafts
+This paper proposes a platform for portal and local repositories. Our methodology aims not only at construction of portal site but also at supporting capture of digital contents transformed from interview videos with intellectuals.

@@ -1,0 +1,2 @@
+MOOD-lighting: massive open online discovery using solr and blacklight
+In this poster, we present findings from the user experience and metadata perspectives of using Blacklight and Solr to combine large and distinct resource sets. We also share results of a survey of academic and educational institutions on their approaches to Solr indexing and end-user options and identify next steps toward articulating best practices for user experience around discovery in the context of metadata.

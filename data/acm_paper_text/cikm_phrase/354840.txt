@@ -1,0 +1,1 @@
+polar : an architecture for a parallel odmg compliant object-database an abstract is not available .

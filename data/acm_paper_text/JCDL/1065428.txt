@@ -1,0 +1,2 @@
+A usability evaluation study of a digital library self-archiving service
+In this paper 1 , we describe an evaluation study of a self-archiving service for the Brazilian Digital Library of Computing (BDBComp). We conducted an extensive usability experiment with several potential users, including graduate students, professors, and archivists/librarians. The results of the study are described and analyzed, following sound statistical principles.

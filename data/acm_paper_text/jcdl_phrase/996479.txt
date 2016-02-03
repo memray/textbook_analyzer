@@ -1,0 +1,1 @@
+digital-library access via image-similarity search we present an image library with similarity -- based searching and novelbrowsing structures and a news-video library with content -- based search andsummarisation features .

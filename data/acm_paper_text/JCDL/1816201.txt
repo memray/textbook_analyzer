@@ -1,0 +1,2 @@
+OntoFrame S3: academic research information portal service using semantic web technologies and linguistic knowledge
+In this paper, we show how Semantic Web technologies can be used for information connection and fusion in academic research information service and empowered by linguistic knowledge.

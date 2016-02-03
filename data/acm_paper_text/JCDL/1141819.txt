@@ -1,0 +1,2 @@
+Thesaurus based automatic keyphrase indexing
+We propose a new method that enhances automatic keyphrase extraction by using semantic information on terms and phrases gleaned from a domain-specific thesaurus. We evaluate the results against keyphrase sets assigned by a state-of-the-art keyphrase extraction system and those assigned by six professional indexers.

@@ -1,0 +1,2 @@
+eLibrary and ARTE: two opendlib digital libraries
+This demonstration shows two experimental digital libraries, e--Library and ARTE, which have been built by configuring appropriately the OpenDLib digital library system and then acquiring content with different approaches. Through these DLs we intend to demonstrate the capability of the OpenDLib system to be exploited in different application contexts.

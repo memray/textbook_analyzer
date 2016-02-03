@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Tiered indexes</title> 
+  <meta name="description" content="Tiered indexes" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="query-term-proximity-1.html" /> 
+  <link rel="previous" href="components-of-an-information-retrieval-system-1.html" /> 
+  <link rel="up" href="components-of-an-information-retrieval-system-1.html" /> 
+  <link rel="next" href="query-term-proximity-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2246" href="query-term-proximity-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2240" href="components-of-an-information-retrieval-system-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2234" href="components-of-an-information-retrieval-system-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2242" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2244" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2247" href="query-term-proximity-1.html">Query-term proximity</a> 
+  <b> Up:</b> 
+  <a name="tex2html2241" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2235" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> &nbsp; 
+  <b> <a name="tex2html2243" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2245" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001221000000000000000"></a> <a name="sec:tiered"></a> <a name="p:tiered"></a> <br /> Tiered indexes </h2> We mentioned in Section 
+  <a href="index-elimination-1.html#sec:indelim">7.1.2</a> that when using heuristics such as index elimination for inexact top- 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> retrieval, we may occasionally find ourselves with a set 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> of contenders that has fewer than 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents. A common solution to this issue is the user of 
+  <a name="9998"></a> 
+  <i>tiered indexes</i> , which may be viewed as a generalization of 
+  <a name="10000"></a> 
+  <i>champion lists</i> . We illustrate this idea in Figure 
+  <a href="#fig:fig:tiered">7.4</a> , where we represent the documents and terms of Figure 
+  <a href="tf-idf-weighting-1.html#fig:tfgraph">6.9</a> . In this example we set a tf threshold of 20 for tier 1 and 10 for tier 2, meaning that the tier 1 index only has postings entries with tf values exceeding 20, while the tier 2 index only has postings entries with tf values exceeding 10. In this example we have chosen to order the postings entries within a tier by document ID. 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:fig:tiered"></a><a name="p:fig:tiered"></a></p> 
+   <img width="497" height="570" align="BOTTOM" border="0" src="img505.png" alt="\includegraphics[width=11cm]{tiered.eps}" /> Tiered indexes.If we fail to get 
+   <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> results from tier 1, query processing ``falls back'' to tier 2, and so on. Within each tier, postings are ordered by document ID. 
+  </div> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2246" href="query-term-proximity-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2240" href="components-of-an-information-retrieval-system-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2234" href="components-of-an-information-retrieval-system-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2242" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2244" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2247" href="query-term-proximity-1.html">Query-term proximity</a> 
+  <b> Up:</b> 
+  <a name="tex2html2241" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2235" href="components-of-an-information-retrieval-system-1.html">Components of an information</a> &nbsp; 
+  <b> <a name="tex2html2243" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2245" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

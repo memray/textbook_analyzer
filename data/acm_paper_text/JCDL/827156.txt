@@ -1,0 +1,2 @@
+Taxonomies for automated question triage in digital reference
+This study identifies (1) several taxonomies of questions at different levels of linguistic analysis, according to which questions received by digital reference services are classified, and (2) a simple categorization of triage recipients. The utility of these taxonomies and categorizations of triage recipients is discussed as the basis for systems for automating triage and other steps in the digital reference process.

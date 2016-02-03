@@ -1,0 +1,2 @@
+Grid-based digital libraries: cheshire3 and distributed retrieval
+The University of California, Berkeley and the University of Liverpool are developing a Information Retrieval and Digital Library system (Cheshire3) that operates in both single-processor and "Grid" distributed computing environments. This paper discusses the architecture of the system and how it performs Digital Library tasks in a Grid computing environment.

@@ -1,0 +1,2 @@
+Efficient integration of proximity for text, semi-structured and graph retrieval
+An abstract is not available.

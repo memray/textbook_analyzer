@@ -1,0 +1,2 @@
+Music representation in a digital music library
+The Variations2 digital music library currently supports music in audio and score-image formats. In a future version, we plan to add music in a symbolic form. This paper describes our work defining a music representation suitable for the needs of our users.

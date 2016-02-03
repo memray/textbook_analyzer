@@ -1,0 +1,2 @@
+User search behaviors within a library gateway
+This poster reports on user searching behavior within two information gateways developed at the University of Illinois at Urbana-Champaign Library. These gateways are built around a locally developed metasearch engine and are designed to assist users with search query formulation and modification. Search behavior data is being collected in custom transaction logs that gather user search arguments along with any system actions and contextual search assistance suggestions.

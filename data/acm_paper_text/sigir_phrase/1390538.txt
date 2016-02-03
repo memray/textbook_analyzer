@@ -1,0 +1,1 @@
+combining document - and paragraph-based entity-ranking we study entity-ranking on the inex entity track and propose a simple graph-based-ranking approach that enables to combine scores on document and paragraph level . the combined approach improves the retrieval results not only on the inex testset , but similarly on trec 's expert-finding task .

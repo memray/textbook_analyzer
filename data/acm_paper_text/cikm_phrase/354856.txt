@@ -1,0 +1,1 @@
+index interpolation : an approach to subsequence-matching supporting normalization transform in time-series-databases an abstract is not available .

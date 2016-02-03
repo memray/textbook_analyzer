@@ -1,0 +1,2 @@
+A comparison of DFT and DWT based similarity search in time-series databases
+An abstract is not available.

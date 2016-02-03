@@ -1,0 +1,1 @@
+dynamic-classification explorer for music-digital-libraries this paper outlines a dynamic-classification explorer for music-digital-library users and researchers . system provides multiple simultaneous classification visualizations and synchronized audio .

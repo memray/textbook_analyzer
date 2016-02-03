@@ -1,0 +1,2 @@
+Value propagation in object-oriented database part hierarchies
+An abstract is not available.

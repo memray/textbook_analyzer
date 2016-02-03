@@ -1,0 +1,2 @@
+MANGAS infrastructure
+This demonstration shows a set of tools for managing and performing quality control processes to monitor and enforce quality over UNIMARC descriptive metadata records. These tools share a common infrastructure consisting mainly on information coded in XML and tools to process it. This system is currently being used on the National Library of Portugal in production services for the quality control and maintenance of the national union catalogue.

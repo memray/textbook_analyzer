@@ -1,0 +1,1 @@
+query-preprocessing : improving web-search through a vietnamese-word-tokenization approach in this poster paper , we propose a novel approach to improve web-search relevancy by tokenizing a vietnamese query text prior submitting it to a search-engine . evaluations demonstrate its effectiveness and practical value .

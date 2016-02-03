@@ -1,0 +1,2 @@
+Zoomable user interface for in-depth reading
+The Instant Bookplex system includes a zoomable user interface (ZUI) for navigating through a spatial representation of a document collection. This ZUI supports extended reading in the collection using semantic zooming, graphical presentation of metadata, animated transitions, and an integrated reading tool It helps users find and re-find documents, choose good documents to read next, and navigate between documents.

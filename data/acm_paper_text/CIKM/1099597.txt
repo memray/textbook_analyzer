@@ -1,0 +1,2 @@
+Optimizing continuous multijoin queries over distributed streams
+An abstract is not available.

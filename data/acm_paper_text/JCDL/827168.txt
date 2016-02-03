@@ -1,0 +1,2 @@
+Personal spaces in the context of OAI
+We describe MiBiblio 2.0, a highly personalizable user interface for a federation of digital libraries under the OAI Protocol for Metadata Harvesting. (OAI-PMH). MiBiblio 2.0 allows users to personalize their personal space by choosing the resources and services they need, as well as to organize, classify and manage their workspaces including resources from any of the federated libraries. Results can be kept in personal spaces and organized into categories using a drag-and-drop interface.

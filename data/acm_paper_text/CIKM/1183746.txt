@@ -1,0 +1,2 @@
+Improving query translation with confidence estimation for cross language information retrieval
+An abstract is not available.

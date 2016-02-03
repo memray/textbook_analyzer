@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Optimality of HAC</title> 
+  <meta name="description" content="Optimality of HAC" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="divisive-clustering-1.html" /> 
+  <link rel="previous" href="centroid-clustering-1.html" /> 
+  <link rel="up" href="hierarchical-clustering-1.html" /> 
+  <link rel="next" href="divisive-clustering-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4407" href="divisive-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4401" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4395" href="centroid-clustering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4403" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4405" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4408" href="divisive-clustering-1.html">Divisive clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4402" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4396" href="centroid-clustering-1.html">Centroid clustering</a> &nbsp; 
+  <b> <a name="tex2html4404" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4406" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002250000000000000000"></a> <a name="sec:optimality"></a> <a name="p:optimality"></a> <br /> Optimality of HAC </h1> 
+  <p> To state the optimality conditions of hierarchical clustering precisely, we first define the <a name="26956"></a> <i>combination similarity</i> <small>COMB-SIM</small> of a clustering 
+   <!-- MATH
+ $\Omega =
+\{\omega_1,\ldots,\omega_K\}$
+ --> <img width="132" height="33" align="MIDDLE" border="0" src="img1631.png" alt="$\Omega =
+\{\omega_1,\ldots,\omega_K\}$" /> as the smallest combination similarity of any of its <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{{\sc comb-sim}}(\{\omega_1,\ldots,\omega_K\}) = \min_k \mbox{{\sc comb-sim}}(\omega_k)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="336" height="37" border="0" src="img1632.png" alt="\begin{displaymath}
+\mbox{{\sc comb-sim}}(\{\omega_1,\ldots,\omega_K\}) = \min_k \mbox{{\sc comb-sim}}(\omega_k)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (210)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> Recall that the combination similarity of a cluster 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> that was created as the merge of 
+  <img width="23" height="32" align="MIDDLE" border="0" src="img1633.png" alt="$\omega_1$" /> and 
+  <img width="23" height="32" align="MIDDLE" border="0" src="img1634.png" alt="$\omega_2$" /> is the similarity of 
+  <img width="23" height="32" align="MIDDLE" border="0" src="img1633.png" alt="$\omega_1$" /> and 
+  <img width="23" height="32" align="MIDDLE" border="0" src="img1634.png" alt="$\omega_2$" /> (page 
+  <a href="hierarchical-agglomerative-clustering-1.html#p:combsimilarity">17.1</a> ). 
+  <p> We then define 
+   <!-- MATH
+ $\Omega= \{\omega_1,\ldots,\omega_K\}$
+ --> <img width="132" height="33" align="MIDDLE" border="0" src="img1631.png" alt="$\Omega =
+\{\omega_1,\ldots,\omega_K\}$" /> to be <a name="p:optimalclustering"></a> <a name="26965"></a> <i>optimal</i> if all clusterings <img width="22" height="35" align="MIDDLE" border="0" src="img1537.png" alt="$\Omega'$" /> with <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> clusters, <img width="45" height="31" align="MIDDLE" border="0" src="img1635.png" alt="$k \leq K$" />, have lower combination similarities: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+|\Omega'| 
+\leq |\Omega| 
+\Rightarrow
+\mbox{{\sc comb-sim}}(\Omega') 
+\leq \mbox{{\sc comb-sim}}(\Omega)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="324" height="28" border="0" src="img1636.png" alt="\begin{displaymath}
+\vert\Omega'\vert
+\leq \vert\Omega\vert
+\Rightarrow
+\mbox{{\sc comb-sim}}(\Omega')
+\leq \mbox{{\sc comb-sim}}(\Omega)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (211)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> 
+  <p> Figure <a href="centroid-clustering-1.html#fig:inversion">17.12</a> shows that centroid clustering is not optimal. The clustering 
+   <!-- MATH
+ $\{\{d_1,d_2\},\{d_3\}\}$
+ --> <img width="115" height="33" align="MIDDLE" border="0" src="img1637.png" alt="$\{\{d_1,d_2\},\{d_3\}\}$" /> (for <img width="45" height="32" align="MIDDLE" border="0" src="img31.png" alt="$K=2$" />) has combination similarity <img width="66" height="33" align="MIDDLE" border="0" src="img1628.png" alt="$-(4-\epsilon)$" /> and 
+   <!-- MATH
+ $\{\{d_1,d_2,d_3\}\}$
+ --> <img width="97" height="33" align="MIDDLE" border="0" src="img1638.png" alt="$\{\{d_1,d_2,d_3\}\}$" /> (for <img width="45" height="32" align="MIDDLE" border="0" src="img1481.png" alt="$K=1$" />) has combination similarity -3.46. So the clustering 
+   <!-- MATH
+ $\{\{d_1,d_2\},\{d_3\}\}$
+ --> <img width="115" height="33" align="MIDDLE" border="0" src="img1637.png" alt="$\{\{d_1,d_2\},\{d_3\}\}$" /> produced in the first merge is not optimal since there is a clustering with fewer clusters ( 
+   <!-- MATH
+ $\{\{d_1,d_2,d_3\}\}$
+ --> <img width="97" height="33" align="MIDDLE" border="0" src="img1638.png" alt="$\{\{d_1,d_2,d_3\}\}$" />) that has higher combination similarity. Centroid clustering is not optimal because inversions can occur. </p> 
+  <p> The above definition of optimality would be of limited use if it was only applicable to a clustering together with its merge history. However, we can show (Exercise <a href="#ex:clusterhistory">17.5</a> ) that <a name="26973"></a> for the three non-inversion algorithms can be read off from the cluster without knowing its history. <a name="p:combsimilarity2"></a> These direct definitions of combination similarity are as follows. </p> 
+  <dl compact=""> 
+   <dt> 
+    <b>single-link</b> 
+   </dt> 
+   <dd>
+     The combination similarity of a cluster 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> is the smallest similarity of any bipartition of the cluster, where the similarity of a bipartition is the largest similarity between any two documents from the two parts: 
+    <br /> 
+    <div align="RIGHT"> 
+     <!-- MATH
+ \begin{equation}
+\mbox{{\sc comb-sim}}(\omega)= \min_{\{\omega' : \omega' \subset
+  \omega\}}
+ \max_{d_i \in \omega'}
+ \max_{d_j \in \omega - \omega'}
+ \mbox{\sc sim} (d_i,d_j)
+\end{equation}
+ --> 
+     <table width="100%" align="CENTER"> 
+      <tbody> 
+       <tr valign="MIDDLE"> 
+        <td align="CENTER" nowrap=""><img width="347" height="43" border="0" src="img1639.png" alt="\begin{displaymath}
+\mbox{{\sc comb-sim}}(\omega)= \min_{\{\omega' : \omega' \su...
+...a'}
+\max_{d_j \in \omega - \omega'}
+\mbox{\sc sim} (d_i,d_j)
+\end{displaymath}" /></td> 
+        <td width="10" align="RIGHT"> (212)</td> 
+       </tr> 
+      </tbody> 
+     </table> 
+     <br clear="ALL" /> 
+    </div> 
+    <p></p> where each 
+    <!-- MATH
+ $\langle\omega',\omega - \omega'\rangle$
+ --> 
+    <img width="90" height="35" align="MIDDLE" border="0" src="img1640.png" alt="$\langle\omega',\omega - \omega'\rangle$" /> is a bipartition of 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />. 
+   </dd> 
+   <dt> 
+    <b>complete-link</b> 
+   </dt> 
+   <dd>
+     The combination similarity of a cluster 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> is the smallest similarity of any two points in 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" />: 
+    <!-- MATH
+ $\min_{d_i \in \omega} \min_{d_j \in \omega} \mbox{\sc sim} (d_i,d_j)$
+ --> 
+    <img width="195" height="33" align="MIDDLE" border="0" src="img1641.png" alt="$\min_{d_i \in \omega} \min_{d_j \in \omega} \mbox{\sc sim} (d_i,d_j)$" />. 
+   </dd> 
+   <dt> 
+    <b>GAAC</b> 
+   </dt> 
+   <dd>
+     The combination similarity of a cluster 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> is the average of all pairwise similarities in 
+    <img width="17" height="32" align="MIDDLE" border="0" src="img507.png" alt="$\omega$" /> (where self-similarities are not included in the average): Equation&nbsp; 
+    <a href="group-average-agglomerative-clustering-1.html#gaacsim">205</a>. 
+   </dd> 
+  </dl> If we use these definitions of combination similarity, then optimality is a property of a set of clusters and not of a process that produces a set of clusters. 
+  <p> We can now prove the optimality of single-link clustering by induction over the number of clusters <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />. We will give a proof for the case where no two pairs of documents have the same similarity, but it can easily be extended to the case with ties. </p> 
+  <p> The inductive basis of the proof is that a clustering with <img width="51" height="32" align="MIDDLE" border="0" src="img1411.png" alt="$K=N$" /> clusters has combination similarity 1.0, which is the largest value possible. The induction hypothesis is that a single-link clustering <img width="27" height="32" align="MIDDLE" border="0" src="img1642.png" alt="$\Omega_K$" /> with <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters is optimal: </p> 
+  <p> 
+   <!-- MATH
+ $\mbox{{\sc comb-sim}} ( \Omega_{K} ) \geq \mbox{{\sc comb-sim}} (
+\Omega_{K}' )$
+ --> <img width="246" height="35" align="MIDDLE" border="0" src="img1643.png" alt="$\mbox{{\sc comb-sim}} ( \Omega_{K} ) \geq \mbox{{\sc comb-sim}} (
+\Omega_{K}' )$" /> for all <img width="27" height="35" align="MIDDLE" border="0" src="img1644.png" alt="$\Omega_{K}'$" />. Assume for contradiction that the clustering <img width="43" height="32" align="MIDDLE" border="0" src="img1645.png" alt="$\Omega_{K-1}$" /> we obtain by merging the two most similar clusters in <img width="27" height="32" align="MIDDLE" border="0" src="img1642.png" alt="$\Omega_K$" /> is not optimal and that instead a different sequence of merges 
+   <!-- MATH
+ $\Omega_K',\Omega_{K-1}'$
+ --> <img width="72" height="35" align="MIDDLE" border="0" src="img1646.png" alt="$\Omega_K',\Omega_{K-1}'$" /> leads to the optimal clustering with <img width="43" height="32" align="MIDDLE" border="0" src="img1647.png" alt="$K-1$" /> clusters. We can write the assumption that <img width="43" height="35" align="MIDDLE" border="0" src="img1648.png" alt="$\Omega_{K-1}'$" /> is optimal and that <img width="43" height="32" align="MIDDLE" border="0" src="img1645.png" alt="$\Omega_{K-1}$" /> is not as 
+   <!-- MATH
+ $\mbox{{\sc comb-sim}} ( \Omega_{K-1}' ) > \mbox{{\sc comb-sim}} (\Omega_{K-1} )$
+ --> <img width="279" height="35" align="MIDDLE" border="0" src="img1649.png" alt="$\mbox{{\sc comb-sim}} ( \Omega_{K-1}' ) &gt; \mbox{{\sc comb-sim}} (\Omega_{K-1} )$" />. </p> 
+  <p> Case 1: The two documents linked by 
+   <!-- MATH
+ $s=\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')$
+ --> <img width="159" height="35" align="MIDDLE" border="0" src="img1650.png" alt="$s=\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')$" /> are in the same cluster in <img width="27" height="32" align="MIDDLE" border="0" src="img1651.png" alt="$
+\Omega_{K}$" />. They can only be in the same cluster if a merge with similarity smaller than <img width="11" height="32" align="MIDDLE" border="0" src="img175.png" alt="$s$" /> has occurred in the merge sequence producing <img width="27" height="32" align="MIDDLE" border="0" src="img1642.png" alt="$\Omega_K$" />. This implies 
+   <!-- MATH
+ $s 
+> \mbox{{\sc comb-sim}} (
+\Omega_{K})$
+ --> <img width="142" height="33" align="MIDDLE" border="0" src="img1652.png" alt="$s
+&gt; \mbox{{\sc comb-sim}} (
+\Omega_{K})$" />. Thus, 
+   <!-- MATH
+ $\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')
+= s 
+> \mbox{{\sc comb-sim}} (
+\Omega_{K}) > \mbox{{\sc comb-sim}} (
+\Omega_{K}')
+> \mbox{{\sc comb-sim}} (
+\Omega_{K-1}')$
+ --> <img width="569" height="34" align="MIDDLE" border="0" src="img1653.png" alt="$\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')
+= s
+&gt; \mbox{{\sc comb-sim}} (
+\Omega_{K...
+... \mbox{{\sc comb-sim}} (
+\Omega_{K}')
+&gt; \mbox{{\sc comb-sim}} (
+\Omega_{K-1}')
+$" />. Contradiction. </p> 
+  <p> Case 2: The two documents linked by 
+   <!-- MATH
+ $s=\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')$
+ --> <img width="159" height="35" align="MIDDLE" border="0" src="img1650.png" alt="$s=\mbox{{\sc comb-sim}} (
+\Omega_{K-1}')$" /> are not in the same cluster in <img width="27" height="32" align="MIDDLE" border="0" src="img1651.png" alt="$
+\Omega_{K}$" />. But 
+   <!-- MATH
+ $s = \mbox{{\sc comb-sim}} (
+\Omega_{K-1}')>\mbox{{\sc comb-sim}} (
+\Omega_{K-1})$
+ --> <img width="307" height="35" align="MIDDLE" border="0" src="img1654.png" alt="$s = \mbox{{\sc comb-sim}} (
+\Omega_{K-1}')&gt;\mbox{{\sc comb-sim}} (
+\Omega_{K-1})$" />, so the single-link merging rule should have merged these two clusters when processing <img width="27" height="32" align="MIDDLE" border="0" src="img1651.png" alt="$
+\Omega_{K}$" />. Contradiction. </p> 
+  <p> Thus, <img width="43" height="32" align="MIDDLE" border="0" src="img1645.png" alt="$\Omega_{K-1}$" /> is optimal. </p> 
+  <p> In contrast to single-link clustering, complete-link clustering and GAAC are not optimal as this example shows: </p> 
+  <p> <br /> <img width="332" height="28" align="BOTTOM" border="0" src="img1655.png" alt="\begin{pspicture}(0,0)(8,2)
+\par
+\psdot[dotstyle=x,dotsize=0.15cm](1,1)
+\psdot[d...
+...4,0.5){$d_2$}
+\rput[b](5,0.5){$d_3$}
+\rput[b](8,0.5){$d_4$}
+\par
+\end{pspicture}" /> <br /> </p> 
+  <p> Both algorithms merge the two points with distance 1 (<img width="19" height="31" align="MIDDLE" border="0" src="img413.png" alt="$d_2$" /> and <img width="19" height="31" align="MIDDLE" border="0" src="img623.png" alt="$d_3$" />) first and thus cannot find the two-cluster clustering 
+   <!-- MATH
+ $\{ \{ d_1,d_2 \}, \{d_3,d_4\} \}$
+ --> <img width="136" height="33" align="MIDDLE" border="0" src="img1656.png" alt="$\{ \{ d_1,d_2 \}, \{d_3,d_4\} \}$" />. But 
+   <!-- MATH
+ $\{ \{ d_1,d_2 \}, \{d_3,d_4\} \}$
+ --> <img width="136" height="33" align="MIDDLE" border="0" src="img1656.png" alt="$\{ \{ d_1,d_2 \}, \{d_3,d_4\} \}$" /> is optimal on the optimality criteria of complete-link clustering and GAAC. </p> 
+  <p> However, the merge criteria of complete-link clustering and GAAC approximate the desideratum of approximate sphericity better than the merge criterion of single-link clustering. In many applications, we want spherical clusters. Thus, even though single-link clustering may seem preferable at first because of its optimality, it is optimal with respect to the wrong criterion in many document clustering applications. </p> 
+  <p> <br /></p> 
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="27047"></a> 
+   <table> 
+    <caption> 
+     <strong>Table 17.1:</strong> Comparison of HAC algorithms. 
+    </caption> 
+    <tbody> 
+     <tr> 
+      <td> 
+       <table cellpadding="3" border="1"> 
+        <tbody> 
+         <tr> 
+          <td align="LEFT">method</td> 
+          <td align="LEFT">combination similarity</td> 
+          <td align="LEFT">time compl.</td> 
+          <td align="LEFT">optimal?</td> 
+          <td align="LEFT">comment</td> 
+         </tr> 
+         <tr> 
+          <td align="LEFT">single-link</td> 
+          <td align="LEFT">max inter-similarity of any 2 docs</td> 
+          <td align="LEFT"><img width="51" height="36" align="MIDDLE" border="0" src="img1579.png" alt="$\Theta(N^2)$" /></td> 
+          <td align="LEFT">yes</td> 
+          <td align="LEFT">chaining effect</td> 
+         </tr> 
+         <tr> 
+          <td align="LEFT">complete-link</td> 
+          <td align="LEFT">min inter-similarity of any 2 docs</td> 
+          <td align="LEFT"> 
+           <!-- MATH
+ $\Theta(N^2\log
+N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" /></td> 
+          <td align="LEFT">no</td> 
+          <td align="LEFT">sensitive to outliers</td> 
+         </tr> 
+         <tr> 
+          <td align="LEFT">group-average</td> 
+          <td align="LEFT">average of all sims</td> 
+          <td align="LEFT"> 
+           <!-- MATH
+ $\Theta(N^2\log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" /></td> 
+          <td align="LEFT">no</td> 
+          <td align="LEFT">best choice for <br /> most applications</td> 
+         </tr> 
+         <tr> 
+          <td align="LEFT">centroid</td> 
+          <td align="LEFT">average inter-similarity</td> 
+          <td align="LEFT"> 
+           <!-- MATH
+ $\Theta(N^2\log N)$
+ --> <img width="93" height="36" align="MIDDLE" border="0" src="img1573.png" alt="$
+\Theta(N^2 \log N)$" /></td> 
+          <td align="LEFT">no</td> 
+          <td align="LEFT">inversions can occur</td> 
+         </tr> 
+        </tbody> 
+       </table> <a name="tab:haccomp"></a> <a name="p:haccomp"></a> </td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <p></p> 
+  <br /> 
+  <p> Table <a href="#tab:haccomp">17.1</a> summarizes the properties of the four HAC algorithms introduced in this chapter. We recommend GAAC for document clustering because it is generally the method that produces the clustering with the best properties for applications. It does not suffer from chaining, from sensitivity to outliers and from inversions. </p> 
+  <p> There are two exceptions to this recommendation. First, for non-vector representations, GAAC is not applicable and clustering should typically be performed with the complete-link method. </p> 
+  <p> Second, in some applications the purpose of clustering is not to create a complete hierarchy or exhaustive partition of the entire document set. For instance, <a name="27052"></a> <i>first story detection</i> or <a name="27054"></a> <i>novelty detection</i> is the task of detecting the first occurrence of an event in a stream of news stories. One approach to this task is to find a tight cluster within the documents that were sent across the wire in a short period of time and are dissimilar from all previous documents. For example, the documents sent over the wire in the minutes after the World Trade Center attack on September 11, 2001 form such a cluster. Variations of single-link clustering can do well on this task since it is the structure of small parts of the vector space - and not global structure - that is important in this case. </p> 
+  <p> Similarly, we will describe an approach to duplicate detection on the web in Section <a href="near-duplicates-and-shingling-1.html#sec:shingling">19.6</a> (page <a href="near-duplicates-and-shingling-1.html#p:unionfind">19.6</a> ) where single-link clustering is used in the guise of the <a name="27058"></a> <i>union-find algorithm</i> . Again, the decision whether a group of documents are duplicates of each other is not influenced by documents that are located far away and single-link clustering is a good choice for duplicate detection. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li><a name="ex:clusterhistory"></a> <a name="p:clusterhistory"></a> Show the equivalence of the two definitions of combination similarity: the process definition on page <a href="hierarchical-agglomerative-clustering-1.html#p:combsimilarity">17.1</a> and the static definition on page <a href="#p:combsimilarity2">17.5</a> . <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4407" href="divisive-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4401" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4395" href="centroid-clustering-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4403" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4405" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4408" href="divisive-clustering-1.html">Divisive clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4402" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4396" href="centroid-clustering-1.html">Centroid clustering</a> &nbsp; 
+  <b> <a name="tex2html4404" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4406" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Standard test collections</title> 
+  <meta name="description" content="Standard test collections" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="evaluation-of-unranked-retrieval-sets-1.html" /> 
+  <link rel="previous" href="information-retrieval-system-evaluation-1.html" /> 
+  <link rel="up" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="next" href="evaluation-of-unranked-retrieval-sets-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2417" href="evaluation-of-unranked-retrieval-sets-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2411" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2405" href="information-retrieval-system-evaluation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2413" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2415" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2418" href="evaluation-of-unranked-retrieval-sets-1.html">Evaluation of unranked retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2412" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2406" href="information-retrieval-system-evaluation-1.html">Information retrieval system evaluation</a> &nbsp; 
+  <b> <a name="tex2html2414" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2416" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001320000000000000000"></a><a name="sec:sample-test-collections"></a> <a name="p:sample-test-collections"></a> <br /> Standard test collections </h1> 
+  <p> Here is a list of the most standard test collections and evaluation series. We focus particularly on test collections for ad hoc information retrieval system evaluation, but also mention a couple of similar test collections for text classification. </p>
+  <dl> 
+   <dt></dt> 
+   <dd>
+    The 
+    <a name="10590"></a> 
+    <i>Cranfield</i> collection. This was the pioneering test collection in allowing precise quantitative measures of information retrieval effectiveness, but is nowadays too small for anything but the most elementary pilot experiments. Collected in the United Kingdom starting in the late 1950s, it contains 1398 abstracts of aerodynamics journal articles, a set of 225 queries, and exhaustive relevance judgments of all (query, document) pairs. 
+    <p> </p>
+   </dd> 
+   <dt></dt> 
+   <dd>
+    <a name="10592"></a> 
+    <i>Text Retrieval Conference (TREC)</i> . The U.S. 
+    <a name="10594"></a> 
+    <i>National Institute of Standards and Technology</i> (NIST) has run a large IR test bed evaluation series since 1992. Within this framework, there have been many tracks over a range of different test collections, but the best known test collections are the ones used for the TREC Ad Hoc track during the first 8 TREC evaluations between 1992 and 1999. In total, these test collections comprise 6 CDs containing 1.89 million documents (mainly, but not exclusively, newswire articles) and relevance judgments for 450 information needs, which are called 
+    <a name="10596"></a> 
+    <i>topics</i> and specified in detailed text passages. Individual test collections are defined over different subsets of this data. The early TRECs each consisted of 50 information needs, evaluated over different but overlapping sets of documents. TRECs 6-8 provide 150 information needs over about 528,000 newswire and Foreign Broadcast Information Service articles. This is probably the best subcollection to use in future work, because it is the largest and the topics are more consistent. Because the test document collections are so large, there are no exhaustive relevance judgments. Rather, NIST assessors' relevance judgments are available only for the documents that were among the top 
+    <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> returned for some system which was entered in the TREC evaluation for which the information need was developed. 
+    <p> In more recent years, NIST has done evaluations on larger document collections, including the 25 million page <a name="10598"></a> <i>GOV2</i> web page collection. From the beginning, the NIST test document collections were orders of magnitude larger than anything available to researchers previously and GOV2 is now the largest Web collection easily available for research purposes. Nevertheless, the size of GOV2 is still more than 2 orders of magnitude smaller than the current size of the document collections indexed by the large web search companies. </p>
+    <p> </p>
+   </dd> 
+   <dt></dt> 
+   <dd>
+    NII Test Collections for IR Systems (
+    <a name="10600"></a> 
+    <i>NTCIR</i> ). The NTCIR project has built various test collections of similar sizes to the TREC collections, focusing on East Asian language and 
+    <a name="10602"></a> 
+    <i>cross-language information retrieval</i> , where queries are made in one language over a document collection containing documents in one or more other languages. See: 
+    <tt><a name="tex2html76" href="http://research.nii.ac.jp/ntcir/data/data-en.html">http://research.nii.ac.jp/ntcir/data/data-en.html</a></tt> 
+    <p> </p>
+   </dd> 
+   <dt></dt> 
+   <dd>
+    Cross Language Evaluation Forum (
+    <a name="10605"></a> 
+    <i>CLEF</i> ). This evaluation series has concentrated on European languages and cross-language information retrieval. See: 
+    <tt><a name="tex2html77" href="http://www.clef-campaign.org/">http://www.clef-campaign.org/</a></tt> 
+    <p> </p>
+   </dd> 
+   <dt></dt> 
+   <dd>
+    <a name="10608"></a>
+    <a name="10609"></a> and Reuters-RCV1. For text classification, the most used test collection has been the Reuters-21578 collection of 21578 newswire articles; see Chapter 
+    <a href="text-classification-and-naive-bayes-1.html#ch:nbayes">13</a> , page 
+    <a href="evaluation-of-text-classification-1.html#p:reuters21578">13.6</a> . More recently, Reuters released the much larger Reuters Corpus Volume 1 (RCV1), consisting of 806,791 documents; see Chapter 
+    <a href="index-construction-1.html#ch:iconst">4</a> , page 
+    <a href="blocked-sort-based-indexing-1.html#p:rcv1">4.2</a> . Its scale and rich annotation makes it a better basis for future research. 
+    <p> </p>
+   </dd> 
+   <dt></dt> 
+   <dd>
+    <a name="10615"></a> 
+    <i>20 Newsgroups</i> . 
+    <a name="p:20newsgroups"></a> This is another widely used text classification collection, collected by Ken Lang. It consists of 1000 articles from each of 20 Usenet newsgroups (the newsgroup name being regarded as the category). After the removal of duplicate articles, as it is usually used, it contains 18941 articles. 
+   </dd> 
+  </dl> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2417" href="evaluation-of-unranked-retrieval-sets-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2411" href="evaluation-in-information-retrieval-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2405" href="information-retrieval-system-evaluation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2413" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2415" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2418" href="evaluation-of-unranked-retrieval-sets-1.html">Evaluation of unranked retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2412" href="evaluation-in-information-retrieval-1.html">Evaluation in information retrieval</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2406" href="information-retrieval-system-evaluation-1.html">Information retrieval system evaluation</a> &nbsp; 
+  <b> <a name="tex2html2414" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2416" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

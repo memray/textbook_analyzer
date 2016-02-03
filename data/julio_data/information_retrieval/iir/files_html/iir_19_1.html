@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Background and history</title> 
+  <meta name="description" content="Background and history" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="web-characteristics-1.html" /> 
+  <link rel="previous" href="web-search-basics-1.html" /> 
+  <link rel="up" href="web-search-basics-1.html" /> 
+  <link rel="next" href="web-characteristics-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4635" href="web-characteristics-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4629" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4623" href="web-search-basics-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4631" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4633" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4636" href="web-characteristics-1.html">Web characteristics</a> 
+  <b> Up:</b> 
+  <a name="tex2html4630" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4624" href="web-search-basics-1.html">Web search basics</a> &nbsp; 
+  <b> <a name="tex2html4632" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4634" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002410000000000000000"></a> <a name="sec:webbackground"></a> <a name="p:webbackground"></a> <br /> Background and history </h1> The Web is unprecedented in many ways: unprecedented in scale, unprecedented in the almost-complete lack of coordination in its creation, and unprecedented in the diversity of backgrounds and motives of its participants. Each of these contributes to making web search different - and generally far harder - than searching ``traditional'' documents. 
+  <p> The invention of hypertext, envisioned by Vannevar Bush in the 1940's and first realized in working systems in the 1970's, significantly precedes the formation of the World Wide Web (which we will simply refer to as the Web), in the 1990's. Web usage has shown tremendous growth to the point where it now claims a good fraction of humanity as participants, by relying on a simple, open client-server design: (1) the server communicates with the client via a protocol (the <a name="30215"></a> <i>http</i> or hypertext transfer protocol) that is lightweight and simple, asynchronously carrying a variety of payloads (text, images and - over time - richer media such as audio and video files) encoded in a simple markup language called <a name="30217"></a> <i>HTML</i> (for hypertext markup language); (2) the client - generally a <i>browser</i>, an application within a graphical user environment - can ignore what it does not understand. Each of these seemingly innocuous features has contributed enormously to the growth of the Web, so it is worthwhile to examine them further. </p> 
+  <p> The basic operation is as follows: a client (such as a browser) sends an <i>http request</i> to a <i>web server</i>. The browser specifies a <a name="30222"></a> <i>URL</i> (for <i>Uniform Resource Locator</i>) such as <tt>http://www.stanford.edu/home/atoz/contact.html</tt>. In this example URL, the string <tt>http</tt> refers to the protocol to be used for transmitting the data. The string <tt>www.stanford.edu</tt> is known as the <i>domain</i> and specifies the root of a hierarchy of web pages (typically mirroring a filesystem hierarchy underlying the web server). In this example, <tt>/home/atoz/contact.html</tt> is a path in this hierarchy with a file <tt>contact.html</tt> that contains the information to be returned by the web server at <tt>www.stanford.edu</tt> in response to this request. The HTML-encoded file <tt>contact.html</tt> holds the hyperlinks and the content (in this instance, contact information for Stanford University), as well as formatting rules for rendering this content in a browser. Such an http request thus allows us to fetch the content of a page, something that will prove to be useful to us for crawling and indexing documents (Chapter <a href="web-crawling-and-indexes-1.html#ch:chapter-crawling">20</a> ). </p> 
+  <p> The designers of the first browsers made it easy to view the HTML markup tags on the content of a URL. This simple convenience allowed new users to create their own HTML content without extensive training or experience; rather, they learned from example content that they liked. As they did so, a second feature of browsers supported the rapid proliferation of web content creation and usage: browsers ignored what they did not understand. This did not, as one might fear, lead to the creation of numerous incompatible dialects of HTML. What it did promote was amateur content creators who could freely experiment with and learn from their newly created web pages without fear that a simple syntax error would ``bring the system down.'' Publishing on the Web became a mass activity that was not limited to a few trained programmers, but rather open to tens and eventually hundreds of millions of individuals. For most users and for most information needs, the Web quickly became the best way to supply and consume information on everything from rare ailments to subway schedules. </p> 
+  <p> The mass publishing of information on the Web is essentially useless unless this wealth of information can be discovered and consumed by other users. Early attempts at making web information ``discoverable'' fell into two broad categories: (1) full-text index search engines such as Altavista, Excite and Infoseek and (2) taxonomies populated with web pages in categories, such as Yahoo! The former presented the user with a keyword search interface supported by inverted indexes and ranking mechanisms building on those introduced in earlier chapters. The latter allowed the user to browse through a hierarchical tree of category labels. While this is at first blush a convenient and intuitive metaphor for finding web pages, it has a number of drawbacks: first, accurately classifying web pages into taxonomy tree nodes is for the most part a manual editorial process, which is difficult to scale with the size of the Web. Arguably, we only need to have ``high-quality'' web pages in the taxonomy, with only the best web pages for each category. However, just discovering these and classifying them accurately and consistently into the taxonomy entails significant human effort. Furthermore, in order for a user to effectively discover web pages classified into the nodes of the taxonomy tree, the user's idea of what sub-tree(s) to seek for a particular topic should match that of the editors performing the classification. This quickly becomes challenging as the size of the taxonomy grows; the Yahoo! taxonomy tree surpassed 1000 distinct nodes fairly early on. Given these challenges, the popularity of taxonomies declined over time, even though variants (such as About.com and the Open Directory Project) sprang up with subject-matter experts collecting and annotating web pages for each category. </p> 
+  <p> The first generation of web search engines transported classical search techniques such as those in the preceding chapters to the web domain, focusing on the challenge of scale. The earliest web search engines had to contend with indexes containing tens of millions of documents, which was a few orders of magnitude larger than any prior information retrieval system in the public domain. Indexing, query serving and ranking at this scale required the harnessing together of tens of machines to create highly available systems, again at scales not witnessed hitherto in a consumer-facing search application. The first generation of web search engines was largely successful at solving these challenges while continually indexing a significant fraction of the Web, all the while serving queries with sub-second response times. However, the quality and relevance of web search results left much to be desired owing to the idiosyncrasies of content creation on the Web that we discuss in Section <a href="web-characteristics-1.html#sec:webchar">19.2</a> . This necessitated the invention of new ranking and spam-fighting techniques in order to ensure the quality of the search results. While classical information retrieval techniques (such as those covered earlier in this book) continue to be necessary for web search, they are not by any means sufficient. A key aspect (developed further in Chapter <a href="link-analysis-1.html#ch:link">21</a> ) is that whereas classical techniques measure the relevance of a document to a query, there remains a need to gauge the <i>authoritativeness</i> of a document based on cues such as which website hosts it. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4635" href="web-characteristics-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4629" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4623" href="web-search-basics-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4631" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4633" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4636" href="web-characteristics-1.html">Web characteristics</a> 
+  <b> Up:</b> 
+  <a name="tex2html4630" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4624" href="web-search-basics-1.html">Web search basics</a> &nbsp; 
+  <b> <a name="tex2html4632" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4634" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

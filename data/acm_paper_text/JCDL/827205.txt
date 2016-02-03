@@ -1,0 +1,2 @@
+Correcting common distortions in camera-imaged library materials
+We present a technique to correct image distortion that can occur when library materials are imaged by cameras. Our approach provides a general framework to undo a variety of common distortions, including binder curl, fold distortion, and combinations of the two. Our algorithm is described and demonstrated on several examples.

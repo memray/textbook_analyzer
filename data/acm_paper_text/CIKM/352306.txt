@@ -1,0 +1,2 @@
+RODAIN: a real-time object-oriented database system for telecommunications
+An abstract is not available.

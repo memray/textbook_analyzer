@@ -1,0 +1,2 @@
+Building a story tracer out of a web archive
+There are quite a few web archives around the world, such as Internet Archive and Web InfoMall (http://www.infomall.cn). Nevertheless, we have not seen substantial mechanism built on top of the archives to render the value of the data beyond what the Wayback machine offers. One of the reasons for this situation is the lack of a system vision and design which encompasses the oceanic data in a meaningful and cost-effective way. This paper describes an effort in this direction.

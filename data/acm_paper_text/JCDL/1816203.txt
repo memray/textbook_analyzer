@@ -1,0 +1,2 @@
+Integrating greenstone with an interactive map visualizer
+This extended abstract describes recent work in combining interactive map functionality with the Greenstone 3 digital library software research framework.

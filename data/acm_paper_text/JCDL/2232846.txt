@@ -1,0 +1,2 @@
+Treating data like software: a case for production quality data
+In this short paper, we describe the production data approach to data curation. We argue that by treating data in a similar fashion to how we build production software, that data will be more readily accessible and available for broad re-use. We should be treating data as an ongoing process. This includes considering third-party contributions; planning for cyclical releases; bug fixes, tracking, and versioning; and issuing licensing and citation information with each release.

@@ -1,0 +1,1 @@
+a user-friendly metadata-quality-control tool for the-internet public-library the-internet public-library (ipl) is crosswalking its metadata to dublin-core . the quality of the crosswalked metadata will be unknown . the ipl is therefore developing a tool for metadata-quality-control suitable for use by lis students who have little previous metadata-quality-control experience .

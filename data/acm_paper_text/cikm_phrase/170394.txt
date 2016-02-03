@@ -1,0 +1,1 @@
+optimization of object-queries containing encapsulated methods an abstract is not available .

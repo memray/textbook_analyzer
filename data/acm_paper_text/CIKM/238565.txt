@@ -1,0 +1,2 @@
+On implementing SchemaLog —a database programming language
+An abstract is not available.

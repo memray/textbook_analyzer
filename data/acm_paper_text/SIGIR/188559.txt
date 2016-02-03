@@ -1,0 +1,2 @@
+Natural language vs. Boolean query evaluation: a comparison of retrieval performance
+An abstract is not available.

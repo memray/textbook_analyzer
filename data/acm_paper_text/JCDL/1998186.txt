@@ -1,0 +1,2 @@
+Supporting creative work in educational digital libraries
+Educational digital libraries have become an effective source of sharing information and dissemination of knowledge. Like paintings, personal stories containing pictures, music, and text will exist for a long time to come and will be enjoyed long after their creation. In this demo, we present a system called Creaza Education. The system offers an engaging suit of are user-friendly web-based applications where users can use their imagination by creating, publishing and sharing digital stories.

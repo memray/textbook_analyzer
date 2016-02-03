@@ -1,0 +1,2 @@
+Representing pulaar digitally
+This paper outlines a methodology for digital representation and preservation of Pulaar language data.

@@ -1,0 +1,2 @@
+Synchronicity: automatically rediscover missing web pages in real time
+Missing web pages (pages that return the 404 "Page Not Found" error) are part of the browsing experience. The manual use of search engines to rediscover such pages can be frustrating and unsuccessful. We introduce Synchronicity, a Mozilla Firefox add-on that supports the Internet user in (re-)discovering missing web pages in real time.

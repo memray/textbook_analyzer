@@ -1,0 +1,1 @@
+exploiting query views for static index-pruning in web-search-engines we propose incorporating query views in a number of static-pruning strategies , namely term-centric , document-centric and access-based approaches . these query-view based strategies considerably outperform their counterparts for both disjunctive and conjunctive-query processing in web-search-engines .

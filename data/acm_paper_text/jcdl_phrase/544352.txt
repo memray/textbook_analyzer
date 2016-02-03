@@ -1,0 +1,1 @@
+question-types in digital-reference : an evaluation of question-taxonomies this study evaluates four taxonomies of question-types to determine the expressiveness of each for questions received by digital-reference services . the result is a faceted-classification scheme that can be used as a basis for automating parts of the reference question-answering process .

@@ -1,0 +1,1 @@
+what can researchers do to improve security-of-data and documents ? (panel description) data-security (protection-of-information rather than systems) goes far beyond the traditional questions of rdbms grant/revole , or security markings on documents . we will discuss what the new research-agenda should be to impact the masses of systems .

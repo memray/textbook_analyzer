@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Index elimination</title> 
+  <meta name="description" content="Index elimination" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="champion-lists-1.html" /> 
+  <link rel="previous" href="inexact-top-k-document-retrieval-1.html" /> 
+  <link rel="up" href="efficient-scoring-and-ranking-1.html" /> 
+  <link rel="next" href="champion-lists-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2160" href="champion-lists-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2154" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2148" href="inexact-top-k-document-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2156" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2158" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2161" href="champion-lists-1.html">Champion lists</a> 
+  <b> Up:</b> 
+  <a name="tex2html2155" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2149" href="inexact-top-k-document-retrieval-1.html">Inexact top K document</a> &nbsp; 
+  <b> <a name="tex2html2157" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2159" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001212000000000000000"></a> <a name="sec:indelim"></a> <a name="p:indelim"></a> <br /> Index elimination </h2> For a multi-term query 
+  <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />, it is clear we only consider documents containing at least one of the query terms. We can take this a step further using additional heuristics: 
+  <ol> 
+   <li>We only consider documents containing terms whose idf exceeds a preset threshold. Thus, in the postings traversal, we only traverse the postings for terms with high idf. This has a fairly significant benefit: the postings lists of low-idf terms are generally long; with these removed from contention, the set of documents for which we compute cosines is greatly reduced. One way of viewing this heuristic: low-idf terms are treated as stop words and do not contribute to scoring. For instance, on the query catcher in the rye, we only traverse the postings for catcher and rye. The cutoff threshold can of course be adapted in a query-dependent manner. </li> 
+   <li>We only consider documents that contain many (and as a special case, all) of the query terms. This can be accomplished during the postings traversal; we only compute scores for documents containing all (or many) of the query terms. A danger of this scheme is that by requiring all (or even many) query terms to be present in a document before considering it for cosine computation, we may end up with fewer than <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> candidate documents in the output. This issue will discussed further in Section <a href="tiered-indexes-1.html#sec:tiered">7.2.1</a> . </li> 
+  </ol> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2160" href="champion-lists-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2154" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2148" href="inexact-top-k-document-retrieval-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2156" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2158" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2161" href="champion-lists-1.html">Champion lists</a> 
+  <b> Up:</b> 
+  <a name="tex2html2155" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2149" href="inexact-top-k-document-retrieval-1.html">Inexact top K document</a> &nbsp; 
+  <b> <a name="tex2html2157" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2159" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

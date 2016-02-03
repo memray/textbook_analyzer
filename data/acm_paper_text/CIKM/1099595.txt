@@ -1,0 +1,2 @@
+D-CAPE: distributed and self-tuned continuous query processing
+An abstract is not available.

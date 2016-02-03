@@ -1,0 +1,2 @@
+Designing map-based visualizations for collection understanding
+This paper describes a conceptualization of collection understanding task and its implementation in a map-based visualization (MBV) prototype that represents a library collection. Unlike previous conceptualizations that treat a collection as a whole composed of documents, our conceptualization is grounded in widely-researched concepts "collection" and "understanding.

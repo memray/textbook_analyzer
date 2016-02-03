@@ -1,0 +1,2 @@
+CHROMA (demonstration abstract): a content-based image retrieval system
+An abstract is not available.

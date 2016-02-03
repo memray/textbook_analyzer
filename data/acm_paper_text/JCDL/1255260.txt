@@ -1,0 +1,2 @@
+Recommending related papers based on digital library access records
+An important goal for digital libraries is to enable researchers to more easily explore related work. While citation data is often used as an indicator of relatedness, in this paper we demonstrate that digital access records (e.g. http-server logs) can be used as indicators as well. In particular, we show that measures based on co-access provide better coverage than co-citation, that they are available much sooner, and that they are more accurate for recent papers.

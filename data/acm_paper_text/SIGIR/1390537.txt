@@ -1,0 +1,2 @@
+A flexible extension of XPath to improve XML querying
+This work presents a flexible XML selection language, FleXPath which allows the formulation of flexible constraints on both structure and content of XML documents. Some experimental results, obtained with a preliminary prototype, are described in order to show that the idea promises good results.

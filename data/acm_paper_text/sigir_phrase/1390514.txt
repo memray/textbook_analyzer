@@ -1,0 +1,1 @@
+a method for transferring retrieval scores between collections with non-overlapping vocabularies we present a method for projecting retrieval scores across two corpora with a shared , parallel-corpus .

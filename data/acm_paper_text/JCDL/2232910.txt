@@ -1,0 +1,2 @@
+National digital newspaper program: a case study in sharing, linking, and using data
+This poster presents a case study describing how the National Digital Newspaper Program's (NDNP) metadata specification and public website, Chronicling America, have been designed to promote a wide range of data sharing. Through use of the website's extensive application programming interface (API) and open-source software counterpart, several institutions are benefiting from the publicly-funded program's data.

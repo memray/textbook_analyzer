@@ -1,0 +1,2 @@
+Distributed processing of time-constrained queries in CASE-DB
+An abstract is not available.

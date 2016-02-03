@@ -1,0 +1,1 @@
+a lightweight metadata-quality tool we describe a web-based metadata-quality tool that provides statistical descriptions and visualisations of dublin-core metadata harvested via the oai protocol . the lightweight nature of development allows it to be used to gather contextualized requirements and some initial user-feedback is discussed .

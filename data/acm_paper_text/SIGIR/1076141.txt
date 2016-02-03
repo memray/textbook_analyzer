@@ -1,0 +1,2 @@
+Characterization of a simple case of the reassignment of document identifiers as a pattern sequencing problem
+In this poster, we analyze recent work in the document identifiers reassignment problem. After that, we present a formalization of a simple case of the problem as a PSP (Pattern Sequencing Problem). This may facilitate future work as it opens a new research line to solve the general problem.

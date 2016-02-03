@@ -1,0 +1,2 @@
+Visualizing and exploring Picasso's world
+We discuss the preliminary use of a visualization tool called Interactive Timeline Viewer (ItLv) in visualizing and exploring a collection of art works by Pablo Ruiz Picasso. Our data set is composed of a subset of the On-line Picasso Project, a significantly-sized on-line art repository of the renowned Spanish artist. We also include a brief discussion about how this visualization tool can help art scholars to study and analyze an artist's life and works.

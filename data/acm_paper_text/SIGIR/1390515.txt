@@ -1,0 +1,2 @@
+Improving relevance feedback in language modeling with score regularization
+We demonstrate that regularization can improve feedback in a language modeling framework.

@@ -1,0 +1,2 @@
+Mining all maximal frequent word sequences in a set of sentences
+We present an efficient algorithm for finding all maximal frequent word sequences in a set of sentences. A word sequence s is considered frequent, if all its words occur in at least ? sentences and the words occur in each of these sentences in the same order as in s , given a frequency threshold ? . Hence, the words of a sequence s do not have to occur consecutively in the sentences.

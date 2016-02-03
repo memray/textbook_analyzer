@@ -1,0 +1,1 @@
+how science web-sites are leveraging dlese search web-services to extend value to their users this demonstration illustrates the use of two search-services offered by the digital library for earth-system education (dlese) and shows how they have been used to create customized discovery interfaces for library-resources in science web-sites .

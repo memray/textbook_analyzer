@@ -1,0 +1,2 @@
+A language for queries on structure and contents of textual databases
+An abstract is not available.

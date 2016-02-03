@@ -1,0 +1,2 @@
+Annotated program examples as first class objects in an educational digital library
+This paper analyzes problems encountered by our team while creating an educational digital library of program examples. We present approaches to resolving these problems, and evaluations of the suggested approaches.

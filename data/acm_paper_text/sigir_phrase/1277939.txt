@@ -1,0 +1,1 @@
+heads and tails : studies of web-search with common and rare-queries a large fraction of queries submitted to web-search enginesoccur very infrequently . we describe search-log studiesaimed at elucidating behaviors associated with rare andcommon queries . we present several analyses and discussresearch directions .

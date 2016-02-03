@@ -1,0 +1,2 @@
+Mapping the interoperability landscape for networked information retrieval
+Interoperability is a fundamental challenge for networked information discovery and retrieval. Often treated monolithically in the literature, interoperability is multifaceted and can be analyzed into different types and levels. This paper discusses an approach to map the interoperability landscape for networked information retrieval as part of an interoperability assessment research project.

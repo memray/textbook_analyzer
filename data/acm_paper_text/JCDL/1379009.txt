@@ -1,0 +1,2 @@
+The return of the trivial: problems formalizing collection/item metadata relationships
+Formalizing collection/item metadata relationships encounters the problem of trivial satisfaction. We offer a solution related to current work in IR and ontology evaluation.

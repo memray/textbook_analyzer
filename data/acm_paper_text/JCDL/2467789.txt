@@ -1,0 +1,2 @@
+Docear's PDF inspector: title extraction from PDF files
+In this demo-paper we present Docear's PDF Inspector (DPI). DPI extracts titles from academic PDF files by applying a simple heuristic: the largest text on the first page of a PDF is assumed to be the title. This simple heuristic achieves accuracies around 70% and outperforms the tools ParsCit and SciPlore Xtract in both run-time and accuracy. In addition, DPI is released under the free open source license GPL 2+ at http://www.docear.org, written in JAVA, and runs on any major operating system.

@@ -1,0 +1,1 @@
+a content-based video browsing system based on visual neighbor similarity a new interactive shot level video-navigation system is developed to support three types of content-based-browsing functions : neighbor-clustering , visual-similarity , and visual neighbor similarity (vns) browsing . .

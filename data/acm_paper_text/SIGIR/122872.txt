@@ -1,0 +1,2 @@
+Distributed representations in a text based information retrieval system: a new way of using the vector space model
+An abstract is not available.

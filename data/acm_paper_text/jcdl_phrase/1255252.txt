@@ -1,0 +1,1 @@
+induced tagging : promoting resource-discovery and recommendation in digital-libraries we introduce the notion of `` induced tagging '' in the context of learning-communities that are supported by digital-libraries . we also describe an environment aimed to foster discovery and recommendation of digital-library-resources based on induced tagging .

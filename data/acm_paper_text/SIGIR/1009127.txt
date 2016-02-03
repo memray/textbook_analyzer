@@ -1,0 +1,2 @@
+The effect of document retrieval quality on factoid question answering performance
+An abstract is not available.

@@ -1,0 +1,1 @@
+on the importance of preserving the part-order in shape-retrieval this paper discusses the importance of part-order-preservation in shape-matching . a part descriptor is introduced that supports both preserving and abandoning the order of parts . the evaluation shows that retrieval results are improved by almost 38 \ % if the original ordering is preserved .

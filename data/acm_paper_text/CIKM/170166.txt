@@ -1,0 +1,2 @@
+Automatic generation of graphical user interfaces for interactive database applications
+An abstract is not available.

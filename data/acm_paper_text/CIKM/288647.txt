@@ -1,0 +1,2 @@
+Memory allocation strategies for complex decision support queries
+An abstract is not available.

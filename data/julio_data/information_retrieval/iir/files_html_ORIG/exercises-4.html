@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Exercises</title> 
+  <meta name="description" content="Exercises" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="references-and-further-reading-17.html" /> 
+  <link rel="up" href="hierarchical-clustering-1.html" /> 
+  <link rel="next" href="matrix-decompositions-and-latent-semantic-indexing-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4494" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4488" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4484" href="references-and-further-reading-17.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4490" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4492" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4495" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Up:</b> 
+  <a name="tex2html4489" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4485" href="references-and-further-reading-17.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html4491" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4493" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION0022100000000000000000"> Exercises</a> </h1> 
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li><a name="ex:minspan"></a> <a name="p:minspan"></a> A single-link clustering can also be computed from the <a name="27260"></a> <i>minimum spanning tree</i> of a graph. The minimum spanning tree connects the vertices of a graph at the smallest possible cost, where cost is defined as the sum over all edges of the graph. In our case the cost of an edge is the distance between two documents. Show that if 
+    <!-- MATH
+ $\Delta_{k-1}>\Delta_k>\ldots>\Delta_1$
+ --> <img width="158" height="32" align="MIDDLE" border="0" src="img1659.png" alt="$\Delta_{k-1}&gt;\Delta_k&gt;\ldots&gt;\Delta_1$" /> are the costs of the edges of a minimum spanning tree, then these edges correspond to the <img width="39" height="31" align="MIDDLE" border="0" src="img265.png" alt="$k-1$" /> merges in constructing a single-link clustering. <p> </p></li> 
+   <li><a name="ex:singlelinkbestmerge"></a> <a name="p:singlelinkbestmerge"></a> Show that single-link clustering is best-merge persistent and that GAAC and centroid clustering are not best-merge persistent. <p> </p></li> 
+   <li>
+    <ol> 
+     <li>Consider running 2-means clustering on a collection with documents from two different languages. What result would you expect? </li> 
+     <li>Would you expect the same result when running an HAC algorithm? </li> 
+    </ol> <p> </p></li> 
+   <li>Download Reuters-21578. Keep only documents that are in the classes crude, interest, and grain. Discard documents that are members of more than one of these three classes. Compute a (i) single-link, (ii) complete-link, (iii) GAAC, (iv) centroid clustering of the documents. (v) Cut each dendrogram at the second branch from the top to obtain <img width="45" height="32" align="MIDDLE" border="0" src="img1660.png" alt="$K=3$" /> clusters. Compute the Rand index for each of the 4 clusterings. Which clustering method performs best? <p> </p></li> 
+   <li><a name="ex:determinek"></a> <a name="p:determinek"></a> Suppose a run of HAC finds the clustering with <img width="45" height="32" align="MIDDLE" border="0" src="img1661.png" alt="$K=7$" /> to have the highest value on some prechosen goodness measure of clustering. Have we found the highest-value clustering among all clusterings with <img width="45" height="32" align="MIDDLE" border="0" src="img1661.png" alt="$K=7$" />? <p> </p></li> 
+   <li><a name="ex:lowdim"></a> <a name="p:lowdim"></a> Consider the task of producing a single-link clustering of <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> points on a line: <p> <br /> <br /> </p><p> Show that we only need to compute a total of about <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> similarities. What is the overall complexity of single-link clustering for a set of points on a line? </p><p> </p></li> 
+   <li><a name="ex:monotonicclustering"></a> Prove that single-link, complete-link, and group-average clustering are monotonic in the sense defined on page <a href="hierarchical-agglomerative-clustering-1.html#p:hclstmonotone">17.1</a> . <p> </p></li> 
+   <li><a name="ex:howmanyclusterings"></a> For <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> points, there are <img width="45" height="38" align="MIDDLE" border="0" src="img1663.png" alt="$\leq N^K$" /> different flat clusterings into <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters (Section <a href="problem-statement-1.html#sec:probstatement">16.2</a> , page <a href="cardinality---the-number-of-clusters-1.html#p:numberofclusterings">16.2.1</a> ). What is the number of different hierarchical clusterings (or dendrograms) of <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> documents? Are there more flat clusterings or more hierarchical clusterings for given <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> and <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" />? <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4494" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4488" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4484" href="references-and-further-reading-17.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4490" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4492" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4495" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Up:</b> 
+  <a name="tex2html4489" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4485" href="references-and-further-reading-17.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html4491" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4493" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

@@ -1,0 +1,1 @@
+cmedport : a cross-regional chinese medical portal cmedport is a cross-regional chinese medical web portal developed in the ai lab at the university of arizona . we will demonstrate the major system functionalities .

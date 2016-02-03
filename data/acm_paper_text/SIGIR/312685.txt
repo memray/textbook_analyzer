@@ -1,0 +1,2 @@
+A probabilistic solution to the selection and fusion problem in distributed information retrieval
+An abstract is not available.

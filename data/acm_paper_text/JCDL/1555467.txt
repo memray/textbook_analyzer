@@ -1,0 +1,2 @@
+A personalized learning environment
+We report on the current research activities and results obtained through the Concept Learning service for Concept Knowledge (CLICK) and present a demonstration of the system. This poster session will focus on a demonstration of the CLICK system and the results of the learning study

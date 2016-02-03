@@ -1,0 +1,2 @@
+Fast supervised dimensionality reduction algorithm with applications to document categorization & retrieval
+An abstract is not available.

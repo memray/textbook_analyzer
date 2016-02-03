@@ -1,0 +1,2 @@
+Combined searching of web and oai digital library resources
+In this paper, we describe an experiment in combined searching of web pages and digital library resources, exposed via an Open Archives metadata provider and web gateway service. We utilize only free/open source software components for our investigation, in order to demonstrate feasibility of deployment for all institutions.

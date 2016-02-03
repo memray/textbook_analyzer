@@ -1,0 +1,2 @@
+Distributed proofreading
+Distributed proofreading allows many people working individually across the Internet to contribute to the proofreading of a new electronic book. This paper describes Project Gutenberg's Distributed Proofreading project, along with our general procedures for creating an electronic book from a physical book. Distributed proofreading has promise for the future of Project Gutenberg, and is likely to be a useful strategy for other digital library projects.

@@ -1,0 +1,2 @@
+An iterative reliability measure for semi-anonymous annotators
+This study addresses problems of reliability in the creation of tagged corpora by self-selected semi-anonymous raters. In order to account for both strong and weak raters, this paper contributes a recursive technique for scoring rater reliability. By assigning raters trust scores in the proposed method, candidate labels can be weighted by a confidence score and low-confidence ratings can be routed to an expert rater or additional amateur raters for further action.

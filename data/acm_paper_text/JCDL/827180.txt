@@ -1,0 +1,2 @@
+Fourth-phase digital libraries: pacing, linking, annotating and citing in multimedia collections
+We discuss the implications of the use of current multimedia collections and posit that it is possible to build what we term fourth-phase digital libraries (4PDLs). In 4PDLs users can take advantage of both the powerful audiovisual channels and the proven practices developed for media such as text. We demonstrate how various technologies can be integrated to produce a 4PDL.

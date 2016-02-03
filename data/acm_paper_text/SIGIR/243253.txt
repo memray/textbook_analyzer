@@ -1,0 +1,2 @@
+Efficient transaction support for dynamic information retrieval systems
+An abstract is not available.

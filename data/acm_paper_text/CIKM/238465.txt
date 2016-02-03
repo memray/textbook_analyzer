@@ -1,0 +1,2 @@
+A model of object database applications and its use in cost estimation
+An abstract is not available.

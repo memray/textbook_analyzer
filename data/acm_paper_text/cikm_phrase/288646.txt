@@ -1,0 +1,1 @@
+memory-adaptive scheduling for large query-execution an abstract is not available .

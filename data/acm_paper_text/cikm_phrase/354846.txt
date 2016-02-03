@@ -1,0 +1,1 @@
+on efficient-storage space distribution among materialized-views and indices in data-warehousing environments an abstract is not available .

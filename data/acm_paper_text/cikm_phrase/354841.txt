@@ -1,0 +1,1 @@
+data-replication for external searching in static tree-structures an abstract is not available .

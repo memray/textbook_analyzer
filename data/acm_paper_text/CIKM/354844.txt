@@ -1,0 +1,2 @@
+A distributed multi-agent system for collaborative information management and sharing
+An abstract is not available.

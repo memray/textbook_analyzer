@@ -1,0 +1,2 @@
+Phrase recognition and expansion for short, precision-biased queries based on a query log
+An abstract is not available.

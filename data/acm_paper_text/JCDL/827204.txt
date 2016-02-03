@@ -1,0 +1,2 @@
+Correcting broken characters in the recognition of historical printed documents
+This paper presents a new technique for dealing with broken characters, one of the major challenges in the optical character recognition (OCR) of degraded historical printed documents. A technique based on graph combinatorics is used to rejoin the appropriate connected components. It has been applied to real data with successful results.

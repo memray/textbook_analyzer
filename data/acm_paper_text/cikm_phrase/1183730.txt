@@ -1,0 +1,1 @@
+an efficient one-phase holistic-twig-join algorithm for xml-data in view of the inefficiency of the traditional two-phase twig-stack algorithm , we propose a single-phase holistic-twig-pattern-matching method based on the twigstack algorithm by applying a novel stack structure .

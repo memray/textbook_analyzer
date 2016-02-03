@@ -1,0 +1,2 @@
+SPIRO-V: a collaborative approach to controlled vocabularies gathering and management
+This paper describes SPIRO-V, a collaborative controlled vocabulary development system integrating automatic and manual approaches for domain-specific vocabulary acquisition, and leveraging the knowledge of field experts.

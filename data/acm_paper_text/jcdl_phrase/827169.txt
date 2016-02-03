@@ -1,0 +1,1 @@
+pops : mobile-access to digital-library-resources mobile-devices represent new-opportunities for accessing digital-libraries (dls) but also pose a number of challenges given the diversity of their hardware and software features . we describe a framework aimed at facilitating the generation of interfaces for access to dl resources from a wide range of mobile-devices .

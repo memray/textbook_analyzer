@@ -1,0 +1,2 @@
+Scaffolding the infrastructure of the computational science digital library
+This paper describes from a developer's point of view the integration of a content management system (Plone) and a metadata repository (CWIS) in order to create an interactive online digital library for publishing and evaluation of computational science materials. It explains how CSERD's project requirements were addressed by setting up a framework for collaboration between the two systems mentioned above.

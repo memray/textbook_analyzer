@@ -1,0 +1,2 @@
+Estimating nested selectivity in object-oriented databases
+An abstract is not available.

@@ -1,0 +1,2 @@
+On the use of spreading activation methods in automatic information
+Spreading activation methods have been recommended in information retrieval to expand the search vocabulary and to complement the retrieved document sets. The spreading activation strategy is reminiscent of earlier associative indexing and retrieval systems. Some spreading activation procedures are briefly described, and evaluation output is given, reflecting the effectiveness of one of the proposed procedures.

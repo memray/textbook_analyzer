@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Implementing spelling correction</title> 
+  <meta name="description" content="Implementing spelling correction" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="forms-of-spelling-correction-1.html" /> 
+  <link rel="previous" href="spelling-correction-1.html" /> 
+  <link rel="up" href="spelling-correction-1.html" /> 
+  <link rel="next" href="forms-of-spelling-correction-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1442" href="forms-of-spelling-correction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1436" href="spelling-correction-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1430" href="spelling-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1438" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1440" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1443" href="forms-of-spelling-correction-1.html">Forms of spelling correction</a> 
+  <b> Up:</b> 
+  <a name="tex2html1437" href="spelling-correction-1.html">Spelling correction</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1431" href="spelling-correction-1.html">Spelling correction</a> &nbsp; 
+  <b> <a name="tex2html1439" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1441" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION00831000000000000000"> Implementing spelling correction</a> </h2> There are two basic principles underlying most spelling correction algorithms. 
+  <ol> 
+   <li>Of various alternative correct spellings for a mis-spelled query, choose the ``nearest'' one. This demands that we have a notion of nearness or proximity between a pair of queries. We will develop these proximity measures in Section <a href="edit-distance-1.html#sec:editdistance">3.3.3</a> . </li> 
+   <li>When two correctly spelled queries are tied (or nearly tied), select the one that is more common. For instance, grunt and grant both seem equally plausible as corrections for grnt. Then, the algorithm should choose the more common of grunt and grant as the correction. The simplest notion of more common is to consider the number of occurrences of the term in the collection; thus if grunt occurs more often than grant, it would be the chosen correction. A different notion of more common is employed in many search engines, especially on the web. The idea is to use the correction that is most common among queries typed in by other users. The idea here is that if grunt is typed as a query more often than grant, then it is more likely that the user who typed grnt intended to type the query grunt. </li> 
+  </ol> 
+  <p> Beginning in Section <a href="edit-distance-1.html#sec:editdistance">3.3.3</a> we describe notions of proximity between queries, as well as their efficient computation. Spelling correction algorithms build on these computations of proximity; their functionality is then exposed to users in one of several ways: </p> 
+  <ol> 
+   <li><a name="impspellcorr1"></a>On the query carot always retrieve documents containing carot as well as any ``spell-corrected'' version of carot, including carrot and tarot. </li> 
+   <li>As in (<a href="#impspellcorr1">1</a>) above, but only when the query term carot is not in the dictionary. </li> 
+   <li>As in (<a href="#impspellcorr1">1</a>) above, but only when the original query returned fewer than a preset number of documents (say fewer than five documents). </li> 
+   <li>When the original query returns fewer than a preset number of documents, the search interface presents a <em>spelling suggestion</em> to the end user: this suggestion consists of the spell-corrected query term(s). Thus, the search engine might respond to the user: ``Did you mean carrot?'' </li> 
+  </ol> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1442" href="forms-of-spelling-correction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1436" href="spelling-correction-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1430" href="spelling-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1438" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1440" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1443" href="forms-of-spelling-correction-1.html">Forms of spelling correction</a> 
+  <b> Up:</b> 
+  <a name="tex2html1437" href="spelling-correction-1.html">Spelling correction</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1431" href="spelling-correction-1.html">Spelling correction</a> &nbsp; 
+  <b> <a name="tex2html1439" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1441" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,2 @@
+An iterative approach for rules and data allocation in distributed deductive database systems
+An abstract is not available.

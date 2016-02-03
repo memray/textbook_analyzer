@@ -1,0 +1,2 @@
+Search facilities for internet relay chat
+The Internet encompasses a diverse array of information sources that have been indexed for efficient search, including the Web, Usenet, and email (both personal mail and specialized mailing lists). One information source, publicly accessible over the Internet, yet unarchived and unindexed, is the Internet Relay Chat (IRC) system. We are archiving several of the more useful technical-support-oriented IRC channels, with the goal of extracting, archiving, and indexing information that would help satisfy users' information needs.

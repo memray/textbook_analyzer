@@ -1,0 +1,2 @@
+An access control model for video database systems
+An abstract is not available.

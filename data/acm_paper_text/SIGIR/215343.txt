@@ -1,0 +1,2 @@
+An NF 2 relational interface for document retrieval, restructuring and aggregation
+An abstract is not available.

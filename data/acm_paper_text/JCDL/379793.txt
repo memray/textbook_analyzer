@@ -1,0 +1,2 @@
+An atmospheric visualization collection for the NSDL
+In this poster, we describe visualization and educational efforts unde rway to build an Atmospheric Visualization Collection for the NSDL.

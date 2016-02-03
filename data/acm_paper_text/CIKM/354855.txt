@@ -1,0 +1,2 @@
+A market-based resource management and QoS support framework for distributed multimedia systems
+An abstract is not available.

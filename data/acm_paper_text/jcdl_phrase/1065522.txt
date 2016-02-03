@@ -1,0 +1,1 @@
+bioportal : a case-study in infectious-disease-informatics we present the bioportal system , an integrated cross-jurisdictional data-sharing and analysis-environment to facilitate detection , prevention , and management of infectious-disease outbreaks .

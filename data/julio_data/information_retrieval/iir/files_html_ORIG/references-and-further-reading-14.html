@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="exercises-2.html" /> 
+  <link rel="previous" href="the-bias-variance-tradeoff-1.html" /> 
+  <link rel="up" href="vector-space-classification-1.html" /> 
+  <link rel="next" href="exercises-2.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3776" href="exercises-2.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3770" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3764" href="the-bias-variance-tradeoff-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3772" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3774" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3777" href="exercises-2.html">Exercises</a> 
+  <b> Up:</b> 
+  <a name="tex2html3771" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3765" href="the-bias-variance-tradeoff-1.html">The bias-variance tradeoff</a> &nbsp; 
+  <b> <a name="tex2html3773" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3775" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001970000000000000000"></a><a name="sec:vclassfurther"></a> <a name="p:vclassfurther"></a> <br /> References and further reading </h1> 
+  <p> As discussed in Chapter <a href="relevance-feedback-and-query-expansion-1.html#ch:queryexpansion">9</a> , Rocchio relevance feedback is due to <a href="bibliography-1.html#rocchio71">Rocchio (1971)</a>. <a href="bibliography-1.html#joachims97probabilistic">Joachims (1997)</a> presents a probabilistic analysis of the method. Rocchio classification was widely used as a classification method in <a name="20682"></a> in the 1990s (<a name="tex2html3778" href="bibliography-1.html#buckley94relevance">Buckley et&nbsp;al., 1994b</a>;<a name="tex2html3779" href="bibliography-1.html#buckley94automatic">a</a>, <a name="tex2html3780" href="bibliography-1.html#voorhees05experiment">Voorhees and Harman, 2005</a>). Initially, it was used as a form of <a name="20685"></a> <i>routing</i> . Routing merely ranks documents according to relevance to a class without assigning them. Early work on <a name="20687"></a> <i>filtering</i> , a true classification approach that makes an assignment decision on each document, was published by <a href="bibliography-1.html#ittner95text">Ittner et&nbsp;al. (1995)</a> and <a href="bibliography-1.html#schapire98boosting">Schapire et&nbsp;al. (1998)</a>. The definition of routing we use here should not be confused with another sense. Routing can also refer to the electronic distribution of documents to subscribers, the so-called <a name="20691"></a> <i>push model</i> of document distribution. In a <a name="20693"></a> <i>pull model</i> , each transfer of a document to the user is initiated by the user - for example, by means of search or by selecting it from a list of documents on a news aggregation website. </p>
+  <p> Some authors restrict the name <i>Roccchio classification</i> to two-class problems and use the terms <a name="20696"></a> <i>cluster-based</i> (<a href="bibliography-1.html#iwayama95clusterbased">Iwayama and Tokunaga, 1995</a>) and <a name="20699"></a> <i>centroid-based classification</i> (<a name="tex2html3781" href="bibliography-1.html#han00centroidbased">Han and Karypis, 2000</a>, <a name="tex2html3782" href="bibliography-1.html#tan07using">Tan and Cheng, 2007</a>) for Rocchio classification with <img width="41" height="32" align="MIDDLE" border="0" src="img1127.png" alt="$J&gt;2$" />. </p>
+  <p> A more detailed treatment of kNN can be found in (<a href="bibliography-1.html#hastie2001elements">Hastie et&nbsp;al., 2001</a>), including methods for <a name="20703"></a>tuning the parameter <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />. An example of an approximate fast kNN algorithm is locality-based hashing (<a href="bibliography-1.html#darrell06locality">Andoni et&nbsp;al., 2006</a>). <a href="bibliography-1.html#kleinberg97two">Kleinberg (1997)</a> presents an approximate 
+   <!-- MATH
+ $\Theta((M \log^2 M)(M + \log N))$
+ --> <img width="199" height="40" align="MIDDLE" border="0" src="img1245.png" alt="$\Theta((M \log^2 M)(M + \log N))$" /> kNN algorithm (where <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> is the dimensionality of the space and <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> the number of data points), but at the cost of exponential storage requirements: 
+   <!-- MATH
+ $\Theta((N\log M)^{2M})$
+ --> <img width="121" height="38" align="MIDDLE" border="0" src="img1246.png" alt="$\Theta((N\log M)^{2M})$" />. <a href="bibliography-1.html#indyk04nearest">Indyk (2004)</a> surveys nearest neighbor methods in high-dimensional spaces. Early work on kNN in text classification was motivated by the availability of massively parallel hardware architectures (<a href="bibliography-1.html#creecy92trading">Creecy et&nbsp;al., 1992</a>). <a href="bibliography-1.html#yang94expert">Yang (1994)</a> uses an inverted index to speed up kNN classification. The optimality result for 1NN (twice the Bayes error rate asymptotically) is due to <a href="bibliography-1.html#cover67nearest">Cover and Hart (1967)</a>. </p>
+  <p> The effectiveness of Rocchio classification and kNN is highly dependent on careful <a name="20711"></a>parameter tuning (in particular, the parameters <img width="16" height="35" align="MIDDLE" border="0" src="img1131.png" alt="$b'$" /> for Rocchio on page <a href="rocchio-classification-1.html#p:bprime">14.2</a> and <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> for kNN), feature engineering svm-text and feature selection feature. <a name="tex2html3783" href="bibliography-1.html#buckley95optimization">Buckley and Salton (1995)</a>, <a name="tex2html3784" href="bibliography-1.html#yang03marginbased">Yang and Kisiel (2003)</a>, <a name="tex2html3785" href="bibliography-1.html#schapire98boosting">Schapire et&nbsp;al. (1998)</a> and <a href="bibliography-1.html#moschitti03optimal">Moschitti (2003)</a> address these issues for Rocchio and <a href="bibliography-1.html#yang01thresholding">Yang (2001)</a> and <a href="bibliography-1.html#ault02information">Ault and Yang (2002)</a> for kNN. <a href="bibliography-1.html#zavrel00information">Zavrel et&nbsp;al. (2000)</a> compare feature selection methods for kNN. </p>
+  <p> The bias-variance tradeoff was introduced by <a href="bibliography-1.html#geman92neural">Geman et&nbsp;al. (1992)</a>. The derivation in Section <a href="the-bias-variance-tradeoff-1.html#sec:secbiasvariance">14.6</a> is for 
+   <!-- MATH
+ $\mbox{MSE}(\gamma)$
+ --> <img width="61" height="33" align="MIDDLE" border="0" src="img1208.png" alt="$\mbox{MSE}(\gamma)$" />, but the tradeoff applies to many loss functions (cf. <a name="tex2html3786" href="bibliography-1.html#friedman97bias">Friedman (1997)</a>, <a name="tex2html3787" href="bibliography-1.html#domingos00unified">Domingos (2000)</a>). <a href="bibliography-1.html#shp95">Sch&uuml;tze et&nbsp;al. (1995)</a> and <a href="bibliography-1.html#lewis96training">Lewis et&nbsp;al. (1996)</a> discuss linear classifiers for text and <a href="bibliography-1.html#hastie2001elements">Hastie et&nbsp;al. (2001)</a> linear classifiers in general. Readers interested in the algorithms mentioned, but not described in this chapter may wish to consult <a href="bibliography-1.html#bishop06pattern">Bishop (2006)</a> for neural networks, <a href="bibliography-1.html#hastie2001elements">Hastie et&nbsp;al. (2001)</a> for linear and logistic regression, and <a href="bibliography-1.html#minskypapert88">Minsky and Papert (1988)</a> for the <a name="20730"></a> <i>perceptron algorithm</i> . <a href="bibliography-1.html#anagnostopoulos06effective">Anagnostopoulos et&nbsp;al. (2006)</a> show that an inverted index can be used for highly efficient document classification with any linear classifier, provided that the classifier is still effective when trained on a modest number of features via feature selection. </p>
+  <p> We have only presented the simplest method for combining two-class classifiers into a one-of classifier. Another important method is the use of error-correcting codes, where a vector of decisions of different two-class classifiers is constructed for each document. A test document's decision vector is then ``corrected'' based on the distribution of decision vectors in the training set, a procedure that incorporates information from all two-class classifiers and their correlations into the final classification decision (<a href="bibliography-1.html#dietterich95multiclass">Dietterich and Bakiri, 1995</a>). <a href="bibliography-1.html#ghamrawi05collective">Ghamrawi and McCallum (2005)</a> also exploit dependencies between classes in any-of classification. <a href="bibliography-1.html#allwein00reducing">Allwein et&nbsp;al. (2000)</a> propose a general framework for combining two-class classifiers. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3776" href="exercises-2.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3770" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3764" href="the-bias-variance-tradeoff-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3772" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3774" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3777" href="exercises-2.html">Exercises</a> 
+  <b> Up:</b> 
+  <a name="tex2html3771" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3765" href="the-bias-variance-tradeoff-1.html">The bias-variance tradeoff</a> &nbsp; 
+  <b> <a name="tex2html3773" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3775" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

@@ -1,0 +1,2 @@
+A new statistical formula for Chinese text segmentation incorporating contextual information
+An abstract is not available.

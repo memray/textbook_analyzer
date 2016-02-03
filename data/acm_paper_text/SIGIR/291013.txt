@@ -1,0 +1,2 @@
+Fast searching on compressed text allowing errors
+An abstract is not available.

@@ -1,0 +1,2 @@
+Tipple: location-triggered mobile access to a digital library for audio books
+This paper explores the role of audio as a means to access books in a digital library while being at the location referred to in the books. The books are sourced from the digital library and can either be accompanied by pre-recorded audio or synthesized using text-to-speech. The paper details the functional requirements, design and implementation of Tipple. The concept was extensively tested in three field studies.

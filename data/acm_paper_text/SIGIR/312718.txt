@@ -1,0 +1,2 @@
+Jester 2.0 (poster abstract): evaluation of an new linear time collaborative filtering algorithm
+An abstract is not available.

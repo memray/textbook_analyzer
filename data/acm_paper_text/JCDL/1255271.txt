@@ -1,0 +1,2 @@
+Highly structured scientific publications
+Science is a complex, but highly structured, activity. We propose that reports about science would benefit by reflecting that structure. We provide an example based on the research paradigm and we explore more complex examples in which workflow models describe the conceptual model, the research procedure, the data analysis, and the conclusions.

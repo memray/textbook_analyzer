@@ -1,0 +1,2 @@
+PEPX: a query-friendly probabilistic XML database
+An abstract is not available.

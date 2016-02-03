@@ -1,0 +1,2 @@
+Advances in data stream mining for mobile and ubiquitous environments
+The tutorial presents the state-of-the-art in mobile and ubiquitous data stream mining and discusses open research problems, issues, and challenges in this area.

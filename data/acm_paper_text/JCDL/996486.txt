@@ -1,0 +1,2 @@
+OCLC digital archive demonstration
+The demonstration shows the functionality of OCLC's new Digital Archive, which became publicly available in September 2002. This system is an implementation of the ISO Reference Model for an Open Archival Information System (OAIS). This product uses an implementation of the OCLC/RLG Preservation Metadata element set, tailored for web documents Front--end workflow and harvester components allow users to archive web content.

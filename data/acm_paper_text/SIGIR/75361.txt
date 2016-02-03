@@ -1,0 +1,2 @@
+Information retrieval and software reuse
+Software reuse is widely believed to be the most promising technology for improving software quality and productivity. There are many technical and non-technical problems to be solved, however, before widespread reuse of software lifecycle objects becomes a reality. One class of problem concerns the classification, storage, and retrieval of reusable components. Panel members will discuss these problems and some approaches to solving them.

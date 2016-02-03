@@ -1,0 +1,1 @@
+exploiting music structures for digital-libraries this demonstration presents a music structure-based audio/visual interface for the navigation of very-large scale music-digital-libraries . this work is a product of the structural-analysis of large amounts of music-information (salami) project .

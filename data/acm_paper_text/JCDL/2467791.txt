@@ -1,0 +1,2 @@
+FishTraits version 2: integrating ecological, biogeographic and bibliographic information
+In this paper we describe the new development of FishTraits. Originating from an ecological database that documents and consolidates more than 100 traits for 809 fish species, the new version focuses on the integration of these traits data with the bibliographic and biogeographic information. We explain the overall design as well as the implementation details.

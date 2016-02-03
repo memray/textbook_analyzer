@@ -1,0 +1,2 @@
+Image-based evaluation of video-acquired research skills
+We are exploring the use of image interfaces for testing video-acquired research skills. We studied user performance on three testing image layouts that differ in their use of the available display real estate and in the flexibility of managing the time available to them. Our results confirm that image layout affects user performance on particular tasks and that experts use different strategies from novices. These alternative layouts will be useful for viewing and understanding digital image collections.

@@ -1,0 +1,2 @@
+MALM: a framework for mining sequence database at multiple abstraction levels
+An abstract is not available.

@@ -1,0 +1,2 @@
+A model for inclusive design of digital libraries
+Digital libraries (DLs) must cater not only to the varied needs of its target users but also to their differing abilities, and to the adaptive technologies used by persons whose computing capabilities are restricted due to disabilities. This paper proposes a model for DL design that includes optimization of the usability of the search process and ensures accessibility of the content for users of DLs with disabilities.

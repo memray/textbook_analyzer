@@ -1,0 +1,2 @@
+The impact of query structure and query expansion on retrieval performance
+An abstract is not available.

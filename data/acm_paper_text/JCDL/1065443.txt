@@ -1,0 +1,2 @@
+Using concept maps in digital libraries as a cross-language resource discovery tool
+The concept map, first suggested by Joseph Novak, has been extensively studied as a way for learners to increase understanding. We are automatically generating and translating concept maps from electronic theses and dissertations, for both English and Spanish, as a DL aid to discovery and summarization.

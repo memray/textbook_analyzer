@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Distributing indexes</title> 
+  <meta name="description" content="Distributing indexes" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="connectivity-servers-1.html" /> 
+  <link rel="previous" href="crawling-1.html" /> 
+  <link rel="up" href="web-crawling-and-indexes-1.html" /> 
+  <link rel="next" href="connectivity-servers-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4910" href="connectivity-servers-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4904" href="web-crawling-and-indexes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4898" href="the-url-frontier-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4906" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4908" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4911" href="connectivity-servers-1.html">Connectivity servers</a> 
+  <b> Up:</b> 
+  <a name="tex2html4905" href="web-crawling-and-indexes-1.html">Web crawling and indexes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4899" href="the-url-frontier-1.html">The URL frontier</a> &nbsp; 
+  <b> <a name="tex2html4907" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4909" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002530000000000000000"></a> <a name="sec:distributingindexes"></a> <a name="p:distributingindexes"></a> <br /> Distributing indexes </h1> 
+  <p> In Section <a href="distributed-indexing-1.html#sec:distributedindexing">4.4</a> we described distributed indexing. We now consider the distribution of the index across a large computer cluster<a name="tex2html215" href="footnode.html#foot31766"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> that supports querying. Two obvious alternative index implementations suggest themselves: <a name="31568"></a> <i>partitioning by terms</i> , also known as global index organization, and <a name="31570"></a> <i>partitioning by documents</i> , also know as local index organization. In the former, the dictionary of index terms is partitioned into subsets, each subset residing at a node. Along with the terms at a node, we keep the postings for those terms. A query is routed to the nodes corresponding to its query terms. In principle, this allows greater concurrency since a stream of queries with different query terms would hit different sets of machines. </p>
+  <p> In practice, partitioning indexes by vocabulary terms turns out to be non-trivial. Multi-word queries require the sending of long postings lists between sets of nodes for merging, and the cost of this can outweigh the greater concurrency. Load balancing the partition is governed not by an a priori analysis of relative term frequencies, but rather by the distribution of query terms and their co-occurrences, which can drift with time or exhibit sudden bursts. Achieving good partitions is a function of the co-occurrences of query terms and entails the clustering of terms to optimize objectives that are not easy to quantify. Finally, this strategy makes implementation of dynamic indexing more difficult. </p>
+  <p> A more common implementation is to partition by documents: each node contains the index for a subset of all documents. Each query is distributed to all nodes, with the results from various nodes being merged before presentation to the user. This strategy trades more local disk seeks for less inter-node communication. One difficulty in this approach is that global statistics used in scoring - such as idf - must be computed across the entire document collection even though the index at any single node only contains a subset of the documents. These are computed by distributed ``background'' processes that periodically refresh the node indexes with fresh global statistics. </p>
+  <p> How do we decide the partition of documents to nodes? Based on our development of the crawler architecture in Section <a href="crawler-architecture-1.html#sec:crawlarch">20.2.1</a> , one simple approach would be to assign all pages from a host to a single node. This partitioning could follow the partitioning of hosts to crawler nodes. A danger of such partitioning is that on many queries, a preponderance of the results would come from documents at a small number of hosts (and hence a small number of index nodes). </p>
+  <p> A hash of each URL into the space of index nodes results in a more uniform distribution of query-time computation across nodes. At query time, the query is broadcast to each of the nodes, with the top <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> results from each node being merged to find the top <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> documents for the query. A common implementation heuristic is to partition the document collection into indexes of documents that are more likely to score highly on most queries (using, for instance, techniques in Chapter <a href="link-analysis-1.html#ch:link">21</a> ) and low-scoring indexes with the remaining documents. We only search the low-scoring indexes when there are too few matches in the high-scoring indexes, as described in Section <a href="tiered-indexes-1.html#sec:tiered">7.2.1</a> . </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4910" href="connectivity-servers-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4904" href="web-crawling-and-indexes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4898" href="the-url-frontier-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4906" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4908" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4911" href="connectivity-servers-1.html">Connectivity servers</a> 
+  <b> Up:</b> 
+  <a name="tex2html4905" href="web-crawling-and-indexes-1.html">Web crawling and indexes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4899" href="the-url-frontier-1.html">The URL frontier</a> &nbsp; 
+  <b> <a name="tex2html4907" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4909" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

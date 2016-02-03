@@ -1,0 +1,2 @@
+A DL server with OAI capabilities: LOVE
+We describe integrating OAI (Open Archives Initiative) and DL (Digital Library) capabilities in the integrated prototype DL server: LOVE (Learning Object Virtual Exchange).

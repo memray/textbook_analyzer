@@ -1,0 +1,2 @@
+Media matrix: a digital library research tool
+Media Matrix (version 1.0)- an online, server side tool that helps users to find, segment, annotate, organize, and publish streaming media found in digital libraries on the Internet.

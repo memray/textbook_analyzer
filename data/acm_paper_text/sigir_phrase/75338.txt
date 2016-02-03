@@ -1,0 +1,1 @@
+a neural-network for probabilistic-information-retrieval this paper demonstrates how a neural-network may be constructed , together with learning-algorithms and modes-of-operation , that will provide retrieval-effectiveness similar to that of the probabilistic indexing-and-retrieval model based on single terms as document-components .

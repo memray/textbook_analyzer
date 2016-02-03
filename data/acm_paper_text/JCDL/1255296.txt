@@ -1,0 +1,2 @@
+Merging the Norwegian gazetteer with the ADL gazetteer
+We report on work in progress on the merging of the Norwegian Gazetteer and the ADL gazetteer to create a gazetteer with both detailed local coverage and global scope suitable for indexing articles from a local newspaper. We describe a mapping on the schema level, a strategy for identifying duplicates in the merged gazeetteer and some identified challenges.

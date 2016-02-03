@@ -1,0 +1,2 @@
+Modeling uncertainty in video retrieval: a retrieval model for uncertain semantic representations of videos
+An abstract is not available.

@@ -1,0 +1,2 @@
+Extended XQuery for digital libraries
+Documents have, in general, a multihierarchical structure (such as physical organization in the form of pages and lines, content organization in the form of paragraphs and sentences, etc.). Searching multihierarchical XML encoding presents a number of unique challenges for both computer scientists and document experts. We present an extension of the XQuery language suitable for searching multihierarchical XML.

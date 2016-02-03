@@ -1,0 +1,2 @@
+Efficient recompression techniques for dynamic full-text retrieval systems
+An abstract is not available.

@@ -1,0 +1,2 @@
+Tools and techniques for harvesting the world wide web
+Recently the Library of Congress began developing a strategy for the preservation of digital content. Efforts have focused on the need to select, harvest, describe, access and preserve Web resources. This poster focuses on the Library's initial investigation and evaluation of Web harvesting software tools.

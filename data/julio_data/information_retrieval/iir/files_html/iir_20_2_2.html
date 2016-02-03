@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>DNS resolution</title> 
+  <meta name="description" content="DNS resolution" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="the-url-frontier-1.html" /> 
+  <link rel="previous" href="crawler-architecture-1.html" /> 
+  <link rel="up" href="crawling-1.html" /> 
+  <link rel="next" href="the-url-frontier-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4884" href="the-url-frontier-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4878" href="crawling-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4872" href="distributing-the-crawler-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4880" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4882" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4885" href="the-url-frontier-1.html">The URL frontier</a> 
+  <b> Up:</b> 
+  <a name="tex2html4879" href="crawling-1.html">Crawling</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4873" href="distributing-the-crawler-1.html">Distributing the crawler</a> &nbsp; 
+  <b> <a name="tex2html4881" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4883" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002522000000000000000"></a> <a name="sec:dns"></a> <a name="p:dns"></a> <br /> DNS resolution </h2> Each web server (and indeed any host connected to the internet) has a unique 
+  <a name="31438"></a> 
+  <i>IP address</i> in textual form, translating it to an IP address (in this case, 207.142.131.248) is a process known as 
+  <a name="31440"></a> 
+  <i>DNS resolution</i> or DNS lookup; here DNS stands for 
+  <i>Domain Name Service</i>. During DNS resolution, the program that wishes to perform this translation (in our case, a component of the web crawler) contacts a 
+  <a name="31443"></a> 
+  <i>DNS server</i> that returns the translated IP address. (In practice the entire translation may not occur at a single DNS server; rather, the DNS server contacted initially may recursively call upon other DNS servers to complete the translation.) For a more complex URL such as 
+  <tt><a name="tex2html212" href="en.wikipedia.org/wiki/Domain_Name_System">en.wikipedia.org/wiki/Domain_Name_System</a></tt>, the crawler component responsible for DNS resolution extracts the host name - in this case en.wikipedia.org - and looks up the IP address for the host en.wikipedia.org. 
+  <p> DNS resolution is a well-known bottleneck in web crawling. Due to the distributed nature of the Domain Name Service, DNS resolution may entail multiple requests and round-trips across the internet, requiring seconds and sometimes even longer. Right away, this puts in jeopardy our goal of fetching several hundred documents a second. A standard remedy is to introduce <a name="31446"></a>caching: URLs for which we have recently performed DNS lookups are likely to be found in the DNS cache, avoiding the need to go to the DNS servers on the internet. However, obeying politeness constraints (see Section <a href="the-url-frontier-1.html#sec:frontier">20.2.3</a> ) limits the of cache hit rate. </p> 
+  <p> There is another important difficulty in DNS resolution; the lookup implementations in standard libraries (likely to be used by anyone developing a crawler) are generally synchronous. This means that once a request is made to the Domain Name Service, other crawler threads at that node are blocked until the first request is completed. To circumvent this, most web crawlers implement their own DNS resolver as a component of the crawler. Thread <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> executing the resolver code sends a message to the DNS server and then performs a timed wait: it resumes either when being signaled by another thread or when a set time quantum expires. A single, separate DNS thread listens on the standard DNS port (port 53) for incoming response packets from the name service. Upon receiving a response, it signals the appropriate crawler thread (in this case, <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" />) and hands it the response packet if <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> has not yet resumed because its time quantum has expired. A crawler thread that resumes because its wait time quantum has expired retries for a fixed number of attempts, sending out a new message to the DNS server and performing a timed wait each time; the designers of Mercator recommend of the order of five attempts. The time quantum of the wait increases exponentially with each of these attempts; Mercator started with one second and ended with roughly 90 seconds, in consideration of the fact that there are host names that take tens of seconds to resolve. </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4884" href="the-url-frontier-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4878" href="crawling-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4872" href="distributing-the-crawler-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4880" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4882" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4885" href="the-url-frontier-1.html">The URL frontier</a> 
+  <b> Up:</b> 
+  <a name="tex2html4879" href="crawling-1.html">Crawling</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4873" href="distributing-the-crawler-1.html">Distributing the crawler</a> &nbsp; 
+  <b> <a name="tex2html4881" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4883" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

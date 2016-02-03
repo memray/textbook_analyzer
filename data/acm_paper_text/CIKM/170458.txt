@@ -1,0 +1,2 @@
+Concurrency control in federated databases: a dynamic approach
+An abstract is not available.

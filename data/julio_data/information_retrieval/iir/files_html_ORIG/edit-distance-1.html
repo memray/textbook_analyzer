@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Edit distance</title> 
+  <meta name="description" content="Edit distance" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="k-gram-indexes-for-spelling-correction-1.html" /> 
+  <link rel="previous" href="forms-of-spelling-correction-1.html" /> 
+  <link rel="up" href="spelling-correction-1.html" /> 
+  <link rel="next" href="k-gram-indexes-for-spelling-correction-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1470" href="k-gram-indexes-for-spelling-correction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1464" href="spelling-correction-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1458" href="forms-of-spelling-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1466" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1468" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1471" href="k-gram-indexes-for-spelling-correction-1.html">k-gram indexes for spelling</a> 
+  <b> Up:</b> 
+  <a name="tex2html1465" href="spelling-correction-1.html">Spelling correction</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1459" href="forms-of-spelling-correction-1.html">Forms of spelling correction</a> &nbsp; 
+  <b> <a name="tex2html1467" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1469" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION00833000000000000000"></a> <a name="sec:editdistance"></a> <a name="p:editdistance"></a> <br /> Edit distance </h2> Given two character strings 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> and 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" />, the 
+  <a name="3856"></a> 
+  <i>edit distance</i> between them is the minimum number of 
+  <em>edit operations</em> required to transform 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> into 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" />. Most commonly, the edit operations allowed for this purpose are: (i) insert a character into a string; (ii) delete a character from a string and (iii) replace a character of a string by another character; for these operations, edit distance is sometimes known as 
+  <a name="3859"></a> 
+  <i>Levenshtein distance</i> . For example, the edit distance between cat and dog is 3. In fact, the notion of edit distance can be generalized to allowing different weights for different kinds of edit operations, for instance a higher weight may be placed on replacing the character s by the character p, than on replacing it by the character a (the latter being closer to s on the keyboard). Setting weights in this way depending on the likelihood of letters substituting for each other is very effective in practice (see Section 
+  <a href="phonetic-correction-1.html#sec:soundex">3.4</a> for the separate issue of phonetic similarity). However, the remainder of our treatment here will focus on the case in which all edit operations have the same weight. 
+  <p> It is well-known how to compute the (weighted) edit distance between two strings in time 
+   <!-- MATH
+ $O(|s_1|\times|s_2|)$
+ --> <img width="96" height="33" align="MIDDLE" border="0" src="img149.png" alt="$O(\vert s_1\vert\times\vert s_2\vert)$" /><a name="s-notation"></a>, where <img width="25" height="33" align="MIDDLE" border="0" src="img150.png" alt="$\vert s_i\vert$" /> denotes the length of a string <img width="15" height="32" align="MIDDLE" border="0" src="img151.png" alt="$s_i$" />. The idea is to use the dynamic programming algorithm in Figure <a href="#fig:alg:edit">3.5</a> , where the characters in <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> and <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" /> are given in array form. The algorithm fills the (integer) entries in a matrix <img width="17" height="32" align="MIDDLE" border="0" src="img103.png" alt="$m$" /> whose two dimensions equal the lengths of the two strings whose edit distances is being computed; the <img width="34" height="33" align="MIDDLE" border="0" src="img7.png" alt="$(i,j)$" /> entry of the matrix will hold (after the algorithm is executed) the edit distance between the strings consisting of the first <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> characters of <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> and the first <img width="9" height="31" align="MIDDLE" border="0" src="img9.png" alt="$j$" /> characters of <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" />. The central dynamic programming step is depicted in Lines 8-10 of Figure <a href="#fig:alg:edit">3.5</a> , where the three quantities whose minimum is taken correspond to substituting a character in <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" />, inserting a character in <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> and inserting a character in <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" />. </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:alg:edit"></a>
+   <a name="p:alg:edit"></a>
+   <a name="3893"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 3.5:</strong> Dynamic programming algorithm for computing the edit distance between strings 
+     <img width="17" height="32" align="MIDDLE" border="0" src="img3.png" alt="$s_1$" /> and 
+     <img width="17" height="32" align="MIDDLE" border="0" src="img4.png" alt="$s_2$" />.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="503" height="226" border="0" src="img152.png" alt="\begin{figure}\begin{algorithm}{EditDistance}{s_1,s_2}
+int\ m[i,j] = 0\\
+\begin...
+...d{FOR}\\
+\RETURN{m[\vert s_1\vert,\vert s_2\vert]}
+\end{algorithm}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> Figure <a href="#fig:leven">3.6</a> shows an example Levenshtein distance computation of Figure <a href="#fig:alg:edit">3.5</a> . The typical cell <img width="31" height="33" align="MIDDLE" border="0" src="img153.png" alt="$[i,j]$" /> has four entries formatted as a <img width="39" height="32" align="MIDDLE" border="0" src="img154.png" alt="$2\times 2$" /> cell. The lower right entry in each cell is the <img width="32" height="32" align="MIDDLE" border="0" src="img155.png" alt="$\min$" /> of the other three, corresponding to the main dynamic programming step in Figure <a href="#fig:alg:edit">3.5</a> . The other three entries are the three entries 
+   <!-- MATH
+ $m[i-1,j-1] + 0$
+ --> <img width="126" height="33" align="MIDDLE" border="0" src="img156.png" alt="$m[i-1,j-1] + 0$" /> or 1 depending on whether 
+   <!-- MATH
+ $s_1[i]=s_2[j], m[i-1, j] + 1$
+ --> <img width="184" height="33" align="MIDDLE" border="0" src="img157.png" alt="$s_1[i]=s_2[j], m[i-1, j] + 1$" /> and <img width="98" height="33" align="MIDDLE" border="0" src="img158.png" alt="$m[i, j-1] + 1$" />. The cells with numbers in italics depict the path by which we determine the Levenshtein distance. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:leven"></a><a name="p:leven"></a></p>
+   <img width="555" height="308" border="0" src="img159.png" alt="\begin{figure}
+% latex2html id marker 3900
+\begin{tabular}{ \vert\vert c \vert\v...
+... The cells in italics determine the edit distance in this example.}
+\end{figure}" /> 
+  </div> 
+  <p> The spelling correction problem however demands more than computing edit distance: given a set <img width="15" height="14" align="BOTTOM" border="0" src="img160.png" alt="${\cal S}$" /> of strings (corresponding to terms in the vocabulary) and a query string <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" /><a name="q-notation"></a>, we seek the string(s) in <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" /> of least edit distance from <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. We may view this as a decoding problem, in which the codewords (the strings in <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />) are prescribed in advance. The obvious way of doing this is to compute the edit distance from <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" /> to each string in <img width="16" height="32" align="MIDDLE" border="0" src="img162.png" alt="$V$" />, before selecting the string(s) of minimum edit distance. This exhaustive search is inordinately expensive. Accordingly, a number of heuristics are used in practice to efficiently retrieve vocabulary terms likely to have low edit distance to the query term(s). </p>
+  <p> The simplest such heuristic is to restrict the search to dictionary terms beginning with the same letter as the query string; the hope would be that spelling errors do not occur in the first character of the query. A more sophisticated variant of this heuristic is to use a version of the permuterm index, in which we omit the end-of-word symbol $. Consider the set of all rotations of the query string <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. For each rotation <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> from this set, we traverse the B-tree into the permuterm index, thereby retrieving all dictionary terms that have a rotation beginning with <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" />. For instance, if <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" /> is mase and we consider the rotation 
+   <!-- MATH
+ $r=\mbox{\term{sema}}$
+ --> <img width="67" height="32" align="MIDDLE" border="0" src="img163.png" alt="$r=\mbox{\term{sema}}$" />, we would retrieve dictionary terms such as semantic and semaphore that do not have a small edit distance to&nbsp;<img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. Unfortunately, we would miss more pertinent dictionary terms such as mare and mane. To address this, we refine this rotation scheme: for each rotation, we omit a suffix of <img width="11" height="18" align="BOTTOM" border="0" src="img164.png" alt="$\ell$" /> characters before performing the B-tree traversal. This ensures that each term in the set <img width="15" height="32" align="MIDDLE" border="0" src="img143.png" alt="$R$" /><a name="p:permut"></a> of terms retrieved from the dictionary includes a ``long'' substring in common with <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. The value of <img width="11" height="18" align="BOTTOM" border="0" src="img164.png" alt="$\ell$" /> could depend on the length of <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. Alternatively, we may set it to a fixed constant such as <img width="12" height="32" align="MIDDLE" border="0" src="img165.png" alt="$2$" />. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1470" href="k-gram-indexes-for-spelling-correction-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1464" href="spelling-correction-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1458" href="forms-of-spelling-correction-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1466" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1468" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1471" href="k-gram-indexes-for-spelling-correction-1.html">k-gram indexes for spelling</a> 
+  <b> Up:</b> 
+  <a name="tex2html1465" href="spelling-correction-1.html">Spelling correction</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1459" href="forms-of-spelling-correction-1.html">Forms of spelling correction</a> &nbsp; 
+  <b> <a name="tex2html1467" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1469" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

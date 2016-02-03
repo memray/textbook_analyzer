@@ -1,0 +1,2 @@
+Novel interface services for bioacoustic digital libraries
+This paper introduces the CARDINAL (Computer Assisted Recognition and Discovery in Natural Acoustic Landscapes) interface system for use in Bioacoustic Digital Libraries (BADL).

@@ -1,0 +1,2 @@
+Background for association rules and cost estimate of selected mining algorithms
+An abstract is not available.

@@ -1,0 +1,2 @@
+High performance clustering based on the similarity join
+An abstract is not available.

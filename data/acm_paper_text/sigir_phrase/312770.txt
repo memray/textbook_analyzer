@@ -1,0 +1,1 @@
+jester 2.0 (demonstration abstract) : collaborative-filtering to retrieve jokes an abstract is not available .

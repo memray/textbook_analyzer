@@ -1,0 +1,1 @@
+the visual-display of information in an information-retrieval environment this paper gives an overview of the graphical-techniques which have been used in the representation of information in a document-collection environment . an assessment of the applicability of existing multivariate-data graphical-techniques to the vector-space-model is presented .

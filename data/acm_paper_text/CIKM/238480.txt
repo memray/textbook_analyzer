@@ -1,0 +1,2 @@
+Object-oriented and database concepts for the design of networked information retrieval systems
+An abstract is not available.

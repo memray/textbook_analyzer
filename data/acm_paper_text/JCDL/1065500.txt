@@ -1,0 +1,2 @@
+Integrating image-rich biological information with a web search tool: the inside wood model
+North Carolina State University is collaborating with global partners to produce a comprehensive Internet-accessible wood anatomy reference, research, and teaching tool incorporating images, taxonomy, and anatomical information sets. With its multiple search capabilities, content types, and user options, InsideWood serves as a model for image-intensive, searchable biological collections. http://insidewood.lib.ncsu.edu/search/

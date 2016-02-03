@@ -1,0 +1,2 @@
+A method of using semijoins to optimize queries with ADT functions
+An abstract is not available.

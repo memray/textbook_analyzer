@@ -1,0 +1,2 @@
+Automated collection strength analysis
+The strengths within six library collections were automatically determined through automated enrichment and analysis of bibliographic level metadata records, with a view towards efficient resource sharing and collaborative collection management. This involved very large scale deduplicantion, enrichment and automatic reclassification of records using machine learning processes.

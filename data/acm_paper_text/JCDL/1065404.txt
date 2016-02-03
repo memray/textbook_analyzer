@@ -1,0 +1,2 @@
+Exploring user perceptions of digital image similarity
+The MIDAS project is developing infrastructure and policies for optimal display of digital information on devices with diverse characteristics. In this paper we present the preliminary results of a study that explored the effects of scaling and color-depth variation in digital photographs on user perceptions of similarity. Our results indicate general trends in user preferences and can serve as guidelines for designing policies and systems that display digital images optimally on various information devices.

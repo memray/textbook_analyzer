@@ -1,0 +1,2 @@
+BDBComp: building a digital library for the Brazilian computer science community
+This paper reports initial efforts towards building BDBComp, a digital library for the Brazilian computer science community BDBComp is based on a number of standards (e.g., OAI, Dublin Core, SQL) as well as on new technologies (e.g., Web data extraction tools), which allowed fast and easy prototyping. The paper focuses on architectural issues and specific challenges faced during the construction of this digital library as well as on proposed solutions.

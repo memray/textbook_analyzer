@@ -1,0 +1,2 @@
+Incorporation of relevance feedback into Boolean retrieval systems
+An abstract is not available.

@@ -1,0 +1,2 @@
+Attribute weighting: a method of applying domain knowledge in the decision tree process
+An abstract is not available.

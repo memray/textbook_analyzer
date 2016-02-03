@@ -1,0 +1,1 @@
+an associative file store using fragments for run-time indexing and compression an abstract is not available .

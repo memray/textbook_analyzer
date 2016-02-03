@@ -1,0 +1,2 @@
+Introduction to (teaching/learning about) digital libraries
+This tutorial provides a thorough and deep introduction to the DL field, building upon a firm theoretical foundation (starting with "5S": Streams, Structures, Spaces, Scenarios, Societies [1]), giving careful definitions and explanations of all the key parts of a "minimal digital library", and expanding from that basis to cover key DL issues, illustrated with a well-chosen set of case studies.

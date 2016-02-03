@@ -1,0 +1,2 @@
+Closing the loop in webpage understanding
+Little work has been done towards an integrated statistical model for understanding webpage structures and processing natural language sentences within the HTML elements. This paper proposed a novel framework called WebNLP which enables bidirectional integration of page structure understanding and text understanding in an iterative manner. Experiments show that the WebNLP framework achieved significantly better performance.

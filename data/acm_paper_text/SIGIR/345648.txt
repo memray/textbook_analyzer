@@ -1,0 +1,2 @@
+Theme-based retrieval of Web news (poster session)
+We present our framework for classification of Web news, based on support vector machines, and some of the initial measurements of its accuracy.

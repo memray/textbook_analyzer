@@ -1,0 +1,2 @@
+Geographic information retrieval (GIR) ranking methods for digital libraries
+This demo will presents results from an evaluation of algorithms forranking results by probability of relevance for Geographic Information Retrieval (GIR) applications. We will demonstrate an algorithm for GIR ranking based on logistic regression from samples of the test collection We also show the effects of different representations of the geographic regions being searched, including minimumbounding rectangles, convex hulls, and complex polygons.

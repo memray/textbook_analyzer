@@ -1,0 +1,2 @@
+Browsing affordance designs for the human-centered computing education digital library
+Browsing is a widespread user behavior in the digital library (DL) environment; there are an array of existing techniques that afford browsing and are readily applicable to digital libraries. We outline the designs of two such methods based on well-known techniques: treemaps and ScentTrails.

@@ -1,0 +1,2 @@
+A CLIR interface to a web search engine
+An abstract is not available.

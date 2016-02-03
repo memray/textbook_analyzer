@@ -1,0 +1,1 @@
+digitization and 3d-modeling of movable books movable books provide interesting challenges for digitization and user-interfaces design . we report in this paper some preliminary results in the building of a 3d-visualization workbench for such books .

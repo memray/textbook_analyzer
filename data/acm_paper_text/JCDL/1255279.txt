@@ -1,0 +1,2 @@
+Tagging video: conventions and strategies of the YouTube community
+This poster summarizes the results from a quantitative analysis of the tags and associated metadata used to describe more than one million videos by 537,246 contributors at the YouTube video sharing site. Results from this work suggest methodological and design considerations that could enhance the effectiveness of sharing within communities devoted to online video.

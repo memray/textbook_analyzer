@@ -1,0 +1,2 @@
+Efficient parallel data mining for association rules
+An abstract is not available.

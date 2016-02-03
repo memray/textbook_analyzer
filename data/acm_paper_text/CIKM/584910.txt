@@ -1,0 +1,2 @@
+Ginga: a self-adaptive query processing system
+An abstract is not available.

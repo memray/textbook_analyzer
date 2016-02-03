@@ -1,0 +1,2 @@
+PAT-tree-based keyword extraction for Chinese information retrieval
+An abstract is not available.
