@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Probability estimates in practice</title> 
+  <meta name="description" content="Probability estimates in practice" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="probabilistic-approaches-to-relevance-feedback-1.html" /> 
+  <link rel="previous" href="probability-estimates-in-theory-1.html" /> 
+  <link rel="up" href="the-binary-independence-model-1.html" /> 
+  <link rel="next" href="probabilistic-approaches-to-relevance-feedback-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3114" href="probabilistic-approaches-to-relevance-feedback-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3108" href="the-binary-independence-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3102" href="probability-estimates-in-theory-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3110" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3112" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3115" href="probabilistic-approaches-to-relevance-feedback-1.html">Probabilistic approaches to relevance</a> 
+  <b> Up:</b> 
+  <a name="tex2html3109" href="the-binary-independence-model-1.html">The Binary Independence Model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3103" href="probability-estimates-in-theory-1.html">Probability estimates in theory</a> &nbsp; 
+  <b> <a name="tex2html3111" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3113" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001633000000000000000"></a> <a name="p:justificationofidf"></a> <br /> Probability estimates in practice </h2> Under the assumption that relevant documents are a very small percentage of the collection, it is plausible to approximate statistics for nonrelevant documents by statistics from the whole collection. Under this assumption, 
+  <img width="18" height="32" align="MIDDLE" border="0" src="img735.png" alt="$u_t$" /> (the probability of term occurrence in nonrelevant documents for a query) is 
+  <img width="48" height="31" align="MIDDLE" border="0" src="img736.png" alt="$\docf_t/N$" /> and 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\log [(1-u_t)/u_t] = \log [(N-\docf_t)/\docf_t] \approx \log N/\docf_t
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="prob-idf"></a><img width="354" height="28" border="0" src="img737.png" alt="\begin{displaymath}
+\log [(1-u_t)/u_t] = \log [(N-\docf_t)/\docf_t] \approx \log N/\docf_t
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (76)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> In other words, we can provide a theoretical justification for the most frequently used form of 
+  <a name="14213"></a> 
+  <i>idf</i> weighting, which we saw in Section 
+  <a href="inverse-document-frequency-1.html#sec:idf">6.2.1</a> . 
+  <p> The approximation technique in Equation&nbsp;<a href="#prob-idf">76</a> cannot easily be extended to relevant documents. The quantity <img width="18" height="32" align="MIDDLE" border="0" src="img738.png" alt="$p_t$" /> can be estimated in various ways: </p> 
+  <ol> 
+   <li>We can use the frequency of term occurrence in known relevant documents (if we know some). This is the basis of probabilistic approaches to relevance feedback weighting in a feedback loop, discussed in the next subsection. </li> 
+   <li><a href="bibliography-1.html#croftharper79">Croft and Harper (1979)</a> proposed using a constant in their combination match model. For instance, we might assume that <img width="18" height="32" align="MIDDLE" border="0" src="img738.png" alt="$p_t$" /> is constant over all terms <img width="18" height="32" align="MIDDLE" border="0" src="img709.png" alt="$x_t$" /> in the query and that <img width="60" height="32" align="MIDDLE" border="0" src="img739.png" alt="$p_t = 0.5$" />. This means that each term has even odds of appearing in a relevant document, and so the <img width="18" height="32" align="MIDDLE" border="0" src="img738.png" alt="$p_t$" /> and <img width="59" height="33" align="MIDDLE" border="0" src="img740.png" alt="$(1-p_t)$" /> factors cancel out in the expression for <img width="37" height="32" align="MIDDLE" border="0" src="img720.png" alt="$RSV$" />. Such an estimate is weak, but doesn't disagree violently with our hopes for the search terms appearing in many but not all relevant documents. Combining this method with our earlier approximation for <img width="18" height="32" align="MIDDLE" border="0" src="img735.png" alt="$u_t$" />, the document ranking is determined simply by which query terms occur in documents scaled by their idf weighting. For short documents (titles or abstracts) in situations in which iterative searching is undesirable, using this weighting term alone can be quite satisfactory, although in many other circumstances we would like to do better. </li> 
+   <li><a href="bibliography-1.html#greiff98eda">Greiff (1998)</a> argues that the constant estimate of <img width="18" height="32" align="MIDDLE" border="0" src="img738.png" alt="$p_t$" /> in the <a href="bibliography-1.html#croftharper79">Croft and Harper (1979)</a> model is theoretically problematic and not observed empirically: as might be expected, <img width="18" height="32" align="MIDDLE" border="0" src="img738.png" alt="$p_t$" /> is shown to rise with <img width="24" height="31" align="MIDDLE" border="0" src="img726.png" alt="$\docf_t$" />. Based on his data analysis, a plausible proposal would be to use the estimate 
+    <!-- MATH
+ $p_t =\frac{1}{3} + \frac{2}{3}\docf_t/N$
+ --> <img width="124" height="39" align="MIDDLE" border="0" src="img741.png" alt="$p_t =\frac{1}{3} + \frac{2}{3}\docf_t/N$" />. </li> 
+  </ol> 
+  <p> Iterative methods of estimation, which combine some of the above ideas, are discussed in the next subsection. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3114" href="probabilistic-approaches-to-relevance-feedback-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3108" href="the-binary-independence-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3102" href="probability-estimates-in-theory-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3110" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3112" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3115" href="probabilistic-approaches-to-relevance-feedback-1.html">Probabilistic approaches to relevance</a> 
+  <b> Up:</b> 
+  <a name="tex2html3109" href="the-binary-independence-model-1.html">The Binary Independence Model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3103" href="probability-estimates-in-theory-1.html">Probability estimates in theory</a> &nbsp; 
+  <b> <a name="tex2html3111" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3113" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

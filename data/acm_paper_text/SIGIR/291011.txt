@@ -1,0 +1,2 @@
+Compressed inverted files with reduced decoding overheads
+An abstract is not available.

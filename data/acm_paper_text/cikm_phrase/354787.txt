@@ -1,0 +1,1 @@
+a framework for designing update objects to improve server scalability in intermittently synchronized-databases an abstract is not available .

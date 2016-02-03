@@ -1,0 +1,1 @@
+a full-text-retrieval system with a dynamic abstract-generation function an abstract is not available .

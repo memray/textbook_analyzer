@@ -1,0 +1,2 @@
+Sustainability issues and activities for the NSDL
+This poster will review the work on sustainability of digital libraries in the context of the NSF-supported National Science Digital Library (NSDL) program. Applied to digital libraries, sustainability is a broad term, referring to everything from technical issues about the digital preservation of materials, to the social questions surrounding the long-term accessibility of resources to the public at large.

@@ -1,0 +1,2 @@
+Automatic acquisition of terminological relations from a corpus for query expansion
+An abstract is not available.

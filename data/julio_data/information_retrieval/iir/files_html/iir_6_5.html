@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="variant-tf-idf-functions-1.html" /> 
+  <link rel="up" href="scoring-term-weighting-and-the-vector-space-model-1.html" /> 
+  <link rel="next" href="computing-scores-in-a-complete-search-system-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2076" href="computing-scores-in-a-complete-search-system-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2070" href="scoring-term-weighting-and-the-vector-space-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2066" href="pivoted-normalized-document-length-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2072" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2074" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2077" href="computing-scores-in-a-complete-search-system-1.html">Computing scores in a</a> 
+  <b> Up:</b> 
+  <a name="tex2html2071" href="scoring-term-weighting-and-the-vector-space-model-1.html">Scoring, term weighting and</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2067" href="pivoted-normalized-document-length-1.html">Pivoted normalized document length</a> &nbsp; 
+  <b> <a name="tex2html2073" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2075" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001150000000000000000"> References and further reading</a> </h1> 
+  <p> Chapter <a href="computing-scores-in-a-complete-search-system-1.html#ch:cosine">7</a> develops the computational aspects of vector space scoring. <a name="tex2html2078" href="bibliography-1.html#luhn57">Luhn (1957</a>;<a name="tex2html2079" href="bibliography-1.html#luhn58">1958)</a> describes some of the earliest reported applications of term weighting. His paper dwells on the importance of medium frequency terms (terms that are neither too commonplace nor too rare) and may be thought of as anticipating tf-idf and related weighting schemes. <a href="bibliography-1.html#spa72">Sp&auml;rck&nbsp;Jones (1972)</a> builds on this intuition through detailed experiments showing the use of inverse document frequency in term weighting. A series of extensions and theoretical justifications of idf are due to <a href="bibliography-1.html#buckleysalton_termweighting">Salton and Buckley (1987)</a> <a href="bibliography-1.html#robertson76relevance">Robertson and Jones (1976)</a>, <a href="bibliography-1.html#croftharper79">Croft and Harper (1979)</a> and <a href="bibliography-1.html#papineni01why">Papineni (2001)</a>. Robertson maintains a web page (<tt><a name="tex2html73" href="http://www.soi.city.ac.uk/&lt;TT&gt;~&lt;/TT&gt;ser/idf.html">http://www.soi.city.ac.uk/<tt>~</tt>ser/idf.html</a></tt>) containing the history of idf, including soft copies of early papers that predated electronic versions of journal article. <a href="bibliography-1.html#singhal96pivoted">Singhal et&nbsp;al. (1996a)</a> develop pivoted document length normalization. Probabilistic language models (Chapter <a href="probabilistic-information-retrieval-1.html#ch:probir">11</a> ) develop weighting techniques that are more nuanced than tf-idf; the reader will find this development in Section <a href="okapi-bm25-a-non-binary-model-1.html#sec:okapi-bm25">11.4.3</a> . </p> 
+  <p> We observed that by assigning a weight for each term in a document, a document may be viewed as a vector of term weights, one for each term in the collection. The SMART information retrieval system at Cornell&nbsp;(<a href="bibliography-1.html#salton71smart">Salton, 1971b</a>) due to Salton and colleagues was perhaps the first to view a document as a vector of weights. The basic computation of cosine scores as described in Section <a href="computing-vector-scores-1.html#sec:pseudocode">6.3.3</a> is due to <a href="bibliography-1.html#zobel06inverted">Zobel and Moffat (2006)</a>. The two query evaluation strategies term-at-a-time and document-at-a-time are discussed by <a href="bibliography-1.html#turtle95query">Turtle and Flood (1995)</a>. </p> 
+  <p> The SMART notation for tf-idf term weighting schemes in Figure <a href="document-and-query-weighting-schemes-1.html#fig:figtfidf">6.15</a> is presented in (<a name="tex2html2080" href="bibliography-1.html#singhal96length">Singhal et&nbsp;al., 1996b</a>;<a name="tex2html2081" href="bibliography-1.html#singhal95length">1995</a>, <a name="tex2html2082" href="bibliography-1.html#salton88term">Salton and Buckley, 1988</a>). Not all versions of the notation are consistent; we most closely follow (<a href="bibliography-1.html#singhal96length">Singhal et&nbsp;al., 1996b</a>). A more detailed and exhaustive notation was developed in <a href="bibliography-1.html#moffatzobel98">Moffat and Zobel (1998)</a>, considering a larger palette of schemes for term and document frequency weighting. Beyond the notation, <a href="bibliography-1.html#moffatzobel98">Moffat and Zobel (1998)</a> sought to set up a space of feasible weighting functions through which hill-climbing approaches could be used to begin with weighting schemes that performed well, then make local improvements to identify the best combinations. However, they report that such hill-climbing methods failed to lead to any conclusions on the best weighting schemes. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2076" href="computing-scores-in-a-complete-search-system-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2070" href="scoring-term-weighting-and-the-vector-space-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2066" href="pivoted-normalized-document-length-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2072" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2074" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2077" href="computing-scores-in-a-complete-search-system-1.html">Computing scores in a</a> 
+  <b> Up:</b> 
+  <a name="tex2html2071" href="scoring-term-weighting-and-the-vector-space-model-1.html">Scoring, term weighting and</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2067" href="pivoted-normalized-document-length-1.html">Pivoted normalized document length</a> &nbsp; 
+  <b> <a name="tex2html2073" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2075" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,2 @@
+Consortium: a framework for transactions in collaborative environments
+An abstract is not available.

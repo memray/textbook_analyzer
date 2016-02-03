@@ -1,0 +1,1 @@
+novel-interface services for bioacoustic-digital-libraries this paper introduces the cardinal (computer assisted recognition and discovery in natural acoustic landscapes) interface-system for use in bioacoustic-digital-libraries (badl) .

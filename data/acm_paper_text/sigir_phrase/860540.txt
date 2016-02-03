@@ -1,0 +1,1 @@
+a light weight pda-friendly collection-fusion technique this short paper presents a light weight technique to merge results lists obtained from querying different databases . the motivation for such a technique is a general purpose search-engine for palm-os_based pdas .

@@ -1,0 +1,2 @@
+High-performance distributed inverted files
+We present a general method of parallel query processing that allows scalable performance on distributed inverted files. The method allows the realization of a hybrid that combines the advantages of the document and term partitioned inverted files.

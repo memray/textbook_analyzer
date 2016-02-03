@@ -1,0 +1,1 @@
+speculative query-evaluation over databases of plans an abstract is not available .

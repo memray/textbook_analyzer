@@ -1,0 +1,2 @@
+Metadata for phonograph records: facilitating new forms of use and access to analog sound recordings
+A new metadata schema for analog sound recordings is described.

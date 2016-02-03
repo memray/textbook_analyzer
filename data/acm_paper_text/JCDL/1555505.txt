@@ -1,0 +1,2 @@
+Adaptive personalized eLearning on top of existing LCMS
+The next generation of eLearning systems should tailor the learning experience to each individual's learning needs and preferences. PEDAL-NG is a system that supports personalization in an existing, operational eLearning environment, based on prior knowledge and the learning style of users. It is built as a front-end of an existing LMS. The prototype is tested by a group of students. The test results are favorable regarding the personalized course and give valuable feedback for future research.

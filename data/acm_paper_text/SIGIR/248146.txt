@@ -1,0 +1,2 @@
+A deductive data model for query expansion
+An abstract is not available.

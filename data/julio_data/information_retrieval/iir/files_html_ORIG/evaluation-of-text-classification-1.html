@@ -1,0 +1,668 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Evaluation of text classification</title> 
+  <meta name="description" content="Evaluation of text classification" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="references-and-further-reading-13.html" /> 
+  <link rel="previous" href="feature-selection-1.html" /> 
+  <link rel="up" href="text-classification-and-naive-bayes-1.html" /> 
+  <link rel="next" href="references-and-further-reading-13.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3630" href="references-and-further-reading-13.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3624" href="text-classification-and-naive-bayes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3618" href="comparison-of-feature-selection-methods-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3626" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3628" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3631" href="references-and-further-reading-13.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html3625" href="text-classification-and-naive-bayes-1.html">Text classification and Naive</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3619" href="comparison-of-feature-selection-methods-1.html">Comparison of feature selection</a> &nbsp; 
+  <b> <a name="tex2html3627" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3629" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001860000000000000000"></a><a name="sec:textcat-eval"></a> <a name="p:textcat-eval"></a> <br /> Evaluation of text classification </h1> 
+  <p> <a name="sec:evalclass"></a> <a name="p:evalclass"></a> <a name="p:reuters21578"></a> <a name="17415"></a> Historically, the classic Reuters-21578 collection was the main benchmark for text classification evaluation. This is a collection of 21,578 newswire articles, originally collected and labeled by Carnegie Group, Inc. and Reuters, Ltd. in the course of developing the CONSTRUE text classification system. It is much smaller than and predates the Reuters-RCV1 collection discussed in Chapter <a href="index-construction-1.html#ch:iconst">4</a> (page <a href="blocked-sort-based-indexing-1.html#p:rcv1">4.2</a> ). The articles are assigned classes from a set of 118 topic categories. A document may be assigned several classes or none, but the commonest case is single assignment (documents with at least one class received an average of 1.24 classes). The standard approach to this <i>any-of</i> problem (Chapter <a href="vector-space-classification-1.html#ch:vectorclass">14</a> , page <a href="classification-with-more-than-two-classes-1.html#p:anyof">14.5</a> ) is to learn 118 two-class classifiers, one for each class, where the <a name="17421"></a> <a name="17422"></a> <i>two-class classifier</i> for class <img width="11" height="32" align="MIDDLE" border="0" src="img884.png" alt="$\tcjclass$" /> is the classifier for the two classes <img width="11" height="32" align="MIDDLE" border="0" src="img884.png" alt="$\tcjclass$" /> and its complement 
+   <!-- MATH
+ $\overline{\tcjclass}$
+ --> <img width="11" height="32" align="MIDDLE" border="0" src="img1073.png" alt="$\overline{\tcjclass}$" />. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="17880"></a> 
+   <table cellpadding="3" border="1"> 
+    <caption>
+     <strong>Table 13.7:</strong> The ten largest classes in the 
+     <a name="17426"></a>Reuters-21578 collection with number of documents in training and test sets. 
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">class</td> 
+      <td align="LEFT"># train</td> 
+      <td align="LEFT"># test</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">class</td> 
+      <td align="LEFT"># train</td> 
+      <td align="LEFT"># test</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">earn</td> 
+      <td align="LEFT">2877</td> 
+      <td align="LEFT">1087</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">trade</td> 
+      <td align="LEFT">369</td> 
+      <td align="LEFT">119</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">acquisitions</td> 
+      <td align="LEFT">1650</td> 
+      <td align="LEFT">179</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">interest</td> 
+      <td align="LEFT">347</td> 
+      <td align="LEFT">131</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">money-fx</td> 
+      <td align="LEFT">538</td> 
+      <td align="LEFT">179</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">ship</td> 
+      <td align="LEFT">197</td> 
+      <td align="LEFT">89</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">grain</td> 
+      <td align="LEFT">433</td> 
+      <td align="LEFT">149</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">wheat</td> 
+      <td align="LEFT">212</td> 
+      <td align="LEFT">71</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">crude</td> 
+      <td align="LEFT">389</td> 
+      <td align="LEFT">189</td> 
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">corn</td> 
+      <td align="LEFT">182</td> 
+      <td align="LEFT">56</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <br /> 
+  <p> For each of these classifiers, we can measure recall, precision, and accuracy. In recent work, people almost invariably use the <a name="17445"></a> <a name="17446"></a> <i>ModApte split</i> , which includes only documents that were viewed and assessed by a human indexer, and comprises 9,603 training documents and 3,299 test documents. The distribution of documents in classes is very uneven, and some work evaluates systems on only documents in the ten largest classes. They are listed in Table <a href="#tab:reuters10">13.7</a> . A typical document with topics is shown in Figure <a href="#fig:reuters-eg">13.9</a> . </p>
+  <p> In Section <a href="the-text-classification-problem-1.html#sec:classificationproblem">13.1</a> , we stated as our goal in text classification the minimization of classification error on test data. Classification error is 1.0 minus classification accuracy, the proportion of correct decisions, a measure we introduced in Section <a href="evaluation-of-unranked-retrieval-sets-1.html#sec:measuresperf">8.3</a> (page <a href="evaluation-of-unranked-retrieval-sets-1.html#p:accuracy">8.3</a> ). This measure is appropriate if the percentage of documents in the class is high, perhaps 10% to 20% and higher. But as we discussed in Section <a href="evaluation-of-unranked-retrieval-sets-1.html#sec:measuresperf">8.3</a> , accuracy is not a good measure for ``small'' classes because always saying no, a strategy that defeats the purpose of building a classifier, will achieve high accuracy. The always-no classifier is 99% accurate for a class with relative frequency 1%. For small classes, precision, recall and <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> are better measures. </p>
+  <p> We will use <a name="17454"></a> <a name="17455"></a> <i>effectiveness</i> as a generic term for measures that evaluate the quality of classification decisions, including precision, recall, <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" />, and accuracy. <a name="17457"></a> <a name="17458"></a> <i>Performance</i> refers to the computational efficiency <a name="17460"></a> of classification and IR systems in this book. However, many researchers mean effectiveness, not efficiency of text classification when they use the term performance. </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:reuters-eg"></a>
+   <a name="p:reuters-eg"></a>
+   <a name="17882"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 13.9:</strong> A sample document from the 
+     <a name="17465"></a> Reuters-21578 collection.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="610" height="376" border="0" src="img1074.png" alt="\begin{figure}\begin{verbatim}&lt;REUTERS TOPICS=''YES'' LEWISSPLIT=''TRAIN''
+CGI...
+...PC
+added. Reuter
+\&amp;\char93 3;&lt;/BODY&gt;&lt;/TEXT&gt;&lt;/REUTERS&gt;\end{verbatim}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> When we process a collection with several two-class classifiers (such as Reuters-21578 with its 118 classes), we often want to compute a single aggregate measure that combines the measures for individual classifiers. There are two methods for doing this. <a name="17469"></a> <a name="p:defmicromacro"></a> <a name="17471"></a> <i>Macroaveraging</i> computes a simple average over classes. <a name="17473"></a> <i>Microaveraging</i> pools per-document decisions across classes, and then computes an effectiveness measure on the pooled contingency table. Table <a href="#tab:micromacro">13.8</a> gives an example. </p>
+  <p> The differences between the two methods can be large. Macroaveraging gives equal weight to each class, whereas microaveraging gives equal weight to each per-document classification decision. Because the <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> measure ignores true negatives and its magnitude is mostly determined by the number of true positives, large classes dominate small classes in microaveraging. In the example, microaveraged precision (0.83) is much closer to the precision of <img width="18" height="32" align="MIDDLE" border="0" src="img987.png" alt="$c_2$" /> (0.9) than to the precision of <img width="18" height="32" align="MIDDLE" border="0" src="img657.png" alt="$c_1$" /> (0.5) because <img width="18" height="32" align="MIDDLE" border="0" src="img987.png" alt="$c_2$" /> is five times larger than <img width="18" height="32" align="MIDDLE" border="0" src="img657.png" alt="$c_1$" />. Microaveraged results are therefore really a measure of effectiveness on the large classes in a test collection. To get a sense of effectiveness on small classes, you should compute macroaveraged results. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="17883"></a> 
+   <table cellpadding="3"> 
+    <caption>
+     <strong>Table 13.8:</strong> Macro- and microaveraging. ``Truth'' is the true class and ``call'' the decision of the classifier. In this example, macroaveraged precision is 
+     <!-- MATH
+ $[10/(10+10)+90/(10+90)]/2 = (0.5+0.9)/2=0.7$
+ --> 
+     <img width="388" height="33" align="MIDDLE" border="0" src="img24.png" alt="$[10/(10+10)+90/(10+90)]/2 = (0.5+0.9)/2=0.7$" />. Microaveraged precision is 
+     <!-- MATH
+ $100/(100+20)\approx 0.83$
+ --> 
+     <img width="161" height="33" align="MIDDLE" border="0" src="img25.png" alt="$100/(100+20)\approx 0.83$" />. 
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">
+       <table cellpadding="3" border="1"> 
+        <tbody>
+         <tr>
+          <td align="CENTER" colspan="3"><b>class 1</b></td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">truth:</td> 
+          <td align="LEFT">truth:</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">yes</td> 
+          <td align="LEFT">no</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: yes</td> 
+          <td align="LEFT">10</td> 
+          <td align="LEFT">10</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: no</td> 
+          <td align="LEFT">10</td> 
+          <td align="LEFT">970</td> 
+         </tr> 
+        </tbody>
+       </table></td> 
+      <td align="LEFT"><p> </p>
+       <table cellpadding="3" border="1"> 
+        <tbody>
+         <tr>
+          <td align="CENTER" colspan="3"><b>class 2</b></td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">truth:</td> 
+          <td align="LEFT">truth:</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">yes</td> 
+          <td align="LEFT">no</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: yes</td> 
+          <td align="LEFT">90</td> 
+          <td align="LEFT">10</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: no</td> 
+          <td align="LEFT">10</td> 
+          <td align="LEFT">890</td> 
+         </tr> 
+        </tbody>
+       </table></td> 
+      <td align="LEFT"><p> </p>
+       <table cellpadding="3" border="1"> 
+        <tbody>
+         <tr>
+          <td align="CENTER" colspan="3"><b>pooled table</b></td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">truth:</td> 
+          <td align="LEFT">truth:</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">&nbsp;</td> 
+          <td align="LEFT">yes</td> 
+          <td align="LEFT">no</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: yes</td> 
+          <td align="LEFT">100</td> 
+          <td align="LEFT">20</td> 
+         </tr> 
+         <tr>
+          <td align="LEFT">call: no</td> 
+          <td align="LEFT">20</td> 
+          <td align="LEFT">1860</td> 
+         </tr> 
+        </tbody>
+       </table></td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <br /> 
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="17885"></a> 
+   <table cellpadding="3"> 
+    <caption>
+     <strong>Table 13.9:</strong> Text 
+     <a name="17515"></a> classification effectiveness numbers on Reuters-21578 for F
+     <img width="10" height="32" align="MIDDLE" border="0" src="img26.png" alt="$_1$" /> (in percent). Results from 
+     <a href="bibliography-1.html#li03loss">Li and Yang (2003)</a> (a), 
+     <a href="bibliography-1.html#joachims98text">Joachims (1998)</a> (b: kNN) and 
+     <a href="bibliography-1.html#dumais98inductive">Dumais et&nbsp;al. (1998)</a> (b: NB, Rocchio, trees, SVM). 
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">(a)</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">NB</td> 
+      <td align="LEFT">Rocchio</td> 
+      <td align="LEFT">kNN</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">SVM</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">micro-avg-L (90 classes)</td> 
+      <td align="LEFT">80</td> 
+      <td align="LEFT">85</td> 
+      <td align="LEFT">86</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">89</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">macro-avg (90 classes)</td> 
+      <td align="LEFT">47</td> 
+      <td align="LEFT">59</td> 
+      <td align="LEFT">60</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">60</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="CENTER" colspan="6">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">(b)</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">NB</td> 
+      <td align="LEFT">Rocchio</td> 
+      <td align="LEFT">kNN</td> 
+      <td align="LEFT">trees</td> 
+      <td align="LEFT">SVM</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT"><p></p></td> 
+      <td align="LEFT">earn</td> 
+      <td align="LEFT">96</td> 
+      <td align="LEFT">93</td> 
+      <td align="LEFT">97</td> 
+      <td align="LEFT">98</td> 
+      <td align="LEFT">98</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">acq</td> 
+      <td align="LEFT">88</td> 
+      <td align="LEFT">65</td> 
+      <td align="LEFT">92</td> 
+      <td align="LEFT">90</td> 
+      <td align="LEFT">94</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">money-fx</td> 
+      <td align="LEFT">57</td> 
+      <td align="LEFT">47</td> 
+      <td align="LEFT">78</td> 
+      <td align="LEFT">66</td> 
+      <td align="LEFT">75</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">grain</td> 
+      <td align="LEFT">79</td> 
+      <td align="LEFT">68</td> 
+      <td align="LEFT">82</td> 
+      <td align="LEFT">85</td> 
+      <td align="LEFT">95</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">crude</td> 
+      <td align="LEFT">80</td> 
+      <td align="LEFT">70</td> 
+      <td align="LEFT">86</td> 
+      <td align="LEFT">85</td> 
+      <td align="LEFT">89</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">trade</td> 
+      <td align="LEFT">64</td> 
+      <td align="LEFT">65</td> 
+      <td align="LEFT">77</td> 
+      <td align="LEFT">73</td> 
+      <td align="LEFT">76</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">interest</td> 
+      <td align="LEFT">65</td> 
+      <td align="LEFT">63</td> 
+      <td align="LEFT">74</td> 
+      <td align="LEFT">67</td> 
+      <td align="LEFT">78</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">ship</td> 
+      <td align="LEFT">85</td> 
+      <td align="LEFT">49</td> 
+      <td align="LEFT">79</td> 
+      <td align="LEFT">74</td> 
+      <td align="LEFT">86</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">wheat</td> 
+      <td align="LEFT">70</td> 
+      <td align="LEFT">69</td> 
+      <td align="LEFT">77</td> 
+      <td align="LEFT">93</td> 
+      <td align="LEFT">92</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">corn</td> 
+      <td align="LEFT">65</td> 
+      <td align="LEFT">48</td> 
+      <td align="LEFT">78</td> 
+      <td align="LEFT">92</td> 
+      <td align="LEFT">90</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT"><p></p></td> 
+      <td align="LEFT">micro-avg (top 10)</td> 
+      <td align="LEFT">82</td> 
+      <td align="LEFT">65</td> 
+      <td align="LEFT">82</td> 
+      <td align="LEFT">88</td> 
+      <td align="LEFT">92</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">micro-avg-D (118 classes)</td> 
+      <td align="LEFT">75</td> 
+      <td align="LEFT">62</td> 
+      <td align="LEFT">n/a</td> 
+      <td align="LEFT">n/a</td> 
+      <td align="LEFT">87</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <br /> 
+  <p> <a name="17532"></a> In one-of classification (more-than-two-classes), microaveraged <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> is the same as accuracy (Exercise <a href="#ex:micro_accuracy">13.6</a> ). </p>
+  <p> Table <a href="#tab:nbeffectiveness">13.9</a> gives microaveraged and macroaveraged effectiveness of Naive Bayes for the ModApte split of Reuters-21578. To give a sense of the relative effectiveness of NB, we compare it with linear SVMs (rightmost column; see Chapter <a href="support-vector-machines-and-machine-learning-on-documents-1.html#ch:svm">15</a> ), one of the most effective classifiers, but also one that is more expensive to train than NB. NB has a microaveraged <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> of 80%, which is 9% less than the SVM (89%), a 10% relative decrease (row ``micro-avg-L (90 classes)''). So there is a surprisingly small effectiveness penalty for its simplicity and efficiency. However, on small classes, some of which only have on the order of ten positive examples in the training set, NB does much worse. Its macroaveraged <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> is 13% below the SVM, a 22% relative decrease (row ``macro-avg (90 classes)''<a name="17537"></a> ). </p>
+  <p> The table also compares NB with the other classifiers we cover in this book: Rocchio and kNN. In addition, we give numbers for <a name="17538"></a> <a name="17539"></a> <i>decision trees</i> , an important classification method we do not cover. The bottom part of the table shows that there is considerable variation from class to class. For instance, NB beats kNN on ship, but is much worse on money-fx. </p>
+  <p> Comparing parts (a) and (b) of the table, one is struck by the degree to which the cited papers' results differ. This is partly due to the fact that the numbers in (b) are <a name="17543"></a>break-even scores (cf. page <a href="evaluation-of-ranked-retrieval-results-1.html#p:breakevenpoint">8.4</a> ) averaged over 118 classes, whereas the numbers in (a) are true <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> scores (computed without any knowledge of the test set) averaged over ninety classes. This is unfortunately typical of what happens when comparing different results in text classification: There are often differences in the experimental setup or the evaluation that complicate the interpretation of the results. </p>
+  <p> These and other results have shown that the average effectiveness of NB is uncompetitive with classifiers like <a name="17545"></a> SVMs when trained and tested on <a name="17546"></a> <a name="17547"></a> <i>independent and identically distributed</i> (<a name="17549"></a> <i>i.i.d.</i> ) data, that is, uniform data with all the good properties of statistical sampling. However, these differences may often be invisible or even reverse themselves when working in the real world where, usually, the training sample is drawn from a subset of the data to which the classifier will be applied, the nature of the data drifts over time rather than being stationary (the problem of <a name="17551"></a> <i>concept drift</i> we mentioned on page <a href="properties-of-naive-bayes-1.html#p:concept-drift">13.4</a> ), and there may well be errors in the data (among other problems). Many practitioners have had the experience of being unable to build a fancy classifier for a certain problem that consistently performs better than NB. </p>
+  <p> Our conclusion from the results in Table <a href="#tab:nbeffectiveness">13.9</a> is that, although most researchers believe that an SVM is better than kNN and kNN better than NB, the ranking of classifiers ultimately depends on the class, the document collection, and the experimental setup. In text classification, there is always more to know than simply which machine learning algorithm was used, as we further discuss in Section&nbsp;<a href="issues-in-the-classification-of-text-documents-1.html#sec:svm-text">15.3</a> (page&nbsp;<a href="issues-in-the-classification-of-text-documents-1.html#p:svm-text"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). </p>
+  <p> When performing evaluations like the one in Table <a href="#tab:nbeffectiveness">13.9</a> , it is important to maintain a strict separation between the <a name="17558"></a> <i>training set</i> and the <a name="17560"></a> <i>test set</i> . We can easily make correct classification decisions on the test set by using information we have gleaned from the test set, such as the fact that a particular term is a good predictor in the test set (even though this is not the case in the training set). A more subtle example of using knowledge about the test set is to try a large number of values of a parameter (e.g., the number of selected features) and select the value that is best for the test set. As a rule, accuracy on new data - the type of data we will encounter when we use the classifier in an application - will be much lower than accuracy on a test set that the classifier has been tuned for. We discussed the same problem in ad hoc retrieval in Section <a href="information-retrieval-system-evaluation-1.html#sec:ir-eval">8.1</a> (page <a href="information-retrieval-system-evaluation-1.html#p:dev-test">8.1</a> ). </p>
+  <p> In a clean statistical text classification experiment, you should never run any program on or even look at the test set while developing a text classification system. Instead, set aside a <a name="17564"></a> <a name="p:developmentset"></a> <a name="17566"></a> <i>development set</i> for testing while you develop your method. When such a set serves the primary purpose of finding a good value for a parameter, for example, the number of selected features, then it is also called <a name="17568"></a> <a name="p:heldout"></a> <a name="17570"></a> <i>held-out data</i> . Train the classifier on the rest of the training set with different parameter values, and then select the value that gives best results on the held-out part of the training set. Ideally, at the very end, when all parameters have been set and the method is fully specified, you run one final experiment on the test set and publish the results. Because no information about the test set was used in developing the classifier, the results of this experiment should be indicative of actual performance in practice. </p>
+  <p> This ideal often cannot be met; researchers tend to evaluate several systems on the same test set over a period of several years. But it is nevertheless highly important to not look at the test data and to run systems on it as sparingly as possible. Beginners often violate this rule, and their results lose validity because they have implicitly tuned their system to the test data simply by running many variant systems and keeping the tweaks to the system that worked best on the test set<a name="17572"></a>. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li><a name="ex:micro_accuracy"></a>Assume a situation where every document in the test collection has been assigned exactly one class, and that a classifier also assigns exactly one class to each document. This setup is called <a name="17576"></a> <i>one-of classification</i> more-than-two-classes. Show that in one-of classification (i) the total number of false positive decisions equals the total number of false negative decisions and (ii) microaveraged <img width="19" height="32" align="MIDDLE" border="0" src="img522.png" alt="$F_1$" /> and accuracy are identical. <p> </p></li> 
+   <li>The class priors in Figure <a href="naive-bayes-text-classification-1.html#fig:multinomialalg">13.2</a> are computed as the fraction of <i>documents</i> in the class as opposed to the fraction of <i>tokens</i> in the class. Why? <p> </p></li> 
+   <li><a name="ex:multinomialtimecomplexity"></a> <p> The function A<small>PPLY</small>M<small>ULTINOMIAL</small>NB in Figure <a href="naive-bayes-text-classification-1.html#fig:multinomialalg">13.2</a> has time complexity 
+     <!-- MATH
+ $\Theta( L_{a}+|\mathbb{C}| L_{a})$
+ --> <img width="104" height="33" align="MIDDLE" border="0" src="img1075.png" alt="$\Theta( L_{a}+\vert\mathbb{C}\vert L_{a})$" />. How would you modify the function so that its time complexity is 
+     <!-- MATH
+ $\Theta( L_{a}+|\mathbb{C}| M_{a})$
+ --> <img width="110" height="33" align="MIDDLE" border="0" src="img920.png" alt="$\Theta( L_{a}+\vert\mathbb{C}\vert M_{a})$" />? </p><p> <br /></p><p></p> 
+    <div align="CENTER"> 
+     <a name="17887"></a> 
+     <table cellpadding="3" border="1"> 
+      <caption>
+       <strong>Table 13.10:</strong> Data for parameter estimation exercise. 
+      </caption> 
+      <tbody>
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">&nbsp;</td> 
+        <td align="LEFT">docID</td> 
+        <td align="LEFT">words in document</td> 
+        <td align="LEFT">in <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> <img width="17" height="16" align="BOTTOM" border="0" src="img176.png" alt="$=$" /> China?</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">training set</td> 
+        <td align="LEFT">1</td> 
+        <td align="LEFT">Taipei Taiwan</td> 
+        <td align="LEFT">yes</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">&nbsp;</td> 
+        <td align="LEFT">2</td> 
+        <td align="LEFT">Macao Taiwan Shanghai</td> 
+        <td align="LEFT">yes</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">&nbsp;</td> 
+        <td align="LEFT">3</td> 
+        <td align="LEFT">Japan Sapporo</td> 
+        <td align="LEFT">no</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">&nbsp;</td> 
+        <td align="LEFT">4</td> 
+        <td align="LEFT">Sapporo Osaka Taiwan</td> 
+        <td align="LEFT">no</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">test set</td> 
+        <td align="LEFT">5</td> 
+        <td align="LEFT">Taiwan Taiwan Sapporo</td> 
+        <td align="LEFT">?</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+      </tbody>
+     </table> 
+    </div> <br /> <p> </p></li> 
+   <li>Based on the data in Table <a href="#tab:nbtoyex">13.10</a> , (i) estimate a multinomial Naive Bayes classifier, (ii) apply the classifier to the test document, (iii) estimate a Bernoulli NB classifier, (iv) apply the classifier to the test document. You need not estimate parameters that you don't need for classifying the test document. <p> </p></li> 
+   <li>Your task is to classify words as English or not English. Words are generated by a source with the following distribution: 
+    <blockquote> 
+     <table cellpadding="3" border="1"> 
+      <tbody>
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">event</td> 
+        <td align="LEFT">word</td> 
+        <td align="LEFT">English?</td> 
+        <td align="LEFT">probability</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">1</td> 
+        <td align="LEFT">ozb</td> 
+        <td align="LEFT">no</td> 
+        <td align="LEFT">4/9</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">2</td> 
+        <td align="LEFT">uzu</td> 
+        <td align="LEFT">no</td> 
+        <td align="LEFT">4/9</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">3</td> 
+        <td align="LEFT">zoo</td> 
+        <td align="LEFT">yes</td> 
+        <td align="LEFT">1/18</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT">4</td> 
+        <td align="LEFT">bun</td> 
+        <td align="LEFT">yes</td> 
+        <td align="LEFT">1/18</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+      </tbody>
+     </table> 
+    </blockquote> (i) Compute the parameters (priors and conditionals) of a multinomial NB classifier that uses the letters b, n, o, u, and z as features. Assume a training set that reflects the probability distribution of the source perfectly. Make the same independence assumptions that are usually made for a multinomial classifier that uses terms as features for text classification. Compute parameters using smoothing, in which computed-zero probabilities are smoothed into probability 0.01, and computed-nonzero probabilities are untouched. (This simplistic smoothing may cause 
+    <!-- MATH
+ $P(A)
++P(\overline{A}) > 1$
+ --> <img width="127" height="37" align="MIDDLE" border="0" src="img1076.png" alt="$P(A)
++P(\overline{A}) &gt; 1$" />. Solutions are not required to correct this.) (ii) How does the classifier classify the word zoo? (iii) Classify the word zoo using a multinomial classifier as in part (i), but do not make the assumption of positional independence. That is, estimate separate parameters for each position in a word. You only need to compute the parameters you need for classifying zoo. <p> </p></li> 
+   <li>What are the values of 
+    <!-- MATH
+ $I(\wvar_\tcword;C_c)$
+ --> <img width="65" height="33" align="MIDDLE" border="0" src="img1077.png" alt="$I(\wvar_\tcword;C_c)$" /> and 
+    <!-- MATH
+ $X^2(\docsetlabeled,\tcword,c)$
+ --> <img width="77" height="36" align="MIDDLE" border="0" src="img1078.png" alt="$X^2(\docsetlabeled,\tcword,c)$" /> if term and class are completely independent? What are the values if they are completely dependent? <p> </p></li> 
+   <li>The feature selection method in Equation&nbsp;<a href="mutual-information-1.html#mifeatsel">130</a> is most appropriate for the Bernoulli model. Why? How could one modify it for the multinomial model? <p> </p></li> 
+   <li><a name="ex:informationgain"></a> <a name="p:informationgain"></a> Features can also be selected according to<a name="17614"></a> <a name="17615"></a> <i>information gain</i> (IG), which is defined as: <p> <br /> </p>
+    <div align="RIGHT"> 
+     <!-- MATH
+ \begin{equation}
+\mbox{IG}(\docsetlabeled,t,c) = H(p_\docsetlabeled) - \sum_{x \in \{ \docsetlabeled_{t^{+}}, \docsetlabeled_{t^{-}} \} }
+\frac{|x|}{|\docsetlabeled|} H(p_x)
+\end{equation}
+ --> 
+     <table width="100%" align="CENTER"> 
+      <tbody>
+       <tr valign="MIDDLE">
+        <td align="CENTER" nowrap=""><img width="315" height="54" border="0" src="img1079.png" alt="\begin{displaymath}
+\mbox{IG}(\docsetlabeled,t,c) = H(p_\docsetlabeled) - \sum_{...
+...{-}} \} }
+\frac{\vert x\vert}{\vert\docsetlabeled\vert} H(p_x)
+\end{displaymath}" /></td> 
+        <td width="10" align="RIGHT"> (138)</td>
+       </tr> 
+      </tbody>
+     </table> 
+     <br clear="ALL" />
+    </div><p></p> where <img width="18" height="32" align="MIDDLE" border="0" src="img317.png" alt="$H$" /> is entropy, 
+    <!-- MATH
+ $\docsetlabeled$
+ --> <img width="18" height="32" align="MIDDLE" border="0" src="img856.png" alt="$\docsetlabeled$" /> is the training set, and 
+    <!-- MATH
+ $\docsetlabeled_{t^{+}}$
+ --> <img width="32" height="32" align="MIDDLE" border="0" src="img1080.png" alt="$\docsetlabeled_{t^{+}}$" />, and 
+    <!-- MATH
+ $\docsetlabeled_{t^{-}}$
+ --> <img width="33" height="32" align="MIDDLE" border="0" src="img1081.png" alt="$\docsetlabeled_{t^{-}}$" /> are the subset of 
+    <!-- MATH
+ $\docsetlabeled$
+ --> <img width="18" height="32" align="MIDDLE" border="0" src="img856.png" alt="$\docsetlabeled$" /> with term <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />, and the subset of 
+    <!-- MATH
+ $\docsetlabeled$
+ --> <img width="18" height="32" align="MIDDLE" border="0" src="img856.png" alt="$\docsetlabeled$" /> without term <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />, respectively. <img width="23" height="32" align="MIDDLE" border="0" src="img1082.png" alt="$p_A$" /> is the class distribution in (sub)collection <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />, e.g., 
+    <!-- MATH
+ $p_A(c)=0.25, p_A(\overline{c} )=0.75$
+ --> <img width="191" height="33" align="MIDDLE" border="0" src="img1083.png" alt="$p_A(c)=0.25, p_A(\overline{c} )=0.75$" /> if a quarter of the documents in <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> are in class <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" />. <p> Show that mutual information and information gain are equivalent. </p><p> </p></li> 
+   <li>Show that the two <img width="23" height="36" align="MIDDLE" border="0" src="img1061.png" alt="$X^2$" /> formulas ( and <a href="feature-selectionchi2-feature-selection-1.html#eqn:chisquareform2">137</a> ) are equivalent. <a name="ex:chisquareformulas"></a> <a name="p:chisquareformulas"></a> <p> </p></li> 
+   <li>In the <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> example on page <a href="feature-selectionchi2-feature-selection-1.html#p:chisquareex">13.5.2</a> we have 
+    <!-- MATH
+ $|\observationo_{11}-E_{11}|=|\observationo_{10}-E_{10}|=|\observationo_{01}-E_{01}|=|\observationo_{00}-E_{00}|$
+ --> <img width="381" height="33" align="MIDDLE" border="0" src="img1084.png" alt="$\vert\observationo_{11}-E_{11}\vert=\vert\observationo_{10}-E_{10}\vert=\vert\observationo_{01}-E_{01}\vert=\vert\observationo_{00}-E_{00}\vert$" />. Show that this holds in general. <p> </p></li> 
+   <li><img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> and mutual information do not distinguish between positively and negatively correlated features. Because most good text classification features are positively correlated (i.e., they occur more often in <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> than in <img width="11" height="32" align="MIDDLE" border="0" src="img931.png" alt="$\overline{c}$" />), one may want to explicitly rule out the selection of negative indicators. How would you do this? <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3630" href="references-and-further-reading-13.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3624" href="text-classification-and-naive-bayes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3618" href="comparison-of-feature-selection-methods-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3626" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3628" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3631" href="references-and-further-reading-13.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html3625" href="text-classification-and-naive-bayes-1.html">Text classification and Naive</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3619" href="comparison-of-feature-selection-methods-1.html">Comparison of feature selection</a> &nbsp; 
+  <b> <a name="tex2html3627" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3629" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

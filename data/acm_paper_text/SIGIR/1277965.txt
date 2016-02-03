@@ -1,0 +1,2 @@
+MQX: multi-query engine for compressed XML data
+An abstract is not available.

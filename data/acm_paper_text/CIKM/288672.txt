@@ -1,0 +1,2 @@
+SERF: schema evolution through an extensible, re-usable and flexible framework
+An abstract is not available.

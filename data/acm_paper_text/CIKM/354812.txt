@@ -1,0 +1,2 @@
+Object and query transformation: supporting multi-dimensional queries through code reuse
+An abstract is not available.

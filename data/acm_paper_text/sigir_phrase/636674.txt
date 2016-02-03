@@ -1,0 +1,1 @@
+a performance-evaluation of similarity-measures , document term-weighting-schemes and representations in a boolean environment an abstract is not available .

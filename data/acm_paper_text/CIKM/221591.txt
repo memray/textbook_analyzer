@@ -1,0 +1,2 @@
+On isolation, concurrency, and the Venus rule language
+An abstract is not available.

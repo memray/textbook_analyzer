@@ -1,0 +1,2 @@
+An evaluation method for stemming algorithms
+An abstract is not available.

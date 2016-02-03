@@ -1,0 +1,2 @@
+Museum materials in a digital library context and beyond
+This poster will present an overview of metadata mappings needed to support access, collaboration, preservation and aggregation of museum content within and beyond a digital library context.

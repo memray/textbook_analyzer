@@ -1,0 +1,2 @@
+The OAI-PMH NASA technical report server
+The NASA Technical Report Server (NTRS) is now based on the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). This metadata harvesting version of NTRS represents a significant improvement over the previous distributed searching implementation of NTRS. In addition to being an OAI-PMH service provider, the new version of NTRS is also an OAI-PMH aggregator. This allows NTRS to serve as a one-stop shop for harvesting of NASA metadata.

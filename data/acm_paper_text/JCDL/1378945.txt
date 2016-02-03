@@ -1,0 +1,2 @@
+Portable digital libraries on an ipod
+This paper describes the facilities we built to run a self-contained digital library on an iPod. The digital library software used was the open source package Greenstone, and the paper highlights the technical problems that were encountered and solved. It attempts to convey a feeling for the kind of issues that must be faced when adapting standard DL software for non-standard, leading-edge devices.

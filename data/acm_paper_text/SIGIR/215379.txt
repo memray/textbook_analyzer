@@ -1,0 +1,2 @@
+Applying probabilistic term weighting to OCR text in the case of a large alphabetic library catalogue
+An abstract is not available.

@@ -1,0 +1,2 @@
+FRBRization of MARC records in multiple catalogs
+This paper addresses the problem of using the FRBR model to support the presentation of results. It describes a service implementing new algorithms and techniques for transforming existing MARC records into the FRBR model for this specific purpose. This work was developed in the context of the TELPlus project and processed 100,000 bibliographic and authority records from multilingual catalogs of 12 European countries.

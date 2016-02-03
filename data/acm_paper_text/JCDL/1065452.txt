@@ -1,0 +1,2 @@
+Icon abacus: positional display of document attributes
+This paper presents icon abacus , a space-efficient technique for displaying document attributes by automatic positioning of document icons. It displays the value of an attribute by using position on a single axis, allowing the other axis to display different metadata simultaneously The layout is stable enough to support navigation using spatial memory.

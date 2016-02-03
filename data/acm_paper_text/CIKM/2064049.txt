@@ -1,0 +1,2 @@
+PIKM 2011: the 4th ACM workshop for Ph.D. students in information and knowledge management
+The PIKM workshop gives Ph.D. students an opportunity to present their dissertation proposals at a global stage. Similarly to the CIKM, the PIKM workshop covers a wide range of topics in the areas of databases, information retrieval and knowledge management. Interdisciplinary work across these tracks is particularly encouraged.

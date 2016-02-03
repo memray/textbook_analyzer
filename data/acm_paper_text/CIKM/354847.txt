@@ -1,0 +1,2 @@
+Extending OLAP querying to external object databases
+An abstract is not available.

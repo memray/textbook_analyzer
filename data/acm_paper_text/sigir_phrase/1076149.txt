@@ -1,0 +1,1 @@
+the impact of evaluation on multilingual-text-retrieval we summarize the impact of the first five years of activity of the cross-language evaluation forum (clef) on multilingual-text-retrieval system-performance and show how the clef evaluation campaigns have contributed to advances in the state-of-the-art .

@@ -1,0 +1,2 @@
+Indiana university digital music library project
+The Indiana University Digital Music Library project plans to create a digital library testbed system containing music in a variety of formats, designed to support research and education in the field of music and to serve as a platform for digital library research. Prototypes of user interfaces to the system will be demonstrated.

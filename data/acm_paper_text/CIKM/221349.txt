@@ -1,0 +1,2 @@
+The semantic matrix model (SMM): a knowledge based solution to semantic homogeneity in multidatabases
+An abstract is not available.

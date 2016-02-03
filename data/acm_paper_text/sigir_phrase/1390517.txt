@@ -1,0 +1,1 @@
+a study of query-length we analyse query-length , and fit power-law and poisson-distributions to four different query sets . we provide a practical model for query-length , based on the truncation of a poisson-distribution for short queries and a power-law-distribution for longer queries , that better fits real query-length distributions than earlier proposals .

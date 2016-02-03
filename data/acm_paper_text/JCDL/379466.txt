@@ -1,0 +1,2 @@
+Project ANGEL: an open virtual learning envoronment with sophisticated access management
+This paper describes a new project funded in the UK by the Joint Infor mation Systems Committee, to develop a virtual learning environment which combines a new awareness of internet sources such as bibliographic databases and full-text electronic journals with a sophisticated access management component which permits single sign-on authentication.

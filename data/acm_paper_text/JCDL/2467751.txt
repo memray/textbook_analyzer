@@ -1,0 +1,2 @@
+ArcLink: optimization techniques to build and retrieve the temporal web graph
+We present ArcLink, a proof-of-concept system that complements open source Wayback Machine installations by optimizing the construction, storage, and access to the temporal web graph. We divide the web graph construction into four stages (filtering, extraction, storage, and access) and explore optimization for each stage. ArcLink extends the current web archive interfaces to return content and structural metadata for each URI.

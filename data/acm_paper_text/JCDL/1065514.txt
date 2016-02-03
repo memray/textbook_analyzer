@@ -1,0 +1,2 @@
+The UpLib personal digital library system
+We demonstrate the operation of UpLib, a visually-oriented personal digital library system.

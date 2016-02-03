@@ -1,0 +1,1 @@
+a flexible extension of xpath to improve xml-querying this work presents a flexible xml selection language , flexpath which allows the formulation of flexible constraints on both structure-and-content of xml-documents . some experimental-results , obtained with a preliminary prototype , are described in order to show that the idea promises good results .

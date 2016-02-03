@@ -1,0 +1,2 @@
+Modeling korean clinical records as a simple temporal constraint satisfaction problem
+Temporal information is especially crucial in medical text processing. The simple temporal constraint satisfaction problem (STP) has been evaluated as sufficient to represent most English clinical temporal assertions. We aimed to test expressive power of STP in representing Korean clinical documents and to find out any encoding issues dependent on Korean language. This paper shows that STP is sufficient. Some distinctive characteristics were found but they did not affect the encoding work.

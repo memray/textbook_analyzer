@@ -1,0 +1,2 @@
+CDPRanking: discovering and ranking cross-document paths between entities
+An abstract is not available.

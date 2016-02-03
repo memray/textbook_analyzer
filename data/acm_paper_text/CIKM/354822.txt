@@ -1,0 +1,2 @@
+Dimensionality reduction and similarity computation by inner product approximations
+An abstract is not available.

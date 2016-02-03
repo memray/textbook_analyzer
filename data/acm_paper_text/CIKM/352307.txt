@@ -1,0 +1,2 @@
+The monitoring of complex active rules with vector representation
+An abstract is not available.

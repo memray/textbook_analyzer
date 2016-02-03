@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Text classification and Naive Bayes</title> 
+  <meta name="description" content="Text classification and Naive Bayes" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="vector-space-classification-1.html" /> 
+  <link rel="previous" href="language-models-for-information-retrieval-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="the-text-classification-problem-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3418" href="the-text-classification-problem-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3412" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3406" href="references-and-further-reading-12.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3414" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3416" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3419" href="the-text-classification-problem-1.html">The text classification problem</a> 
+  <b> Up:</b> 
+  <a name="tex2html3413" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3407" href="references-and-further-reading-12.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html3415" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3417" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001800000000000000000"></a> <a name="ch:nbayes"></a> <a name="ch:classification"></a> <br /> Text classification and Naive Bayes </h1> 
+  <p> Thus far, this book has mainly discussed the process of <a name="15975"></a> <i>ad hoc retrieval</i> , where users have transient information needs that they try to address by posing one or more queries to a search engine. However, many users have ongoing information needs. For example, you might need to track developments in multicore computer chips. One way of doing this is to issue the query multicore and computer and chip against an index of recent newswire articles each morning. In this and the following two chapters we examine the question: How can this repetitive task be automated? To this end, many systems support <a name="15980"></a> <a name="15981"></a> <i>standing queries</i> . A standing query is like any other query except that it is periodically executed on a collection to which new documents are incrementally added over time. </p> 
+  <p> If your standing query is just multicore and computer and chip, you will tend to miss many relevant new articles which use other terms such as multicore processors. To achieve good recall, standing queries thus have to be refined over time and can gradually become quite complex. In this example, using a Boolean search engine with stemming, you might end up with a query like (multicore or multi-core) and (chip or processor or microprocessor). </p> 
+  <p> To capture the generality and scope of the problem space to which standing queries belong, we now introduce the general notion of a <a name="15990"></a> <a name="15991"></a> <i>classification</i> problem. Given a set of <i>classes</i>, we seek to determine which class(es) a given object belongs to. In the example, the standing query serves to divide new newswire articles into the two classes: documents about multicore computer chips and documents not about multicore computer chips. We refer to this as <i>two-class classification</i>. Classification using standing queries is also called <a name="15997"></a> <a name="15998"></a> <i>routing</i> or <a name="16000"></a> <i>filtering</i> <a name="16002"></a> and will be discussed further in Section&nbsp;<a href="choosing-what-kind-of-classifier-to-use-1.html#sec:chooseclassifier">15.3.1</a> (page&nbsp;<a href="choosing-what-kind-of-classifier-to-use-1.html#p:chooseclassifier"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). </p> 
+  <p> A class need not be as narrowly focused as the standing query multicore computer chips. Often, a class is a more general subject area like China or coffee. Such more general classes are usually referred to as <a name="16008"></a> <i>topics</i> , and the classification task is then called <a name="16010"></a> <a name="16011"></a> <i>text classification</i> , <a name="16013"></a> <i>text categorization</i> , <a name="16015"></a> <i>topic classification</i> , or <a name="16017"></a> <i>topic spotting</i> . An example for China appears in Figure <a href="the-text-classification-problem-1.html#fig:setupstatclass">13.1</a> . Standing queries and topics differ in their degree of specificity, but the methods for solving routing, filtering, and text classification are essentially the same. We therefore include routing and filtering under the rubric of text classification in this and the following chapters. </p> 
+  <p> The notion of <a name="16021"></a> classification is very general and has many applications within and beyond information retrieval (IR). For instance, in computer vision, a classifier may be used to divide images into classes such as landscape, portrait, and neither. We focus here on examples from information retrieval such as: </p> 
+  <p> </p> 
+  <ul> 
+   <li>Several of the preprocessing steps necessary for indexing as discussed in Chapter <a href="the-term-vocabulary-and-postings-lists-1.html#ch:dictionary">2</a> : detecting a document's encoding (ASCII, Unicode UTF-8 etc; page <a href="obtaining-the-character-sequence-in-a-document-1.html#p:utf8">2.1.1</a> ); word segmentation (Is the white space between two letters a word boundary or not? page 24 ) ; truecasing (page <a href="capitalizationcase-folding-1.html#p:truecasing">2.2.3</a> ); and identifying the language of a document (page <a href="references-and-further-reading-2.html#p:languageid">2.5</a> ). </li> 
+   <li>The automatic detection of <a name="16030"></a> <i>spam</i> pages (which then are not included in the search engine index). </li> 
+   <li>The automatic detection of <a name="16032"></a>sexually explicit content (which is included in search results only if the user turns an option such as SafeSearch off). <p> </p></li> 
+   <li><a name="16033"></a> <i>Sentiment detection</i> <a name="16035"></a>or the automatic classification of a movie or product review as positive or negative. An example application is a user searching for negative reviews before buying a camera to make sure it has no undesirable features or quality problems. <p> </p></li> 
+   <li>Personal <a name="16036"></a> <a name="16037"></a> <i>email sorting</i> . A user may have folders like talk announcements, electronic bills, email from family and friends, and so on, and may want a classifier to classify each incoming email and automatically move it to the appropriate folder. It is easier to find messages in sorted folders than in a very large inbox. The most common case of this application is a <a name="16042"></a> <i>spam</i> folder that holds all suspected spam messages. <p> </p></li> 
+   <li>Topic-specific or <i>vertical</i> search. <a name="16045"></a> <a name="16046"></a> <i>Vertical search engines</i> restrict searches to a particular topic. For example, the query computer science on a vertical search engine for the topic China will return a list of Chinese computer science departments with higher precision and recall than the query computer science China on a general purpose search engine. This is because the vertical search engine does not include web pages in its index that contain the term china in a different sense (e.g., referring to a hard white ceramic), but does include relevant pages even if they do not explicitly mention the term China. <p> </p></li> 
+   <li>Finally, the ranking function in ad hoc information retrieval can also be based on a document classifier as we will explain in Section&nbsp;<a href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html#sec:svm-ranking">15.4</a> (page&nbsp;<a href="machine-learning-methods-in-ad-hoc-information-retrieval-1.html#p:svm-ranking"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). <p> </p></li> 
+  </ul> 
+  <p> This list shows the general importance of classification in IR. Most retrieval systems today contain multiple components that use some form of classifier. The classification task we will use as an example in this book is text classification. </p> 
+  <p> A computer is not essential for classification. Many classification tasks have traditionally been solved manually. Books in a library are assigned Library of Congress categories by a librarian. But manual classification is expensive to scale. The multicore computer chips example illustrates one alternative approach: classification by the use of standing queries - which can be thought of as <a name="16057"></a> <a name="16058"></a> <i>rules</i> - most commonly written by hand. As in our example (multicore or multi-core) and (chip or processor or microprocessor), rules are sometimes equivalent to Boolean expressions. </p> 
+  <p> A rule captures a certain combination of keywords that indicates a class. Hand-coded rules have good scaling properties, but creating and maintaining them over time is labor intensive. A technically skilled person (e.g., a domain expert who is good at writing regular expressions) can create rule sets that will rival or exceed the accuracy of the automatically generated classifiers we will discuss shortly; however, it can be hard to find someone with this specialized skill. </p> 
+  <p> Apart from manual classification and hand-crafted rules, there is a third approach to text classification, namely, machine learning-based text classification. It is the approach that we focus on in the next several chapters. In machine learning, the set of rules or, more generally, the decision criterion of the text classifier, is learned automatically from training data. This approach is also called <a name="16064"></a><a name="16065"></a> <i>statistical text classification</i> if the learning method is statistical. In statistical text classification, we require a number of good example documents (or training documents) for each class. The need for manual classification is not eliminated because the training documents come from a person who has labeled them - where <a name="16067"></a> <a name="16068"></a> <i>labeling</i> refers to the process of annotating each document with its class. But labeling is arguably an easier task than writing rules. Almost anybody can look at a document and decide whether or not it is related to China. Sometimes such labeling is already implicitly part of an existing workflow. For instance, you may go through the news articles returned by a standing query each morning and give relevance feedback (cf. Chapter <a href="relevance-feedback-and-query-expansion-1.html#ch:queryexpansion">9</a> ) by moving the relevant articles to a special folder like <i>multicore-processors</i>. </p> 
+  <p> We begin this chapter with a general introduction to the text classification problem including a formal definition (Section <a href="the-text-classification-problem-1.html#sec:classificationproblem">13.1</a> ); we then cover Naive Bayes, a particularly simple and effective classification method (Sections&nbsp;<a href="naive-bayes-text-classification-1.html#sec:naivebayes">13.2</a>-<a href="properties-of-naive-bayes-1.html#sec:nbproperties">13.4</a>). All of the classification algorithms we study represent documents in high-dimensional spaces. To improve the efficiency of these algorithms, it is generally desirable to reduce the dimensionality of these spaces; to this end, a technique known as <i>feature selection</i> is commonly applied in text classification as discussed in Section <a href="feature-selection-1.html#sec:feature">13.5</a> . Section <a href="evaluation-of-text-classification-1.html#sec:evalclass">13.6</a> covers evaluation of text classification. In the following chapters, Chapters <a href="vector-space-classification-1.html#ch:vectorclass">14</a> <a href="support-vector-machines-and-machine-learning-on-documents-1.html#ch:svm">15</a> , we look at two other families of classification methods, vector space classifiers and support vector machines. </p> 
+  <p> <br /></p> 
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html3420" href="the-text-classification-problem-1.html">The text classification problem</a> </li> 
+   <li><a name="tex2html3421" href="naive-bayes-text-classification-1.html">Naive Bayes text classification</a> 
+    <ul> 
+     <li><a name="tex2html3422" href="relation-to-multinomial-unigram-language-model-1.html">Relation to multinomial unigram language model</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html3423" href="the-bernoulli-model-1.html">The Bernoulli model</a> </li> 
+   <li><a name="tex2html3424" href="properties-of-naive-bayes-1.html">Properties of Naive Bayes</a> 
+    <ul> 
+     <li><a name="tex2html3425" href="a-variant-of-the-multinomial-model-1.html">A variant of the multinomial model</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html3426" href="feature-selection-1.html">Feature selection</a> 
+    <ul> 
+     <li><a name="tex2html3427" href="mutual-information-1.html">Mutual information</a> </li> 
+     <li><a name="tex2html3428" href="feature-selectionchi2-feature-selection-1.html"><img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> Feature selectionChi2 Feature selection</a> 
+      <ul> 
+       <li><a name="tex2html3429" href="assessing-as-a-feature-selection-methodassessing-chi-square-as-a-feature-selection-method-1.html">Assessing <img width="21" height="36" align="MIDDLE" border="0" src="img21.png" alt="$\chi ^2$" /> as a feature selection methodAssessing chi-square as a feature selection method</a> </li> 
+      </ul> </li> 
+     <li><a name="tex2html3430" href="frequency-based-feature-selection-1.html">Frequency-based feature selection</a> </li> 
+     <li><a name="tex2html3431" href="feature-selection-for-multiple-classifiers-1.html">Feature selection for multiple classifiers</a> </li> 
+     <li><a name="tex2html3432" href="comparison-of-feature-selection-methods-1.html">Comparison of feature selection methods</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html3433" href="evaluation-of-text-classification-1.html">Evaluation of text classification</a> </li> 
+   <li><a name="tex2html3434" href="references-and-further-reading-13.html">References and further reading</a> </li> 
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3418" href="the-text-classification-problem-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3412" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3406" href="references-and-further-reading-12.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3414" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3416" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3419" href="the-text-classification-problem-1.html">The text classification problem</a> 
+  <b> Up:</b> 
+  <a name="tex2html3413" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3407" href="references-and-further-reading-12.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html3415" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3417" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

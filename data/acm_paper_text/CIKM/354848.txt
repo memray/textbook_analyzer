@@ -1,0 +1,2 @@
+Using wavelet decomposition to support progressive and approximate range-sum queries over data cubes
+An abstract is not available.

@@ -1,0 +1,2 @@
+Looking back, looking forward: a metadata standard for LANL's aDORe repository
+Although often disparaged or dismissed in the library community, the MARC standard, notably the MARCXML standard, provides surprising flexibility and robustness for mapping disparate metadata to a vendor-neutral format for storage, exchange, and downstream use.

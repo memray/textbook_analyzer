@@ -1,0 +1,2 @@
+FAKYR: a method base system for education and research in information retrieval
+An information retrieval system FAKYR is described which incorporates a variety of methods for organizing and retrieving information and for evaluating retrieval effectiveness. The system has been developed in order to support education and research in the area of information retrieval. With respect to this purpose FAKYR is a comfortable and large method data base.

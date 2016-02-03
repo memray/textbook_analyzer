@@ -1,0 +1,1 @@
+greenwiki : a tool to support users ' assessment of the quality of wikipedia articles in this work , we present greenwiki , which is a wiki with a panel of quality-indicators to assist the reader of a wikipedia article in assessing its quality .

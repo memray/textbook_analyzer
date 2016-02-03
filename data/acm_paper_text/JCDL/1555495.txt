@@ -1,0 +1,2 @@
+A semi-automatic system for managing multiple digital preservation risks of digital libraries in china
+While many research projects in the world have been addressing challenges posed by digital preservation, digital libraries in China have their own native problems that have never been addressed before. Similar problems may occur in other countries, and their memory institutions may be less prepared to handle them. This poster analyses the requirements and challenges of digital libraries in China and describes an integrated and flexible digital preservation system -- AOMS.

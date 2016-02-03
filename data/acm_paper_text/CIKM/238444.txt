@@ -1,0 +1,2 @@
+A data model for supporting on-line analytical processing
+An abstract is not available.

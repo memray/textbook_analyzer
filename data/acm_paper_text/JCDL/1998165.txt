@@ -1,0 +1,2 @@
+Is tagging multilingual?: a case study with BibSonomy
+This paper investigates the occurrence of tags in different languages in a collaborative bookmarking and publication sharing service - BibSonomy. Social tags assigned to URLs in multiple languages and users tagging these URLs multilingually are the main focus of this study. The results show that multilingual tags occur for the same URL and that users tag in different languages. Furthermore, the results give indications that the language of the content of a URL does not imply that its tags are in the same language.

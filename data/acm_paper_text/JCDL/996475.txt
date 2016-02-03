@@ -1,0 +1,2 @@
+The University of North Texas libraries' portal to Texas history: archival challenges and solutions
+The UNT Texas History Portal Project strives to balance the goals of accessibility of information and long--term preservation of digital objects. This poster details the system that automates the collection of metadata records to coordinate access to web--viewable files and preservation of archived master files.

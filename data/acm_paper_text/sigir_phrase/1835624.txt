@@ -1,0 +1,1 @@
+exploiting click-through-data for entity-retrieval we present an approach for answering entity-retrieval queries using click-through information in query-log-data from a commercial web-search-engine . we compare results using click graphs and session graphs and present an evaluation-test set making use of wikipedia `` list of '' pages .

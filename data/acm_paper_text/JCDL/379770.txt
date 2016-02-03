@@ -1,0 +1,2 @@
+Demonstration of hierarchical document clustering of digital library retrieval results
+As digital libraries grow in size, querying their contents will become as frustrating as querying the web is now. One remedy is to hierarchically cluster the results that are returned by searching a digital library. We demonstrate the clustering of search results from Carnegie Mellons Informedia database, a large video library that supports indexing and retrieval with automatically generated descriptors.

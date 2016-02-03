@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Gamma codes</title> 
+  <meta name="description" content="Gamma codes" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="variable-byte-codes-1.html" /> 
+  <link rel="up" href="postings-file-compression-1.html" /> 
+  <link rel="next" href="references-and-further-reading-5.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1791" href="references-and-further-reading-5.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1785" href="postings-file-compression-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1781" href="variable-byte-codes-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1787" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1789" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1792" href="references-and-further-reading-5.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html1786" href="postings-file-compression-1.html">Postings file compression</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1782" href="variable-byte-codes-1.html">Variable byte codes</a> &nbsp; 
+  <b> <a name="tex2html1788" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1790" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001032000000000000000"></a><a name="sec:gamma-code"></a> <a name="p:gamma-code"></a> <br /> Gamma codes </h2> 
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="6427"></a> 
+   <table cellpadding="3" border="1"> 
+    <caption>
+     <strong>Table 5.5:</strong> Some examples of unary and 
+     <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes. Unary codes are only shown for the smaller numbers. Commas in 
+     <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes are for readability only and are not part of the actual codes.
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">number</td> 
+      <td align="LEFT">unary code</td> 
+      <td align="LEFT">length</td> 
+      <td align="LEFT">offset</td> 
+      <td align="LEFT"><img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">0</td> 
+      <td align="LEFT">0</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">1</td> 
+      <td align="LEFT">10</td> 
+      <td align="LEFT">0</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">0</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">2</td> 
+      <td align="LEFT">110</td> 
+      <td align="LEFT">10</td> 
+      <td align="LEFT">0</td> 
+      <td align="LEFT">10,0</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">3</td> 
+      <td align="LEFT">1110</td> 
+      <td align="LEFT">10</td> 
+      <td align="LEFT">1</td> 
+      <td align="LEFT">10,1</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">4</td> 
+      <td align="LEFT">11110</td> 
+      <td align="LEFT">110</td> 
+      <td align="LEFT">00</td> 
+      <td align="LEFT">110,00</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">9</td> 
+      <td align="LEFT">1111111110</td> 
+      <td align="LEFT">1110</td> 
+      <td align="LEFT">001</td> 
+      <td align="LEFT">1110,001</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">13</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">1110</td> 
+      <td align="LEFT">101</td> 
+      <td align="LEFT">1110,101</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">24</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">11110</td> 
+      <td align="LEFT">1000</td> 
+      <td align="LEFT">11110,1000</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">511</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">111111110</td> 
+      <td align="LEFT">11111111</td> 
+      <td align="LEFT">111111110,11111111</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">1025</td> 
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT">11111111110</td> 
+      <td align="LEFT">0000000001</td> 
+      <td align="LEFT">11111111110,0000000001</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <a name="tab:icompresstb3"></a> 
+   <a name="p:icompresstb3"></a> 
+  </div> 
+  <br /> 
+  <p> VB codes use an adaptive number of <i>bytes</i> depending on the size of the gap. Bit-level codes adapt the length of the code on the finer grained <i>bit</i> level. The simplest bit-level code is <a name="6437"></a> <i>unary code</i> . The unary code of <img width="13" height="32" align="MIDDLE" border="0" src="img104.png" alt="$n$" /> is a string of <img width="13" height="32" align="MIDDLE" border="0" src="img104.png" alt="$n$" /> 1s followed by a 0 (see the first two columns of Table <a href="#tab:icompresstb3">5.5</a> ). Obviously, this is not a very efficient code, but it will come in handy in a moment. </p>
+  <p> How efficient can a code be in principle? Assuming the <img width="20" height="33" align="MIDDLE" border="0" src="img283.png" alt="$2^n$" /> gaps <img width="16" height="32" align="MIDDLE" border="0" src="img284.png" alt="$G$" /> with 
+   <!-- MATH
+ $1 \leq G \leq 2^{n}$
+ --> <img width="84" height="33" align="MIDDLE" border="0" src="img285.png" alt="$1 \leq G \leq 2^{n}$" /> are all equally likely, the optimal encoding uses <img width="13" height="32" align="MIDDLE" border="0" src="img104.png" alt="$n$" /> bits for each <img width="16" height="32" align="MIDDLE" border="0" src="img284.png" alt="$G$" />. So some gaps (<img width="54" height="33" align="MIDDLE" border="0" src="img286.png" alt="$G=2^{n}$" /> in this case) cannot be encoded with fewer than <img width="48" height="31" align="MIDDLE" border="0" src="img287.png" alt="$\log_2 G$" /> bits. Our goal is to get as close to this lower bound as possible. </p>
+  <p> A method that is within a factor of optimal is <a name="6442"></a> <i><img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoding</i> . <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes implement variable-length encoding by splitting the representation of a gap <img width="16" height="32" align="MIDDLE" border="0" src="img284.png" alt="$G$" /> into a pair of <i>length</i> and <i>offset</i>. <i>Offset</i> is <img width="16" height="32" align="MIDDLE" border="0" src="img284.png" alt="$G$" /> in binary, but with the leading 1 removed.<a name="tex2html56" href="footnode.html#foot6447"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> For example, for 13 (binary 1101) <i>offset</i> is 101. <i>Length</i> encodes the length of <i>offset</i> in unary code. For 13, the length of <i>offset</i> is 3 bits, which is 1110 in unary. The <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code of 13 is therefore 1110101, the concatenation of length 1110 and offset 101. The right hand column of Table <a href="#tab:icompresstb3">5.5</a> gives additional examples of <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes. </p>
+  <p> A <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code is decoded by first reading the unary code up to the 0 that terminates it, for example, the four bits 1110 when decoding 1110101. Now we know how long the offset is: 3 bits. The offset 101 can then be read correctly and the 1 that was chopped off in encoding is prepended: 101 <img width="21" height="16" align="BOTTOM" border="0" src="img97.png" alt="$\rightarrow$" /> 1101 = 13. </p>
+  <p> The length of <i>offset</i> is 
+   <!-- MATH
+ $\lfloor \log_2 G
+\rfloor$
+ --> <img width="63" height="33" align="MIDDLE" border="0" src="img288.png" alt="$\lfloor \log_2 G
+\rfloor$" /> bits and the length of <i>length</i> is 
+   <!-- MATH
+ $\lfloor \log_2 G
+\rfloor +1$
+ --> <img width="91" height="33" align="MIDDLE" border="0" src="img289.png" alt="$\lfloor \log_2 G
+\rfloor +1$" /> bits, so the length of the entire code is 
+   <!-- MATH
+ $2 \times \lfloor \log_2 G \rfloor +1$
+ --> <img width="118" height="33" align="MIDDLE" border="0" src="img290.png" alt="$2 \times \lfloor \log_2 G \rfloor +1$" /> bits. <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes are always of odd length and they are within a factor of 2 of what we claimed to be the optimal encoding length <img width="48" height="31" align="MIDDLE" border="0" src="img287.png" alt="$\log_2 G$" />. We derived this optimum from the assumption that the <img width="20" height="33" align="MIDDLE" border="0" src="img283.png" alt="$2^n$" /> gaps between <img width="12" height="32" align="MIDDLE" border="0" src="img291.png" alt="$1$" /> and <img width="19" height="33" align="MIDDLE" border="0" src="img292.png" alt="$2^{n}$" /> are equiprobable. But this need not be the case. In general, we do not know the probability distribution over gaps a priori. </p>
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:entropydef"></a>
+   <a name="p:entropydef"></a>
+   <a name="6458"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 5.9:</strong> Entropy 
+     <img width="42" height="33" align="MIDDLE" border="0" src="img13.png" alt="$H(P)$" /> as a function of 
+     <img width="43" height="33" align="MIDDLE" border="0" src="img14.png" alt="$P(x_1)$" /> for a sample space with two outcomes 
+     <img width="19" height="32" align="MIDDLE" border="0" src="img15.png" alt="$x_1$" /> and 
+     <img width="19" height="32" align="MIDDLE" border="0" src="img16.png" alt="$x_2$" />. 
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="313" height="285" align="BOTTOM" border="0" src="img293.png" alt="\includegraphics[width=7cm]{art/entropy.eps}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> The characteristic of a discrete probability distribution
+  <a name="tex2html58" href="footnode.html#foot6755"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" /> that determines its coding properties (including whether a code is optimal) is its 
+  <a name="6464"></a> 
+  <a name="p:entropy"></a> 
+  <a name="6466"></a> 
+  <i>entropy</i> 
+  <img width="42" height="33" align="MIDDLE" border="0" src="img13.png" alt="$H(P)$" />, which is defined as follows: 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+H(P) = - \sum_{x \in X} P(x) \log_2 P(x)
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="201" height="43" border="0" src="img294.png" alt="\begin{displaymath}
+H(P) = - \sum_{x \in X} P(x) \log_2 P(x)
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (4)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> where 
+  <img width="16" height="32" align="MIDDLE" border="0" src="img295.png" alt="$X$" /> is the set of all possible numbers we need to be able to encode (and therefore 
+  <!-- MATH
+ $\sum_{x \in X} P(x) = 1.0$
+ --> 
+  <img width="119" height="33" align="MIDDLE" border="0" src="img296.png" alt="$\sum_{x \in X} P(x) = 1.0$" />). Entropy is a measure of uncertainty as shown in Figure 
+  <a href="#fig:entropydef">5.9</a> for a probability distribution 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" /> over two possible outcomes, namely, 
+  <!-- MATH
+ $X = \{ x_1 , x_2 \}$
+ --> 
+  <img width="94" height="33" align="MIDDLE" border="0" src="img297.png" alt="$X = \{ x_1 , x_2 \} $" />. Entropy is maximized (
+  <img width="72" height="33" align="MIDDLE" border="0" src="img298.png" alt="$H(P)=1$" />) for 
+  <!-- MATH
+ $P(x_1) = P(x_2) = 0.5$
+ --> 
+  <img width="147" height="33" align="MIDDLE" border="0" src="img299.png" alt="$P(x_1) = P(x_2) = 0.5$" /> when uncertainty about which 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img300.png" alt="$x_i$" /> will appear next is largest; and minimized (
+  <img width="72" height="33" align="MIDDLE" border="0" src="img301.png" alt="$H(P)=0$" />) for 
+  <!-- MATH
+ $P(x_1) =1, P(x_2)=0$
+ --> 
+  <img width="150" height="33" align="MIDDLE" border="0" src="img302.png" alt="$P(x_1) =1, P(x_2)=0$" /> and for 
+  <!-- MATH
+ $P(x_1) =0, P(x_2)=1$
+ --> 
+  <img width="150" height="33" align="MIDDLE" border="0" src="img303.png" alt="$P(x_1) =0, P(x_2)=1$" /> when there is absolute certainty. 
+  <p> It can be shown that the lower bound for the expected length <img width="37" height="33" align="MIDDLE" border="0" src="img304.png" alt="$E(L)$" /> of a code <img width="14" height="32" align="MIDDLE" border="0" src="img127.png" alt="$L$" /> is <img width="42" height="33" align="MIDDLE" border="0" src="img13.png" alt="$H(P)$" /> if certain conditions hold (see the references). It can further be shown that for 
+   <!-- MATH
+ $1 < H(P) < \infty$
+ --> <img width="108" height="33" align="MIDDLE" border="0" src="img305.png" alt="$1 &lt; H(P) &lt; \infty$" />, <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoding is within a factor of 3 of this optimal encoding, approaching 2 for large <img width="42" height="33" align="MIDDLE" border="0" src="img13.png" alt="$H(P)$" />: <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\frac{E(L_{\gamma})}{H(P)} \leq 2+\frac{1}{H(P)} \leq 3.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="169" height="45" border="0" src="img306.png" alt="\begin{displaymath}
+\frac{E(L_{\gamma})}{H(P)} \leq 2+\frac{1}{H(P)} \leq 3.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (5)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> What is remarkable about this result is that it holds for any probability distribution 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" />. So without knowing anything about the properties of the distribution of gaps, we can apply 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes and be certain that they are within a factor of 
+  <img width="27" height="32" align="MIDDLE" border="0" src="img307.png" alt="$\approx \!2$" /> of the optimal code for distributions of large entropy. A code like 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code with the property of being within a factor of optimal for an arbitrary distribution 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img115.png" alt="$P$" /> is called 
+  <a name="6479"></a> 
+  <i>universal</i> . 
+  <p> In addition to universality, <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes have two other properties that are useful for index compression. First, they are <a name="6481"></a> <i>prefix free</i> , namely, no <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code is the prefix of another. This means that there is always a unique decoding of a sequence of <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes - and we do not need delimiters between them, which would decrease the efficiency of the code. The second property is that <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes are <a name="6483"></a> <i>parameter free</i> . For many other efficient codes, we have to fit the parameters of a model (e.g., the binomial distribution) to the distribution of gaps in the index. This complicates the implementation of compression and decompression. For instance, the parameters need to be stored and retrieved. And in dynamic indexing, the distribution of gaps can change, so that the original parameters are no longer appropriate. These problems are avoided with a parameter-free code. </p>
+  <p> How much compression of the inverted index do <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes achieve? To answer this question we use Zipf's law, the term distribution model introduced in Section <a href="zipfs-law-modeling-the-distribution-of-terms-1.html#sec:zipf">5.1.2</a> . According to Zipf's law, the collection frequency <img width="21" height="31" align="MIDDLE" border="0" src="img245.png" alt="$\collf_i$" /> is proportional to the inverse of the rank <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" />, that is, there is a constant <img width="15" height="35" align="MIDDLE" border="0" src="img308.png" alt="$c'$" /> such that: <br /> </p>
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+\collf_i = \frac{c'}{i}.
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="62" height="55" align="MIDDLE" border="0" src="img309.png" alt="$\displaystyle \collf_i = \frac{c'}{i}.$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (6)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> We can choose a different constant 
+  <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> such that the fractions 
+  <img width="25" height="31" align="MIDDLE" border="0" src="img310.png" alt="$c/i$" /> are relative frequencies and sum to 1 (that is, 
+  <!-- MATH
+ $c/i =
+\collf_i / T$
+ --> 
+  <img width="85" height="31" align="MIDDLE" border="0" src="img311.png" alt="$c/i =
+\collf_i / T$" />): 
+  <br /> 
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+1 = \sum_{i=1}^{M} \frac{c}{i} = c \sum_{i=1}^{M}
+\frac{1}{i} & = & c \ H_M \\
+c   =  \frac{1}{H_M}
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="133" height="64" align="MIDDLE" border="0" src="img312.png" alt="$\displaystyle 1 = \sum_{i=1}^{M} \frac{c}{i} = c \sum_{i=1}^{M}
+\frac{1}{i}$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="41" height="32" align="MIDDLE" border="0" src="img314.png" alt="$\displaystyle c \ H_M$" /></td> 
+      <td width="10" align="RIGHT"> (7)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="63" height="52" align="MIDDLE" border="0" src="img315.png" alt="$\displaystyle c = \frac{1}{H_M}$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (8)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> where 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> is the number of distinct terms and 
+  <img width="30" height="32" align="MIDDLE" border="0" src="img316.png" alt="$H_M$" /> is the 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" />th 
+  <a name="6502"></a> 
+  <a name="p:harmonicnumber"></a> 
+  <a name="6504"></a> 
+  <i>harmonic number</i> . 
+  <a name="tex2html59" href="footnode.html#foot6506"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> Reuters-RCV1 has 
+  <img width="94" height="32" align="MIDDLE" border="0" src="img318.png" alt="$M= 400{,}000$" /> distinct terms and 
+  <!-- MATH
+ $H_M\approx
+\ln M$
+ --> 
+  <img width="85" height="31" align="MIDDLE" border="0" src="img319.png" alt="$H_M\approx
+\ln M$" />, so we have 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+c = \frac{1}{H_M} \approx \frac{1}{\ln M} = \frac{1}{\ln
+400{,}000} \approx \frac{1}{13}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="257" height="42" border="0" src="img320.png" alt="\begin{displaymath}
+c = \frac{1}{H_M} \approx \frac{1}{\ln M} = \frac{1}{\ln
+400{,}000} \approx \frac{1}{13}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (9)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> Thus the 
+  <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" />th term has a relative frequency of roughly 
+  <img width="56" height="33" align="MIDDLE" border="0" src="img321.png" alt="$1/(13i)$" />, and the expected average number of occurrences of term 
+  <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> in a document of length 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img127.png" alt="$L$" /> is: 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+L   \frac{c}{i}  \approx
+\frac{200 \times \frac{1}{13}}{i} \approx \frac{15}{i}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><img width="145" height="44" border="0" src="img322.png" alt="\begin{displaymath}
+L \frac{c}{i} \approx
+\frac{200 \times \frac{1}{13}}{i} \approx \frac{15}{i}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (10)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> where we interpret the relative frequency as a term occurrence probability. Recall that 200 is the average number of tokens per document in Reuters-RCV1 (Table 
+  <a href="blocked-sort-based-indexing-1.html#tab:icompresstb1">4.2</a> ). 
+  <p> </p>
+  <div align="CENTER">
+   <a name="icompressfg3"></a>
+   <a name="6760"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 5.10:</strong> Stratification of terms for estimating the size of a 
+     <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoded inverted index.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="264" height="227" border="0" src="img323.png" alt="\begin{figure}\begin{tabular}{l\vert c@{}\vert}
+\par
+&amp;\multicolumn{1}{\vert c\ve...
+...}\\ \cline{2-2}
+terms&amp;\\ \hline\hline
+\ldots &amp; \ldots
+\end{tabular}
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> Now we have derived term statistics that characterize the distribution of terms in the collection and, by extension, the distribution of gaps in the postings lists. From these statistics, we can calculate the space requirements for an inverted index compressed with 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoding. We first stratify the vocabulary into blocks of size 
+  <img width="58" height="32" align="MIDDLE" border="0" src="img324.png" alt="$ L c=15$" />. On average, term 
+  <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> occurs 
+  <img width="35" height="31" align="MIDDLE" border="0" src="img325.png" alt="$15/i$" /> times per document. So the average number of occurrences 
+  <img width="13" height="39" align="MIDDLE" border="0" src="img326.png" alt="$\overline{f}$" /> per document is 
+  <!-- MATH
+ $1 \leq \overline{f}$
+ --> 
+  <img width="43" height="39" align="MIDDLE" border="0" src="img327.png" alt="$1 \leq \overline{f} $" /> for terms in the first block, corresponding to a total number of 
+  <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> gaps per term. The average is 
+  <!-- MATH
+ $\frac{1}{2} \leq \overline{f} < 1$
+ --> 
+  <img width="75" height="39" align="MIDDLE" border="0" src="img328.png" alt="$\frac{1}{2} \leq \overline{f} &lt; 1$" /> for terms in the second block, corresponding to 
+  <img width="36" height="31" align="MIDDLE" border="0" src="img329.png" alt="$N/2$" /> gaps per term, and 
+  <!-- MATH
+ $\frac{1}{3} \leq \overline{f} < \frac{1}{2}$
+ --> 
+  <img width="77" height="39" align="MIDDLE" border="0" src="img330.png" alt="$\frac{1}{3} \leq \overline{f} &lt; \frac{1}{2}$" /> for terms in the third block, corresponding to 
+  <img width="36" height="31" align="MIDDLE" border="0" src="img331.png" alt="$N/3$" /> gaps per term, and so on. (We take the lower bound because it simplifies subsequent calculations. As we will see, the final estimate is too pessimistic, even with this assumption.) We will make the somewhat unrealistic assumption that all gaps for a given term have the same size as shown in Figure&nbsp;
+  <a href="#icompressfg3">5.10</a>. Assuming such a uniform distribution of gaps, we then have gaps of size 1 in block 1, gaps of size 2 in block 2, and so on. 
+  <p> Encoding the <img width="33" height="31" align="MIDDLE" border="0" src="img332.png" alt="$N/j$" /> gaps of size <img width="9" height="31" align="MIDDLE" border="0" src="img9.png" alt="$j$" /> with <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes, the number of bits needed for the postings list of a term in the <img width="9" height="31" align="MIDDLE" border="0" src="img9.png" alt="$j$" />th block (corresponding to one row in the figure) is: </p>
+  <p></p> 
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray*}
+\mbox{\em bits-per-row}&=&\frac{N}{j}  \times 
+(2 \times \lfloor \log_2 j \rfloor +1)\\
+&\approx& 
+\frac{2N  \log_2 j}{j}.
+\end{eqnarray*}
+ --> 
+   <img width="281" height="88" border="0" src="img333.png" alt="\begin{eqnarray*}
+\mbox{\em bits-per-row}&amp;=&amp;\frac{N}{j} \times
+(2 \times \lfloor \log_2 j \rfloor +1)\\
+&amp;\approx&amp;
+\frac{2N \log_2 j}{j}.
+\end{eqnarray*}" />
+  </div> 
+  <br clear="ALL" />
+  <p></p> To encode the entire block, we need 
+  <!-- MATH
+ $( L c) \cdot (2N\log_2 j)/j$
+ --> 
+  <img width="136" height="33" align="MIDDLE" border="0" src="img334.png" alt="$( L c) \cdot (2N\log_2 j)/j$" /> bits. There are 
+  <img width="61" height="33" align="MIDDLE" border="0" src="img335.png" alt="$M/( L c)$" /> blocks, so the postings file as a whole will take up: 
+  <br /> 
+  <div align="CENTER">
+   <a name="icompresseq1"></a> 
+   <!-- MATH
+ \begin{eqnarray}
+&&\sum_{j=1}^{\frac{M}{ L c}}  \frac{2N   L c
+\log_2 j}{j} .
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td align="LEFT" nowrap=""><img width="112" height="76" align="MIDDLE" border="0" src="img336.png" alt="$\displaystyle \sum_{j=1}^{\frac{M}{ L c}} \frac{2N L c
+\log_2 j}{j} .$" /></td> 
+      <td width="10" align="RIGHT"> (11)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> 
+  <p> For Reuters-RCV1, 
+   <!-- MATH
+ $\frac{M}{ L c} \approx$
+ --> <img width="38" height="39" align="MIDDLE" border="0" src="img337.png" alt="$\frac{M}{ L c} \approx$" /> 400,000
+   <!-- MATH
+ $/15
+\approx 27{,}000$
+ --> <img width="95" height="31" align="MIDDLE" border="0" src="img338.png" alt="$/15
+\approx 27{,}000$" /> and <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\sum_{j=1}^{27{,}000}  \frac{2 \times 10^6 \times 15 \log_2 j}{j} \approx
+224 \ \mbox{MB}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="totalindexsizeeq"></a><img width="244" height="56" border="0" src="img339.png" alt="\begin{displaymath}
+\sum_{j=1}^{27{,}000} \frac{2 \times 10^6 \times 15 \log_2 j}{j} \approx
+224 \ \mbox{MB}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (12)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> So the postings file of the compressed inverted index for our 960 MB collection has a size of 224 MB, one fourth the size of the original collection. 
+  <p> When we run <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> compression on Reuters-RCV1, the actual size of the compressed index is even lower: 101 MB, a bit more than one tenth of the size of the collection. The reason for the discrepancy between predicted and actual value is that (i) Zipf's law is not a very good approximation of the actual distribution of term frequencies for Reuters-RCV1 and (ii) gaps are not uniform. The Zipf model predicts an index size of 251 MB for the unrounded numbers from Table <a href="blocked-sort-based-indexing-1.html#tab:icompresstb1">4.2</a> . If term frequencies are generated from the Zipf model and a compressed index is created for these artificial terms, then the compressed size is 254 MB. So to the extent that the assumptions about the distribution of term frequencies are accurate, the predictions of the model are correct. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="6763"></a> 
+   <table cellpadding="3" border="1"> 
+    <caption>
+     <strong>Table:</strong> Index and dictionary compression for Reuters-RCV1. The compression ratio depends on the proportion of actual text in the collection. Reuters-RCV1 contains a large amount of XML markup. Using the two best compression schemes, 
+     <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoding and blocking with front coding, the ratio compressed index to collection size is therefore especially small for Reuters-RCV1: 
+     <!-- MATH
+ $(101+7.9)/3600 \approx 0.03$
+ --> 
+     <img width="172" height="33" align="MIDDLE" border="0" src="img340.png" alt="$(101+7.9)/3600 \approx 0.03$" />.
+     <!-- MATH
+ $(101+5.9)/3600 \approx 0.03$
+ --> 
+     <img width="173" height="33" align="MIDDLE" border="0" src="img17.png" alt="$(101+5.9)/3600 \approx 0.03$" />. 
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">data structure</td> 
+      <td align="RIGHT">size in MB</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">dictionary, fixed-width</td> 
+      <td align="RIGHT">19.211.2</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">dictionary, term pointers into string</td> 
+      <td align="RIGHT">10.8 7.6</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT"><img width="17" height="16" align="BOTTOM" border="0" src="img275.png" alt="$\sim$" />, with blocking, <img width="42" height="31" align="MIDDLE" border="0" src="img11.png" alt="$k=4$" /></td> 
+      <td align="RIGHT">10.3 7.1</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT"><img width="17" height="16" align="BOTTOM" border="0" src="img275.png" alt="$\sim$" />, with blocking &amp; front coding</td> 
+      <td align="RIGHT">7.9 5.9</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">collection (text, xml markup etc)</td> 
+      <td align="RIGHT">3600.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">collection (text)</td> 
+      <td align="RIGHT">960.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">term incidence matrix</td> 
+      <td align="RIGHT">40,000.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">postings, uncompressed (32-bit words)</td> 
+      <td align="RIGHT">400.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">postings, uncompressed (20 bits)</td> 
+      <td align="RIGHT">250.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">postings, variable byte encoded</td> 
+      <td align="RIGHT">116.0</td> 
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">postings, <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoded</td> 
+      <td align="RIGHT">101.0</td> 
+     </tr> 
+    </tbody>
+   </table> 
+   <a name="tab:summaryicompress"></a> 
+   <a name="p:summaryicompress"></a> 
+  </div> 
+  <br /> 
+  <p> Table <a href="#tab:summaryicompress">5.6</a> summarizes the compression techniques covered in this chapter. The term incidence matrix (Figure <a href="an-example-information-retrieval-problem-1.html#fig:termdoc">1.1</a> , page <a href="an-example-information-retrieval-problem-1.html#p:termdoc">1.1</a> ) for Reuters-RCV1 has size 
+   <!-- MATH
+ $400{,}000 \times
+800{,}000 = 40 \times 8 \times 10^9$
+ --> <img width="235" height="36" align="MIDDLE" border="0" src="img341.png" alt="$400{,}000 \times
+800{,}000 = 40 \times 8 \times 10^9 $" /> bits or 40 GB. The numbers were the collection (3600 MB and 960 MB) are for the encoding of RCV1 of CD, which uses one byte per character, not Unicode. </p>
+  <p> <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes achieve great compression ratios - about 15% better than variable byte codes for Reuters-RCV1. But they are expensive to decode. This is because many bit-level operations - shifts and masks - are necessary to decode a sequence of <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes as the boundaries between codes will usually be somewhere in the middle of a machine word. As a result, query processing is more expensive for <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes than for variable byte codes. Whether we choose variable byte or <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoding depends on the characteristics of an application, for example, on the relative weights we give to conserving disk space versus maximizing query response time. </p>
+  <p> The compression ratio for the index in Table <a href="#tab:summaryicompress">5.6</a> is about 25%: 400 MB (uncompressed, each posting stored as a 32-bit word) versus 101 MB (<img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" />) and 116 MB (VB). This shows that both <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> and VB codes meet the objectives we stated in the beginning of the chapter. Index compression substantially improves time and space efficiency of indexes by reducing the amount of disk space needed, increasing the amount of information that can be kept in the cache, and speeding up data transfers from disk to memory. <a name="6616"></a> <a name="6617"></a> </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>Compute variable byte codes for the numbers in Tables <a href="postings-file-compression-1.html#tab:icompresstb2">5.3</a> <a href="#tab:icompresstb3">5.5</a> . <p> </p></li> 
+   <li>Compute variable byte and <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes for the postings list 
+    <!-- MATH
+ $\langle\kern.5pt$
+ --> <img width="11" height="33" align="MIDDLE" border="0" src="img342.png" alt="$\langle\kern.5pt$" />777, 17743, 294068, 31251336<img width="10" height="33" align="MIDDLE" border="0" src="img120.png" alt="$\rangle$" />. Use gaps instead of docIDs where possible. Write binary codes in 8-bit blocks. <p> </p></li> 
+   <li><a name="ex:cs276varbyte"></a> <a name="p:cs276varbyte"></a> Consider the postings list 
+    <!-- MATH
+ $\langle 4, 10, 11, 12, 15, 62, 63, 265, 268, 270, 400\rangle$
+ --> <img width="283" height="33" align="MIDDLE" border="0" src="img343.png" alt="$ \langle 4, 10, 11, 12, 15, 62, 63, 265, 268, 270, 400\rangle $" /> with a corresponding list of gaps 
+    <!-- MATH
+ $\langle 4, 6, 1, 1, 3, 47, 1, 202, 3, 2, 130\rangle$
+ --> <img width="211" height="33" align="MIDDLE" border="0" src="img344.png" alt="$ \langle 4, 6, 1, 1, 3, 47, 1, 202, 3, 2, 130\rangle $" />. Assume that the length of the postings list is stored separately, so the system knows when a postings list is complete. Using variable byte encoding: (i) What is the largest gap you can encode in 1 byte? (ii) What is the largest gap you can encode in 2 bytes? (iii) How many bytes will the above postings list require under this encoding? (Count only space for encoding the sequence of numbers.) <p> </p></li> 
+   <li><a name="ex:nozerogaps"></a>A little trick is to notice that a gap cannot be of length 0 and that the stuff left to encode after shifting cannot be 0. Based on these observations: (i) Suggest a modification to variable byte encoding that allows you to encode slightly larger gaps in the same amount of space. (ii) What is the largest gap you can encode in 1 byte? (iii) What is the largest gap you can encode in 2 bytes? (iv) How many bytes will the postings list in Exercise <a href="#ex:cs276varbyte">5.3.2</a> require under this encoding? (Count only space for encoding the sequence of numbers.) <p> </p></li> 
+   <li>From the following sequence of <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" />-coded gaps, reconstruct first the gap sequence and then the postings sequence: 1110001110101011111101101111011. <p> </p></li> 
+   <li><a name="ex:deltacode"></a> <a name="p:deltacode"></a> <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes are relatively inefficient for large numbers (e.g., 1025 in Table <a href="#tab:icompresstb3">5.5</a> ) as they encode the length of the offset in inefficient unary code. <a name="6629"></a> <a name="6630"></a> <i><img width="11" height="31" align="MIDDLE" border="0" src="img282.png" alt="$\delta$" /> codes</i> differ from <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> codes in that they encode the first part of the code (<i>length</i>) in <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code instead of unary code. The encoding of <i>offset</i> is the same. For example, the <img width="11" height="31" align="MIDDLE" border="0" src="img282.png" alt="$\delta$" /> code of 7 is 10,0,11 (again, we add commas for readability). 10,0 is the <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code for <i>length</i> (2 in this case) and the encoding of <i>offset</i> (11) is unchanged. (i) Compute the <img width="11" height="31" align="MIDDLE" border="0" src="img282.png" alt="$\delta$" /> codes for the other numbers in Table <a href="#tab:icompresstb3">5.5</a> . For what range of numbers is the <img width="11" height="31" align="MIDDLE" border="0" src="img282.png" alt="$\delta$" /> code shorter than the <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code? (ii) <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> code beats variable byte code in Table <a href="#tab:summaryicompress">5.6</a> because the index contains stop words and thus many small gaps. Show that variable byte code is more compact if larger gaps dominate. (iii) Compare the compression ratios of <img width="11" height="31" align="MIDDLE" border="0" src="img282.png" alt="$\delta$" /> code and variable byte code for a distribution of gaps dominated by large gaps. <p> </p></li> 
+   <li>Go through the above calculation of index size and explicitly state all the approximations that were made to arrive at Equation&nbsp;<a href="#icompresseq1">11</a>. <p> </p></li> 
+   <li>For a collection of your choosing, determine the number of documents and terms and the average length of a document. (i) How large is the inverted index predicted to be by Equation&nbsp;<a href="#icompresseq1">11</a>? (ii) Implement an indexer that creates a <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" />-compressed inverted index for the collection. How large is the actual index? (iii) Implement an indexer that uses variable byte encoding. How large is the variable byte encoded index? <p> <br /></p><p></p> 
+    <div align="CENTER"> 
+     <a name="6641"></a> 
+     <table cellpadding="3"> 
+      <caption>
+       <strong>Table:</strong> Two gap sequences to be merged in blocked sort-based indexing 
+      </caption> 
+      <tbody>
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT"><img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoded gap sequence of run 1</td> 
+        <td align="LEFT">1110110111111001011111111110100011111001</td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+       <tr>
+        <td align="LEFT">&nbsp;</td>
+        <td align="LEFT"><img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" /> encoded gap sequence of run 2</td> 
+        <td align="LEFT">11111010000111111000100011111110010000011111010101 <p></p></td> 
+        <td align="LEFT">&nbsp;</td>
+       </tr> 
+      </tbody>
+     </table> 
+     <a name="tab:iconsttb3"></a> 
+     <a name="p:iconsttb3"></a> 
+    </div> <br /> <p> </p></li> 
+   <li>To be able to hold as many postings as possible in main memory, it is a good idea to compress intermediate index files during index construction. (i) This makes merging runs in blocked sort-based indexing more complicated. As an example, work out the <img width="14" height="32" align="MIDDLE" border="0" src="img12.png" alt="$\gamma $" />-encoded merged sequence of the gaps in Table <a href="#tab:iconsttb3">5.7</a> . (ii) Index construction is more space efficient when using compression. Would you also expect it to be faster? <p> </p></li> 
+   <li>(i) Show that the size of the vocabulary is finite according to Zipf's law and infinite according to Heaps' law. (ii) Can we derive Heaps' law from Zipf's law? <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1791" href="references-and-further-reading-5.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1785" href="postings-file-compression-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1781" href="variable-byte-codes-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1787" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1789" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1792" href="references-and-further-reading-5.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html1786" href="postings-file-compression-1.html">Postings file compression</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1782" href="variable-byte-codes-1.html">Variable byte codes</a> &nbsp; 
+  <b> <a name="tex2html1788" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1790" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

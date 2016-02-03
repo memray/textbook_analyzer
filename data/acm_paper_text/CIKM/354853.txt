@@ -1,0 +1,2 @@
+A query based approach for integrating heterogeneous data sources
+An abstract is not available.

@@ -1,0 +1,2 @@
+Considering users and their opinions in knowledge management systems
+We describe a Knowledge Management System that shifts the focus from the traditional document-centric to a user-centric view. It takes into account users' query and download behavior, opinions, reputations, and social connections.

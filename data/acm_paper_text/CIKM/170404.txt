@@ -1,0 +1,2 @@
+Queries, constraints, updates and transactions within a logic-based language
+An abstract is not available.

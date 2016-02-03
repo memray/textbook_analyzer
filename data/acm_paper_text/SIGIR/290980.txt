@@ -1,0 +1,2 @@
+A flexible model for retrieval of SGML documents
+An abstract is not available.

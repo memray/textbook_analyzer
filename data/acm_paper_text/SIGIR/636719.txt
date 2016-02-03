@@ -1,0 +1,2 @@
+Messidor: a distributed information retrieval system
+MESSIDOR is an interactive retrieval system. It differs from current systems in that it allows the <u>simultaneous search of several bibliographic databases</u>. The databases may be on different sites such as ESA in Frascati, TELESYSTEMES in Sophia Antipolis... The databases may use different query languages such as QUEST, MISTRAL... However a user converses with the system MESSIDOR with <u>a single language</u>, the MESSIDOR language.The system's prototype is implemented on a MICRAL 80--30 micro-computer.

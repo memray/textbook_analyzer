@@ -1,0 +1,2 @@
+A fluid treemap interface for personal digital libraries
+The UC system employs hybrid quantum/continuous treemaps for fluidly interacting with documents in a personal digital library. By incorporating a document reader application within the visualization workspace, UC supports multi-document reading tasks that have been traditionally accomplished by laying out documents on a physical desk. One of the overall goals of the system is to eliminate the boundary between acquiring and using documents.

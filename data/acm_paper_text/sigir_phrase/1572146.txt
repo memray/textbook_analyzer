@@ -1,0 +1,1 @@
+using dynamic markov compression to detect vandalism in the wikipedia we apply the dynamic markov compression model to detect spam edits in the wikipedia . the method appears to outperform previous efforts based on compression models , providing performance comparable to methods based on manually constructed rules .

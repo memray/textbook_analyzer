@@ -1,0 +1,2 @@
+Dynamic online views of meta-indexes
+For a collection of digitized monographs in a subject domain, a domain meta-index provides a summary of domain concepts, and a structured vocabulary to support a scholar's navigation and search. We present a prototype of a Meta-index User Interface (MUI) that provides views of a domain at three levels: summarizing and comparing domains, exposing the regularities of a domain's vocabulary, and displaying book information and page content related both to objectively-representative books, and to specific user searches.

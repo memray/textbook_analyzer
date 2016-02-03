@@ -1,0 +1,2 @@
+DSpace: durable digital documents
+The DSpace system for long-term management of institutional scholarly research repositories is now in use at the MIT Libraries; we will demonstrate the system and provide more information about its design, use at MIT, and other potential uses.

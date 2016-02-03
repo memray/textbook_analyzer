@@ -1,0 +1,2 @@
+Is digital preservation an oxymoron?
+Techniques for the long-term preservation of digital materials are increasingly critical as more and more intellectual content is meaningful only in electronic form. Terry Kuny, in his often quoted paper "A Digital Dark Ages?" concluded, "Digital collections facilitate access, but do not facilitate preservation. ... Although tremendous work has been undertaken in defining the problems and challenges, much more remains to be done, and the tough task of actually doing digital preservation (and digital rescue) remains ahead."[1]

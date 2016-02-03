@@ -1,0 +1,2 @@
+A cluster-based simulation of facet-based search
+The recent increase of online video has challenged the research in the field of video information retrieval. Video search engines are becoming more and more interactive, helping the user to easily find what he or she is looking for. In this poster, we present a new approach of using an iterative clustering algorithm on text and visual features to simulate users creating new facets in a facet-based interface. Our experimental results prove the usefulness of such an approach.

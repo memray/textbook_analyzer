@@ -1,0 +1,2 @@
+Comparing metrics across TREC and NTCIR:: the robustness to pool depth bias
+An abstract is not available.

@@ -1,0 +1,2 @@
+Tools for a new generation of scholarly edition unified by a tei-based interchange format
+We report on experience gained from our ongoing multi-year project to produce an Electronic Variorum Edition of Cervantes' Don Quixote de la Mancha . Initially designed around a custom database representation, the project's evolution has lead to the adoption of a TEI-based format for information interchange among the project's major components. We discuss the mechanics of this approach and its benefits.

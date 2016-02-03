@@ -1,0 +1,2 @@
+Multi-resolution indexing for shape images
+An abstract is not available.

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Document representations and measures of relatedness in vector spaces</title> 
+  <meta name="description" content="Document representations and measures of relatedness in vector spaces" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="rocchio-classification-1.html" /> 
+  <link rel="previous" href="vector-space-classification-1.html" /> 
+  <link rel="up" href="vector-space-classification-1.html" /> 
+  <link rel="next" href="rocchio-classification-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3679" href="rocchio-classification-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3673" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3667" href="vector-space-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3675" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3677" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3680" href="rocchio-classification-1.html">Rocchio classification</a> 
+  <b> Up:</b> 
+  <a name="tex2html3674" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3668" href="vector-space-classification-1.html">Vector space classification</a> &nbsp; 
+  <b> <a name="tex2html3676" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3678" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001910000000000000000"></a> <a name="sec:simdisfigs"></a> <a name="p:simdisfigs"></a> <a name="p:similaritymetric"></a> <br /> Document representations and measures of relatedness in vector spaces </h1> 
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:3dsphere"></a><a name="p:3dsphere"></a></p>
+   <img width="556" height="323" border="0" src="img1088.png" alt="\begin{figure}
+% latex2html id marker 19708
+\par
+\psset{unit=0.25cm}
+\begin{tabu...
+...a.
+Right: The corresponding projection of the 3D hemisphere to 2D.}
+\end{figure}" /> 
+  </div> 
+  <p> As in Chapter <a href="scoring-term-weighting-and-the-vector-space-model-1.html#ch:termvspace">6</a> , we represent documents as vectors in 
+   <!-- MATH
+ $\mathbb{R}^{|V|}$
+ --> <img width="34" height="40" align="MIDDLE" border="0" src="img1086.png" alt="$\mathbb{R}^{\vert V\vert}$" /> in this chapter. To illustrate properties of document vectors in vector classification, we will render these vectors as points in a plane as in the example in Figure <a href="vector-space-classification-1.html#fig:classesinvspace">14.1</a> . In reality, document vectors are length-normalized unit vectors that point to the surface of a hypersphere. We can view the 2D planes in our figures as projections onto a plane of the surface of a (hyper-)sphere as shown in Figure <a href="#fig:3dsphere">14.2</a> . Distances on the surface of the sphere and on the projection plane are approximately the same as long as we restrict ourselves to small areas of the surface and choose an appropriate projection (Exercise <a href="#ex:qualityof2d">14.1</a> ). </p>
+  <p> Decisions of many vector space classifiers are based on a notion of distance, e.g., when computing the nearest neighbors in kNN classification. We will use Euclidean distance in this chapter as the underlying distance measure. We observed earlier (Exercise <a href="pivoted-normalized-document-length-1.html#ex:euclideancosine">6.4.4</a> , page <a href="#p:euclideancosine"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a> ) that there is a direct correspondence between cosine similarity and Euclidean distance for length-normalized vectors. In vector space classification, it rarely matters whether the relatedness of two documents is expressed in terms of similarity or distance. </p>
+  <p> However, in addition to documents, centroids or averages of vectors also play an important role in vector space classification. Centroids are not length-normalized. For unnormalized vectors, dot product, cosine similarity and Euclidean distance all have different behavior in general (Exercise <a href="exercises-2.html#ex:diffsimex">14.8</a> ). We will be mostly concerned with small local regions when computing the similarity between a document and a centroid, and the smaller the region the more similar the behavior of the three measures is. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li><a name="ex:qualityof2d"></a> For small areas, distances on the surface of the hypersphere are approximated well by distances on its projection (Figure <a href="#fig:3dsphere">14.2</a> ) because 
+    <!-- MATH
+ $\alpha \approx \sin \alpha$
+ --> <img width="67" height="32" align="MIDDLE" border="0" src="img1089.png" alt="$\alpha \approx \sin \alpha$" /> for small angles. For what size angle is the distortion 
+    <!-- MATH
+ $\alpha/\sin(\alpha)$
+ --> <img width="68" height="33" align="MIDDLE" border="0" src="img1090.png" alt="$\alpha/\sin(\alpha)$" /> (i) 1.01, (ii) 1.05 and (iii) 1.1? <p> </p></li> 
+  </ul>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3679" href="rocchio-classification-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3673" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3667" href="vector-space-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3675" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3677" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3680" href="rocchio-classification-1.html">Rocchio classification</a> 
+  <b> Up:</b> 
+  <a name="tex2html3674" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3668" href="vector-space-classification-1.html">Vector space classification</a> &nbsp; 
+  <b> <a name="tex2html3676" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3678" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

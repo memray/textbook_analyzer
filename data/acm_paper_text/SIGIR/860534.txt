@@ -1,0 +1,2 @@
+Passage retrieval vs. document retrieval for factoid question answering
+An abstract is not available.

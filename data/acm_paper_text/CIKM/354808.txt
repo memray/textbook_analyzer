@@ -1,0 +1,2 @@
+Indexing inheritance and aggregation
+An abstract is not available.

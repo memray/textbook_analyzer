@@ -1,0 +1,2 @@
+Topic structure for information retrieval
+In my research, I propose a coherence measure, with the goal of discovering and using topic structures within and between documents, of which I explore its extensions and applications in information retrieval.

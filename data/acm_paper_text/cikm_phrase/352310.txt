@@ -1,0 +1,1 @@
+using petri-nets for rule termination-analysis an abstract is not available .

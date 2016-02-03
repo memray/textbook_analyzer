@@ -1,0 +1,1 @@
+liars : a software-environment for testing query-processing strategies this paper describes the louisiana information-access and retrieval-system , liars , a software-system which provides an environment within which various strategies for query-processing (and , to a certain extent , document-indexing) can be empirically tested .

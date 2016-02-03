@@ -1,0 +1,1 @@
+evaluation of mobile-information-retrieval strategies in this paper we describe and evaluate three strategies for information-retrieval on mobile-devices . results show the effectiveness of our adaptive-approach .

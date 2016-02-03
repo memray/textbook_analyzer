@@ -1,0 +1,2 @@
+International workshop on Information Visualization Interfaces for Retrieval and Analysis (IVIRA) at the Joint Conference on Digital Libraries 2003
+The IVIRA workshop has been organized to attract cutting-edge efforts that concentrate on improving information retrieval and analysis by applying visualization techniques in interface design.

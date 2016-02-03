@@ -1,0 +1,2 @@
+Modeling a vocabulary in an object-oriented database
+An abstract is not available.

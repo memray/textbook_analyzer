@@ -1,0 +1,2 @@
+On-demand metadata extraction network (OMEN)
+A new method for federated searching of music archives using a grid-based dynamic feature extraction system is proposed.

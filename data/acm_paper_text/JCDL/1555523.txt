@@ -1,0 +1,2 @@
+A curriculum customization service
+We demonstrate a prototype Curriculum Customization Service designed and developed with significant teacher input. This prototype illustrates a model for embedding digital library resources into mainstream classroom use. A 10 week pilot study suggests that this Service can increase teachers' use of digital library resources in their class, and encourage them to use resources to customize instruction.

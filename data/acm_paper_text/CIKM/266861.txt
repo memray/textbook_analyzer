@@ -1,0 +1,2 @@
+Global nested transaction management for ODMG-compliant multi-database systems
+An abstract is not available.

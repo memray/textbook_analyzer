@@ -1,0 +1,1 @@
+the avalon media system : a platform for access-controlled delivery of time-based-media this demonstration will show version-1.0 of the avalon media system , an open-source system being developed by indiana university and northwestern university to allow libraries and archives to provide online-access to audio and video collections .

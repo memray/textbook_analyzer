@@ -1,0 +1,2 @@
+Interviews with NSDL grantees on core values and service perspectives
+We analyze information from interviews with NSDL awardees. One purpose is to inform potential NSDL membership models, and a second is to better understand infrastructure needs, including capacity for integrating services . Our results shed light on social and architectural aspects of the NSDL as a distributed library-building endeavor.

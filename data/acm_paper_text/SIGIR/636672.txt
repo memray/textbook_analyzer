@@ -1,0 +1,2 @@
+A comparison of two weighting schemes for Boolean retrieval
+An abstract is not available.

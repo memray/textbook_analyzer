@@ -1,0 +1,2 @@
+Enhanced nested-inherited index for OODBMS
+An abstract is not available.

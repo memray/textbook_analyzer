@@ -1,0 +1,1 @@
+icon abacus and ghost icons we present two techniques that make document-collection visualizations more informative . icon abacus uses the horizontal position of icon groups to communicate document attributes . ghost icons show linked documents by adding temporary icons and by highlighting or dimming existing ones .

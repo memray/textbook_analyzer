@@ -1,0 +1,2 @@
+Using incremental pruning to increase the efficiency of dynamic itemset counting for mining association rules
+An abstract is not available.

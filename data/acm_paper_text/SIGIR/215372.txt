@@ -1,0 +1,2 @@
+Probabilistic Datalog—a logic for powerful retrieval methods
+An abstract is not available.

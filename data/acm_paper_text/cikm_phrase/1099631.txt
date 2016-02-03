@@ -1,0 +1,1 @@
+accurately extracting coherent relevant passages using hidden-markov-models in this paper , we present a principled method for accurately extracting coherent relevant passages of variable lengths using hmms . we show that with appropriate parameter-estimation , the hmm-method outperforms a number of strong baseline methods on two data-sets .

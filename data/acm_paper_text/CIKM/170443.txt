@@ -1,0 +1,2 @@
+ERC++: a model based on object and logic paradigms
+An abstract is not available.

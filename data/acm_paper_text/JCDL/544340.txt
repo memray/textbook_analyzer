@@ -1,0 +1,2 @@
+Argentinean historical heritage project
+The digitalization effort of the Argentinean Heritage Project is described from its beginning, up to its present day form, as a framework of automatized, Web [1] operated and platform independent tools to assist historians to build and maintain digital libraries suited to their research needs. We show how low cost, labor intensive digital library building is possible using standard formats and tools.

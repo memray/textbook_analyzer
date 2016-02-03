@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Multinomial distributions over words</title> 
+  <meta name="description" content="Multinomial distributions over words" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="types-of-language-models-1.html" /> 
+  <link rel="up" href="language-models-1.html" /> 
+  <link rel="next" href="the-query-likelihood-model-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3297" href="the-query-likelihood-model-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3291" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3287" href="types-of-language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3293" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3295" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3298" href="the-query-likelihood-model-1.html">The query likelihood model</a> 
+  <b> Up:</b> 
+  <a name="tex2html3292" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3288" href="types-of-language-models-1.html">Types of language models</a> &nbsp; 
+  <b> <a name="tex2html3294" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3296" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001713000000000000000"> Multinomial distributions over words</a> </h2> 
+  <p> Under the unigram language model the order of words is irrelevant, and so such models are often called ``bag of words'' models, as discussed in Chapter <a href="scoring-term-weighting-and-the-vector-space-model-1.html#ch:tfidf">6</a> (page <a href="term-frequency-and-weighting-1.html#p:bagofwords">6.2</a> ). Even though there is no conditioning on preceding context, this model nevertheless still gives the probability of a particular ordering of terms. However, any other ordering of this bag of terms will have the same probability. So, really, we have a <a name="15297"></a> <i>multinomial distribution</i> over words. So long as we stick to unigram models, the language model name and motivation could be viewed as historical rather than necessary. We could instead just refer to the model as a multinomial model. From this perspective, the equations presented above do not present the multinomial probability of a bag of words, since they do not sum over all possible orderings of those words, as is done by the multinomial coefficient (the first term on the right-hand side) in the standard presentation of a multinomial model: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P(d) = \frac{L_d!}{\termf_{t_1,d}!\termf_{t_2,d}!\cdots \termf_{t_M,d}!}
+P(t_1)^{\termf_{t_1,d}}P(t_2)^{\termf_{t_2,d}}\cdots P(t_M)^{\termf_{t_M,d}}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="417" height="45" border="0" src="img810.png" alt="\begin{displaymath}
+P(d) = \frac{L_d!}{\termf_{t_1,d}!\termf_{t_2,d}!\cdots \ter...
+..._{t_1,d}}P(t_2)^{\termf_{t_2,d}}\cdots P(t_M)^{\termf_{t_M,d}}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (97)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> Here, 
+  <!-- MATH
+ $L_d =\sum_{1 \leq i \leq M} \termf_{t_i,d}$
+ --> 
+  <img width="130" height="31" align="MIDDLE" border="0" src="img811.png" alt="$L_d =\sum_{1 \leq i \leq M} \termf_{t_i,d}$" /> is the length of document 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> is the size of the term vocabulary, and the products are now over the terms in the vocabulary, not the positions in the document. However, just as with 
+  <small>STOP</small> probabilities, in practice we can also leave out the multinomial coefficient in our calculations, since, for a particular bag of words, it will be a constant, and so it has no effect on the likelihood ratio of two different models generating a particular bag of words. Multinomial distributions also appear in Section&nbsp; 
+  <a href="naive-bayes-text-classification-1.html#sec:naivebayes">13.2</a> (page&nbsp; 
+  <a href="naive-bayes-text-classification-1.html#p:naivebayes"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). 
+  <p> The fundamental problem in designing language models is that we do not know what exactly we should use as the model <img width="27" height="32" align="MIDDLE" border="0" src="img789.png" alt="$M_d$" />. However, we do generally have a sample of text that is representative of that model. This problem makes a lot of sense in the original, primary uses of language models. For example, in speech recognition, we have a training sample of (spoken) text. But we have to expect that, in the future, users will use different words and in different sequences, which we have never observed before, and so the model has to generalize beyond the observed data to allow unknown words and sequences. This interpretation is not so clear in the IR case, where a document is finite and usually fixed. The strategy we adopt in IR is as follows. We pretend that the document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> is only a representative sample of text drawn from a model distribution, treating it like a fine-grained topic. We then estimate a language model from this sample, and use that model to calculate the probability of observing any word sequence, and, finally, we rank documents according to their probability of generating the query. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>Including stop probabilities in the calculation, what will the sum of the probability estimates of all strings in the language of length 1 be? Assume that you generate a word and then decide whether to stop or not (i.e., the null string is not part of the language). <p> </p></li> 
+   <li>If the stop probability is omitted from calculations, what will the sum of the scores assigned to strings in the language of length 1 be? <p> </p></li> 
+   <li>What is the likelihood ratio of the document according to <img width="27" height="32" align="MIDDLE" border="0" src="img803.png" alt="$M_1$" /> and <img width="26" height="32" align="MIDDLE" border="0" src="img804.png" alt="$M_2$" /> in m1m2compare? <p> </p></li> 
+   <li><a name="ex:nostop-lr"></a> No explicit <small>STOP</small> probability appeared in m1m2compare. Assuming that the <small>STOP</small> probability of each model is 0.1, does this change the likelihood ratio of a document according to the two models? <p> </p></li> 
+   <li>How might a language model be used in a <a name="15320"></a> <i>spelling correction</i> system? In particular, consider the case of context-sensitive spelling correction, and correcting incorrect usages of words, such as <i>their</i> in <i>Are you their?</i> (See Section&nbsp;<a href="references-and-further-reading-3.html#sec:wildcardrefs">3.5</a> (page&nbsp;<a href="references-and-further-reading-3.html#p:wildcardrefs"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>) for pointers to some literature on this topic.) <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3297" href="the-query-likelihood-model-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3291" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3287" href="types-of-language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3293" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3295" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3298" href="the-query-likelihood-model-1.html">The query likelihood model</a> 
+  <b> Up:</b> 
+  <a name="tex2html3292" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3288" href="types-of-language-models-1.html">Types of language models</a> &nbsp; 
+  <b> <a name="tex2html3294" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3296" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,2 @@
+Digitizing & providing access to contextual cultural materials: the liner notes digitization project
+This paper describes a digitization project focused on developing a metadata modeling schema for album liner notes.

@@ -1,0 +1,2 @@
+Exploiting music structures for digital libraries
+This demonstration presents a music structure-based audio/visual interface for the navigation of very large scale music digital libraries. This work is a product of the Structural Analysis of Large Amounts of Music Information (SALAMI) project.

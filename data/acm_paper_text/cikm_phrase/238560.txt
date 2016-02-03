@@ -1,0 +1,1 @@
+a new conflict relation for concurrency-control and recovery in object-based databases an abstract is not available .

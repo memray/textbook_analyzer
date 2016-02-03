@@ -1,0 +1,2 @@
+A utility-theoretic analysis of expected search length
+In this paper the expected search length, which is a measure of retrieval system performance, is investigated from the viewpoint of axiomatic utility theory. Necessary and sufficient criteria for the expected search length to be an ordinal scale and sufficient criteria that it is a ratio scale are given.

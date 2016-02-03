@@ -1,0 +1,2 @@
+Salticus: guided crawling for personal digital libraries
+In this paper, we describe Salticus, a web crawler that learns from us ers web browsing activity. Salticus enables users to build a personal digital library by collecting documents and generalizing over the user's choices.

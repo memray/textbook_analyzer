@@ -1,0 +1,2 @@
+Algebraic query languages on temporal databases with multiple time granularities
+An abstract is not available.

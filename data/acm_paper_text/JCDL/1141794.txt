@@ -1,0 +1,2 @@
+Concept maps to support oral history search and use
+In this paper we describe a novel technique to support information seeking in oral history archives using concept maps. We conducted a pilot study with teachers engaged in work tasks using a prototype concept mapping tool. Results suggest that concept maps can help searchers, especially when tasks are complex.

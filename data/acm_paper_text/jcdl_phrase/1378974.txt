@@ -1,0 +1,1 @@
+computational-linguistics for metadata-building in this paper , we describe a downloadable text-mining tool for enhancing subject access to image-collections in digital-libraries .

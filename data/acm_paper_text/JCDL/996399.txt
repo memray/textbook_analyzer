@@ -1,0 +1,2 @@
+Video grammar for locating named people
+Finding a named person in broadcast news video is important to video retrieval. Relying on the text information such as video tran-script and OCR text, this task suffers from the temporal mismatch between a person's visual appearance and his/her name occurred in text. By exploring video grammar on the concurrence pattern between faces and names, we propose an extended text-based IR method to overcome this problem and yield superior performance.

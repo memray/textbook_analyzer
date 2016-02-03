@@ -1,0 +1,2 @@
+BioPortal: a case study in infectious disease informatics
+We present the BioPortal system, an integrated cross-jurisdictional data sharing and analysis environment to facilitate detection, prevention, and management of infectious disease outbreaks.

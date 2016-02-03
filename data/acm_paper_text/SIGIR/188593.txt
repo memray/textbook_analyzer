@@ -1,0 +1,2 @@
+Document and passage retrieval based on hidden Markov models
+An abstract is not available.

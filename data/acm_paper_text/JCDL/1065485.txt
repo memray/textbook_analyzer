@@ -1,0 +1,2 @@
+Applying verification, validation, and accreditation processes to digital libraries
+We propose to address the issue of quality of digital library objects in the Computational Science Education Reference Desk by applying a verification, validation, and accreditation workflow to the review of learning objects.

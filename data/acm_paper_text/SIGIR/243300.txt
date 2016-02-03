@@ -1,0 +1,2 @@
+Extraction of a word list from an existing dictionary to be used in a communication-aid software
+An abstract is not available.

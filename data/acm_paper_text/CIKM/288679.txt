@@ -1,0 +1,2 @@
+A toggle transaction management technique for mobile multidatabases
+An abstract is not available.

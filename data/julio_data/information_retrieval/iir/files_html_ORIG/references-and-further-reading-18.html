@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="latent-semantic-indexing-1.html" /> 
+  <link rel="up" href="matrix-decompositions-and-latent-semantic-indexing-1.html" /> 
+  <link rel="next" href="web-search-basics-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4595" href="web-search-basics-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4589" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4585" href="latent-semantic-indexing-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4591" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4593" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4596" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Up:</b> 
+  <a name="tex2html4590" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4586" href="latent-semantic-indexing-1.html">Latent semantic indexing</a> &nbsp; 
+  <b> <a name="tex2html4592" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4594" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002350000000000000000"></a> <a name="sec:furtherlsi"></a> <a name="p:furtherlsi"></a> <br /> References and further reading </h1> 
+  <p> <a href="bibliography-1.html#strang">Strang (1986)</a> provides an excellent introductory overview of matrix decompositions including the singular value decomposition. Theorem&nbsp;<a href="low-rank-approximations-1.html#thm:eckartyoung">18.3</a> is due to <a href="bibliography-1.html#eckartyoung">Eckart and Young (1936)</a>. The connection between information retrieval and low-rank approximations of the term-document matrix was introduced in <a href="bibliography-1.html#dee90">Deerwester et&nbsp;al. (1990)</a>, with a subsequent survey of results in <a href="bibliography-1.html#berrydumais95">Berry et&nbsp;al. (1995)</a>. <a href="bibliography-1.html#dumais93">Dumais (1993)</a> and <a href="bibliography-1.html#Dum-95">Dumais (1995)</a> describe experiments on TREC benchmarks giving evidence that at least on some benchmarks, LSI can produce better precision and recall than standard vector-space retrieval. <tt><a name="tex2html196" href="http://www.cs.utk.edu/&lt;TT&gt;~&lt;/TT&gt;berry/lsi++/">http://www.cs.utk.edu/<tt>~</tt>berry/lsi++/</a></tt>and <tt><a name="tex2html197" href="http://lsi.argreenhouse.com/lsi/LSIpapers.html">http://lsi.argreenhouse.com/lsi/LSIpapers.html</a></tt>offer comprehensive pointers to the literature and software of LSI. <a href="bibliography-1.html#schutze97projections">Sch&uuml;tze and Silverstein (1997)</a> evaluate LSI and truncated representations of centroids for efficient <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means clustering (Section <a href="k-means-1.html#sec:kmeans">16.4</a> ). <a href="bibliography-1.html#bast05spectral">Bast and Majumdar (2005)</a> detail the role of the reduced dimension <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> in LSI and how different pairs of terms get coalesced together at differing values of <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />. Applications of LSI to <a name="29070"></a> <i>cross-language information retrieval</i> (where documents in two or more different languages are indexed, and a query posed in one language is expected to retrieve documents in other languages) are developed in <a href="bibliography-1.html#berryyoung1995">Berry and Young (1995)</a> and <a href="bibliography-1.html#littman98automatic">Littman et&nbsp;al. (1998)</a>. LSI (referred to as LSA in more general settings) has been applied to host of other problems in computer science ranging from memory modeling to computer vision. </p>
+  <p> <a name="tex2html4597" href="bibliography-1.html#hofmann99probabilistic">Hofmann (1999a</a>;<a name="tex2html4598" href="bibliography-1.html#th:plsi">b)</a> provides an initial probabilistic extension of the basic latent semantic indexing technique. A more satisfactory formal basis for a probabilistic latent variable model for dimensionality reduction is the <a name="29075"></a> <i>Latent Dirichlet Allocation</i> (<a name="29077"></a> <i>LDA</i> ) model (<a href="bibliography-1.html#blei03latent">Blei et&nbsp;al., 2003</a>), which is generative and assigns probabilities to documents outside of the training set. This model is extended to a hierarchical clustering by <a href="bibliography-1.html#rosenzvi04authortopic">Rosen-Zvi et&nbsp;al. (2004)</a>. <a href="bibliography-1.html#wei06lda">Wei and Croft (2006)</a> present the first large scale evaluation of LDA, finding it to significantly outperform the query likelihood model of Section&nbsp;<a href="the-query-likelihood-model-1.html#sec:qlm">12.2</a> (page&nbsp;<a href="the-query-likelihood-model-1.html#p:qlm"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>), but to not perform quite as well as the relevance model mentioned in Section&nbsp;<a href="extended-language-modeling-approaches-1.html#sec:extended-lm">12.4</a> (page&nbsp;<a href="extended-language-modeling-approaches-1.html#p:extended-lm"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>) - but the latter does additional per-query processing unlike LDA. <a href="bibliography-1.html#teh06hdp">Teh et&nbsp;al. (2006)</a> generalize further by presenting <a name="29087"></a> <i>Hierarchical Dirichlet Processes</i> , a probabilistic model which allows a group (for us, a document) to be drawn from an infinite mixture of latent topics, while still allowing these topics to be shared across documents. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li><a name="ex:engspan"></a>Assume you have a set of documents each of which is in either English or in Spanish. The collection is given in Figure <a href="#fig:engspandocs">18.4</a> . <p> </p>
+    <div align="CENTER">
+     <a name="fig:engspandocs"></a>
+     <a name="p:engspandocs"></a>
+     <a name="29149"></a> 
+     <table> 
+      <caption align="BOTTOM">
+       <strong>Figure:</strong> Documents for Exercise&nbsp;
+       <a href="#ex:engspan">18.5</a>.
+      </caption> 
+      <tbody>
+       <tr>
+        <td><img width="205" height="139" border="0" src="img1823.png" alt="\begin{figure}\begin{tabular}{\vert\vert l\vert l\vert\vert}
+\hline
+DocID &amp; Docu...
+...bienvenido \\
+\hline
+6 &amp; hello and welcome\\
+\hline
+\end{tabular}
+\end{figure}" /></td>
+       </tr> 
+      </tbody>
+     </table> 
+    </div> <p> Figure&nbsp;<a href="#engspangloss">18.5</a> gives a glossary relating the Spanish and English words above for your own information. This glossary is NOT available to the retrieval system: </p><p> </p>
+    <div align="CENTER">
+     <a name="engspangloss"></a>
+     <a name="29150"></a> 
+     <table> 
+      <caption align="BOTTOM">
+       <strong>Figure 18.5:</strong> Glossary for Exercise&nbsp;
+       <a href="#ex:engspan">18.5</a>.
+      </caption> 
+      <tbody>
+       <tr>
+        <td><img width="171" height="136" border="0" src="img1824.png" alt="\begin{figure}\begin{tabular}{\vert\vert l\vert l\vert\vert}
+\hline
+Spanish &amp; En...
+...rofessor\\
+y &amp; and\\
+bienvenido &amp; welcome\\
+\hline
+\end{tabular}
+\end{figure}" /></td>
+       </tr> 
+      </tbody>
+     </table> 
+    </div> <p> </p>
+    <ol> 
+     <li>Construct the appropriate term-document matrix <img width="15" height="32" align="MIDDLE" border="0" src="img1665.png" alt="$\lsimatrix$" /> to use for a collection consisting of these documents. For simplicity, use raw term frequencies rather than normalized tf-idf weights. Make sure to clearly label the dimensions of your matrix. </li> 
+     <li>Write down the matrices <img width="47" height="35" align="MIDDLE" border="0" src="img1825.png" alt="$U_2,\Sigma'_2$" /> and <img width="20" height="32" align="MIDDLE" border="0" src="img1826.png" alt="$V_2$" /> and from these derive the rank 2 approximation <img width="21" height="32" align="MIDDLE" border="0" src="img1819.png" alt="$\lsimatrix_2$" />. </li> 
+     <li>State succinctly what the <img width="34" height="33" align="MIDDLE" border="0" src="img7.png" alt="$(i,j)$" /> entry in the matrix 
+      <!-- MATH
+ $\lsimatrix^T\lsimatrix$
+ --> <img width="35" height="38" align="MIDDLE" border="0" src="img1721.png" alt="$\lsimatrix^T\lsimatrix$" /> represents. </li> 
+     <li>State succinctly what the <img width="34" height="33" align="MIDDLE" border="0" src="img7.png" alt="$(i,j)$" /> entry in the matrix 
+      <!-- MATH
+ $\lsimatrix_2^T\lsimatrix_2$
+ --> <img width="41" height="38" align="MIDDLE" border="0" src="img1827.png" alt="$\lsimatrix_2^T\lsimatrix_2$" /> represents, and why it differs from that in 
+      <!-- MATH
+ $\lsimatrix^T\lsimatrix$
+ --> <img width="35" height="38" align="MIDDLE" border="0" src="img1721.png" alt="$\lsimatrix^T\lsimatrix$" />. </li> 
+    </ol> <p> </p></li> 
+  </ul> 
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4595" href="web-search-basics-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4589" href="matrix-decompositions-and-latent-semantic-indexing-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4585" href="latent-semantic-indexing-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4591" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4593" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4596" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Up:</b> 
+  <a name="tex2html4590" href="matrix-decompositions-and-latent-semantic-indexing-1.html">Matrix decompositions and latent</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4586" href="latent-semantic-indexing-1.html">Latent semantic indexing</a> &nbsp; 
+  <b> <a name="tex2html4592" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4594" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

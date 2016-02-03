@@ -1,0 +1,2 @@
+Algorithm for discovering multivalued dependencies
+An abstract is not available.

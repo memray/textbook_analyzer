@@ -1,0 +1,1 @@
+exploitation of the wikipedia category system for enhancing the value of lcsh this paper addresses an approach that integrates two different types of information resources : the-web and libraries . our method begins from any keywords in wikipedia , and induces related subject-headings of lcsh through the wikipedia category system .

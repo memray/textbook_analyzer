@@ -1,0 +1,2 @@
+Experimental evaluation of dynamic data allocation strategies in a distributed database with changing workloads
+An abstract is not available.

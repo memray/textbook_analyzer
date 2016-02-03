@@ -1,0 +1,2 @@
+Dynamic generation of OAI servers
+We describe Voai and Xoai , two software environments that facilitate the automatic construction of OAI servers for collections managed via relational and XML databases, respectively. We have used Voai and Xoai to generate OAI servers for diverse collections. We use freely available tools and do not impose programming requirements upon the users. By making this software publicly available, we aim to facilitate the process of joining the OAI community and becoming data providers.

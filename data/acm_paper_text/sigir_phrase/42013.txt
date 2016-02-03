@@ -1,0 +1,1 @@
+generating an individualized user-interface a model of the interface to an information-retrieval-system is developed based on the semantic data-model . using this framework , a method of developing customized user-interfaces is described , in general terms and in a specific implementation in the interface-builder module of the western information-retrieval-system .

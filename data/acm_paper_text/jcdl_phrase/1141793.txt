@@ -1,0 +1,1 @@
+windowing time in digital-libraries this paper discusses the specification , organization , and utility of time references identified in digital-library materials , emphasizing how to treat date references that can not be resolved to a single day . the historymakers oral-history archive is used to illustrate the concept of windowing such time in digital-library-interfaces .

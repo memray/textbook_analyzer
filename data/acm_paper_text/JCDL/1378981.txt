@@ -1,0 +1,2 @@
+Bringing lives to light: lives and event representation in temporal and geographic context
+Our demonstration system consists of a set of tools for identifying life events in biographical texts and linking them to relevant contextual resources.

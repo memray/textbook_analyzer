@@ -1,0 +1,2 @@
+Active real-time database management for command & control applications
+An abstract is not available.

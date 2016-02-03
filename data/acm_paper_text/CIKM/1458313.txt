@@ -1,0 +1,2 @@
+Mining named entity transliteration equivalents from comparable corpora
+An abstract is not available.

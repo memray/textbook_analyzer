@@ -1,0 +1,2 @@
+Manjal: a text mining system for MEDLINE
+An abstract is not available.

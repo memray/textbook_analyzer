@@ -1,0 +1,2 @@
+k nearest neighbor classification across multiple private databases
+Distributed privacy preserving data mining tools are critical for mining multiple databases with a minimum information disclosure. We present a framework including a general model as well as multi-round algorithms for mining horizontally partitioned databases using a privacy preserving k Nearest Neighbor ( k NN) classifier.

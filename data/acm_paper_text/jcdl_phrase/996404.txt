@@ -1,0 +1,1 @@
+collaborative extensions for the uplib system the uplib personal-digital-library system is specifically designed for secure use by a single individual . however , collaborative operation of multiple uplib repositories is still possible . this paper describes two mechanisms that have been added to uplib to facilitate community-building around individual document-collections .

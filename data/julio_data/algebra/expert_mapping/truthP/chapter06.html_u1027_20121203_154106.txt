@@ -1,0 +1,2 @@
+book1_ch06_7;book2_chapter6_2,3,2;
+book1_ch06_8;book2_chapter6_3,3,2;

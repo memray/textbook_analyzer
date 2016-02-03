@@ -1,0 +1,2 @@
+Scheduling and mapping for parallel execution of extended SQL queries
+An abstract is not available.

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Champion lists</title> 
+  <meta name="description" content="Champion lists" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="static-quality-scores-and-ordering-1.html" /> 
+  <link rel="previous" href="index-elimination-1.html" /> 
+  <link rel="up" href="efficient-scoring-and-ranking-1.html" /> 
+  <link rel="next" href="static-quality-scores-and-ordering-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2174" href="static-quality-scores-and-ordering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2168" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2162" href="index-elimination-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2170" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2172" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2175" href="static-quality-scores-and-ordering-1.html">Static quality scores and</a> 
+  <b> Up:</b> 
+  <a name="tex2html2169" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2163" href="index-elimination-1.html">Index elimination</a> &nbsp; 
+  <b> <a name="tex2html2171" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2173" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001213000000000000000"></a> <a name="sec:champion"></a> <a name="p:champion"></a> <br /> Champion lists </h2> The idea of 
+  <em>champion lists</em> (sometimes also called 
+  <i>fancy lists</i> or 
+  <i>top docs</i>) is to precompute, for each term 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" /> in the dictionary, the set of the 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> documents with the highest weights for 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />; the value of 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> is chosen in advance. For tf-idf weighting, these would be the 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> documents with the highest tf values for term 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />. We call this set of 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> documents the 
+  <em>champion list</em> for term 
+  <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />. 
+  <p> Now, given a query <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" /> we create a set <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> as follows: we take the union of the champion lists for each of the terms comprising <img width="12" height="32" align="MIDDLE" border="0" src="img161.png" alt="$q$" />. We now restrict cosine computation to only the documents in <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />. A critical parameter in this scheme is the value <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" />, which is highly application dependent. Intuitively, <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> should be large compared with <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />, especially if we use any form of the index elimination described in Section <a href="index-elimination-1.html#sec:indelim">7.1.2</a> . One issue here is that the value <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> is set at the time of index construction, whereas <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> is application dependent and may not be available until the query is received; as a result we may (as in the case of index elimination) find ourselves with a set <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> that has fewer than <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents. There is no reason to have the same value of <img width="10" height="32" align="MIDDLE" border="0" src="img28.png" alt="$r$" /> for all terms in the dictionary; it could for instance be set to be higher for rarer terms. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2174" href="static-quality-scores-and-ordering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2168" href="efficient-scoring-and-ranking-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2162" href="index-elimination-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2170" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2172" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2175" href="static-quality-scores-and-ordering-1.html">Static quality scores and</a> 
+  <b> Up:</b> 
+  <a name="tex2html2169" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2163" href="index-elimination-1.html">Index elimination</a> &nbsp; 
+  <b> <a name="tex2html2171" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2173" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

@@ -1,0 +1,2 @@
+Investigating user perceptions of engagement and information quality in mobile human computation games
+We investigate user perceptions of engagement and information quality of a mobile human computation game (HCG) by comparing it against a non-game-based application. Results suggest that the mobile HCG enabled participants to occupy their leisure time but the information contributed was perceived to be not as relevant. Implications of this study are discussed.

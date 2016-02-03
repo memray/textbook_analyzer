@@ -1,0 +1,2 @@
+Empirical analysis on chinese academic plagiarism
+This poster, from angels of subjects, authors' social network, authors' combination, and students' plagiarism law, apply self-developed ROST Anti-plagiarism Software to check 3781 papers, do a survey among 450 students, quantitatively analyzed academic plagiarism conditions in China, and draw several conclusions.

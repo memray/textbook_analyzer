@@ -1,0 +1,2 @@
+Detection and resolution of deadlocks in distributed database systems
+An abstract is not available.

@@ -1,0 +1,2 @@
+A simple method for citation metadata extraction using hidden markov models
+This paper describes a simple method for extracting metadata fields from citations using hidden Markov models. The method is easy to implement and can achieve levels of precision and recall for heterogeneous citations comparable to or greater than other HMM-based methods. The method consists largely of string manipulation and otherwise depends only on an implementation of the Viterbi algorithm, which is widely available, and so can be implemented by diverse digital library systems.

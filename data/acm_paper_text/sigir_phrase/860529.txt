@@ -1,0 +1,1 @@
+average-gain-ratio : a simple retrieval-performance measure for evaluation with multiple relevance levels an abstract is not available .

@@ -1,0 +1,2 @@
+Query processing for knowledge bases using join indices
+An abstract is not available.

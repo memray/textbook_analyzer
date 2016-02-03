@@ -1,0 +1,2 @@
+The effects of query structure and dictionary setups in dictionary-based cross-language information retrieval
+An abstract is not available.

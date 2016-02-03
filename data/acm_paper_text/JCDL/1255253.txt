@@ -1,0 +1,2 @@
+Standards alignment for metadata assignment
+The research in this paper describes a Machine Learning technique called hierarchical text categorization which is used to solve the problem of finding equivalents from among different state and national education standards. The approach is based on a set of manually aligned standards and utilizes the hierarchical structure present in the standards to achieve a more accurate result. Details of this approach and its evaluation are presented.

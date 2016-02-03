@@ -1,0 +1,2 @@
+Efficient processing of vague queries using a data stream approach
+An abstract is not available.

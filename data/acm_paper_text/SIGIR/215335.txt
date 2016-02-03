@@ -1,0 +1,2 @@
+Integrating IR and RDBMS using cooperative indexing
+An abstract is not available.

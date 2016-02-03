@@ -1,0 +1,2 @@
+Collaborative design with use case scenarios
+Digital libraries, particularly those with a community-based governanc e structure, are best designed in a collaborative setting. In this paper, we compare our experience using two design methods: a Task-centered method that draws upon a group's strength for eliciting and formulating tasks, and a Use Case method that tends to require a focus on defining an explicit process for tasks. We discuss how these methods did and did not work well in a collaborative setting.

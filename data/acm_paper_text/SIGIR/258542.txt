@@ -1,0 +1,2 @@
+QUILT: implementing a large-scale cross-language text retrieval system
+An abstract is not available.

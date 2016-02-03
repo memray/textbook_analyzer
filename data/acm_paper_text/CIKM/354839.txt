@@ -1,0 +1,2 @@
+A meta model and an infrastructure for the non-transparent replication of object databases
+An abstract is not available.

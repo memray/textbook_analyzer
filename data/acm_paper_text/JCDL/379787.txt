@@ -1,0 +1,2 @@
+View segmentation and static/dynamic summary generation for echocardiogram videos
+An abstract is not available.

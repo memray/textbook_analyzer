@@ -1,0 +1,1 @@
+the cluster-hypothesis for entity oriented search in this work we study the cluster-hypothesis for entity oriented search (eos) . specifically , we show that the hypothesis can hold to a substantial extent for several entity similarity-measures . we also demonstrate the retrieval-effectiveness merits of using clusters of similar entities for eos .

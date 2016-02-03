@@ -1,0 +1,2 @@
+Clustering and singular value decomposition for approximate indexing in high dimensional spaces
+An abstract is not available.

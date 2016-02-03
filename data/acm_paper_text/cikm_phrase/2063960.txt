@@ -1,0 +1,1 @@
+named-entity-recognition using a modified-pegasos-algorithm in this paper , we describe a named-entity-recognition using a modified-pegasos-algorithm for structural svms . we show the modified-pegasos-algorithm significantly outperformed crfs and the training-time for the modified-pegasos-algorithm is reduced 17-26 times compared to crfs .

@@ -1,0 +1,2 @@
+A comparison of retrieval-based hierarchical clustering approaches to person name disambiguation
+This paper describes a simple clustering approach to person name disambiguation of retrieved documents. The methods are based on standard IR concepts and do not require any task-specific features. We compare different term-weighting and indexing methods and evaluate their performance against the Web People Search task (WePS). Despite their simplicity these approaches achieve very competitive performance.

@@ -1,0 +1,1 @@
+learning-to-rank under tight budget constraints this paper investigates the influence of pruning feature lists to keep a given budget for the evaluation of ranking methods . we learn from a given training-set how important the individual prefixes are for the ranking quality . based on there importance we choose the best prefixes to calculate the ranking while keeping the budget .

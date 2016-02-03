@@ -1,0 +1,2 @@
+Experiments in multilingual information retrieval using the SPIDER system
+An abstract is not available.

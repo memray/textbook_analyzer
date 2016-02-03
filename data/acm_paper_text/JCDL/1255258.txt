@@ -1,0 +1,2 @@
+A multilingual approach to technical manuscripts: 16th and 17th-century Portuguese shipbuilding treatises
+Shipbuilding treatises are technical manuscripts written in a variety of languages and spanning several centuries that describe the construction of ships. Given their technical content, understanding terms, concepts, and construction sequences is a challenging task. In this paper we describe a scalable approach and a multilingual web-based interface for enabling a group of scholars to edit a glossary of nautical terms in multiple languages.

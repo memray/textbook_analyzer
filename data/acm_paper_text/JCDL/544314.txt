@@ -1,0 +1,2 @@
+NSDL: from prototype to production to transformational national resource
+This panel will discuss the first release of the National Science Digital Library and plans for growing it into a very large, comprehensive library of digital materials relevant to science education.

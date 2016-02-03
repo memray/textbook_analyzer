@@ -1,0 +1,2 @@
+Optimizing query evaluation in n-gram indexing
+An abstract is not available.

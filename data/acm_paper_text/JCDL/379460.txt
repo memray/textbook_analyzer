@@ -1,0 +1,2 @@
+Web-based scholarship: annotating the digital library
+The DL offers the possibility of collaborative scholarship, but the ap propriate tools must be integrated within the DL to serve this purpose. We propose a Web-based tool to guide controlled data annotations that link items in the DL to a domain-specific ontology and which provide an effective means to query a data collection in an abstract and uniform fashion.

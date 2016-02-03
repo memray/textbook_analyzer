@@ -1,0 +1,1 @@
+Demonstration of citation pattern analysis for plagiarism detection

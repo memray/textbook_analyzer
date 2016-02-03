@@ -1,0 +1,2 @@
+Multi-query optimization of sliding window aggregates by schedule synchronization
+An abstract is not available.

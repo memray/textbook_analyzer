@@ -1,0 +1,2 @@
+EMU: the emory user behavior data management system for automatic library search evaluation
+We describe EMU, a system for collecting, managing, and mining the behavior data collected in the Emory libraries search system. We describe the data capture system based on the LibX browser plugin, the database management system for successfully storing, searching and exploring millions of resulting user interactions, and preliminary results of interesting queries and statistics that we are using to evaluate the effectiveness of library search tools.

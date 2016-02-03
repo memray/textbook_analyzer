@@ -1,0 +1,2 @@
+An evaluation methodology for coordinated event visualization in digital libraries
+Event visualization holds the promise of alleviating information overload in digital libraries. We propose a methodology for evaluating a coordinated event visualization tool called COPLINK Spatio--Temporal Visualizer (STV) The methodology examines different event dimensions and compares STV with another frequently used crime analysis tool (Microsoft Excel). We briefly describe the experimental procedure and results, and discuss future directions.

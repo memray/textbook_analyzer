@@ -1,0 +1,2 @@
+The físchlár digital video system: a digital library of broadcast TV programmes
+Físchl& acute;r is a system for recording, indexing, browsing and playback of broadcast TV programmes which has been operational on our University campus for almost 18 months. In this paper we give a brief overview of how the system operates, how TV programmes are organised for browse/playback and a short report on the system usage by over 900 users in our University.

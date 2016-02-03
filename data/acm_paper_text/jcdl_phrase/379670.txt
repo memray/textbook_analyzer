@@ -1,0 +1,1 @@
+browsing by phrases : terminological-information in interactive multilingual-text-retrieval this paper present an interactive-search engine (website term browser) which makes use of phrasal information to process queries and suggest relevant topics in a fully multilingual setting .

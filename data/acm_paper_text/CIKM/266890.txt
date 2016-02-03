@@ -1,0 +1,2 @@
+A spatial match representation scheme for indexing and querying in iconic image databases
+An abstract is not available.

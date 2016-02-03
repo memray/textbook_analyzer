@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Finite automata and language models</title> 
+  <meta name="description" content="Finite automata and language models" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="types-of-language-models-1.html" /> 
+  <link rel="previous" href="language-models-1.html" /> 
+  <link rel="up" href="language-models-1.html" /> 
+  <link rel="next" href="types-of-language-models-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3271" href="types-of-language-models-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3265" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3259" href="language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3267" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3269" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3272" href="types-of-language-models-1.html">Types of language models</a> 
+  <b> Up:</b> 
+  <a name="tex2html3266" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3260" href="language-models-1.html">Language models</a> &nbsp; 
+  <b> <a name="tex2html3268" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3270" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001711000000000000000"> Finite automata and language models</a> </h2> 
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:fsm"></a><a name="p:fsm"></a></p>
+   <img width="555" height="195" border="0" src="img791.png" alt="\begin{figure}
+% latex2html id marker 15157
+\begin{pspicture}(0,0)(5,3)
+\rput(1,...
+...omaton and a double circle indicates a (possible) finishing
+state.}\end{figure}" /> 
+  </div> 
+  <p> <a name="p:generativemodel"></a> What do we mean by a document model generating a query? A traditional <a name="15181"></a> <i>generative model</i> of a language, of the kind familiar from formal language theory, can be used either to recognize or to generate strings. For example, the finite automaton shown in Figure <a href="#fig:fsm">12.1</a> can generate strings that include the examples shown. The full set of strings that can be generated is called the <a name="15184"></a> <i>language</i> of the automaton.<a name="tex2html114" href="footnode.html#foot15186"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:fsm2"></a><a name="p:fsm2"></a></p>
+   <img width="555" height="201" border="0" src="img792.png" alt="\begin{figure}
+% latex2html id marker 15187
+\begin{tabular}[b]{c}
+\begin{pspictu...
+... show a partial specification of the state emission
+probabilities.}\end{figure}" /> 
+  </div> 
+  <p> If instead each node has a probability distribution over generating different terms, we have a language model. The notion of a language model is inherently probabilistic. A <a name="15211"></a> <i>language model</i> is a function that puts a probability measure over strings drawn from some vocabulary. That is, for a language model <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> over an alphabet <img width="15" height="32" align="MIDDLE" border="0" src="img793.png" alt="$\Sigma$" />: <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\sum_{s \in \Sigma^{*}} P(s) = 1
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="lang-model-eq"></a><img width="91" height="43" border="0" src="img794.png" alt="\begin{displaymath}
+\sum_{s \in \Sigma^{*}} P(s) = 1
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (90)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> One simple kind of language model is equivalent to a probabilistic finite automaton consisting of just a single node with a single probability distribution over producing different terms, so that 
+  <!-- MATH
+ $\sum_{t \in V} P(t) = 1$
+ --> 
+  <img width="102" height="33" align="MIDDLE" border="0" src="img795.png" alt="$\sum_{t \in V} P(t) = 1$" />, as shown in Figure 
+  <a href="#fig:fsm2">12.2</a> . After generating each word, we decide whether to stop or to loop around and then produce another word, and so the model also requires a probability of stopping in the finishing state. Such a model places a probability distribution over any sequence of words. By construction, it also provides a model for generating text according to its distribution. 
+  <p> <b>Worked example.</b> <a name="m1probability"></a>To find the probability of a word sequence, we just multiply the probabilities which the model gives to each word in the sequence, together with the probability of continuing or stopping after producing each word. For example, <br /> </p>
+  <div align="CENTER"> 
+   <!-- MATH
+ \begin{eqnarray}
+P(\mbox{frog said that toad likes frog}) & = &
+(0.01 \times 0.03 \times 0.04 \times 0.01 \times 0.02 \times 0.01) \\
+& & \times (0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.2) \\
+& \approx & 0.000000000001573
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT"><img width="226" height="33" align="MIDDLE" border="0" src="img796.png" alt="$\displaystyle P(\mbox{frog said that toad likes frog})$" /></td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img313.png" alt="$\textstyle =$" /></td> 
+      <td align="LEFT" nowrap=""><img width="282" height="33" align="MIDDLE" border="0" src="img797.png" alt="$\displaystyle (0.01 \times 0.03 \times 0.04 \times 0.01 \times 0.02 \times 0.01)$" /></td> 
+      <td width="10" align="RIGHT"> (91)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td align="LEFT" nowrap=""><img width="287" height="33" align="MIDDLE" border="0" src="img798.png" alt="$\displaystyle \times (0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.8 \times 0.2)$" /></td> 
+      <td width="10" align="RIGHT"> (92)</td>
+     </tr> 
+     <tr valign="MIDDLE">
+      <td nowrap="" align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" nowrap=""><img width="17" height="32" align="MIDDLE" border="0" src="img799.png" alt="$\textstyle \approx$" /></td> 
+      <td align="LEFT" nowrap=""><img width="135" height="32" align="MIDDLE" border="0" src="img800.png" alt="$\displaystyle 0.000000000001573$" /></td> 
+      <td width="10" align="RIGHT"> (93)</td>
+     </tr> 
+    </tbody>
+   </table>
+  </div> 
+  <br clear="ALL" />
+  <p></p> As you can see, the probability of a particular string/document, is usually a very small number! Here we stopped after generating 
+  <i>frog</i> the second time. The first line of numbers are the term emission probabilities, and the second line gives the probability of continuing or stopping after generating each word. An explicit stop probability is needed for a finite automaton to be a well-formed language model according to Equation&nbsp;
+  <a href="#lang-model-eq">90</a>. Nevertheless, most of the time, we will omit to include 
+  <small>STOP</small> and 
+  <!-- MATH
+ $(1-
+\mbox{\textsc{stop}})$
+ --> 
+  <img width="80" height="33" align="MIDDLE" border="0" src="img801.png" alt="$(1-
+\mbox{\textsc{stop}})$" /> probabilities (as do most other authors). To compare two models for a data set, we can calculate their 
+  <a name="15228"></a> 
+  <i>likelihood ratio</i> , which results from simply dividing the probability of the data according to one model by the probability of the data according to the other model. Providing that the stop probability is fixed, its inclusion will not alter the likelihood ratio that results from comparing the likelihood of two language models generating a string. Hence, it will not alter the ranking of documents.
+  <a name="tex2html115" href="footnode.html#foot15230"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> Nevertheless, formally, the numbers will no longer truly be probabilities, but only proportional to probabilities. See Exercise 
+  <a href="multinomial-distributions-over-words-1.html#ex:nostop-lr">12.1.3</a> . 
+  <b>End worked example.</b> 
+  <p> </p>
+  <div align="CENTER">
+   <a name="fig:lm1"></a>
+   <a name="p:lm1"></a>
+   <a name="15243"></a> 
+   <table> 
+    <caption align="BOTTOM">
+     <strong>Figure 12.3:</strong> Partial specification of two unigram language models.
+    </caption> 
+    <tbody>
+     <tr>
+      <td><img width="233" height="231" border="0" src="img802.png" alt="\begin{figure}\begin{tabular}{\vert ll\vert ll\vert}
+\hline
+\multicolumn{2}{\ver...
+...2 \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\ \hline
+\end{tabular}\par
+\end{figure}" /></td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  <p> <b>Worked example.</b> <a name="m1m2compare"></a>Suppose, now, that we have two language models <img width="27" height="32" align="MIDDLE" border="0" src="img803.png" alt="$M_1$" /> and <img width="26" height="32" align="MIDDLE" border="0" src="img804.png" alt="$M_2$" />, shown partially in Figure <a href="#fig:lm1">12.3</a> . Each gives a probability estimate to a sequence of terms, as already illustrated in m1probability. The language model that gives the higher probability to the sequence of terms is more likely to have generated the term sequence. This time, we will omit <small>STOP</small> probabilities from our calculations. For the sequence shown, we get: <br /> <img width="404" height="108" align="BOTTOM" border="0" src="img805.png" alt="\begin{example}
+\begin{tabular}[t]{lllllllll}
+$s$\ &amp; frog &amp; said &amp; that &amp; toad &amp;...
+...column{5}{l}{$P(s\vert M_2) = 0.000000000000000384 $}
+\end{tabular}\end{example}" /> <br /> and we see that 
+   <!-- MATH
+ $P(s|M_1)> P(s|M_2)$
+ --> <img width="143" height="33" align="MIDDLE" border="0" src="img806.png" alt="$P(s\vert M_1)&gt; P(s\vert M_2)$" />. We present the formulas here in terms of products of probabilities, but, as is common in probabilistic applications, in practice it is usually best to work with sums of log probabilities (cf. page <a href="naive-bayes-text-classification-1.html#p:use-log-probabilities">13.2</a> ). <b>End worked example.</b> </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3271" href="types-of-language-models-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3265" href="language-models-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3259" href="language-models-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3267" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3269" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3272" href="types-of-language-models-1.html">Types of language models</a> 
+  <b> Up:</b> 
+  <a name="tex2html3266" href="language-models-1.html">Language models</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3260" href="language-models-1.html">Language models</a> &nbsp; 
+  <b> <a name="tex2html3268" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3270" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

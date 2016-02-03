@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>k nearest neighbor</title> 
+  <meta name="description" content="k nearest neighbor" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="linear-versus-nonlinear-classifiers-1.html" /> 
+  <link rel="previous" href="rocchio-classification-1.html" /> 
+  <link rel="up" href="vector-space-classification-1.html" /> 
+  <link rel="next" href="time-complexity-and-optimality-of-knn-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3707" href="time-complexity-and-optimality-of-knn-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3701" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3695" href="rocchio-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3703" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3705" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3708" href="time-complexity-and-optimality-of-knn-1.html">Time complexity and optimality</a> 
+  <b> Up:</b> 
+  <a name="tex2html3702" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3696" href="rocchio-classification-1.html">Rocchio classification</a> &nbsp; 
+  <b> <a name="tex2html3704" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3706" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001930000000000000000"></a> <a name="sec:knn"></a> <a name="p:knn"></a> <br /> k nearest neighbor </h1> 
+  <p> Unlike Rocchio, <a name="20162"></a> <i><img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbor</i> or <a name="20164"></a> <i>kNN classification</i> determines the decision boundary locally. For 1NN we assign each document to the class of its closest neighbor. For kNN we assign each document to the majority class of its <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> closest neighbors where <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> is a parameter. The rationale of kNN classification is that, based on the contiguity hypothesis, we expect a test document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> to have the same label as the training documents located in the local region surrounding <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />. </p> 
+  <p> Decision boundaries in 1NN are concatenated segments of the <a name="20166"></a> <i>Voronoi tessellation</i> as shown in Figure <a href="rocchio-classification-1.html#fig:knnboundaries">14.6</a> . The Voronoi tessellation of a set of objects decomposes space into Voronoi cells, where each object's cell consists of all points that are closer to the object than to other objects. In our case, the objects are documents. The Voronoi tessellation then partitions the plane into 
+   <!-- MATH
+ $|\docsetlabeled|$
+ --> <img width="29" height="33" align="MIDDLE" border="0" src="img915.png" alt="$\vert\docsetlabeled\vert$" /> convex polygons, each containing its corresponding document (and no other) as shown in Figure <a href="rocchio-classification-1.html#fig:knnboundaries">14.6</a> , where a convex polygon is a convex region in 2-dimensional space bounded by lines. </p> 
+  <p> For general 
+   <!-- MATH
+ $k \in \mathbb{N}$
+ --> <img width="47" height="31" align="MIDDLE" border="0" src="img1136.png" alt="$k \in \mathbb{N}$" /> in kNN, consider the region in the space for which the set of <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbors is the same. This again is a convex polygon and the space is partitioned into convex polygons<a name="p:knnvoronoi"></a> , within each of which the set of <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbors is invariant (Exercise <a href="exercises-2.html#ex:tessellatelargek">14.8</a> ).<a name="tex2html155" href="footnode.html#foot20852"><sup><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/footnote.png" /></sup></a> </p> 
+  <p> 1NN is not very robust. The classification decision of each test document relies on the class of a single training document, which may be incorrectly labeled or atypical. kNN for <img width="41" height="31" align="MIDDLE" border="0" src="img1140.png" alt="$k&gt;1$" /> is more robust. It assigns documents to the majority class of their <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> closest neighbors, with ties broken randomly. </p> 
+  <p> There is a probabilistic version of this kNN classification algorithm. We can estimate the probability of membership in class <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> as the proportion of the <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbors in <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" />. Figure <a href="rocchio-classification-1.html#fig:knnboundaries">14.6</a> gives an example for <img width="42" height="31" align="MIDDLE" border="0" src="img1141.png" alt="$k=3$" />. Probability estimates for class membership of the star are 
+   <!-- MATH
+ $\hat{P}(\mbox{circle class}|\mbox{star})=1/3$
+ --> <img width="181" height="38" align="MIDDLE" border="0" src="img1142.png" alt="$\hat{P}(\mbox{circle class}\vert\mbox{star})=1/3$" />, 
+   <!-- MATH
+ $\hat{P}(\mbox{X class}|\mbox{star})=2/3$
+ --> <img width="155" height="38" align="MIDDLE" border="0" src="img1143.png" alt="$\hat{P}(\mbox{X class}\vert\mbox{star})=2/3$" />, and 
+   <!-- MATH
+ $\hat{P}(\mbox{diamond class}|\mbox{star})=0$
+ --> <img width="190" height="38" align="MIDDLE" border="0" src="img1144.png" alt="$\hat{P}(\mbox{diamond class}\vert\mbox{star})=0$" />. The 3nn estimate ( 
+   <!-- MATH
+ $\hat{P}_1(\mbox{circle class}|\mbox{star})=1/3$
+ --> <img width="187" height="38" align="MIDDLE" border="0" src="img1145.png" alt="$\hat{P}_1(\mbox{circle class}\vert\mbox{star})=1/3$" />) and the 1nn estimate ( 
+   <!-- MATH
+ $\hat{P}_1(\mbox{circle class}|\mbox{star})=1$
+ --> <img width="168" height="38" align="MIDDLE" border="0" src="img1146.png" alt="$\hat{P}_1(\mbox{circle class}\vert\mbox{star})=1$" />) differ with 3nn preferring the X class and 1nn preferring the circle class . </p> 
+  <p> The parameter <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> in kNN is often chosen based on experience or knowledge about the classification problem at hand. It is desirable for <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> to be odd to make ties less likely. <img width="42" height="31" align="MIDDLE" border="0" src="img1141.png" alt="$k=3$" /> and <img width="41" height="31" align="MIDDLE" border="0" src="img668.png" alt="$k=5$" /> are common choices, but much larger values between 50 and 100 are also used. An alternative way of setting the parameter is to select the <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> that gives best results on a <a name="20191"></a> <i>held-out</i> portion of the training set. </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:knnalgorithm"></a><a name="p:knnalgorithm"></a></p> 
+   <img width="555" height="265" border="0" src="img1147.png" alt="\begin{figure}
+% latex2html id marker 20193
+\begin{algorithm}{Train-kNN}{\mathbb...
+...oc)$.
+$c_j$\ denotes the set of all documents in the class $c_j$.
+}
+\end{figure}" /> 
+  </div> 
+  <p> We can also weight the ``votes'' of the <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbors by their cosine similarity. In this scheme, a class's score is computed as: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{score} (c,d) = \sum_{\onedoc' \in S_k(d)} I_c(\onedoc')
+\cos (\vec{v}(\onedoc') , \vec{v}(\onedoc))
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="292" height="47" border="0" src="img1148.png" alt="\begin{displaymath}
+\mbox{score} (c,d) = \sum_{\onedoc' \in S_k(d)} I_c(\onedoc')
+\cos (\vec{v}(\onedoc') , \vec{v}(\onedoc))
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (143)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> where 
+  <img width="42" height="33" align="MIDDLE" border="0" src="img1149.png" alt="$S_k(d)$" /> is the set of 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />'s 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" /> nearest neighbors and 
+  <!-- MATH
+ $I_c(\onedoc')=1$
+ --> 
+  <img width="72" height="35" align="MIDDLE" border="0" src="img1150.png" alt="$I_c(\onedoc')=1$" /> iff 
+  <img width="17" height="35" align="MIDDLE" border="0" src="img1151.png" alt="$\onedoc'$" /> is in class 
+  <img width="11" height="32" align="MIDDLE" border="0" src="img252.png" alt="$c$" /> and 0 otherwise. We then assign the document to the class with the highest score. Weighting by similarities is often more accurate than simple voting. For example, if two classes have the same number of neighbors in the top 
+  <img width="11" height="31" align="MIDDLE" border="0" src="img20.png" alt="$k$" />, the class with the more similar neighbors wins. 
+  <p> Figure <a href="#fig:knnalgorithm">14.7</a> summarizes the kNN algorithm. </p> 
+  <p> <b>Worked example.</b> The distances of the test document from the four training documents in Table <a href="rocchio-classification-1.html#tab:toyvectors">14.1</a> are 
+   <!-- MATH
+ $|\vec{d}_1 - \vec{d}_5 | 
+=|\vec{d}_2 - \vec{d}_5 | 
+=|\vec{d}_3 - \vec{d}_5 | \approx 1.41$
+ --> <img width="277" height="41" align="MIDDLE" border="0" src="img1152.png" alt="$
+\vert\vec{d}_1 - \vec{d}_5 \vert
+=\vert\vec{d}_2 - \vec{d}_5 \vert
+=\vert\vec{d}_3 - \vec{d}_5 \vert \approx 1.41$" /> and 
+   <!-- MATH
+ $|\vec{d}_4 - \vec{d}_5 | =0.0$
+ --> <img width="106" height="41" align="MIDDLE" border="0" src="img1153.png" alt="$\vert\vec{d}_4 - \vec{d}_5 \vert =0.0$" />. <img width="19" height="31" align="MIDDLE" border="0" src="img908.png" alt="$d_5$" />'s nearest neighbor is therefore <img width="19" height="31" align="MIDDLE" border="0" src="img630.png" alt="$d_4$" /> and 1NN assigns <img width="19" height="31" align="MIDDLE" border="0" src="img908.png" alt="$d_5$" /> to <img width="19" height="31" align="MIDDLE" border="0" src="img630.png" alt="$d_4$" />'s class, <img width="11" height="32" align="MIDDLE" border="0" src="img931.png" alt="$\overline{c}$" />. <b>End worked example.</b> </p> 
+  <p> <br /></p> 
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html3709" href="time-complexity-and-optimality-of-knn-1.html">Time complexity and optimality of kNN</a> </li> 
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3707" href="time-complexity-and-optimality-of-knn-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3701" href="vector-space-classification-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3695" href="rocchio-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3703" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3705" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3708" href="time-complexity-and-optimality-of-knn-1.html">Time complexity and optimality</a> 
+  <b> Up:</b> 
+  <a name="tex2html3702" href="vector-space-classification-1.html">Vector space classification</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3696" href="rocchio-classification-1.html">Rocchio classification</a> &nbsp; 
+  <b> <a name="tex2html3704" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3706" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

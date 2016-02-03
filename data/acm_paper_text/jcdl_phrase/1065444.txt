@@ -1,0 +1,1 @@
+collection-understanding for oai-pmh compliant repositories we briefly discuss the architecture-and-design of a collection-understanding tool that utilizes information-visualization and the open-archives-initiative protocol for metadata-harvesting to help users in understanding the essence of image-collections in oai-pmh compliant repositories .

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Cluster cardinality in K-means</title> 
+  <meta name="description" content="Cluster cardinality in K-means" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="k-means-1.html" /> 
+  <link rel="up" href="k-means-1.html" /> 
+  <link rel="next" href="model-based-clustering-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4238" href="model-based-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4232" href="k-means-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4228" href="k-means-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4234" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4236" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4239" href="model-based-clustering-1.html">Model-based clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4233" href="k-means-1.html">K-means</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4229" href="k-means-1.html">K-means</a> &nbsp; 
+  <b> <a name="tex2html4235" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4237" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002141000000000000000"> Cluster cardinality in K-means</a> </h2> We stated in Section 
+  <a href="problem-statement-1.html#sec:probstatement">16.2</a> that the number of clusters 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> is an input to most flat clustering algorithms. What do we do if we cannot come up with a plausible guess for 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />? 
+  <p> A naive approach would be to select the optimal value of <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> according to the objective function, namely the value of <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> that minimizes RSS. Defining 
+   <!-- MATH
+ $\mbox{RSS}_{min}(K)$
+ --> <img width="77" height="33" align="MIDDLE" border="0" src="img1466.png" alt="$\mbox{RSS}_{min}(K)$" /> as the minimal RSS of all clusterings with <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters, we observe that 
+   <!-- MATH
+ $\mbox{RSS}_{min}(K)$
+ --> <img width="77" height="33" align="MIDDLE" border="0" src="img1466.png" alt="$\mbox{RSS}_{min}(K)$" /> is a monotonically decreasing function in <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> (Exercise <a href="exercises-3.html#ex:rssmonotonic">16.7</a> ), which reaches its minimum 0 for <img width="51" height="32" align="MIDDLE" border="0" src="img1411.png" alt="$K=N$" /> where <img width="17" height="32" align="MIDDLE" border="0" src="img62.png" alt="$N$" /> is the number of documents. We would end up with each document being in its own cluster. Clearly, this is not an optimal clustering. </p> 
+  <p> A heuristic method that gets around this problem is to estimate 
+   <!-- MATH
+ $\mbox{RSS}_{min}(K)$
+ --> <img width="77" height="33" align="MIDDLE" border="0" src="img1466.png" alt="$\mbox{RSS}_{min}(K)$" /> as follows. We first perform <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> (e.g., <img width="46" height="31" align="MIDDLE" border="0" src="img1456.png" alt="$i =10$" />) clusterings with <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters (each with a different initialization) and compute the RSS of each. Then we take the minimum of the <img width="8" height="31" align="MIDDLE" border="0" src="img8.png" alt="$i$" /> RSS values. We denote this minimum by 
+   <!-- MATH
+ $\widehat{\mbox{RSS}}_{min}(K)$
+ --> <img width="77" height="39" align="MIDDLE" border="0" src="img1467.png" alt="$\widehat{\mbox{RSS}}_{min}(K)$" />. Now we can inspect the values 
+   <!-- MATH
+ $\widehat{\mbox{RSS}}_{min}(K)$
+ --> <img width="77" height="39" align="MIDDLE" border="0" src="img1467.png" alt="$\widehat{\mbox{RSS}}_{min}(K)$" /> as <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> increases and find the ``knee'' in the curve - the point where successive decreases in 
+   <!-- MATH
+ $\widehat{\mbox{RSS}}_{min}$
+ --> <img width="53" height="39" align="MIDDLE" border="0" src="img1463.png" alt="$\widehat{\mbox{RSS}}_{min}$" /> become noticeably smaller. There are two such points in Figure <a href="k-means-1.html#fig:clustercard">16.8</a> , one at <img width="45" height="32" align="MIDDLE" border="0" src="img1464.png" alt="$K=4$" />, where the gradient flattens slightly, and a clearer flattening at <img width="45" height="32" align="MIDDLE" border="0" src="img1468.png" alt="$K=9$" />. This is typical: there is seldom a single best number of clusters. We still need to employ an external constraint to choose from a number of possible values of <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> (4 and 9 in this case). </p> 
+  <p> A second type of criterion for cluster cardinality imposes a penalty for each new cluster - where conceptually we start with a single cluster containing all documents and then search for the optimal number of clusters <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> by successively incrementing <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> by one. To determine the cluster cardinality in this way, we create a generalized objective function that combines two elements: <a name="24834"></a> <i>distortion</i> , a measure of how much documents deviate from the prototype of their clusters (e.g., RSS for <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means); and a measure of <a name="24837"></a> <i>model complexity</i> . We interpret a clustering here as a model of the data. Model complexity in clustering is usually the number of clusters or a function thereof. For <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means, we then get this selection criterion for <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />: <a name="p:aicsimple"></a> <br /> </p> 
+  <div align="CENTER"> 
+   <a name="eqn:aicsimple"></a> 
+   <!-- MATH
+ \begin{eqnarray}
+K = \argmin_K [\mbox{RSS}_{min}(K) + \lambda K]
+\end{eqnarray}
+ --> 
+   <table align="CENTER" cellpadding="0" width="100%"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td nowrap="" align="RIGHT"><img width="215" height="44" align="MIDDLE" border="0" src="img1469.png" alt="$\displaystyle K = \argmin_K [\mbox{RSS}_{min}(K) + \lambda K]$" /></td> 
+      <td>&nbsp;</td> 
+      <td>&nbsp;</td> 
+      <td width="10" align="RIGHT"> (195)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <br clear="ALL" /> 
+  <p></p> where 
+  <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" /> is a weighting factor. A large value of 
+  <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" /> favors solutions with few clusters. For 
+  <img width="44" height="31" align="MIDDLE" border="0" src="img1470.png" alt="$\lambda =0$" />, there is no penalty for more clusters and 
+  <img width="51" height="32" align="MIDDLE" border="0" src="img1411.png" alt="$K=N$" /> is the best solution. 
+  <p> The obvious difficulty with Equation&nbsp;<a href="#eqn:aicsimple">195</a> is that we need to determine <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" />. Unless this is easier than determining <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> directly, then we are back to square one. In some cases, we can choose values of <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" /> that have worked well for similar data sets in the past. For example, if we periodically cluster news stories from a newswire, there is likely to be a fixed value of <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" /> that gives us the right <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> in each successive clustering. In this application, we would not be able to determine <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> based on past experience since <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> changes. </p> 
+  <p> A theoretical justification for Equation&nbsp;<a href="#eqn:aicsimple">195</a> is the <a name="p:aicbic"></a> <a name="24849"></a> <i>Akaike Information Criterion</i> or AIC, an information-theoretic measure that trades off distortion against model complexity. The general form of AIC is: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{\bf AIC:\qquad} K = \argmin_K [-2L(K) + 2q(K)]
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="aicbic1"></a><img width="277" height="41" border="0" src="img1471.png" alt="\begin{displaymath}
+\mbox{\bf AIC:\qquad} K = \argmin_K [-2L(K) + 2q(K)]
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (196)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> where 
+  <img width="52" height="33" align="MIDDLE" border="0" src="img1472.png" alt="$-L(K)$" />, the negative maximum log-likelihood of the data for 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters, is a measure of distortion and 
+  <img width="37" height="33" align="MIDDLE" border="0" src="img1473.png" alt="$q(K)$" />, the number of parameters of a model with 
+  <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> clusters, is a measure of model complexity. We will not attempt to derive the AIC here, but it is easy to understand intuitively. The first property of a good model of the data is that each data point is modeled well by the model. This is the goal of low distortion. But models should also be small (i.e., have low model complexity) since a model that merely describes the data (and therefore has zero distortion) is worthless. AIC provides a theoretical justification for one particular way of weighting these two factors, distortion and model complexity, when selecting a model. 
+  <p> For <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means, the AIC can be stated as follows: <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\mbox{\bf AIC:\qquad} \ K = \argmin_K [ \mbox{RSS}_{min}(K) + 2
+M K]
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="eqn:rssic"></a><img width="293" height="41" border="0" src="img1474.png" alt="\begin{displaymath}
+\mbox{\bf AIC:\qquad} \ K = \argmin_K [ \mbox{RSS}_{min}(K) + 2
+M K]
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (197)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> Equation 
+  <a href="#eqn:rssic">197</a> is a special case of Equation&nbsp; 
+  <a href="#eqn:aicsimple">195</a> for 
+  <img width="60" height="31" align="MIDDLE" border="0" src="img1475.png" alt="$\lambda = 2M$" />. 
+  <p> To derive Equation&nbsp;<a href="#eqn:rssic">197</a> from Equation&nbsp;<a href="#aicbic1">196</a> observe that <img width="86" height="33" align="MIDDLE" border="0" src="img1476.png" alt="$q(K) = KM$" /> in <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means since each element of the <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> centroids is a parameter that can be varied independently; and that 
+   <!-- MATH
+ $L(K) = -(1/2)
+\mbox{RSS}_{min}(K)$
+ --> <img width="187" height="33" align="MIDDLE" border="0" src="img1477.png" alt="$L(K) = -(1/2)
+\mbox{RSS}_{min}(K)$" /> (modulo a constant) if we view the model underlying <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means as a Gaussian mixture with hard assignment, uniform cluster priors and identical spherical covariance matrices (see Exercise <a href="exercises-3.html#ex:kmeansgaussian">16.7</a> ). </p> 
+  <p> The derivation of AIC is based on a number of assumptions, e.g., that the data are <a name="25262"></a> <a name="25263"></a> <a name="24873"></a> . These assumptions are only approximately true for data sets in information retrieval. As a consequence, the AIC can rarely be applied without modification in text clustering. In Figure <a href="k-means-1.html#fig:clustercard">16.8</a> , the dimensionality of the vector space is <img width="38" height="32" align="MIDDLE" border="0" src="img1478.png" alt="$M \approx$" /> 50,000. Thus, 
+   <!-- MATH
+ $2MK > 50{,}000$
+ --> <img width="105" height="32" align="MIDDLE" border="0" src="img1479.png" alt="$2MK &gt; 50{,}000$" /> dominates the smaller RSS-based term ( 
+   <!-- MATH
+ $\widehat{\mbox{RSS}}_{min}(1) <5000$
+ --> <img width="128" height="39" align="MIDDLE" border="0" src="img1480.png" alt="$\widehat{\mbox{RSS}}_{min}(1) &lt;5000$" />, not shown in the figure) and the minimum of the expression is reached for <img width="45" height="32" align="MIDDLE" border="0" src="img1481.png" alt="$K=1$" />. But as we know, <img width="45" height="32" align="MIDDLE" border="0" src="img1464.png" alt="$K=4$" /> (corresponding to the four classes China, Germany, Russia and Sports) is a better choice than <img width="45" height="32" align="MIDDLE" border="0" src="img1481.png" alt="$K=1$" />. In practice, Equation&nbsp;<a href="#eqn:aicsimple">195</a> is often more useful than Equation&nbsp;<a href="#eqn:rssic">197</a> - with the caveat that we need to come up with an estimate for <img width="14" height="31" align="MIDDLE" border="0" src="img830.png" alt="$\lambda$" />. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>Why are documents that do not use the same term for the concept car likely to end up in the same cluster in <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means clustering? <p> </p></li> 
+   <li><a name="ex:kmeansconvergence"></a> <a name="p:kmeansconvergence"></a> Two of the possible termination conditions for <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means were (1) assignment does not change, (2) centroids do not change (page <a href="k-means-1.html#p:kmeanstermination">16.4</a> ). Do these two conditions imply each other? <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4238" href="model-based-clustering-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4232" href="k-means-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4228" href="k-means-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4234" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4236" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4239" href="model-based-clustering-1.html">Model-based clustering</a> 
+  <b> Up:</b> 
+  <a name="tex2html4233" href="k-means-1.html">K-means</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4229" href="k-means-1.html">K-means</a> &nbsp; 
+  <b> <a name="tex2html4235" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4237" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

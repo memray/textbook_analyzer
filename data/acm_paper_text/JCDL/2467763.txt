@@ -1,0 +1,2 @@
+A roadmap for data services
+This poster describes our experiences as four CLIR/DLF postdoctoral fellows in developing data services at our respective universities. We report on our particular activities and achievements, which we synthesize into a common framework that can guide the development of data services at other academic institutions. The analysis of our experiences suggests the necessity of stronger cooperation of units within universities as well as increased and more diverse collaborations among universities.

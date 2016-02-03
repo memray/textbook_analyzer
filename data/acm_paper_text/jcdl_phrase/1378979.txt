@@ -1,0 +1,1 @@
+see the world with themexplorer we demonstrate themexplorer 1 : , a mash-up for geographic-image-retrieval . the application combines : geonames , a geographic thesaurus ; tagmaps , a tool for visualizing tags on a map ; piria - a visual-search engine , and pictures collected from flickr and google images . the user can query themexplorer using both keywords and example images .

@@ -1,0 +1,1 @@
+translating pieces of words translation for cross-language-information-retrieval need not be word-based . we show that character-n-grams in one language can be ` translated ' into character-n-grams of another language . we demonstrate that such translations produce retrieval results on par with , and often exceeding , those of word-based and stem-based translation .

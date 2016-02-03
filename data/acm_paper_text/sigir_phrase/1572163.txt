@@ -1,0 +1,1 @@
+wikisearch : enabling interactivity in search wikisearch , is a search-engine customized for the wikipedia corpus but with design-features that may be generalized to other search systems . its features enhance basic functionality and enable more fluid interactivity while supporting both workflow in the search-process and the experimental-process used in lab testing .

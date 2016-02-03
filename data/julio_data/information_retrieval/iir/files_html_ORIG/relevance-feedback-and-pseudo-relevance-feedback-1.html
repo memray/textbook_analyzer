@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Relevance feedback and pseudo relevance feedback</title> 
+  <meta name="description" content="Relevance feedback and pseudo relevance feedback" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="global-methods-for-query-reformulation-1.html" /> 
+  <link rel="previous" href="relevance-feedback-and-query-expansion-1.html" /> 
+  <link rel="up" href="relevance-feedback-and-query-expansion-1.html" /> 
+  <link rel="next" href="the-rocchio-algorithm-for-relevance-feedback-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2612" href="the-rocchio-algorithm-for-relevance-feedback-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2606" href="relevance-feedback-and-query-expansion-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2600" href="relevance-feedback-and-query-expansion-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2608" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2610" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2613" href="the-rocchio-algorithm-for-relevance-feedback-1.html">The Rocchio algorithm for</a> 
+  <b> Up:</b> 
+  <a name="tex2html2607" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2601" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> &nbsp; 
+  <b> <a name="tex2html2609" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2611" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001410000000000000000"></a><a name="sec:relevance-feedback"></a> <a name="p:relevance-feedback"></a> <br /> Relevance feedback and pseudo relevance feedback </h1> 
+  <p> The idea of <a name="11457"></a> <i>relevance feedback</i> (<a name="11459"></a> ) is to involve the user in the retrieval process so as to improve the final result set. In particular, the user gives feedback on the relevance of documents in an initial set of results. The basic procedure is: </p>
+  <ul> 
+   <li>The user issues a (short, simple) query. </li> 
+   <li>The system returns an initial set of retrieval results. </li> 
+   <li>The user marks some returned documents as relevant or nonrelevant. </li> 
+   <li>The system computes a better representation of the information need based on the user feedback. </li> 
+   <li>The system displays a revised set of retrieval results. </li> 
+  </ul> Relevance feedback can go through one or more iterations of this sort. The process exploits the idea that it may be difficult to formulate a good query when you don't know the collection well, but it is easy to judge particular documents, and so it makes sense to engage in iterative query refinement of this sort. In such a scenario, relevance feedback can also be effective in tracking a user's evolving information need: seeing some documents may lead users to refine their understanding of the information they are seeking. 
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:irf"></a><a name="p:irf"></a></p>
+   <img width="503" height="286" align="BOTTOM" border="0" src="img568.png" alt="\includegraphics[totalheight=2.5in]{ImageRelFeedback3.eps}" /> 
+   <p> (a) </p>
+   <p> <img width="489" height="285" align="BOTTOM" border="0" src="img569.png" alt="\includegraphics[totalheight=2.5in]{ImageRelFeedback4.eps}" /> </p>
+   <p> (b) </p>
+   <p> Relevance feedback searching over images.(a) The user views the initial query results for a query of bike, selects the first, third and fourth result in the top row and the fourth result in the bottom row as relevant, and submits this feedback. (b) The users sees the revised result set. Precision is greatly improved. From <tt><a name="tex2html86" href="http://nayana.ece.ucsb.edu/imsearch/imsearch.html">http://nayana.ece.ucsb.edu/imsearch/imsearch.html</a></tt>(<a href="bibliography-1.html#newsam01image">Newsam et&nbsp;al., 2001</a>). </p>
+  </div> 
+  <p> Image search provides a good example of relevance feedback. Not only is it easy to see the results at work, but this is a domain where a user can easily have difficulty formulating what they want in words, but can easily indicate relevant or nonrelevant images. After the user enters an initial query for bike on the demonstration system at: </p>
+  <blockquote> 
+   <tt><a name="tex2html87" href="http://nayana.ece.ucsb.edu/imsearch/imsearch.html">http://nayana.ece.ucsb.edu/imsearch/imsearch.html</a></tt> 
+  </blockquote> the initial results (in this case, images) are returned. In Figure 
+  <a href="#fig:irf">9.1</a>&nbsp;(a), the user has selected some of them as relevant. These will be used to refine the query, while other displayed results have no effect on the reformulation. Figure 
+  <a href="#fig:irf">9.1</a>&nbsp;(b) then shows the new top-ranked results calculated after this round of relevance feedback. 
+  <p> Figure <a href="#fig:space-rf">9.2</a> shows a textual IR example where the user wishes to find out about new applications of space satellites. </p>
+  <p> </p>
+  <div align="CENTER"> 
+   <p><a name="fig:space-rf"></a><a name="p:space-rf"></a></p>
+   <img width="556" height="871" border="0" src="img570.png" alt="\begin{figure}
+% latex2html id marker 11480
+\raggedright
+\begin{tabular}{@{}llp{...
+...uments which
+were judged relevant in the relevance feedback phase.}\end{figure}" /> 
+  </div> 
+  <p> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html2614" href="the-rocchio-algorithm-for-relevance-feedback-1.html">The Rocchio algorithm for relevance feedback</a> 
+    <ul> 
+     <li><a name="tex2html2615" href="the-underlying-theory-1.html">The underlying theory.</a> </li>
+     <li><a name="tex2html2616" href="the-rocchio71-algorithm-1.html">The </a><a href="bibliography-1.html#rocchio71">Rocchio (1971)</a> algorithm. </li>
+    </ul> <br /> </li>
+   <li><a name="tex2html2617" href="probabilistic-relevance-feedback-1.html">Probabilistic relevance feedback</a> </li>
+   <li><a name="tex2html2618" href="when-does-relevance-feedback-work-1.html">When does relevance feedback work?</a> </li>
+   <li><a name="tex2html2619" href="relevance-feedback-on-the-web-1.html">Relevance feedback on the web</a> </li>
+   <li><a name="tex2html2620" href="evaluation-of-relevance-feedback-strategies-1.html">Evaluation of relevance feedback strategies</a> </li>
+   <li><a name="tex2html2621" href="pseudo-relevance-feedback-1.html">Pseudo relevance feedback</a> </li>
+   <li><a name="tex2html2622" href="indirect-relevance-feedback-1.html">Indirect relevance feedback</a> </li>
+   <li><a name="tex2html2623" href="summary-1.html">Summary</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2612" href="the-rocchio-algorithm-for-relevance-feedback-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2606" href="relevance-feedback-and-query-expansion-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2600" href="relevance-feedback-and-query-expansion-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2608" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2610" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2613" href="the-rocchio-algorithm-for-relevance-feedback-1.html">The Rocchio algorithm for</a> 
+  <b> Up:</b> 
+  <a name="tex2html2607" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2601" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> &nbsp; 
+  <b> <a name="tex2html2609" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2611" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

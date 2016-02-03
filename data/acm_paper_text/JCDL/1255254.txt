@@ -1,0 +1,2 @@
+Identifying personal photo digital library features
+At present, little evidence is available about how people want to interact with their photos in a personal photo digital library. Analysis of a set of 22 user needs summaries and critiques of existing photo management systems provides insight into potentially useful features.

@@ -1,0 +1,2 @@
+Cross-cultural usability for digital libraries
+The scope and reach of digital libraries (DL) is truly global, spanning geographical and cultural boundaries, yet few scholars have investigated the influence of culture as it pertains to the design and use of digital libraries. This workshop will examine cross-cultural issues around the use and development of DLs, especially as they relate to supporting cross-cultural usability of DLs.

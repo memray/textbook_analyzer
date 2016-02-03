@@ -1,0 +1,2 @@
+Automated name authority control
+This paper describes a system for the automated assignment of authoriz ed names. A collaboration between a computer scientist and a librarian, the system provides for enhanced end-user searching of digital libraries without increasing drastically the cost and effort of creating a digital library. It is a part of the workflow management system of the Levy Sheet Music Project.

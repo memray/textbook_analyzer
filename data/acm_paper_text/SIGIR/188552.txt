@@ -1,0 +1,2 @@
+A document retrieval model based on term frequency ranks
+An abstract is not available.

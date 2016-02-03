@@ -1,0 +1,1 @@
+earchivarius : accessing collections of electronic-mail we present earchivarius an interactive-system for accessing collections of electronic-mail . the system combines search , clustering visualization , and time-based visualization of email-messages and people who send or received the messages .

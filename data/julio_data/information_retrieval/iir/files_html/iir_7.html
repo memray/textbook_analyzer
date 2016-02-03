@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Computing scores in a complete search system</title> 
+  <meta name="description" content="Computing scores in a complete search system" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="evaluation-in-information-retrieval-1.html" /> 
+  <link rel="previous" href="scoring-term-weighting-and-the-vector-space-model-1.html" /> 
+  <link rel="up" href="irbook.html" /> 
+  <link rel="next" href="efficient-scoring-and-ranking-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2095" href="efficient-scoring-and-ranking-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2089" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2083" href="references-and-further-reading-6.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2091" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2093" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2096" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Up:</b> 
+  <a name="tex2html2090" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2084" href="references-and-further-reading-6.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html2092" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2094" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001200000000000000000"></a> <a name="ch:cosine"></a> <a name="ch:ranking-ir-system"></a> <br /> Computing scores in a complete search system </h1> 
+  <p> Chapter <a href="scoring-term-weighting-and-the-vector-space-model-1.html#ch:tfidf">6</a> developed the theory underlying term weighting in documents for the purposes of scoring, leading up to vector space models and the basic cosine scoring algorithm of Section&nbsp;<a href="computing-vector-scores-1.html#sec:pseudocode">6.3.3</a> (page&nbsp;<a href="computing-vector-scores-1.html#p:pseudocode"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>). In this chapter we begin in Section <a href="efficient-scoring-and-ranking-1.html#sec:heuristics">7.1</a> with heuristics for speeding up this computation; many of these heuristics achieve their speed at the risk of not finding quite the top <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" /> documents matching the query. Some of these heuristics generalize beyond cosine scoring. With Section <a href="efficient-scoring-and-ranking-1.html#sec:heuristics">7.1</a> in place, we have essentially all the components needed for a complete search engine. We therefore take a step back from cosine scoring, to the more general problem of computing scores in a search engine. In Section <a href="components-of-an-information-retrieval-system-1.html#sec:components">7.2</a> we outline a complete search engine, including indexes and structures to support not only cosine scoring but also more general ranking factors such as query term proximity. We describe how all of the various pieces fit together in Section <a href="putting-it-all-together-1.html#sec:system">7.2.4</a> . We conclude this chapter with Section <a href="vector-space-scoring-and-query-operator-interaction-1.html#sec:interactions">7.3</a> , where we discuss how the vector space model for free text queries interacts with common query operators. </p> 
+  <p> <br /></p> 
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html2097" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+    <ul> 
+     <li><a name="tex2html2098" href="inexact-top-k-document-retrieval-1.html">Inexact top K document retrieval</a> </li> 
+     <li><a name="tex2html2099" href="index-elimination-1.html">Index elimination</a> </li> 
+     <li><a name="tex2html2100" href="champion-lists-1.html">Champion lists</a> </li> 
+     <li><a name="tex2html2101" href="static-quality-scores-and-ordering-1.html">Static quality scores and ordering</a> </li> 
+     <li><a name="tex2html2102" href="impact-ordering-1.html">Impact ordering</a> </li> 
+     <li><a name="tex2html2103" href="cluster-pruning-1.html">Cluster pruning</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html2104" href="components-of-an-information-retrieval-system-1.html">Components of an information retrieval system</a> 
+    <ul> 
+     <li><a name="tex2html2105" href="tiered-indexes-1.html">Tiered indexes</a> </li> 
+     <li><a name="tex2html2106" href="query-term-proximity-1.html">Query-term proximity</a> </li> 
+     <li><a name="tex2html2107" href="designing-parsing-and-scoring-functions-1.html">Designing parsing and scoring functions</a> </li> 
+     <li><a name="tex2html2108" href="putting-it-all-together-1.html">Putting it all together</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html2109" href="vector-space-scoring-and-query-operator-interaction-1.html">Vector space scoring and query operator interaction</a> 
+    <ul> 
+     <li><a name="tex2html2110" href="boolean-retrieval-2.html">Boolean retrieval</a> </li> 
+     <li><a name="tex2html2111" href="wildcard-queries-2.html">Wildcard queries</a> </li> 
+     <li><a name="tex2html2112" href="phrase-queries-1.html">Phrase queries</a> </li> 
+    </ul> <br /> </li> 
+   <li><a name="tex2html2113" href="references-and-further-reading-7.html">References and further reading</a> </li> 
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2095" href="efficient-scoring-and-ranking-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2089" href="irbook.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2083" href="references-and-further-reading-6.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2091" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2093" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2096" href="efficient-scoring-and-ranking-1.html">Efficient scoring and ranking</a> 
+  <b> Up:</b> 
+  <a name="tex2html2090" href="irbook.html">irbook</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2084" href="references-and-further-reading-6.html">References and further reading</a> &nbsp; 
+  <b> <a name="tex2html2092" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2094" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

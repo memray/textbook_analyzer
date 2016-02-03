@@ -1,0 +1,1 @@
+sigir : scholar vs. scholars ' interpretation google-scholar allows researchers to search through a free and extensive source of information on scientific publications . in this paper we show that within the limited context of sigir proceedings , the rankings created by google-scholar are both significantly different and very negatively correlated with those of domain-experts .

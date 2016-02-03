@@ -1,0 +1,2 @@
+An architecture for probabilistic concept-based information retrieval
+An abstract is not available.

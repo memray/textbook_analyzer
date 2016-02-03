@@ -1,0 +1,2 @@
+A new method of weighting query terms for ad-hoc retrieval
+An abstract is not available.

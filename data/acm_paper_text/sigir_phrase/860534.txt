@@ -1,0 +1,1 @@
+passage-retrieval vs. document-retrieval for factoid-question-answering an abstract is not available .

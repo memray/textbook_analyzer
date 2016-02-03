@@ -1,0 +1,2 @@
+The landscape of information science: 1996-2008
+We propose a methodology combining symbolic and numeric information to map the structure of research in Information Science between 1996-2008. The visualization of the resulting maps showed that while the two-camp structure of Information Science observed in previous studies is still valid, other research poles like web and user-oriented studies are building bridges between the two hitherto isolated poles.

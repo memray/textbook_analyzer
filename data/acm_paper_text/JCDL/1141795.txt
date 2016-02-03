@@ -1,0 +1,2 @@
+Facilitating access to large digital oral history archives through informedia technologies
+This paper discusses the application of speech alignment, image processing, and language understanding technologies to build efficient interfaces into large digital oral history archives, as exemplified by a thousand hour HistoryMakers corpus. Browsing, querying, and navigation features are discussed.

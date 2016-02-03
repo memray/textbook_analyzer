@@ -1,0 +1,2 @@
+Production information management for batch manufacturing plants based on ECA mechanism and view generation
+An abstract is not available.

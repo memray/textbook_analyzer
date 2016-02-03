@@ -1,0 +1,2 @@
+Parallel text retrieval on a high performance supercomputer using the Vector Space Model
+An abstract is not available.

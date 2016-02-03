@@ -1,0 +1,1 @@
+enhancing patent-retrieval by citation-analysis this paper proposes a method to combine text-based and citation-based retrieval-methods in the invalidity-patent-search . using the ntcir-6 test-collection including eight years of uspto patents , we show the effectiveness of our method experimentally .

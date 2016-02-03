@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Automatic thesaurus generation</title> 
+  <meta name="description" content="Automatic thesaurus generation" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="query-expansion-1.html" /> 
+  <link rel="up" href="global-methods-for-query-reformulation-1.html" /> 
+  <link rel="next" href="references-and-further-reading-9.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2819" href="references-and-further-reading-9.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2813" href="global-methods-for-query-reformulation-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2809" href="query-expansion-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2815" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2817" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2820" href="references-and-further-reading-9.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html2814" href="global-methods-for-query-reformulation-1.html">Global methods for query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2810" href="query-expansion-1.html">Query expansion</a> &nbsp; 
+  <b> <a name="tex2html2816" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2818" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001423000000000000000"></a><a name="sec:automatic-thesaurus"></a> <a name="p:automatic-thesaurus"></a> <br /> Automatic thesaurus generation </h2> 
+  <p> As an alternative to the cost of a manual thesaurus, we could attempt to generate a thesaurus automatically by analyzing a collection of documents. There are two main approaches. One is simply to exploit word cooccurrence. We say that words co-occurring in a document or paragraph are likely to be in some sense similar or related in meaning, and simply count text statistics to find the most similar words. The other approach is to use a shallow grammatical analysis of the text and to exploit grammatical relations or grammatical dependencies. For example, we say that entities that are grown, cooked, eaten, and digested, are more likely to be food items. Simply using word cooccurrence is more robust (it cannot be misled by parser errors), but using grammatical relations is more accurate. </p> 
+  <p> </p> 
+  <div align="CENTER"> 
+   <p><a name="fig:autothesaurus"></a><a name="p:autothesaurus"></a></p> 
+   <img width="556" height="278" border="0" src="img609.png" alt="\begin{figure}
+% latex2html id marker 11709
+\begin{tabular}{\vert l\vert l\vert}...
+...ntic indexing}latent semantic indexing (see Chapter \ref{ch:lsi} ).}\end{figure}" /> 
+  </div> 
+  <p> The simplest way to compute a co-occurrence thesaurus is based on term-term similarities. We begin with a term-document matrix <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" />, where each cell <img width="31" height="32" align="MIDDLE" border="0" src="img610.png" alt="$A_{t,d}$" /> is a weighted count <img width="30" height="32" align="MIDDLE" border="0" src="img611.png" alt="$w_{t,d}$" /> for term <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" /> and document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, with weighting so <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> has length-normalized rows. If we then calculate <img width="71" height="38" align="MIDDLE" border="0" src="img612.png" alt="$C = AA^T$" />, then <img width="32" height="32" align="MIDDLE" border="0" src="img613.png" alt="$C_{u,v}$" /> is a similarity score between terms <img width="13" height="32" align="MIDDLE" border="0" src="img614.png" alt="$u$" /> and <img width="12" height="32" align="MIDDLE" border="0" src="img615.png" alt="$v$" />, with a larger number being better. Figure <a href="#fig:autothesaurus">9.8</a> shows an example of a thesaurus derived in basically this manner, but with an extra step of dimensionality reduction via Latent Semantic Indexing, which we discuss in Chapter <a href="matrix-decompositions-and-latent-semantic-indexing-1.html#ch:lsi">18</a> . While some of the thesaurus terms are good or at least suggestive, others are marginal or bad. The quality of the associations is typically a problem. Term ambiguity easily introduces irrelevant statistically correlated terms. For example, a query for Apple computer may expand to Apple red fruit computer. In general these thesauri suffer from both false positives and false negatives. Moreover, since the terms in the automatic thesaurus are highly correlated in documents anyway (and often the collection used to derive the thesaurus is the same as the one being indexed), this form of query expansion may not retrieve many additional documents. </p> 
+  <p> Query expansion is often effective in increasing recall. However, there is a high cost to manually producing a thesaurus and then updating it for scientific and terminological developments within a field. In general a domain-specific thesaurus is required: general thesauri and dictionaries give far too little coverage of the rich domain-particular vocabularies of most scientific fields. However, query expansion may also significantly decrease precision, particularly when the query contains ambiguous terms. For example, if the user searches for interest rate, expanding the query to interest rate fascinate evaluate is unlikely to be useful. Overall, query expansion is less successful than relevance feedback, though it may be as good as pseudo relevance feedback. It does, however, have the advantage of being much more understandable to the system user. </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li>If <img width="17" height="32" align="MIDDLE" border="0" src="img167.png" alt="$A$" /> is simply a Boolean cooccurrence matrix, then what do you get as the entries in <img width="15" height="32" align="MIDDLE" border="0" src="img616.png" alt="$C$" />? <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2819" href="references-and-further-reading-9.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2813" href="global-methods-for-query-reformulation-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2809" href="query-expansion-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2815" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2817" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2820" href="references-and-further-reading-9.html">References and further reading</a> 
+  <b> Up:</b> 
+  <a name="tex2html2814" href="global-methods-for-query-reformulation-1.html">Global methods for query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2810" href="query-expansion-1.html">Query expansion</a> &nbsp; 
+  <b> <a name="tex2html2816" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2818" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

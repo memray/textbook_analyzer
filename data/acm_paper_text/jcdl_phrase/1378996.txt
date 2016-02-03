@@ -1,0 +1,1 @@
+translation of on-screen text into visual expressions to support the user 's on-screen reading , we propose a methodology to translate text into visual expressions . our prototype-system analyses the text and translates them into image and adds movement to the image .

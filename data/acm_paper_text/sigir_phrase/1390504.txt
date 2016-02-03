@@ -1,0 +1,1 @@
+kleio : a knowledge-enriched information-retrieval-system for biology kleio is an advanced information retrieval (ir) system developed at the uk national centre for text-mining (nactem) 1 . the system offers textual and metadata searches across medline and provides enhanced searching functionality by leveraging terminology-management technologies .

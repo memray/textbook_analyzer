@@ -1,0 +1,2 @@
+Search engine driven author disambiguation
+In scholarly digital libraries, author disambiguation is an important task that attributes a scholarly work with specific authors. This is critical when individuals share the same name. We present an approach to this task that analyzes the results of automatically-crafted web searches. A key observation is that pages from rare web sites are stronger source of evidence than pages from common web sites, which we model as Inverse Host Frequency (IHF). Our system is able to achieve an average accuracy of 0.836.

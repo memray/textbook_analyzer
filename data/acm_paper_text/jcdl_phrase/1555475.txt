@@ -1,0 +1,1 @@
+inferring intra-organizational collaboration from cosine-similarity distributions in text-documents we present a method that uses text-mining methods and statistical-distributions to infer degrees of collaboration between staff members in an organization , based on the similarity of the documents that that they wrote and exchanged over time .

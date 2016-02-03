@@ -1,0 +1,1 @@
+the importance of manual assessment in link-discovery using a ground-truth extracted from the wikipedia , and a ground-truth created through manual assessment , we show that the apparent performance advantage seen in machine-learning-approaches to link-discovery are an artifact of trivial links that are actively rejected by manual assessors .

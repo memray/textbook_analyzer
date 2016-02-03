@@ -1,0 +1,2 @@
+VideoGraph: a new tool for video mining and classification
+This paper introduces Videograph, a new tool for video mining and visu alizing the structure of the plot of a video sequence. The main idea is to &lquo;stitch&rquo; together similar scenes which are apart in time. We give a fast algorithm to do stitching and we show case studies, where our approach (a) gives good features for classification (91\\% accuracy), and (b) results in Videographs which reveal the logical structure of the plot of the video clips.

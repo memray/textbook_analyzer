@@ -1,0 +1,2 @@
+A trainable document summarizer
+An abstract is not available.

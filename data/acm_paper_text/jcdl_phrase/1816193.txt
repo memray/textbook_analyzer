@@ -1,0 +1,1 @@
+forecite : towards a reader-centric scholarly-digital-library we present forecite (fc) , a prototype reader-centric digital-library that supports the scholar in using scholarly documents . fc integrates three user-interfaces : a bibliometric component , a document reader and annotation-system , and a bibliographic management application .

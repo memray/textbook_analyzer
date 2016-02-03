@@ -1,0 +1,2 @@
+Methods for the administration of textual data in database systems
+An abstract is not available.

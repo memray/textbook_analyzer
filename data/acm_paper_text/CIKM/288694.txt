@@ -1,0 +1,2 @@
+Providing semantics for indefinite deductive databases
+An abstract is not available.

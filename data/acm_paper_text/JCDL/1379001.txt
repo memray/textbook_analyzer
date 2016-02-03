@@ -1,0 +1,2 @@
+Caspar: cultural, artistic and scientific knowledge for preservation, access and retrieval
+CASPAR (Cultural, Artistic, and Scientific knowledge for Preservation, Access, and Retrieval) aims at providing secure, reliable and cost-effective access for digitally encoded information for an indefinite time frame. From digital pictures to museum archives, from music to scientific data sets, technology is constantly changing. CASPAR is being developed to address this situation, and provide people and organisations with a user-oriented preservation framework.

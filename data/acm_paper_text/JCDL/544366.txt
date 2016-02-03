@@ -1,0 +1,2 @@
+Overview of digital libraries
+This tutorial will start with an overview of definitions, foundations, scenarios, and perspectives. It will cover a variety of issues, including search, retrieval, and resource discovery; multimedia/hypermedia; metadata (e.g., Dublin Core); electronic publishing; document models and representations; SGML and XML; database approaches; agents and distributed processing; 2D and 3D interfaces and visualizations; metrics; architectures and interoperability; educational and social concerns; commerce and intellectual property rights, among others.

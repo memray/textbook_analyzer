@@ -1,0 +1,2 @@
+An object-oriented approach to multi-level association rule mining
+An abstract is not available.

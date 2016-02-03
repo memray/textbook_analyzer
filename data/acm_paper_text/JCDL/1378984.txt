@@ -1,0 +1,2 @@
+Metaarchive/lockss distributed preservation networks
+The Workshop will provide information and training for institutions seeking to build or join LOCKSS-based distributed digital preservation networks. Such Private LOCKSS Networks (PLNs) enable groups of institutions to establish collaborative partnerships to securely preserve collections. Instructors will address the technical implementation as well as important organizational and legal elements of distributed digital preservation. Attendees will gain an understanding of how to produce and manage a private LOCKSS network.

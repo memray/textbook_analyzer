@@ -1,0 +1,2 @@
+A model of a document-clustering-based information retrieval system with a Boolean search request formulation
+An abstract is not available.

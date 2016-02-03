@@ -1,0 +1,1 @@
+toponym extraction and resolution in a-digital library geospatial metadata enable rich and varied interfaces to digital-collections , and present unique challenges and affordances for automated-extraction . we describe our findings developing and utilizing a geoparser for the texas a &#38; m university libraries ' institutional-repository .

@@ -1,0 +1,1 @@
+nanoport : an example for building knowledge portals for scientific domains we describe the nanoport (www.nanoport.org) system to demonstrate a general-framework of building domain-specific-knowledge portals . these portals consolidate diverse information-resources and provide rich functionalities to support effective information-retrieval and knowledge-discovery .

@@ -1,0 +1,1 @@
+xml-views for electronic editions in this paper we discuss the implementation of user-defined views over multihierarchical document-centric-xml documents .

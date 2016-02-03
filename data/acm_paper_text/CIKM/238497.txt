@@ -1,0 +1,2 @@
+Effective graph clustering for path queries in digital map databases
+An abstract is not available.

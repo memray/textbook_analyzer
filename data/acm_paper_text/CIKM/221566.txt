@@ -1,0 +1,2 @@
+An extensible query optimizer for an objectbase management system
+An abstract is not available.

@@ -1,0 +1,2 @@
+Developing a concept extraction technique with ensemble pathway
+In this paper, we describe our Concept Extraction technique for Educational Digital libraries (CEED) which applies Conditional Random Fields (CRFs) to extract concepts from the Ensemble Pathway collection. In addition, we discuss how we implement RESTful APIs for concept extraction.

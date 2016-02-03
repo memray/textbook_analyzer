@@ -1,0 +1,2 @@
+The OODB path-method generator (PMG) using precomputed access relevance
+An abstract is not available.

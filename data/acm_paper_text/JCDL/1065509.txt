@@ -1,0 +1,2 @@
+Measuring the quality of network visualization
+A quantitative method is developed for measuring the quality of network visualizations in terms of log-likelihood metrics resulted from Expectation Maximization (EM) clustering intrinsic and extrinsic attributes of network nodes.

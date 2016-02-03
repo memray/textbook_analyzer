@@ -1,0 +1,2 @@
+A comparison of two educational resource discovery systems
+We describe the results from a pilot study that compared two different discovery systems designed and built to operate in the same educational digital library -- one based on searching over metadata records and another hybrid system which combined metadata and content-based indexing.

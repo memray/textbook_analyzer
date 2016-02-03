@@ -1,0 +1,2 @@
+Fluid interaction for the document in context
+We explore in this paper the interface requirements for user's navigation within a mixed collection of 3D digitalized objects and textual documents. A specific application is history of technology where 3D and 2D documents are most of the time inter-related.

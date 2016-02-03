@@ -1,0 +1,2 @@
+Experiments on using semantic distances between words in image caption retrieval
+An abstract is not available.

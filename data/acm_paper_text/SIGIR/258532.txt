@@ -1,0 +1,2 @@
+Chinese text retrieval without using a dictionary
+An abstract is not available.

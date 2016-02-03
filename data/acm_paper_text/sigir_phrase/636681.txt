@@ -1,0 +1,1 @@
+establishing a basis for mapping natural-language statements onto a database-query language an abstract is not available .

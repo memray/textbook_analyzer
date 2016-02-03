@@ -1,0 +1,2 @@
+NLM video search
+In this demo, we will demonstrate usage of NLM Video Search, open-source software which facilitates the dissemination of video content by combining traditional web video playback controls with on-demand seeking using text selected from a corresponding transcript (see Figure 1). NLM Video Search has been implemented in NLM's Fedora-based digital repository, which provides preservation and access to a growing number of rare, historical films and digitized texts.

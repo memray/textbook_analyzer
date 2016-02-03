@@ -1,0 +1,1 @@
+answering aggregation-queries on hierarchical-web-sites using adaptive-sampling we study how to answer aggregation-queries over hierarchical-web-sites using adaptive-sampling .

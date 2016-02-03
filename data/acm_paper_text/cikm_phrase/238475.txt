@@ -1,0 +1,1 @@
+incorporating latent-semantic-indexing into a neural-network-model for information-retrieval an abstract is not available .

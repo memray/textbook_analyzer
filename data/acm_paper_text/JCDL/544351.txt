@@ -1,0 +1,2 @@
+Components for constructing open archives
+In this poster, we describe how components that implement emerging standards have been used to produce custom solutions to metadata archive problems.

@@ -1,0 +1,1 @@
+active-learning for class-imbalance-problem the class-imbalance-problem has been known to hinder the learning-performance of classification algorithms . various real-world classification-tasks such as text-categorization suffer from this phenomenon . we demonstrate that active-learning is capable of solving the problem .

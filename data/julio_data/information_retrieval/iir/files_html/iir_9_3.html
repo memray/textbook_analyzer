@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>References and further reading</title> 
+  <meta name="description" content="References and further reading" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="global-methods-for-query-reformulation-1.html" /> 
+  <link rel="up" href="relevance-feedback-and-query-expansion-1.html" /> 
+  <link rel="next" href="xml-retrieval-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2831" href="xml-retrieval-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2825" href="relevance-feedback-and-query-expansion-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2821" href="automatic-thesaurus-generation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2827" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2829" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2832" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2826" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2822" href="automatic-thesaurus-generation-1.html">Automatic thesaurus generation</a> &nbsp; 
+  <b> <a name="tex2html2828" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2830" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001430000000000000000"> References and further reading</a> </h1> 
+  <p> Work in information retrieval quickly confronted the problem of variant expression which meant that the words in a query might not appear in a document, despite it being relevant to the query. An early experiment about 1960 cited by <a href="bibliography-1.html#swanson88historical">Swanson (1988)</a> found that only 11 out of 23 documents properly indexed under the subject <i>toxicity</i> had any use of a word containing the stem <i>toxi</i>. There is also the issue of translation, of users knowing what terms a document will use. <a href="bibliography-1.html#blair85evaluation">Blair and Maron (1985)</a> conclude that ``it is impossibly difficult for users to predict the exact words, word combinations, and phrases that are used by all (or most) relevant documents and only (or primarily) by those documents''. </p> 
+  <p> The main initial papers on relevance feedback using vector space models all appear in <a href="bibliography-1.html#salton71smart">Salton (1971b)</a>, including the presentation of the Rocchio algorithm (<a href="bibliography-1.html#rocchio71">Rocchio, 1971</a>) and the Ide dec-hi variant along with evaluation of several variants (<a href="bibliography-1.html#ide71">Ide, 1971</a>). Another variant is to regard <i>all</i> documents in the collection apart from those judged relevant as nonrelevant, rather than only ones that are explicitly judged nonrelevant. However, <a href="bibliography-1.html#shp95">Sch&uuml;tze et&nbsp;al. (1995)</a> and <a href="bibliography-1.html#singhal97">Singhal et&nbsp;al. (1997)</a> show that better results are obtained for routing by using only documents close to the query of interest rather than all documents. Other later work includes <a href="bibliography-1.html#sb90">Salton and Buckley (1990)</a>, <a href="bibliography-1.html#riezler07statistical">Riezler et&nbsp;al. (2007)</a> (a statistical NLP approach to RF) and the recent survey paper <a href="bibliography-1.html#ruthven03relevance">Ruthven and Lalmas (2003)</a>. </p> 
+  <p> The effectiveness of interactive relevance feedback systems is discussed in (<a name="tex2html2833" href="bibliography-1.html#harman92revisited">Harman, 1992</a>, <a name="tex2html2834" href="bibliography-1.html#buckley94relevance">Buckley et&nbsp;al., 1994b</a>, <a name="tex2html2835" href="bibliography-1.html#salton89automatic">Salton, 1989</a>). <a href="bibliography-1.html#koenemann96interaction">Koenemann and Belkin (1996)</a> do user studies of the effectiveness of relevance feedback. </p> 
+  <p> Traditionally Roget's thesaurus has been the best known English language thesaurus (<a href="bibliography-1.html#roget">Roget, 1946</a>). In recent computational work, people almost always use WordNet (<a href="bibliography-1.html#fellbaum98wordnet">Fellbaum, 1998</a>), not only because it is free, but also because of its rich link structure. It is available at: <tt><a name="tex2html90" href="http://wordnet.princeton.edu">http://wordnet.princeton.edu</a></tt>. </p> 
+  <p> <a href="bibliography-1.html#qf93">Qiu and Frei (1993)</a> and <a href="bibliography-1.html#schuetze98">Sch&uuml;tze (1998)</a> discuss automatic thesaurus generation. <a href="bibliography-1.html#xu96query">Xu and Croft (1996)</a> explore using both local and global query expansion. </p> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html2831" href="xml-retrieval-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html2825" href="relevance-feedback-and-query-expansion-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html2821" href="automatic-thesaurus-generation-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html2827" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html2829" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html2832" href="xml-retrieval-1.html">XML retrieval</a> 
+  <b> Up:</b> 
+  <a name="tex2html2826" href="relevance-feedback-and-query-expansion-1.html">Relevance feedback and query</a> 
+  <b> Previous:</b> 
+  <a name="tex2html2822" href="automatic-thesaurus-generation-1.html">Automatic thesaurus generation</a> &nbsp; 
+  <b> <a name="tex2html2828" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html2830" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

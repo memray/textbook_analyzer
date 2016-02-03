@@ -1,0 +1,2 @@
+AskDragon: a redundancy-based factoid question answering system with lightweight local context analysis
+We introduce our QA system AskDragon which employs a novel lightweight local context analysis technique to handling two broad classes of factoid questions, entity and numeric questions. The local context analysis module dramatically improves the efficiency of QA systems without sacrificing high accuracy performance.

@@ -1,0 +1,2 @@
+Global web archive integration with memento
+In this poster, we describe the approach taken to designing and implementing a tera-scale multi-repository index of archived web resources using massively parallel processing.

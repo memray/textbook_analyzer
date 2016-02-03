@@ -1,0 +1,2 @@
+Journal ranking based on social information
+Recently, literature analysis has become a hot issue in academic studies. In order to quantify the importance of journals and provide researchers with target vehicles for their work, this poster proposes a novel approach based on the social information through considering the potential relationship between journals quality and authors' affiliation. Based on the formula proposed in this work, the importance of journals can be estimated and ranked.

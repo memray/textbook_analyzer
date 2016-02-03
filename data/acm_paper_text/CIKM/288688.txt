@@ -1,0 +1,2 @@
+Layered index structures in document database systems
+An abstract is not available.

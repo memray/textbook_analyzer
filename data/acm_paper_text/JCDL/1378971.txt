@@ -1,0 +1,2 @@
+Direct: applying the DIKW hierarchy to large-scale evaluation campaigns
+We describe the effort of designing and developing a digital library system able to manage the different types of information resources produced during a large-scale evaluation campaign and to support the different stages of it. In this context, we present DIRECT, the system which has been adopted to manage the CLEF evaluation campaigns since 2005.

@@ -1,0 +1,2 @@
+An approach to search for the digital library
+The chief form of accessing the content of a digital library (DL) is i ts search interface. While a DL needs an interface that integrates a range of options from search to browse to serendipity, in this work we focus on analytical search. We propose using Bates' search tactics as a basis for the re-design of search interfaces. We believe this approach will help to identify the types of tools that need to be supported by a DL interface.

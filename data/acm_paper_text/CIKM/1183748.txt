@@ -1,0 +1,2 @@
+Integrated RFID data modeling: an approach for querying physical objects in pervasive computing
+An abstract is not available.

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Divisive clustering</title> 
+  <meta name="description" content="Divisive clustering" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="cluster-labeling-1.html" /> 
+  <link rel="previous" href="optimality-of-hac-1.html" /> 
+  <link rel="up" href="hierarchical-clustering-1.html" /> 
+  <link rel="next" href="cluster-labeling-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4421" href="cluster-labeling-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4415" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4409" href="optimality-of-hac-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4417" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4419" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4422" href="cluster-labeling-1.html">Cluster labeling</a> 
+  <b> Up:</b> 
+  <a name="tex2html4416" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4410" href="optimality-of-hac-1.html">Optimality of HAC</a> &nbsp; 
+  <b> <a name="tex2html4418" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4420" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002260000000000000000"></a> <a name="sec:divisive"></a> <a name="p:divisive"></a> <br /> Divisive clustering </h1> So far we have only looked at agglomerative clustering, but a cluster hierarchy can also be generated top-down. This variant of hierarchical clustering is called 
+  <a name="27070"></a> 
+  <i>top-down clustering</i> or 
+  <a name="27072"></a> 
+  <i>divisive clustering</i> . We start at the top with all documents in one cluster. The cluster is split using a flat clustering algorithm. This procedure is applied recursively until each document is in its own singleton cluster. 
+  <p> Top-down clustering is conceptually more complex than bottom-up clustering since we need a second, flat clustering algorithm as a ``subroutine''. It has the advantage of being more efficient if we do not generate a complete hierarchy all the way down to individual document leaves. For a fixed number of top levels, using an efficient flat algorithm like <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means, top-down algorithms are linear in the number of documents and clusters. So they run much faster than HAC algorithms, which are at least quadratic. </p>
+  <p> There is evidence that divisive algorithms produce more accurate hierarchies than bottom-up algorithms in some circumstances. See the references on bisecting <img width="15" height="32" align="MIDDLE" border="0" src="img30.png" alt="$K$" />-means in Section <a href="references-and-further-reading-17.html#sec:hclstfurther">17.9</a> . Bottom-up methods make clustering decisions based on local patterns without initially taking into account the global distribution. These early decisions cannot be undone. Top-down clustering benefits from complete information about the global distribution when making top-level partitioning decisions. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4421" href="cluster-labeling-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4415" href="hierarchical-clustering-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4409" href="optimality-of-hac-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4417" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4419" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4422" href="cluster-labeling-1.html">Cluster labeling</a> 
+  <b> Up:</b> 
+  <a name="tex2html4416" href="hierarchical-clustering-1.html">Hierarchical clustering</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4410" href="optimality-of-hac-1.html">Optimality of HAC</a> &nbsp; 
+  <b> <a name="tex2html4418" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4420" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

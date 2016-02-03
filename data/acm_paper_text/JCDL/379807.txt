@@ -1,0 +1,2 @@
+Integrating digital libraries by CORBA, XML and Servlet
+In this paper, we describe how we use a mediator-based architecture for integrating digital libraries. We discuss how we tackle the obstacles of firewalls in the expansion of our system by using XML and Java Servlet, which are used to achieve CORBA general communications and callback features across the firewalls.

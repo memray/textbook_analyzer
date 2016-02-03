@@ -1,0 +1,1 @@
+interface-design for browsing faceted-metadata the team developing the new version of the computational-science-education reference desk (cserd) has recognized the need for , and implemented , a more flexible and interactive-system for finding resources using a combination of browsing and searching .

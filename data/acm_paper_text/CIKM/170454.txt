@@ -1,0 +1,2 @@
+On the development of a site selection optimizer for distributed and parallel database systems
+An abstract is not available.

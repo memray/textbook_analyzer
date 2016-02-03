@@ -1,0 +1,2 @@
+An object-oriented database for the display measurement and analysis system
+An abstract is not available.

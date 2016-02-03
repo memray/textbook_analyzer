@@ -1,0 +1,2 @@
+Adapting a spatial access structure for document representations in vector space
+An abstract is not available.

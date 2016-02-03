@@ -1,0 +1,1 @@
+looking back , looking forward : a metadata-standard for lanl 's adore repository although often disparaged or dismissed in the library community , the marc standard , notably the marcxml standard , provides surprising flexibility and robustness for mapping disparate metadata to a vendor-neutral format for storage , exchange , and downstream use .

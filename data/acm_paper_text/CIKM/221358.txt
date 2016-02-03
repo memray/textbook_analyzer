@@ -1,0 +1,2 @@
+A configurable approach for object sharing among multidatabase systems
+An abstract is not available.

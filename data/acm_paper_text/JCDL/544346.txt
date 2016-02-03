@@ -1,0 +1,2 @@
+Unicode for multilingual representation in digital libraries from the indian perspective
+One of the main issues in digital data sharing is tackling multi-lingual resources. Paper presents the problems of representation of Indian languages on Internet. It covers the efforts so far undertaken for multilingual data representation in India. It examines the applicability and advantages of adopting Unicode.

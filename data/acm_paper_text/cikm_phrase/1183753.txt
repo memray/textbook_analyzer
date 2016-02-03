@@ -1,0 +1,1 @@
+matching and evaluation of disjunctive-predicates for data-stream-sharing new optimization-techniques , e.g. , in data-stream-management-systems (dsmss) , make the treatment of disjunctive-predicates a necessity . in this paper , we introduce and compare methods for matching and evaluating disjunctive-predicates .

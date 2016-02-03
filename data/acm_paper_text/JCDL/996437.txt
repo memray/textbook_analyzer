@@ -1,0 +1,2 @@
+Enabling interoperability for autonomous digital libraries: an API to citeseer services
+We introduce CiteSeer-API, a public API to CiteSeer-like services CiteSeer-API is SOAP/WSDL based and allows for easy programatical access to all the specific functionalities offered by CiteSeer services, including full text search of documents and citations and citation--based document discovery. CiteSeer-API is currently showcased on SMEALSearch [10]. a digital library search engine for business academic publications.

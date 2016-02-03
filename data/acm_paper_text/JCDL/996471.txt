@@ -1,0 +1,2 @@
+Towards a unified framework for assessing the complexity of digital libraries
+This poster presents a unified Web information system (WIS) framework developed to study the impact of WIS introduction on a digital" organization's information environment. As digital libraries can be seen as information systems and are often based on Web technologies we suggest that this framework is also useful to assess their complexity".

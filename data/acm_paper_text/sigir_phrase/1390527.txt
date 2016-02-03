@@ -1,0 +1,1 @@
+posterior-probabilistic-clustering using nmf we introduce the posterior-probabilistic-clustering (ppc) , which provides a rigorous posterior-probability interpretation for nonnegative-matrix-factorization (nmf) and removes the uncertainty in clustering assignment . furthermore , ppc is closely related to probabilistic-latent-semantic-indexing (plsi) .

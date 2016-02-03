@@ -1,0 +1,2 @@
+A hybrid bilevel image decode algorithm for group 4 FAX
+An abstract is not available.

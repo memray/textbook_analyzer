@@ -1,0 +1,2 @@
+Repurposing data across disciplines: a study of data reuse issues between climate science and social science
+Repurposing of data raises a number of issues for use across the disciplines of climate science and social science. The issues we present are results of the work we are currently carrying out as part of the Data Conservancy Project1 which aims to preserve data for long-term known and unanticipated use over time, across disciplines and over a variety of spatial, temporal and organizational scales.

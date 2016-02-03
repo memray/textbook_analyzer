@@ -1,0 +1,1 @@
+nbdl : a cis framework for nsdl in this paper , we describe the nbdl (national biology digital-library) project , one of the six cis (core integration system) projects of the nsf nsdl (national-smete-digital-library) program .

@@ -1,0 +1,2 @@
+Developing a digital library of reusable historical artifacts
+This paper discusses the design and implementation of a digital library of historical artifacts. A major goal of the project is to create an architecture in which artifacts are reusable across various digital library applications. Two such applications have been developed and are described: a virtual exhibition system and a reference helpdesk.

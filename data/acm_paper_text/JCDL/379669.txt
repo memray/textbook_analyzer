@@ -1,0 +1,2 @@
+Locating question difficulty through explorations in question space
+Three different search effectiveness measures were used to classify 50 question narratives as easy or hard. Each measure was then encoded onto a spatial representation of interquestion similarity. Discriminant analysis based on the resulting map was able to predict question difficulty with approximately 80\% accuracy, robust across multiple measures. Implications for the design of digital document collections are discussed.

@@ -1,0 +1,1 @@
+project synopsis : evaluating strip an abstract is not available .

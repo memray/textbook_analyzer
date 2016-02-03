@@ -1,0 +1,2 @@
+A performance support systems approach to digital publishing in libraries
+Electronic performance support tools are used in many workplaces, but digital libraries have not evaluated their potential usefulness. In a pilot project, the Florida State University Libraries developed inexpensive performance support tools for three types of in-house digital publishing. This strategy improved productivity and quality control.

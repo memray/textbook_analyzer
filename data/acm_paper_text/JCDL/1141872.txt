@@ -1,0 +1,2 @@
+Demonstrating the use of a SenseCam in two domains
+MyLifeBits is both an application and a framework to manage a personal lifetime of memories. We will demonstrate the use of a small digital library that manages data from two Microsoft SenseCams, used by: 1) students in the Virginia-Maryland Regional College of Veterinary Medicine, and 2) students supported by our Assistive Technologies office.

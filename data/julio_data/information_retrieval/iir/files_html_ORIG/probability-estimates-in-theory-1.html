@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Probability estimates in theory</title> 
+  <meta name="description" content="Probability estimates in theory" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="probability-estimates-in-practice-1.html" /> 
+  <link rel="previous" href="deriving-a-ranking-function-for-query-terms-1.html" /> 
+  <link rel="up" href="the-binary-independence-model-1.html" /> 
+  <link rel="next" href="probability-estimates-in-practice-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3100" href="probability-estimates-in-practice-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3094" href="the-binary-independence-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3088" href="deriving-a-ranking-function-for-query-terms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3096" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3098" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3101" href="probability-estimates-in-practice-1.html">Probability estimates in practice</a> 
+  <b> Up:</b> 
+  <a name="tex2html3095" href="the-binary-independence-model-1.html">The Binary Independence Model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3089" href="deriving-a-ranking-function-for-query-terms-1.html">Deriving a ranking function</a> &nbsp; 
+  <b> <a name="tex2html3097" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3099" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001632000000000000000"></a><a name="sec:probtheory"></a> <a name="p:probtheory"></a> <br /> Probability estimates in theory </h2> 
+  <p> For each term <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />, what would these <img width="16" height="32" align="MIDDLE" border="0" src="img721.png" alt="$c_t$" /> numbers look like for the whole collection? odds-ratio-ct-contingency gives a contingency table of counts of documents in the collection, where <img width="24" height="31" align="MIDDLE" border="0" src="img726.png" alt="$\docf_t$" /> is the number of documents that contain term <img width="10" height="32" align="MIDDLE" border="0" src="img67.png" alt="$t$" />: <br /> <a name="odds-ratio-ct-contingency"></a><img width="504" height="91" align="BOTTOM" border="0" src="img727.png" alt="\begin{example}
+\begin{tabular}[t]{\vert cc\vert cc\vert c\vert}
+\hline
+&amp; docum...
+...\\ \hline
+&amp; Total &amp; $S$\ &amp; $N-S$\ &amp; $N$\ \\ \hline
+\end{tabular}
+\end{example}" /> <br /> Using this, <img width="66" height="31" align="MIDDLE" border="0" src="img728.png" alt="$p_t = s/S$" /> and 
+   <!-- MATH
+ $u_t = (\docf_t-s)/(N-S)$
+ --> <img width="167" height="33" align="MIDDLE" border="0" src="img729.png" alt="$u_t = (\docf_t-s)/(N-S)$" /> and <br /> </p>
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+c_t = K(N,\docf_t,S,s) = \log\frac{s/(S-s)}{(\docf_t-s)/((N-\docf_t)-(S-s))}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="odds-ratio-ct-est"></a><img width="397" height="45" border="0" src="img730.png" alt="\begin{displaymath}
+c_t = K(N,\docf_t,S,s) = \log\frac{s/(S-s)}{(\docf_t-s)/((N-\docf_t)-(S-s))}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (74)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> To avoid the possibility of zeroes (such as if every or no relevant document has a particular term) it is fairly standard to 
+  <a name="14489"></a> 
+  <i>add <img width="14" height="39" align="MIDDLE" border="0" src="img731.png" alt="$\frac{1}{2}$" /></i> to each of the quantities in the center 4 terms of odds-ratio-ct-contingency, and then to adjust the marginal counts (the totals) accordingly (so, the bottom right cell totals 
+  <img width="45" height="32" align="MIDDLE" border="0" src="img732.png" alt="$N+2$" />). Then we have: 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\hat{c}_t = K(N,\docf_t,S,s) = \log\frac{(s+\frac{1}{2})/(S-s+\frac{1}{2})}
+{(\docf_t-s+\frac{1}{2})/(N-\docf_t-S+s+\frac{1}{2})}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="smoothed-rf"></a><img width="428" height="51" border="0" src="img733.png" alt="\begin{displaymath}
+\hat{c}_t = K(N,\docf_t,S,s) = \log\frac{(s+\frac{1}{2})/(S-...
+...1}{2})}
+{(\docf_t-s+\frac{1}{2})/(N-\docf_t-S+s+\frac{1}{2})}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (75)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> 
+  <p> Adding <img width="14" height="39" align="MIDDLE" border="0" src="img731.png" alt="$\frac{1}{2}$" /> in this way is a simple form of smoothing. For trials with categorical outcomes (such as noting the presence or absence of a term), one way to estimate the probability of an event from data is simply to count the number of times an event occurred divided by the total number of trials. This is referred to as the <a name="14179"></a> <i>relative frequency</i> of the event. Estimating the probability as the relative frequency is the <a name="14181"></a> <i>maximum likelihood estimate</i> (or <a name="14493"></a> <i>MLE</i> ), because this value makes the observed data maximally likely. However, if we simply use the MLE, then the probability given to events we happened to see is usually too high, whereas other events may be completely unseen and giving them as a probability estimate their relative frequency of 0 is both an underestimate, and normally breaks our models, since anything multiplied by 0 is 0. Simultaneously decreasing the estimated probability of seen events and increasing the probability of unseen events is referred to as <a name="14185"></a> <i>smoothing</i> . One simple way of smoothing is to <a name="14187"></a> <i>add a number <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /></i> to each of the observed counts. These <a name="14189"></a> <i>pseudocounts</i> correspond to the use of a uniform distribution over the vocabulary as a <a name="14191"></a> <i>Bayesian prior</i> <a name="14193"></a>, following Equation&nbsp;<a href="review-of-basic-probability-theory-1.html#eqn:bayesrule">59</a>. We initially assume a uniform distribution over events, where the size of <img width="12" height="32" align="MIDDLE" border="0" src="img524.png" alt="$\alpha$" /> denotes the strength of our belief in uniformity, and we then update the probability based on observed events. Since our belief in uniformity is weak, we use 
+   <!-- MATH
+ $\alpha = \frac{1}{2}$
+ --> <img width="44" height="39" align="MIDDLE" border="0" src="img734.png" alt="$\alpha = \frac{1}{2}$" />. This is a form of <a name="14197"></a> <i>maximum a posteriori</i> (<a name="14199"></a> <i>MAP</i> ) estimation, where we choose the most likely point value for probabilities based on the prior and the observed evidence, following Equation&nbsp;<a href="review-of-basic-probability-theory-1.html#eqn:bayesrule">59</a>. We will further discuss methods of smoothing estimated counts to give probability models in Section&nbsp;<a href="estimating-the-query-generation-probability-1.html#sec:prob-smoothing">12.2.2</a> (page&nbsp;<a href="estimating-the-query-generation-probability-1.html#p:prob-smoothing"><img align="BOTTOM" border="1" alt="[*]" src="http://nlp.stanford.edu/IR-book/html/icons/crossref.png" /></a>); the simple method of <a name="14494"></a> <i>adding <img width="14" height="39" align="MIDDLE" border="0" src="img731.png" alt="$\frac{1}{2}$" /></i> to each observed count will do for now. </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3100" href="probability-estimates-in-practice-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3094" href="the-binary-independence-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3088" href="deriving-a-ranking-function-for-query-terms-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3096" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3098" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3101" href="probability-estimates-in-practice-1.html">Probability estimates in practice</a> 
+  <b> Up:</b> 
+  <a name="tex2html3095" href="the-binary-independence-model-1.html">The Binary Independence Model</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3089" href="deriving-a-ranking-function-for-query-terms-1.html">Deriving a ranking function</a> &nbsp; 
+  <b> <a name="tex2html3097" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3099" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

@@ -1,0 +1,2 @@
+Analysis of transaction logs for insights into use of life oral histories
+A digital video library of over 900 hours of video and 18000 stories from The HistoryMakers was used by 214 students, faculty, librarians, and life-long learners interacting with a system providing multiple search and viewing capabilities over a trial period of several months. User demographics and actions were logged, providing metrics on how the system was used. This poster overviews a few highlights from these transaction logs of the Informedia digital video library system for life oral histories.

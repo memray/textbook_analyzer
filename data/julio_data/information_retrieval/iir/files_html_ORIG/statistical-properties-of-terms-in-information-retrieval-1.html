@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Statistical properties of terms in information retrieval</title> 
+  <meta name="description" content="Statistical properties of terms in information retrieval" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="dictionary-compression-1.html" /> 
+  <link rel="previous" href="index-compression-1.html" /> 
+  <link rel="up" href="index-compression-1.html" /> 
+  <link rel="next" href="heaps-law-estimating-the-number-of-terms-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1679" href="heaps-law-estimating-the-number-of-terms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1673" href="index-compression-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1667" href="index-compression-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1675" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1677" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1680" href="heaps-law-estimating-the-number-of-terms-1.html">Heaps' law: Estimating the</a> 
+  <b> Up:</b> 
+  <a name="tex2html1674" href="index-compression-1.html">Index compression</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1668" href="index-compression-1.html">Index compression</a> &nbsp; 
+  <b> <a name="tex2html1676" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1678" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION001010000000000000000"></a> <a name="sec:statproperties"></a> <a name="p:statproperties"></a> <br /> Statistical properties of terms in information retrieval </h1> 
+  <p> As in the last chapter, we use Reuters-RCV1 as our model collection (see Table <a href="blocked-sort-based-indexing-1.html#tab:icompresstb1">4.2</a> , page <a href="blocked-sort-based-indexing-1.html#p:icompresstb1">4.2</a> ). We give some term and postings statistics for the collection in Table <a href="#tab:icompresstb5">5.1</a> . ``<img width="28" height="32" align="MIDDLE" border="0" src="img230.png" alt="$\Delta\%$" />'' indicates the reduction in size from the previous line. ``T%'' is the cumulative reduction from unfiltered. </p>
+  <p> The table shows the number of terms for different levels of preprocessing (column 2). The number of terms is the main factor in determining the size of the dictionary. The number of nonpositional postings (column 3) is an indicator of the expected size of the nonpositional index of the collection. The expected size of a positional index is related to the number of positions it must encode (column 4). </p>
+  <p> In general, the statistics in Table <a href="#tab:icompresstb5">5.1</a> show that preprocessing affects the size of the dictionary and the number of nonpositional postings greatly. Stemming and case folding reduce the number of (distinct) terms by 17% each and the number of nonpositional postings by 4% and 3%, respectively. The treatment of the most frequent words is also important. The <a name="5855"></a> <i>rule of 30</i> states that the 30 most common words account for 30% of the tokens in written text (31% in the table). Eliminating the 150 most common words from indexing (as stop words; cf. Section <a href="dropping-common-terms-stop-words-1.html#sec:stopwords">2.2.2</a> , page <a href="dropping-common-terms-stop-words-1.html#p:stopwords">2.2.2</a> ) cuts 25% to 30% of the nonpositional postings. But, although a stop list of 150 words reduces the number of postings by a quarter or more, this size reduction does not carry over to the size of the compressed index. As we will see later in this chapter, the postings lists of frequent words require only a few bits per posting after compression. </p>
+  <p> <br /></p>
+  <p></p> 
+  <div align="CENTER"> 
+   <a name="5861"></a> 
+   <a name="6712"></a> 
+   <table cellpadding="3" border="1"> 
+    <caption>
+     <strong>Table 5.1:</strong> The effect of preprocessing on the number of terms, nonpositional postings, and tokens for Reuters-RCV1. ``
+     <img width="28" height="32" align="MIDDLE" border="0" src="img230.png" alt="$\Delta\%$" />'' indicates the reduction in size from the previous line, except that ``30 stop words'' and ``150 stop words'' both use ``case folding'' as their reference line. ``T%'' is the cumulative (``total'') reduction from unfiltered. We performed stemming with the Porter stemmer (Chapter 
+     <a href="the-term-vocabulary-and-postings-lists-1.html#ch:dictionary">2</a> , page 
+     <a href="stemming-and-lemmatization-1.html#p:porter">2.2.4</a> ).
+    </caption> 
+    <tbody>
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="CENTER" colspan="3">tokens (<img width="22" height="16" align="BOTTOM" border="0" src="img231.png" alt="$= {}$" />number of position</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="CENTER" colspan="3">(distinct) terms</td> 
+      <td align="CENTER" colspan="3">nonpositional postings</td> 
+      <td align="CENTER" colspan="3">entries in postings)</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="CENTER" colspan="3">&nbsp;</td> 
+      <td align="CENTER" colspan="3">&nbsp;</td> 
+      <td align="CENTER" colspan="3">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">&nbsp;</td> 
+      <td align="LEFT" colspan="1">number</td> 
+      <td align="CENTER" colspan="1"><img width="28" height="32" align="MIDDLE" border="0" src="img230.png" alt="$\Delta\%$" /></td> 
+      <td align="CENTER" colspan="1">T%</td> 
+      <td align="LEFT" colspan="1">number</td> 
+      <td align="CENTER" colspan="1"><img width="28" height="32" align="MIDDLE" border="0" src="img230.png" alt="$\Delta\%$" /></td> 
+      <td align="CENTER" colspan="1">T%</td> 
+      <td align="LEFT" colspan="1">number</td> 
+      <td align="CENTER" colspan="1"><img width="28" height="32" align="MIDDLE" border="0" src="img230.png" alt="$\Delta\%$" /></td> 
+      <td align="CENTER" colspan="1">T%</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">unfiltered</td> 
+      <td align="RIGHT">484,494</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">109,971,179</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="RIGHT">197,879,290</td> 
+      <td align="RIGHT">&nbsp;</td> 
+      <td align="CENTER">&nbsp;</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">no numbers</td> 
+      <td align="RIGHT">473,723</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />2</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />2</td> 
+      <td align="RIGHT">100,680,242</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />8</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />8</td> 
+      <td align="RIGHT">179,158,204</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />9</td> 
+      <td align="CENTER"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />9</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">case folding</td> 
+      <td align="RIGHT">391,523</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />17</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />19</td> 
+      <td align="RIGHT">96,969,056</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />3</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />12</td> 
+      <td align="RIGHT">179,158,204</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />0</td> 
+      <td align="CENTER"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />9</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">30 stop words</td> 
+      <td align="RIGHT">391,493</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />0</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />19</td> 
+      <td align="RIGHT">83,390,443</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />14</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />24</td> 
+      <td align="RIGHT">121,857,825</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />31</td> 
+      <td align="CENTER"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />38</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">150 stop words</td> 
+      <td align="RIGHT">391,373</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />0</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />19</td> 
+      <td align="RIGHT">67,001,847</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />30</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />39</td> 
+      <td align="RIGHT">94,516,599</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />47</td> 
+      <td align="CENTER"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />52</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+     <tr>
+      <td align="LEFT">&nbsp;</td>
+      <td align="LEFT">stemming</td> 
+      <td align="RIGHT">322,383</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />17</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />33</td> 
+      <td align="RIGHT">63,812,300</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />4</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />42</td> 
+      <td align="RIGHT">94,516,599</td> 
+      <td align="RIGHT"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />0</td> 
+      <td align="CENTER"><img width="17" height="32" align="MIDDLE" border="0" src="img232.png" alt="$-$" />52</td> 
+      <td align="LEFT">&nbsp;</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <a name="tab:icompresstb5"></a> 
+   <a name="p:icompresstb5"></a> 
+  </div> 
+  <br /> 
+  <p> The deltas in the table are in a range typical of large collections. Note, however, that the percentage reductions can be very different for some text collections. For example, for a collection of web pages with a high proportion of French text, a lemmatizer for French reduces vocabulary size much more than the Porter stemmer does for an English-only collection because French is a morphologically richer language than English.<a name="5919"></a> </p>
+  <p> The compression techniques we describe in the remainder of this chapter are <a name="5920"></a> <i>lossless</i> , that is, all information is preserved. Better compression ratios can be achieved with <a name="5922"></a> <i>lossy compression</i> , which discards some information. Case folding, stemming, and stop word elimination are forms of lossy compression. Similarly, the vector space model (Chapter <a href="scoring-term-weighting-and-the-vector-space-model-1.html#ch:termvspace">6</a> ) and dimensionality reduction techniques like latent semantic indexing (Chapter <a href="matrix-decompositions-and-latent-semantic-indexing-1.html#ch:lsi">18</a> ) create compact representations from which we cannot fully restore the original collection. Lossy compression makes sense when the ``lost'' information is unlikely ever to be used by the search system. For example, web search is characterized by a large number of documents, short queries, and users who only look at the first few pages of results. As a consequence, we can discard postings of documents that would only be used for hits far down the list. Thus, there are retrieval scenarios where lossy methods can be used for compression without any reduction in effectiveness. </p>
+  <p> Before introducing techniques for compressing the dictionary, we want to estimate the number of distinct terms <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" /> in a collection. It is sometimes said that languages have a vocabulary of a certain size. The second edition of the <a name="5926"></a><i>Oxford English Dictionary</i> (OED) defines more than 600,000 words. But the vocabulary of most large collections is much larger than the OED. The OED does not include most names of people, locations, products, or scientific entities like genes. These names need to be included in the inverted index, so our users can search for them. </p>
+  <p> <a name="5928"></a> <br /></p>
+  <hr /> 
+  <!--Table of Child-Links--> 
+  <a name="CHILD_LINKS"><strong>Subsections</strong></a> 
+  <ul> 
+   <li><a name="tex2html1681" href="heaps-law-estimating-the-number-of-terms-1.html">Heaps' law: Estimating the number of terms</a> </li>
+   <li><a name="tex2html1682" href="zipfs-law-modeling-the-distribution-of-terms-1.html">Zipf's law: Modeling the distribution of terms</a> </li>
+  </ul> 
+  <!--End of Table of Child-Links--> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html1679" href="heaps-law-estimating-the-number-of-terms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html1673" href="index-compression-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html1667" href="index-compression-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html1675" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html1677" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html1680" href="heaps-law-estimating-the-number-of-terms-1.html">Heaps' law: Estimating the</a> 
+  <b> Up:</b> 
+  <a name="tex2html1674" href="index-compression-1.html">Index compression</a> 
+  <b> Previous:</b> 
+  <a name="tex2html1668" href="index-compression-1.html">Index compression</a> &nbsp; 
+  <b> <a name="tex2html1676" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html1678" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

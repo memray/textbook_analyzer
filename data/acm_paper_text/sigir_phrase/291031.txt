@@ -1,0 +1,1 @@
+term-ordered query-evaluation versus document-ordered query-evaluation for large document databases an abstract is not available .

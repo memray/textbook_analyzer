@@ -1,0 +1,2 @@
+Hybrid pattern recognition system capable of self-modification
+An abstract is not available.

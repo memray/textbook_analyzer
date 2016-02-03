@@ -1,0 +1,2 @@
+Database selection in intranet mediators for natural language queries
+An abstract is not available.

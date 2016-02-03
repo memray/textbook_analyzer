@@ -1,0 +1,1 @@
+quantifying the accuracy of relational statements in wikipedia : a methodology an initial evaluation of the english wikipedia indicates that it may provide accurate data for disambiguating and finding relations among named-entities .

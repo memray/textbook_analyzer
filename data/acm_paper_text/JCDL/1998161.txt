@@ -1,0 +1,2 @@
+Detecting academic papers on the web
+Our research goal is to develop a search engine for open access to academic papers. English and Japanese test sets were built for detection of academic papers from 20,000 PDF files in each language using five annotators. Six classifiers were trained using similar features for each language. We report F1 of 0.74 for English and 0.54 for Japanese and argue that similar features could easily be generated for other languages as well.

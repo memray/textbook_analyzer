@@ -1,0 +1,1 @@
+a comparative-study of log-only and in-place-update based temporal object database-systems an abstract is not available .

@@ -1,0 +1,1 @@
+commit-reordering validation scheme for transaction-scheduling in client-server based teleputing systems : corev an abstract is not available .

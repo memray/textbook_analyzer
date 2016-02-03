@@ -1,0 +1,2 @@
+Revisiting the effect of topic set size on retrieval error
+An abstract is not available.

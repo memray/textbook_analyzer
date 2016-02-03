@@ -1,0 +1,2 @@
+Lessons from BMIR-J2: a test collection for Japanese IR systems
+An abstract is not available.

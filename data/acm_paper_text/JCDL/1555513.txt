@@ -1,0 +1,2 @@
+Analyzing user's book-loan behaviors in Peking university library from social network perspective
+In a university library, students from different background are connected by co-borrowing behaviors which form a knowledge sharing network. This poster presents a novel idea to study the users' book-loan behavior patterns (knowledge sharing patterns) from the social network perspective which enable us to understand the patterns in both the macro-level and micro-level analysis.

@@ -1,0 +1,2 @@
+Vector approximation based indexing for non-uniform high dimensional data sets
+An abstract is not available.

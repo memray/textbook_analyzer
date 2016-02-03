@@ -1,0 +1,2 @@
+Deduced social networks for an educational digital library
+By analyzing the behavior of previous users, digital libraries can be made to provide new users with more support to find the best information. The AlgoViz Portal collects metadata on algorithm visualizations and associated research literature. We show how logs can be used to discover latent relationships between users, deducing an implicit social network. By clustering the log data, we find different page-viewing patterns, which provide practical information about the different groups of users.

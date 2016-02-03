@@ -1,0 +1,2 @@
+Evaluation of OAI-ORE via large-scale information topology visualization
+This poster evaluates the OAI-ORE specifications through experiments providing access to the JSTOR digital archive and the Flickr website. A browser-based dynamic graph visualization tool was designed and tested to determine if making the topology of the information available would provide end-user benefits in terms of navigation and discovery.

@@ -1,0 +1,1 @@
+augmenting oai-pmh repository holdings using search-engine apis in this poster , we give the preliminary results of our project to acquire atmospheric-science data-center (asdc) project-related web-resources , not with focused-crawling , but by using the search-engine (se) apis directly . we aggregate the results and create archive-ready complex-objects .

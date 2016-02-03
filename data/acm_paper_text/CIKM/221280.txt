@@ -1,0 +1,2 @@
+An extensible knowledge base management system for supporting rule-based interoperability among heterogeneous systems
+An abstract is not available.

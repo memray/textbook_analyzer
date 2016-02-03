@@ -1,0 +1,1 @@
+dspace : durable digital-documents the dspace system for long-term management of institutional scholarly research repositories is now in use at the mit libraries ; we will demonstrate the system and provide more information about its design , use at mit , and other potential uses .

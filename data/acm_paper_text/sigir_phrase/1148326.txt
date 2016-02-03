@@ -1,0 +1,1 @@
+history repeats itself : repeat-queries in yahoo 's logs thanks to the ubiquity of the-internet search-engine search box , users have come to depend on search-engines both to find and re-find information . however , re-finding behavior has not been significantly addressed . here we look at re-finding queries issued to the yahoo! search-engine by 114 users over a year .

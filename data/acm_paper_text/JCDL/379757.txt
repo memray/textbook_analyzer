@@ -1,0 +1,2 @@
+Document quality indicators and corpus editions
+Corpus editions can only be useful to scholars when users know what to expect of the texts. We argue for text quality indicators, both general and domain-specific.

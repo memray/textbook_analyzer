@@ -1,0 +1,1 @@
+detecting controversial events from twitter social-media provides researchers with continuously updated information about developments of interest to large audiences . this paper addresses the task of identifying controversial events using twitter as a starting point : we propose 3 models for this task and report encouraging initial results .

@@ -1,0 +1,2 @@
+Temporal granularity for unanchored temporal data
+An abstract is not available.

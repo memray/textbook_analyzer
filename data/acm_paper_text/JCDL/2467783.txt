@@ -1,0 +1,2 @@
+User interface evaluation of meta-indexes for search
+In the Indexer's Legacy Project, we have created meta-indexes for domain-oriented collections of digital books in order to promote searching, navigation and browsing in digital collections. Because the meta-index is a new knowledge structure, we have used focus groups and sample tasks to collect information on user's perception and use of meta-indexes. User's responses were positive and their suggestions led to improvements in our online Meta-Dex User Interface (MUI) tool, which will be tested in subsequent user studies.

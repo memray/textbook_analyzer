@@ -1,0 +1,2 @@
+UpdateNews: a news clustering and summarization system using efficient text processing
+This paper proposes a news articles clustering and summarization system. It provides integrated access to news articles from various news sites. The system consists of a crawler, topic detector, and summarizer. This paper describes its efficient summarization technique to handle large amounts of crawled news articles.

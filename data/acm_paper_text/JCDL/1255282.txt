@@ -1,0 +1,2 @@
+Building a digital library of traditional mongolian historical documents
+This paper describes technique of converting modern Mongolian text input to traditional Mongolian script and integrating the result into the Greenstone Digital Library (GSDL). This work is part of on-going research to create a digital library of traditional Mongolian historical documents.

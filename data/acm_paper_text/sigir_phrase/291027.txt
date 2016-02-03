@@ -1,0 +1,1 @@
+a method for scoring correlated features in query-expansion an abstract is not available .

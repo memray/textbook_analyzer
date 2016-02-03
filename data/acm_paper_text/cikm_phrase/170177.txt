@@ -1,0 +1,1 @@
+an extensible query model and its languages for a uniform behavioral object-management system an abstract is not available .

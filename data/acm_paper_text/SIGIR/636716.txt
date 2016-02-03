@@ -1,0 +1,2 @@
+LIARS: a software environment for testing query processing strategies
+This paper describes the Louisiana Information Access and Retrieval System, LIARS, a software system which provides an environment within which various strategies for query processing (and, to a certain extent, document indexing) can be empirically tested.

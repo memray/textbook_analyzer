@@ -1,0 +1,1 @@
+recommender-system for mir research-community in this demonstration , we show a recommender-system for the music-information-retrieval (mir) research-community . we extract the key topics and tags by analyzing the ten-year cumulative ismir proceedings , and recommend papers and research colleagues to users in an interactive way .

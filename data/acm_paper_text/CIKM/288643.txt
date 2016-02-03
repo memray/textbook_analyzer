@@ -1,0 +1,2 @@
+Efficient enumeration of frequent sequences
+An abstract is not available.

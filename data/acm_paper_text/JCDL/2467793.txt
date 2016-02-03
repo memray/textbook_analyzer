@@ -1,0 +1,2 @@
+IssueLab: the social sector's digital library
+In this paper, we describe IssueLab, a digital library and distribution network for social sector publications and resources.

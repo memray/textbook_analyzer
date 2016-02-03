@@ -1,0 +1,2 @@
+Twanchor text: a preliminary study of the value of tweets as anchor text
+It is well known that anchor text plays an important role in search, providing signals that are often not present in the source document itself. The paper reports results of a preliminary investigation on the value of tweets and tweet conversations as anchor text. We show that using tweets as anchors improves significantly over using HTML anchors, and significantly increases recall of news item retrieval.

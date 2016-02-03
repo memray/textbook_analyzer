@@ -1,0 +1,2 @@
+Down on the OCR farm: how we produced searchable PDFs for 7 million documents in a student computer lab
+Utilizing idle workstations in a student computer lab, 7 million searchable PDF documents were generated from 42 million TIF page images.

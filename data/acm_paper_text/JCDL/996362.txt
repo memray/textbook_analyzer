@@ -1,0 +1,2 @@
+How people describe their image information needs: a grounded theory analysis of visual arts queries
+When people are looking for visual arts information-information related to images-how do they characterize their needs? We analyze a set of 404 queries to identify the attributes that people provide to the Google Answers™ 'ask an expert' online reference system. The results suggest directions to take in developing an effective organization and features for an image digital library.

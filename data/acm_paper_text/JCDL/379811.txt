@@ -1,0 +1,2 @@
+Using Markov models and innovation-diffusion as a tool for predicting digital library access and distribution
+This paper, discusses a general approach to predicting data access rates and user access patterns for planning distribution capacities and for monitoring data usage. The approach uses a steady-state Markov model to describe user activities and innovation-diffusion to describe the rate at which a naÂ?ve population adopts accessing data from a digital library.

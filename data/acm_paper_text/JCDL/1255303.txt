@@ -1,0 +1,2 @@
+Rapid document navigation for information triage support
+This paper introduces a novel interaction for supporting rapid between-page comparison of texts within a limited screen estate. In comparison with existing interfaces and interactions, it gives a high degree of visual feedback and allows rapid between-page flicking, similar to what is readily achieved in physical environments using the fingers and thumbs of a reader as they flip between related pages.

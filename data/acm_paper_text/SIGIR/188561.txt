@@ -1,0 +1,2 @@
+Some simple effective approximations to the 2-Poisson model for probabilistic weighted retrieval
+An abstract is not available.

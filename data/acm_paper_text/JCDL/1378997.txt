@@ -1,0 +1,2 @@
+Creating a searchable map library via data mining
+Maps in journal articles are difficult to access since they are rarely indexed apart from the articles themselves. Our prototype of a searchable map library was built by extracting maps and harvesting metadata from scanned articles to classify each map.

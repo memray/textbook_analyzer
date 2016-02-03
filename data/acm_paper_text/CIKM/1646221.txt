@@ -1,0 +1,2 @@
+Building domain-oriented sentiment lexicon by improved information bottleneck
+This paper describes an adapted information bottleneck approach for construction of domain-oriented sentiment lexicon. The basic idea is to use three kinds of relationships (WW inter , WD inter and WD intra ,) to infer the semantic orientation of the out-of-domain words. The experimental results demonstrate that proposed method could dramatically improve the accuracy of the baseline approach on the construction of out-of-domain sentiment lexicon.

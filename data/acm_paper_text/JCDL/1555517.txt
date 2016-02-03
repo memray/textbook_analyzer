@@ -1,0 +1,2 @@
+Text mining for indexing
+This paper describes techniques for automatically extracting and classifying maps found within articles. The process uses image analysis to find text in maps, document structure to find captions and titles, and then text mining to assign each map to a subject category, a geographical place, and a time period. The text analysis is based on authority lists taken from gazetteers and from library classifications.

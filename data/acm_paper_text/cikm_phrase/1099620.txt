@@ -1,0 +1,1 @@
+statistical relationship determination in automatic-thesaurus-construction statistical relationship determination among terms is one of the key issues in automatic-thesaurus-construction . we systematically analyze existing relevant approaches based on their underlying probabilistic assumptions , and propose a combined approach that overcomes their limitations .

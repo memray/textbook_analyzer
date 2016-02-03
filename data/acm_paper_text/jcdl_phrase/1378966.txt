@@ -1,0 +1,1 @@
+running greenstone on an ipod the open-source digital-library software greenstone is demonstrated running on an ipod . the standalone configuration supports browsing , searching and displaying documents in a range of media formats . plugged in to a host computer (mac , linux , or windows) , the exact same facilities are made available to the world through a built-in web-server .

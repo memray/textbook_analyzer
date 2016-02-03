@@ -1,0 +1,2 @@
+CQE: a collaborative querying environment
+An abstract is not available.

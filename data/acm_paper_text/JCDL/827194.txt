@@ -1,0 +1,2 @@
+The Dienst-OAI gateway
+Though the Open Archive Initiative Protocol for Metadata Harvesting (OAI-PMH) is becoming the de facto standard for digital libraries, some of its predecessors are still in use. Although a limited number of Dienst repositories continue to be populated, others are precariously unsupported. The Dienst Open Archive Gateway (DOG) is a gateway between the OAI-PMH and the Dienst (version 4.1) protocol. DOG allows OAIPMH harvesters to extract metadata records (in RFC-1807 or Dublin Core) from Dienst servers.

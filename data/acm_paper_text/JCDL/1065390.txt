@@ -1,0 +1,2 @@
+Evaluating G-portal for geography learning and teaching
+This paper describes G-Portal, a geospatial digital library of geographical assets, providing an interactive platform to engage students in active manipulation and analysis of information resources and collaborative learning activities. Using a G-Portal application in which students conducted a field study of an environmental problem of beach erosion and sea level rise, we describe a pilot study to evaluate usefulness and usability issues to support the learning of geographical concepts, and in turn teaching.

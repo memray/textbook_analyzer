@@ -1,0 +1,1 @@
+utilizing minimal relevance-feedback for ad-hoc-retrieval using relevance-feedback can significantly improve (ad-hoc) retrieval-effectiveness . yet , if little feedback is available , effectively exploiting it is a challenge . to that end , we present a novel approach that utilizes document passages . empirical-evaluation demonstrates the merits of the approach .

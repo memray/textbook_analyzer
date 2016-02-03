@@ -1,0 +1,2 @@
+The XML log standard for digital libraries: analysis, evolution, and deployment
+We describe current efforts and developments building on our proposal for an XML log standard format for digital library (DL) logging analysis and companion tools. Focus is given to the evolution of formats and tools, based on analysis of deployment in several DL systems and testbeds. Recent development of analysis tools also is discussed.

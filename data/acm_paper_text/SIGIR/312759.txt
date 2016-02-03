@@ -1,0 +1,2 @@
+CueVideo (demonstration abstract): automated video/audio indexing and browsing
+An abstract is not available.

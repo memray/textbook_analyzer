@@ -1,0 +1,2 @@
+Developing a metadata schema for CSERD: a computational science digital library
+The poster traces ongoing efforts to develop and refine a metadata schema for the Computational Science Education Reference Desk (CSERD). Design and development is informed by evolving metadata standards for educational resources, usability studies, audience analysis, and interoperability guidelines for National Science Digital Library (NSDL), NSDL Metadata Registry, and digital libraries, such as Merlot. The poster will illustrate and define each of these as "facets" of metadata structures.

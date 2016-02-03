@@ -1,0 +1,2 @@
+Computation of partial query results with an adaptive stratified sampling technique
+An abstract is not available.

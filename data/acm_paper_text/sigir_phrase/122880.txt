@@ -1,0 +1,1 @@
+using the cosine-measure in a neural-network for document-retrieval an abstract is not available .

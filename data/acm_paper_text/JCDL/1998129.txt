@@ -1,0 +1,2 @@
+Automating open educational resources assessments: a machine learning generalization study
+Assessing the quality of online educational resources in a cost effective manner is a critical issue for educational digital libraries. This study reports on the approach for extending the Open Educational Resource Assessments (OPERA) algorithm from assessing vetted to peer-produced content. This article reports details of changes to the algorithm, comparisons between human raters and the algorithm, and the extent the algorithm can automate the review process.

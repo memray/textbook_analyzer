@@ -1,0 +1,2 @@
+An object-oriented model for image information representation
+An abstract is not available.

@@ -1,0 +1,1 @@
+integrating phrase inseparability in phrase-based-model in this paper , we propose a new phrase-based ir model , which integrates a measure of `` inseparability '' of phrases . our experiments show its high potential to produce large improvements in retrieval-effectiveness .

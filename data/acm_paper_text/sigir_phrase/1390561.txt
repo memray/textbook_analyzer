@@ -1,0 +1,1 @@
+fine-grained relevance-feedback for xml-retrieval this demonstration presents an xml-ir system that allows users to give feedback of different granularities and types , using dempster-shafer-theory-of-evidence to compute expanded and reweighted queries .

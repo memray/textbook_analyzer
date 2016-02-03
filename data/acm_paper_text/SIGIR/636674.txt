@@ -1,0 +1,2 @@
+A performance evaluation of similarity measures, document term weighting schemes and representations in a Boolean environment
+An abstract is not available.

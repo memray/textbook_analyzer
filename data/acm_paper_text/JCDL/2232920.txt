@@ -1,0 +1,2 @@
+YADDA2: assemble your own digital library application from LEGO bricks
+YADDA2 is an open software platform which facilitates creation of digital library applications. It consists of versatile building blocks providing, among others: storage, relational and full-text indexing, process management, and asynchronous communication. Its loosely-coupled service-oriented architecture enables deployment of highly-scalable, distributed systems.

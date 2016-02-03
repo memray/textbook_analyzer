@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Multiclass SVMs</title> 
+  <meta name="description" content="Multiclass SVMs" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="nonlinear-svms-1.html" /> 
+  <link rel="previous" href="soft-margin-classification-1.html" /> 
+  <link rel="up" href="extensions-to-the-svm-model-1.html" /> 
+  <link rel="next" href="nonlinear-svms-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3891" href="nonlinear-svms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3885" href="extensions-to-the-svm-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3879" href="soft-margin-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3887" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3889" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3892" href="nonlinear-svms-1.html">Nonlinear SVMs</a> 
+  <b> Up:</b> 
+  <a name="tex2html3886" href="extensions-to-the-svm-model-1.html">Extensions to the SVM</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3880" href="soft-margin-classification-1.html">Soft margin classification</a> &nbsp; 
+  <b> <a name="tex2html3888" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3890" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION002022000000000000000"></a><a name="sec:structural-svm"></a> <a name="p:structural-svm"></a> <br /> Multiclass SVMs </h2> 
+  <p> <a name="22713"></a>SVMs are inherently two-class classifiers. The traditional way to do multiclass classification with SVMs is to use one of the methods discussed in Section <a href="classification-with-more-than-two-classes-1.html#sec:more-than-two-classes">14.5</a> (page <a href="classification-with-more-than-two-classes-1.html#p:more-than-two-classes">14.5</a> ). In particular, the most common technique in practice has been to build <img width="26" height="33" align="MIDDLE" border="0" src="img913.png" alt="$\vert\mathbb{C}\vert$" /> one-versus-rest classifiers (commonly referred to as ``one-versus-all'' or OVA classification), and to choose the class which classifies the test datum with greatest margin. Another strategy is to build a set of one-versus-one classifiers, and to choose the class that is selected by the most classifiers. While this involves building 
+   <!-- MATH
+ $|\mathbb{C}|(|\mathbb{C}|-1)/2$
+ --> <img width="106" height="33" align="MIDDLE" border="0" src="img1327.png" alt="$\vert\mathbb{C}\vert(\vert\mathbb{C}\vert-1)/2$" /> classifiers, the time for training classifiers may actually decrease, since the training data set for each classifier is much smaller. </p>
+  <p> However, these are not very elegant approaches to solving multiclass problems. A better alternative is provided by the construction of multiclass SVMs, where we build a two-class classifier over a feature vector 
+   <!-- MATH
+ $\Phi(\vec{x}, y)$
+ --> <img width="54" height="33" align="MIDDLE" border="0" src="img1328.png" alt="$\Phi(\vec{x}, y)$" /> derived from the pair consisting of the input features and the class of the datum. At test time, the classifier chooses the class 
+   <!-- MATH
+ $y = \argmax_{y'} \vec{w}^{T}\Phi(\vec{x},y')$
+ --> <img width="179" height="38" align="MIDDLE" border="0" src="img1329.png" alt="$y = \argmax_{y'} \vec{w}^{T}\Phi(\vec{x},y')$" />. The margin during training is the gap between this value for the correct class and for the nearest other class, and so the quadratic program formulation will require that 
+   <!-- MATH
+ $\forall i\; \forall y \ne y_i\; \vec{w}^{T}\Phi(\vec{x_i}, y_i) -
+\vec{w}^{T}\Phi(\vec{x_i}, y) \ge 1 - \xi_i$
+ --> <img width="317" height="38" align="MIDDLE" border="0" src="img1330.png" alt="$\forall i\; \forall y \ne y_i\; \vec{w}^{T}\Phi(\vec{x_i}, y_i) -
+\vec{w}^{T}\Phi(\vec{x_i}, y) \ge 1 - \xi_i$" />. This general method can be extended to give a multiclass formulation of various kinds of linear classifiers. It is also a simple instance of a generalization of classification where the classes are not just a set of independent, categorical labels, but may be arbitrary structured objects with relationships defined between them. In the SVM world, such work comes under the label of <a name="22730"></a> <i>structural SVMs</i> . We mention them again in Section <a href="result-ranking-by-machine-learning-1.html#sec:ranking-svm">15.4.2</a> . </p>
+  <p> </p>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3891" href="nonlinear-svms-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3885" href="extensions-to-the-svm-model-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3879" href="soft-margin-classification-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3887" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3889" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3892" href="nonlinear-svms-1.html">Nonlinear SVMs</a> 
+  <b> Up:</b> 
+  <a name="tex2html3886" href="extensions-to-the-svm-model-1.html">Extensions to the SVM</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3880" href="soft-margin-classification-1.html">Soft margin classification</a> &nbsp; 
+  <b> <a name="tex2html3888" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3890" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

@@ -1,0 +1,1 @@
+an automatic technique for detecting type conflicts in database schemes an abstract is not available .

@@ -1,0 +1,2 @@
+Cluster-based text categorization: a comparison of category search strategies
+An abstract is not available.

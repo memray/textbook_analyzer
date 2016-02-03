@@ -1,0 +1,1 @@
+information-seeking in digital-cultural-heritage with paths current information-retrieval-systems for digital-cultural-heritage support only the actual search aspect of the information-seeking process . this demonstration presents the second paths system which provides the exploration , analysis , and sense-making features to support the full information-seeking process .

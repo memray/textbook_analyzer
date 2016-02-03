@@ -1,0 +1,1 @@
+optimization of a hierarchical-file organization for spelling-correction a spelling program using a hierarchically organized file seems to be promising , since it can correct more than common typing mistakes . however , its speed of detecting spelling errors in the inputs is rather slow . here some techniques of modifying the program to improve the speed are presented .

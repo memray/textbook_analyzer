@@ -1,0 +1,1 @@
+rule-validation based on logical deduction an abstract is not available .

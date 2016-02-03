@@ -1,0 +1,2 @@
+Complex object retrieval via structural join index hierarchy mechanisms: evaluation and selection approaches
+An abstract is not available.

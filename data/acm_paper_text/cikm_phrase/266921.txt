@@ -1,0 +1,1 @@
+incorporating association-pattern and-operation specification in odmg 's oql an abstract is not available .

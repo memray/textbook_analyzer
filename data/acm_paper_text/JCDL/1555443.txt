@@ -1,0 +1,2 @@
+Robust registration of manuscript images
+In this paper we present an application of image registration techniques to the specific domain of manuscript images. We show the application of this technique to images of the Venetus A, a 10th century manuscript of Homer's Iliad. The same algorithm is used to register images of the MS across time (including photographs separated by over a century), as well as across imaging modalities.

@@ -1,0 +1,1 @@
+a contention based dynamic consistency-maintenance scheme for client cache an abstract is not available .

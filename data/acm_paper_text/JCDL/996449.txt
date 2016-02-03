@@ -1,0 +1,2 @@
+Cross-lingual searching and visualization for greek and latin and old norse texts
+We explore approaches to multi--lingual information retrieval for Greek, Latin, and Old Norse texts and an innovative visualization facility for the results.

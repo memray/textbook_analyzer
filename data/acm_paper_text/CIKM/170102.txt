@@ -1,0 +1,2 @@
+A way to compare objects
+An abstract is not available.

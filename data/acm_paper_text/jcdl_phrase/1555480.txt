@@ -1,0 +1,1 @@
+locating text in scanned-books in this paper , we describe a work-flow to extract and verify text locations using commercial software , along with free-software products and human proofing . to help mid-sized digital-libraries , we are making our solution available as open-source-software .

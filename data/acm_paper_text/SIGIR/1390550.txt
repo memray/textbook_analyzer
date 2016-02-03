@@ -1,0 +1,2 @@
+An alignment-based pattern representation model for information extraction
+An abstract is not available.

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>A variant of the multinomial model</title> 
+  <meta name="description" content="A variant of the multinomial model" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="previous" href="properties-of-naive-bayes-1.html" /> 
+  <link rel="up" href="properties-of-naive-bayes-1.html" /> 
+  <link rel="next" href="feature-selection-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3515" href="feature-selection-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3509" href="properties-of-naive-bayes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3505" href="properties-of-naive-bayes-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3511" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3513" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3516" href="feature-selection-1.html">Feature selection</a> 
+  <b> Up:</b> 
+  <a name="tex2html3510" href="properties-of-naive-bayes-1.html">Properties of Naive Bayes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3506" href="properties-of-naive-bayes-1.html">Properties of Naive Bayes</a> &nbsp; 
+  <b> <a name="tex2html3512" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3514" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h2><a name="SECTION001841000000000000000"></a> <a name="sec:variantmultinomial"></a> <a name="p:variantmultinomial"></a> <br /> A variant of the multinomial model </h2> An alternative formalization of the 
+  <a name="16913"></a> represents each document 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> as an 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img186.png" alt="$M$" />-dimensional vector of counts 
+  <!-- MATH
+ $\langle  \termf_{t_1,d},\ldots,\termf_{t_M,d} \rangle$
+ --> 
+  <img width="118" height="33" align="MIDDLE" border="0" src="img995.png" alt="$\langle \termf_{t_1,d},\ldots,\termf_{t_M,d} \rangle$" /> where 
+  <!-- MATH
+ $\termf_{t_i,d}$
+ --> 
+  <img width="32" height="31" align="MIDDLE" border="0" src="img996.png" alt="$\termf_{t_i,d}$" /> is the term frequency of 
+  <img width="14" height="32" align="MIDDLE" border="0" src="img997.png" alt="$t_i$" /> in 
+  <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />. 
+  <!-- MATH
+ $P(d|\tcjclass)$
+ --> 
+  <img width="48" height="33" align="MIDDLE" border="0" src="img940.png" alt="$P(d\vert\tcjclass)$" /> is then computed as follows (cf. Equation&nbsp;
+  <a href="using-query-likelihood-language-models-in-ir-1.html#eqn:multinomial">99</a>, page 
+  <a href="using-query-likelihood-language-models-in-ir-1.html#p:multinomial">12.2.1</a> ); 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+P(d|\tcjclass) = P(\langle
+\termf_{t_1,d},\ldots,\termf_{t_M,d} \rangle |\tcjclass) \propto \prod_{1 \leq i \leq M} P(X=t_i|c)^{\termf_{t_i,d}}
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody>
+     <tr valign="MIDDLE">
+      <td align="CENTER" nowrap=""><a name="altmultinom"></a><img width="384" height="45" border="0" src="img998.png" alt="\begin{displaymath}
+P(d\vert\tcjclass) = P(\langle
+\termf_{t_1,d},\ldots,\termf_...
+...ropto \prod_{1 \leq i \leq M} P(X=t_i\vert c)^{\termf_{t_i,d}}
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (129)</td>
+     </tr> 
+    </tbody>
+   </table> 
+   <br clear="ALL" />
+  </div>
+  <p></p> Note that we have omitted the multinomial factor. See Equation&nbsp;
+  <a href="using-query-likelihood-language-models-in-ir-1.html#multinomialfactor">99</a> (page 
+  <a href="using-query-likelihood-language-models-in-ir-1.html#p:multinomialfactor">99</a> ). 
+  <p> Equation <a href="#altmultinom">129</a> is equivalent to the sequence model in Equation&nbsp;<a href="naive-bayes-text-classification-1.html#eqn:multinomial3">113</a> as 
+   <!-- MATH
+ $P(X=t_i|c)^{\termf_{t_i,d}}=1$
+ --> <img width="139" height="42" align="MIDDLE" border="0" src="img999.png" alt="$P(X=t_i\vert c)^{\termf_{t_i,d}}=1$" /> for terms that do not occur in <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> (
+   <!-- MATH
+ $\termf_{t_i,d}=0$
+ --> <img width="62" height="31" align="MIDDLE" border="0" src="img1000.png" alt="$\termf_{t_i,d}=0$" />) and a term that occurs 
+   <!-- MATH
+ $\termf_{t_i,d} \geq 1$
+ --> <img width="63" height="31" align="MIDDLE" border="0" src="img1001.png" alt="$\termf_{t_i,d} \geq 1$" /> times will contribute 
+   <!-- MATH
+ $\termf_{t_i,d}$
+ --> <img width="32" height="31" align="MIDDLE" border="0" src="img996.png" alt="$\termf_{t_i,d}$" /> factors both in Equation&nbsp;<a href="naive-bayes-text-classification-1.html#eqn:multinomial3">113</a> and in Equation&nbsp;<a href="#altmultinom">129</a>. </p>
+  <p> <b>Exercises.</b> </p>
+  <ul> 
+   <li>Which of the documents in Table <a href="#tab:independenceex">13.5</a> have identical and different bag of words representations for (i) the Bernoulli model (ii) the multinomial model? If there are differences, describe them. <p> </p></li> 
+   <li>The rationale for the positional independence assumption is that there is no useful information in the fact that a term occurs in position <img width="12" height="31" align="MIDDLE" border="0" src="img955.png" alt="$\tcposindex$" /> of a document. Find exceptions. Consider formulaic documents with a fixed document structure. <p> </p></li> 
+   <li>Table <a href="#tab:nbmodelcomparison">13.3</a> gives Bernoulli and multinomial estimates for the word the. Explain the difference<a name="16942"></a>. <p> </p></li> 
+  </ul>
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html3515" href="feature-selection-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html3509" href="properties-of-naive-bayes-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html3505" href="properties-of-naive-bayes-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html3511" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html3513" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html3516" href="feature-selection-1.html">Feature selection</a> 
+  <b> Up:</b> 
+  <a name="tex2html3510" href="properties-of-naive-bayes-1.html">Properties of Naive Bayes</a> 
+  <b> Previous:</b> 
+  <a name="tex2html3506" href="properties-of-naive-bayes-1.html">Properties of Naive Bayes</a> &nbsp; 
+  <b> <a name="tex2html3512" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html3514" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>   
+ </body>
+</html>

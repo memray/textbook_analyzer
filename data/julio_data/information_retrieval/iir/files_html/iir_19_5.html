@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<html>
+ <head> 
+  <title>Index size and estimation</title> 
+  <meta name="description" content="Index size and estimation" /> 
+  <meta name="keywords" content="irbook" /> 
+  <meta name="resource-type" content="document" /> 
+  <meta name="distribution" content="global" /> 
+  <meta name="Generator" content="LaTeX2HTML v2002-2-1" /> 
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
+  <link rel="STYLESHEET" href="irbook.css" /> 
+  <link rel="next" href="near-duplicates-and-shingling-1.html" /> 
+  <link rel="previous" href="the-search-user-experience-1.html" /> 
+  <link rel="up" href="web-search-basics-1.html" /> 
+  <link rel="next" href="near-duplicates-and-shingling-1.html" /> 
+ </head> 
+ <body> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4732" href="near-duplicates-and-shingling-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4726" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4720" href="user-query-needs-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4728" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4730" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4733" href="near-duplicates-and-shingling-1.html">Near-duplicates and shingling</a> 
+  <b> Up:</b> 
+  <a name="tex2html4727" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4721" href="user-query-needs-1.html">User query needs</a> &nbsp; 
+  <b> <a name="tex2html4729" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4731" href="index-1.html">Index</a></b> 
+  <br /> 
+  <br /> 
+  <!--End of Navigation Panel--> 
+  <h1><a name="SECTION002450000000000000000"></a> <a name="sec:size"></a> <a name="p:size"></a> <br /> Index size and estimation </h1> To a first approximation, comprehensiveness grows with index size, although it does matter which specific pages a search engine indexes - some pages are more informative than others. It is also difficult to reason about the fraction of the Web indexed by a search engine, because there is an infinite number of dynamic web pages; for instance, 
+  <tt>http://www.yahoo.com/any_string</tt> returns a valid HTML page rather than an error, politely informing the user that there is no such page at Yahoo! Such a &quot;soft 404 error&quot; is only one example of many ways in which web servers can generate an infinite number of valid web pages. Indeed, some of these are malicious 
+  <a name="30404"></a> 
+  <i>spider traps</i> devised to cause a search engine's crawler (the component that systematically gathers web pages for the search engine's index, described in Chapter 
+  <a href="web-crawling-and-indexes-1.html#ch:chapter-crawling">20</a> ) to stay within a spammer's website and index many pages from that site. 
+  <p> We could ask the following better-defined question: given two search engines, what are the relative sizes of their indexes? Even this question turns out to be imprecise, because: </p> 
+  <ol> 
+   <li>In response to queries a search engine can return web pages whose contents it has not (fully or even partially) indexed. For one thing, search engines generally index only the first few thousand words in a web page. In some cases, a search engine is aware of a page <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> that is <i>linked to</i> by pages it has indexed, but has not indexed <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> itself. As we will see in Chapter <a href="link-analysis-1.html#ch:link">21</a> , it is still possible to meaningfully return <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> in search results. </li> 
+   <li>Search engines generally organize their indexes in various tiers and partitions, not all of which are examined on every search (recall tiered indexes from Section <a href="tiered-indexes-1.html#sec:tiered">7.2.1</a> ). For instance, a web page deep inside a website may be indexed but not retrieved on general web searches; it is however retrieved as a result on a search that a user has explicitly restricted to that website (such site-specific search is offered by most web search engines). </li> 
+  </ol> Thus, search engine indexes include multiple classes of indexed pages, so that there is no single measure of index size. These issues notwithstanding, a number of techniques have been devised for crude estimates of the ratio of the index sizes of two search engines, 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> and 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" />. The basic hypothesis underlying these techniques is that each search engine indexes a fraction of the Web chosen independently and uniformly at random. This involves some questionable assumptions: first, that there is a finite size for the Web from which each search engine chooses a subset, and second, that each engine chooses an independent, uniformly chosen subset. As will be clear from the discussion of crawling in Chapter 
+  <a href="web-crawling-and-indexes-1.html#ch:chapter-crawling">20</a> , this is far from true. However, if we begin with these assumptions, then we can invoke a classical estimation technique known as the 
+  <a name="30413"></a> 
+  <i>capture-recapture method</i> . 
+  <p> Suppose that we could pick a random page from the index of <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> and test whether it is in <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" />'s index and symmetrically, test whether a random page from <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> is in <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" />. These experiments give us fractions <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" /> and <img width="12" height="32" align="MIDDLE" border="0" src="img59.png" alt="$y$" /> such that our estimate is that a fraction <img width="12" height="32" align="MIDDLE" border="0" src="img58.png" alt="$x$" /> of the pages in <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> are in <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" />, while a fraction <img width="12" height="32" align="MIDDLE" border="0" src="img59.png" alt="$y$" /> of the pages in <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> are in <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" />. Then, letting <img width="28" height="33" align="MIDDLE" border="0" src="img1840.png" alt="$\vert E_i\vert$" /> denote the size of the index of search engine <img width="18" height="32" align="MIDDLE" border="0" src="img1841.png" alt="$E_i$" />, we have <br /> </p> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+x |E_1| \approx y|E_2|,
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><img width="96" height="28" border="0" src="img1842.png" alt="\begin{displaymath}
+x \vert E_1\vert \approx y\vert E_2\vert,
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (245)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> from which we have the form we will use 
+  <br /> 
+  <div align="RIGHT"> 
+   <!-- MATH
+ \begin{equation}
+\frac{|E_1|}{|E_2|} \approx \frac{y}{x}.
+\end{equation}
+ --> 
+   <table width="100%" align="CENTER"> 
+    <tbody> 
+     <tr valign="MIDDLE"> 
+      <td align="CENTER" nowrap=""><a name="eqn:caprecap"></a><img width="67" height="45" border="0" src="img1843.png" alt="\begin{displaymath}
+\frac{\vert E_1\vert}{\vert E_2\vert} \approx \frac{y}{x}.
+\end{displaymath}" /></td> 
+      <td width="10" align="RIGHT"> (246)</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <br clear="ALL" /> 
+  </div> 
+  <p></p> If our assumption about 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> and 
+  <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> being independent and uniform random subsets of the Web were true, and our sampling process unbiased, then Equation&nbsp; 
+  <a href="#eqn:caprecap">246</a> should give us an unbiased estimator for 
+  <!-- MATH
+ ${|E_1|}/{|E_2|}$
+ --> 
+  <img width="67" height="33" align="MIDDLE" border="0" src="img1844.png" alt="${\vert E_1\vert}/{\vert E_2\vert}$" />. We distinguish between two scenarios here. Either the measurement is performed by someone with access to the index of one of the search engines (say an employee of 
+  <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" />), or the measurement is performed by an independent party with no access to the innards of either search engine. In the former case, we can simply pick a random document from one index. The latter case is more challenging; by picking a random page from one search engine 
+  <i>from outside the search engine</i>, then verify whether the random page is present in the other search engine. 
+  <p> To implement the sampling phase, we might generate a random page from the entire (idealized, finite) Web and test it for presence in each search engine. Unfortunately, picking a web page uniformly at random is a difficult problem. We briefly outline several attempts to achieve such a sample, pointing out the biases inherent to each; following this we describe in some detail one technique that much research has built on. </p> 
+  <ol> 
+   <li><i>Random searches:</i> Begin with a search log of web searches; send a random search from this log to <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> and a random page from the results. Since such logs are not widely available outside a search engine, one implementation is to trap all search queries going out of a work group (say scientists in a research center) that agrees to have all its searches logged. This approach has a number of issues, including the bias from the types of searches made by the work group. Further, a random document from the results of such a random search to <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> is not the same as a random document from <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" />. </li> 
+   <li><i>Random IP addresses:</i> A second approach is to generate random IP addresses and send a request to a web server residing at the random address, collecting all pages at that server. The biases here include the fact that many hosts might share one IP (due to a practice known as virtual hosting) or not accept http requests from the host where the experiment is conducted. Furthermore, this technique is more likely to hit one of the many sites with few pages, skewing the document probabilities; we may be able to correct for this effect if we understand the distribution of the number of pages on websites. </li> 
+   <li><i>Random walks:</i> If the web graph were a strongly connected directed graph, we could run a random walk starting at an arbitrary web page. This walk would converge to a steady state distribution (see Chapter <a href="link-analysis-1.html#ch:link">21</a> , Section <a href="markov-chains-1.html#sec:markov">21.2.1</a> for more background material on this), from which we could in principle pick a web page with a fixed probability. This method, too has a number of biases. First, the Web is not strongly connected so that, even with various corrective rules, it is difficult to argue that we can reach a steady state distribution starting from any page. Second, the time it takes for the random walk to settle into this steady state is unknown and could exceed the length of the experiment. </li> 
+  </ol> 
+  <p> Clearly each of these approaches is far from perfect. We now describe a fourth sampling approach, <i>random queries</i>. This approach is noteworthy for two reasons: it has been successfully built upon for a series of increasingly refined estimates, and conversely it has turned out to be the approach most likely to be misinterpreted and carelessly implemented, leading to misleading measurements. The idea is to pick a page (almost) uniformly at random from a search engine's index by posing a random query to it. It should be clear that picking a set of random terms from (say) Webster's dictionary is not a good way of implementing this idea. For one thing, not all vocabulary terms occur equally often, so this approach will not result in documents being chosen uniformly at random from the search engine. For another, there are a great many terms in web documents that do not occur in a standard dictionary such as Webster's. To address the problem of vocabulary terms not in a standard dictionary, we begin by amassing a sample web dictionary. This could be done by crawling a limited portion of the Web, or by crawling a manually-assembled representative subset of the Web such as Yahoo! (as was done in the earliest experiments with this method). Consider a conjunctive query with two or more randomly chosen words from this dictionary. </p> 
+  <p> Operationally, we proceed as follows: we use a random conjunctive query on <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> and pick from the top 100 returned results a page <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> at random. We then test <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> for presence in <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> by choosing 6-8 low-frequency terms in <img width="13" height="32" align="MIDDLE" border="0" src="img181.png" alt="$p$" /> and using them in a conjunctive query for <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" />. We can improve the estimate by repeating the experiment a large number of times. Both the sampling process and the testing process have a number of issues. </p> 
+  <ol> 
+   <li>Our sample is biased towards longer documents. </li> 
+   <li>Picking from the top 100 results of <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> induces a bias from the ranking algorithm of <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" />. Picking from all the results of <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> makes the experiment slower. This is particularly so because most web search engines put up defenses against excessive robotic querying. </li> 
+   <li>During the checking phase, a number of additional biases are introduced: for instance, <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> may not handle 8-word conjunctive queries properly. </li> 
+   <li>Either <img width="20" height="32" align="MIDDLE" border="0" src="img1838.png" alt="$E_1$" /> or <img width="21" height="32" align="MIDDLE" border="0" src="img1839.png" alt="$E_2$" /> may refuse to respond to the test queries, treating them as robotic spam rather than as bona fide queries. </li> 
+   <li>There could be operational problems like connection time-outs. </li> 
+  </ol> 
+  <p> A sequence of research has built on this basic paradigm to eliminate some of these issues; there is no perfect solution yet, but the level of sophistication in statistics for understanding the biases is increasing. The main idea is to address biases by estimating, for each document, the magnitude of the bias. From this, standard statistical sampling methods can generate unbiased samples. In the checking phase, the newer work moves away from conjunctive queries to phrase and other queries that appear to be better-behaved. Finally, newer experiments use other sampling methods besides random queries. The best known of these is <i>document random walk sampling</i>, in which a document is chosen by a random walk on a virtual graph derived from documents. In this graph, nodes are documents; two documents are connected by an edge if they share two or more words in common. The graph is never instantiated; rather, a random walk on it can be performed by moving from a document <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" /> to another by picking a pair of keywords in <img width="12" height="31" align="MIDDLE" border="0" src="img354.png" alt="$d$" />, running a query on a search engine and picking a random document from the results. Details may be found in the references in Section <a href="references-and-further-reading-19.html#sec:webcharcite">19.7</a> . </p> 
+  <p> <b>Exercises.</b> </p> 
+  <ul> 
+   <li><a name="ex:3050"></a>Two web search engines A and B each generate a large number of pages uniformly at random from their indexes. 30% of A's pages are present in B's index, while 50% of B's pages are present in A's index. What is the number of pages in A's index relative to B's? <p> </p></li> 
+  </ul> 
+  <p> </p> 
+  <hr /> 
+  <!--Navigation Panel--> 
+  <a name="tex2html4732" href="near-duplicates-and-shingling-1.html"> <img width="37" height="24" align="BOTTOM" border="0" alt="next" src="http://nlp.stanford.edu/IR-book/html/icons/next.png" /></a> 
+  <a name="tex2html4726" href="web-search-basics-1.html"> <img width="26" height="24" align="BOTTOM" border="0" alt="up" src="http://nlp.stanford.edu/IR-book/html/icons/up.png" /></a> 
+  <a name="tex2html4720" href="user-query-needs-1.html"> <img width="63" height="24" align="BOTTOM" border="0" alt="previous" src="http://nlp.stanford.edu/IR-book/html/icons/prev.png" /></a> 
+  <a name="tex2html4728" href="contents-1.html"> <img width="65" height="24" align="BOTTOM" border="0" alt="contents" src="http://nlp.stanford.edu/IR-book/html/icons/contents.png" /></a> 
+  <a name="tex2html4730" href="index-1.html"> <img width="43" height="24" align="BOTTOM" border="0" alt="index" src="http://nlp.stanford.edu/IR-book/html/icons/index.png" /></a> 
+  <br /> 
+  <b> Next:</b> 
+  <a name="tex2html4733" href="near-duplicates-and-shingling-1.html">Near-duplicates and shingling</a> 
+  <b> Up:</b> 
+  <a name="tex2html4727" href="web-search-basics-1.html">Web search basics</a> 
+  <b> Previous:</b> 
+  <a name="tex2html4721" href="user-query-needs-1.html">User query needs</a> &nbsp; 
+  <b> <a name="tex2html4729" href="contents-1.html">Contents</a></b> &nbsp; 
+  <b> <a name="tex2html4731" href="index-1.html">Index</a></b> 
+  <!--End of Navigation Panel--> 
+  <address> &copy; 2008 Cambridge University Press<br />This is an automatically generated page. In case of formatting errors you may want to look at the <a href="http://informationretrieval.org">PDF edition</a> of the book.<br /> 2009-04-07 </address>  
+ </body>
+</html>

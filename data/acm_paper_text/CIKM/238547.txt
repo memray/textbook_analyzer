@@ -1,0 +1,2 @@
+CROSS-DB: a feature-extended multidimensional data model for statistical and scientific databases
+An abstract is not available.

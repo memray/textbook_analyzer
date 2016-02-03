@@ -1,0 +1,1 @@
+situational nearness in intellectual data-bases the notions of a situation and a distance between situations in a narrow subject domain are introduced . an approach to the construction of an intellectual data-base is suggested . the main task of this data-base is to find situations which are near to the one fixed by user . the theory of finite-groups is considered as an example .

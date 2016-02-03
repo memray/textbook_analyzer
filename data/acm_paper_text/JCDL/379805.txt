@@ -1,0 +1,2 @@
+Feature extraction for content-based image retrieval in DARWIN
+An abstract is not available.

@@ -1,0 +1,2 @@
+Inferring probability of relevance using the method of logistic regression
+An abstract is not available.

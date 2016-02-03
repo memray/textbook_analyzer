@@ -1,0 +1,2 @@
+Toward a unification of text and link analysis
+This paper presents a simple yet profound idea. By thinking about the relationships between and within terms and documents, we can generate a richer representation that encompasses aspects of Web link analysis as well as text analysis techniques from information retrieval. This paper shows one path to this unified representation, and demonstrates the use of eigenvector calculations from Web link analysis by stepping through a simple example.

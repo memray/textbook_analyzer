@@ -1,0 +1,1 @@
+constructing seminal paper genealogy when a researcher starts with a new topic , it would be very useful if seminal papers in the topic and their relationships are provided in advance . we propose an approach to construct seminal paper genealogy and show the effectiveness and efficiency of our approach .

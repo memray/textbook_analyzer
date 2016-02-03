@@ -1,0 +1,2 @@
+Teaching box builder: customizing pedagogical contexts for use of digital library resources in classrooms
+This poster and accompanying demonstration introduces the Teaching Box Builder application that, as being implemented, supports the development of pedagogically rich inquiry-based earth science lessons using digital library resources.

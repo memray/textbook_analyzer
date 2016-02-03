@@ -1,0 +1,2 @@
+A framework for global optimization of aggregate queries
+An abstract is not available.

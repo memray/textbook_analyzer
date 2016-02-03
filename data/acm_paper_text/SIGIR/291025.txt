@@ -1,0 +1,2 @@
+The use of MMR, diversity-based reranking for reordering documents and producing summaries
+An abstract is not available.

@@ -1,0 +1,2 @@
+Visual query and analysis tool of the object-relational GIS framework
+An abstract is not available.

@@ -1,0 +1,2 @@
+A library system for information retrieval based on a cognitive task analysis and supported by an icon-based interface
+An abstract is not available.

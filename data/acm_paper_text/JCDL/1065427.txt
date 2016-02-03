@@ -1,0 +1,2 @@
+Language preference in a bi-language digital library
+This paper examines user choice of interface language in a bi-language digital library (English and Maori, the language of the indigenous people of New Zealand). The majority of collection documents are in Maori, and the interface is available in both Maori and English. Log analysis shows three categories of preference for interface language: primarily English, primarily Maori, and bilingual (switching back and forth between the two).

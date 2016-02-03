@@ -1,0 +1,1 @@
+an analysis of peer-to-peer file-sharing system queries many studies focus on the web , but yet , few focus on peer-to-peer file-sharing system queries despite their massive scale in terms of internet-traffic . we analyzed several million queries collected on the gnutella network and differentiated our findings from those of web-queries .

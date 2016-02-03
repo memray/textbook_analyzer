@@ -1,0 +1,1 @@
+building federation of digital-libraries basing on concept of atomic-services our poster presents recent results from an ongoing research project entitled `` mechanisms of atomic-services for distributed-digital-libraries '' .

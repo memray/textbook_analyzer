@@ -1,0 +1,2 @@
+Partial replica selection based on relevance for information retrieval
+An abstract is not available.

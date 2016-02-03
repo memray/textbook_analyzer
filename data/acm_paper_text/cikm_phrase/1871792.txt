@@ -1,0 +1,1 @@
+dolap 2010 workshop-summary the acm dolap workshop presents research on data-warehousing and on-line-analytical-processing (olap) . the program has three interesting sessions on modeling , query-processing and new-trends , as well as a keynote-talk on olap-query processing and a panel comparing relational and non-relational technology for data-warehousing .
