@@ -1,8 +1,0 @@
-book1_ch04;book2_chapter2_1,3,3;book2_chapter2,3,3;
-book1_ch04_2;book2_chapter2_1_2,3,3;
-book1_ch04_3;book2_chapter2_3,3,2;
-book1_ch04_4;book2_chapter5,2,2;book2_chapter5_2,3,3;book2_chapter5_2_1,3,3;
-book1_ch04_5;book2_chapter5_3,3,3;
-book1_ch04_6;book2_chapter5_4,3,3;
-book1_ch04_7;book2_chapter5_4_4,3,3;
-book1_ch04_8;book2_chapter2_1_1,2,2;

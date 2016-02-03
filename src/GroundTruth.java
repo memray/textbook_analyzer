@@ -43,7 +43,8 @@ public class GroundTruth {
 		
 		if (dir != null){
 			String[] filenames = dir.list();
-			if (filenames == null || filenames.length == 0) return null;
+			if (filenames == null || filenames.length == 0)
+                return null;
 			else{
 				// Creates the ground truth object
 				truth = new GroundTruth();
@@ -251,11 +252,14 @@ public class GroundTruth {
 					{"book1_ch01_3_3","book2_chapter5_1_1","book2_chapter1_1_5"},
 					{"book1_ch01_4","book2_chapter1_3","book2_chapter1_4_1"}
 				};
-		GroundTruth gt0 = GroundTruth.readMapFiles("data/algebra/truth",SIMPLE_RANK_NORMALIZED);
-		//GroundTruth gt0 = GroundTruth.readMapFiles("data/information_retrieval/truth",SIMPLE_RANK_NORMALIZED);
+//		GroundTruth gt0 = GroundTruth.readMapFiles("data/algebra/truth",SIMPLE_RANK_NORMALIZED);
+        String filePath = "H:\\Dropbox\\PhD@Pittsburgh\\1.Researh\\NSF\\20160125_analyzer_v1\\textbook_analyzer\\data\\julio_data\\information_retrieval\\truth\\";
+        File file = new File(filePath);
+        System.out.println(file.exists());
+        GroundTruth gt0 = GroundTruth.readMapFiles(filePath,SIMPLE_RANK_NORMALIZED);
 		
-		gt0.printMapStats("Algebra");
-		//gt0.printMapStats("Information Retrieval");
+//		gt0.printMapStats("Algebra");
+		gt0.printMapStats("Information Retrieval");
 		//double avg_ndcg = gt0.evaluateMapNDCG(automap, 10);
 		//System.out.println("AVG nDCG : " + avg_ndcg);
 		

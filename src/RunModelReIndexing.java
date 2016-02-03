@@ -1,8 +1,6 @@
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.util.Locale;
-
-import cc.mallet.topics.TopicModelDiagnostics;
 // THIS CLASS RUN LDA OR LDA BUILDING THE MODEL WITH ONLY NODS WITH TEXT AND THEN 
 // AGGREGATE COLLECTION AND RE-INDEX BOOK 1 AND BOOK 2
 public class RunModelReIndexing {
@@ -84,7 +82,8 @@ public class RunModelReIndexing {
 			Collection col = new Collection(domain,domainID);
 			RunModel.fillCollection(col,domainID,domain_folder,addotherbooks,using_vocabulary,repeat_titles,stemming,vocabulary_file,false);
 			// 2. GENERATE A STRING INPUT FOR TOPIC MODELING : no aggregated
-			String content_4_lda = col.generateLDAInputString(book2); // external_book will be excluded
+//			String content_4_lda = col.generateLDAInputString(book2); // external_book will be excluded
+			String content_4_lda = col.generateLDAInputString(new boolean[]{false, true}); // external_book will be excluded
 			ModelReporter.writeFile(content_4_lda,"data/output/"+condition+"/LDA_input.txt");
 			
 			// THEN aggregate the content:

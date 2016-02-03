@@ -86,7 +86,8 @@ public class RunModel {
 			fillCollection(col,domainID,domain_folder,addotherbooks,using_vocabulary,repeat_titles,stemming,vocabulary_file,aggregatecontent);
 						
 			// 2. GENERATE A STRING INPUT FOR TOPIC MODELING 
-			String content_4_lda = col.generateLDAInputString(external_book); // external_book will be excluded
+//			String content_4_lda = col.generateLDAInputString(external_book); // external_book will be excluded
+			String content_4_lda = col.generateLDAInputString(new boolean[]{false, true}); // external_book will be excluded
 			ModelReporter.writeFile(content_4_lda,"data/output/"+condition+"/LDA_input.txt");
 						
 			// 3. RUN THE TOPIC MODELING
