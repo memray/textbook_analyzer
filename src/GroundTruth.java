@@ -1,4 +1,6 @@
-import java.io.File;
+import cc.mallet.util.FileUtils;
+
+import java.io.*;
 import java.util.ArrayList;
 
 public class GroundTruth {
@@ -110,7 +112,25 @@ public class GroundTruth {
 		}
 		System.out.println(out);
 	}
-	
+
+	public String printMapByLines(){
+		String out = "";
+		for(NodeMap nodemap : map){
+			out += nodemap.getNodeId()+"\t";
+			for(Match match : nodemap.matchs){
+                int c = match.getCount();
+                int r = 0;
+                for (int i=0;i<c;i++)
+                    r += match.getR()[i];
+
+				out += match.getNodeId()+":"+(float)r/c+",";
+			}
+			out = out.substring(0, out.length()-1);
+			out+="\n";
+		}
+		return out;
+	}
+
 	public void addMatch2Map(String node1, String node2, String user, int r, int c){
 		NodeMap nodemap = searchNodeInMap(node1);
 		if (nodemap == null){
@@ -244,22 +264,32 @@ public class GroundTruth {
 	
 	public static void main(String args[]){
 		
-		String[][] automap = {
+/*		String[][] automap = {
 					{"book1_ch01_2","book2_chapter1_1_1","book2_chapter1_2_2","book2_chapter2_2_2"},
 					{"book1_ch01_2_2","book2_chapter1_3_1","book2_chapter1_6_1","book2_chapter1_2_2"},
 					{"book1_ch01_3","book2_chapter1_1_3","book2_chapter1_1_5"},
 					{"book1_ch01_3_2","book2_chapter5_6_2"},
 					{"book1_ch01_3_3","book2_chapter5_1_1","book2_chapter1_1_5"},
 					{"book1_ch01_4","book2_chapter1_3","book2_chapter1_4_1"}
-				};
+				};*/
 //		GroundTruth gt0 = GroundTruth.readMapFiles("data/algebra/truth",SIMPLE_RANK_NORMALIZED);
-        String filePath = "H:\\Dropbox\\PhD@Pittsburgh\\1.Researh\\NSF\\20160125_analyzer_v1\\textbook_analyzer\\data\\julio_data\\information_retrieval\\truth\\";
-        File file = new File(filePath);
-        System.out.println(file.exists());
+        String filePath = "/home/memray/Project/textbook_analyzer/data/julio_data/information_retrieval/expert_mapping/truth";
         GroundTruth gt0 = GroundTruth.readMapFiles(filePath,SIMPLE_RANK_NORMALIZED);
-		
+		System.out.println(gt0.printMapByLines());
+
+        String outputPath = "/home/memray/Project/textbook_analyzer/data/ir_groundtruth.txt";
+        try {
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath), false)));
+            writer.write(gt0.printMapByLines());
+            writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 //		gt0.printMapStats("Algebra");
-		gt0.printMapStats("Information Retrieval");
+//		gt0.printMapStats("Information Retrieval");
+//		gt0.printMap();
 		//double avg_ndcg = gt0.evaluateMapNDCG(automap, 10);
 		//System.out.println("AVG nDCG : " + avg_ndcg);
 		
