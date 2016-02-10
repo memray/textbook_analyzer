@@ -1,5 +1,5 @@
 .idea/
-.idea/workspace.xml
+*workspace.xml
 *.class
 
 # Mobile Tools for Java (J2ME)
