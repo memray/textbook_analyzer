@@ -273,11 +273,11 @@ public class GroundTruth {
 					{"book1_ch01_4","book2_chapter1_3","book2_chapter1_4_1"}
 				};*/
 //		GroundTruth gt0 = GroundTruth.readMapFiles("data/algebra/truth",SIMPLE_RANK_NORMALIZED);
-        String filePath = "/home/memray/Project/textbook_analyzer/data/julio_data/information_retrieval/expert_mapping/truth";
+        String filePath = "/home/memray/Project/textbook_analyzer/data/julio_data/algebra/expert_mapping/truth";
         GroundTruth gt0 = GroundTruth.readMapFiles(filePath,SIMPLE_RANK_NORMALIZED);
 		System.out.println(gt0.printMapByLines());
 
-        String outputPath = "/home/memray/Project/textbook_analyzer/data/ir_groundtruth.txt";
+        String outputPath = "/home/memray/Project/textbook_analyzer/data/algebra_groundtruth.txt";
         try {
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(outputPath), false)));
             writer.write(gt0.printMapByLines());

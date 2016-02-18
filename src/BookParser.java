@@ -83,7 +83,7 @@ public class BookParser {
 	 * @throws Exception
 	 */
 	public BookNode getBookFromHTMLFiles(String book_dir, String book_title, String book_id, String comment) throws Exception{
-		
+
 		BookNode book = null;
 		
 		// open directory and read file names, then for each file creates BookNode object 
@@ -134,7 +134,7 @@ public class BookParser {
 		
 		Element e_body = htmldoc.body();
 		
-		String[] classes_to_filter = getFilteredClasses();
+/*		String[] classes_to_filter = getFilteredClasses();
 		for(int i=0;i<classes_to_filter.length;i++){
 			Elements filtered = e_body.select("."+classes_to_filter[i]);
 			
@@ -143,7 +143,7 @@ public class BookParser {
 				to_filter.remove();
 			}
 			
-		}
+		}*/
 		
 		// gets all html elements matching the string section_separator (see Element.select method in Jsoup)
 		Elements sections = e_body.select(getSectionSeparator());
@@ -202,5 +202,13 @@ public class BookParser {
 		}
 		return pnode;
 	}
-	
+
+	public static void main(String[] args) {
+		BookParser parser = new BookParser(null, null, null, null);
+		try {
+			parser.getBookFromHTMLFiles("/home/memray/Project/textbook_analyzer/data/algebra_documents/book1/","book1","book1", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
