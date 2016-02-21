@@ -1,0 +1,1 @@
+Constants ·        Fixed values, like 2 or 7. ·        Can also be represented by letters: a, b, c, p, e, k Constants ·        Fixed values, like 2 or 7. ·        Can also be represented by letters: a, b, c, p, e, k  || 

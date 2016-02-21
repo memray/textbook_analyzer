@@ -1,0 +1,1 @@
+Horizontal Lines A horizontal line has zero slope, because there is no change in y as x increases. Thus, any two points will have the same y coordinates, and since y1 = y2,   . Horizontal Lines A horizontal line has zero slope, because there is no change in y as x increases. Thus, any two points will have the same y coordinates, and since y1 = y2,   .  || 

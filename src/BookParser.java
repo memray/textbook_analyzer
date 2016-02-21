@@ -1,5 +1,9 @@
+import java.awt.print.Book;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashSet;
 
+import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -78,7 +82,7 @@ public class BookParser {
 	 * @param book_title
 	 * @param book_id
 	 * @param comment
-	 * @param parser_filter a BookParserFilter object is passed to the method getNodeFromHTMLFile
+//	 * @param parser_filter a BookParserFilter object is passed to the method getNodeFromHTMLFile
 	 * @return returns a BookNode object containing the tree of content for an entire book.
 	 * @throws Exception
 	 */
@@ -203,12 +207,111 @@ public class BookParser {
 		return pnode;
 	}
 
-	public static void main(String[] args) {
-		BookParser parser = new BookParser(null, null, null, null);
-		try {
-			parser.getBookFromHTMLFiles("/home/memray/Project/textbook_analyzer/data/algebra_documents/book1/","book1","book1", "");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public static void main(String[] args) throws Exception {
+//		BookParser parser = new BookParser(null, null, null, null);
+//		try {
+//			parser.getBookFromHTMLFiles("/home/memray/Project/textbook_analyzer/data/algebra_documents/book1/","book1","book1", "");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+        Collection books = new Collection("Algebra", "algebra");
+
+        String INPUT_PATH = "/home/memray/Project/textbook_analyzer/data/algebra_documents/";
+
+        String[] filtered_titles_1 		= {"Sample Set","Practice Set","Solutions to Exercises","Exercises", "Exercises for Review", "Exercise Supplement", "Proficiency Exam", "Overview", "Objectives", "Summary"};
+        String[] filtered_classes_1		= {"section homework","section solutions"};
+
+        String[] filtered_titles_2 		= {"Sample Set","Practice Set","Solutions to Exercises","Exercises", "Exercises for Review", "Exercise Supplement", "Proficiency Exam", "Overview", "Objectives", "Summary"};
+        String[] filtered_classes_2		= {"key_takeaways","learning_objectives","video"};
+
+        String[] filtered_titles_7 		= {"Exercises","Answers","Applications","Index"};
+
+        BookParser parser_1 = new BookParser(".section.module", ".section", filtered_titles_1, filtered_classes_1);
+        BookParser parser_2 = new BookParser(".section.module", ".section", filtered_titles_2, filtered_classes_2);
+        BookParser parser_3 = new BookParser(".Section1", ".section", filtered_titles_2, filtered_classes_2);
+        ParsePDF parser_7 = new ParsePDF(filtered_titles_7);
+
+        //BookParserFilter parser_filter_5 = new BookParserFilter(".section", "UNKNOWN-12512", filtered_titles_1, filtered_classes_1);
+
+        // 2. GET THE CONTENT FROM HTML FILES OF THE BOOKS AND ADD BOOKNODE OBJECTS TO COLLECTION
+        System.out.print("Parsing book1 - Elementary Algebra (Wade Ellis, Denny Burzynski) ...");
+        BookNode book1 = parser_1.getBookFromHTMLFiles(INPUT_PATH+"/book1","Elementary Algebra","book1","Wade Ellis, Denny Burzynski");
+        if (book1 != null) books.add(book1);
+        System.out.println("Ok");
+
+        System.out.print("Parsing book2 - Elementary Algebra (John Redden) ...");
+        BookNode book2 = parser_2.getBookFromHTMLFiles(INPUT_PATH+"/book2","Elementary Algebra, v1","book2","John Redden");
+        if (book2 != null) books.add(book2);
+        System.out.println("Ok");
+
+        System.out.print("Parsing book3 - Understanding Algebra (James W. Brennan) ...");
+        BookNode book3 = parser_3.getBookFromHTMLFiles(INPUT_PATH+"/book3","Understanding Algebra","book3","James W. Brennan");
+        if (book3 != null) books.add(book3);
+        System.out.println("Ok");
+
+        System.out.print("Parsing book4 - Fundamentals of Mathematics (Denny Burzynski and Wade Ellis) ...");
+        BookNode book4 = parser_1.getBookFromHTMLFiles(INPUT_PATH+"/book4","Fundamentals of Mathematics" , "book4" ,"Denny Burzynski and Wade Ellis");
+        if (book4 != null) books.add(book4);
+        System.out.println("Ok");
+
+        System.out.print("Parsing book5 - Elementary Algebra (PDF parsed) ...");
+        BookNode book5 = parser_7.getTreeFromPDF(INPUT_PATH+"/book5/ElementaryAlgebra.pdf", "book5", "Elementary Algebra");
+        if (book5 != null) books.add(book5);
+        System.out.println("Ok");
+
+        /**
+         * 3. Output to files
+         */
+
+        books.aggregateContent();
+
+/*        String OUTPUT_PATH = "/home/memray/Project/textbook_analyzer/data/algebra_textbook/";
+
+        // iterate books
+        for (BookNode book : books.getChildren() ){
+//            System.out.println(book.getText());
+            for (BookNode chapter : book.getChildren()){
+                FileUtils.writeStringToFile(new File(OUTPUT_PATH+chapter.getDocId()+".txt"), chapter.getText(), "utf8");
+                System.out.println(chapter.getDocId());
+                for(BookNode section : chapter.getChildren()){
+                    FileUtils.writeStringToFile(new File(OUTPUT_PATH+section.getDocId()+".txt"), section.getText(), "utf8");
+                    System.out.println(section.getDocId());
+                    for(BookNode subsection : section.getChildren()){
+                        FileUtils.writeStringToFile(new File(OUTPUT_PATH+subsection.getDocId()+".txt"), subsection.getText(), "utf8");
+                        System.out.println(subsection.getDocId());
+                    }
+                }
+            }
+        }*/
+
+        String CORPUS_PATH = "/home/memray/Project/textbook_analyzer/data/corpus_algebra_two.txt";
+        HashSet<String> set = new HashSet<>();
+        set.add("book1");
+        set.add("book2");
+//        set.add("book3");
+//        set.add("book4");
+//        set.add("book5");
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (BookNode book : books.getChildren() ) {
+//            System.out.println(book.getText());
+            if (!set.contains(book.getDocId()))
+                continue;
+            for (BookNode chapter : book.getChildren()) {
+                stringBuilder.append(chapter.getDocId() + '\t' + chapter.getText() + '\n');
+                System.out.println(chapter.getDocId());
+                for (BookNode section : chapter.getChildren()) {
+                    stringBuilder.append(section.getDocId() + '\t' + section.getText() + '\n');
+                    System.out.println(section.getDocId());
+                    for (BookNode subsection : section.getChildren()) {
+                        stringBuilder.append(subsection.getDocId() + '\t' + subsection.getText() + '\n');
+                        System.out.println(subsection.getDocId());
+                    }
+                }
+            }
+        }
+
+        FileUtils.writeStringToFile(new File(CORPUS_PATH), stringBuilder.toString(), "utf8");
+    }
 }
