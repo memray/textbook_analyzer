@@ -284,12 +284,12 @@ public class BookParser {
             }
         }*/
 
-        String CORPUS_PATH = "/home/memray/Project/textbook_analyzer/data/corpus_algebra_two.txt";
+        String CORPUS_PATH = "/home/memray/Project/textbook_analyzer/data/corpus_algebra_four.txt";
         HashSet<String> set = new HashSet<>();
         set.add("book1");
         set.add("book2");
-//        set.add("book3");
-//        set.add("book4");
+        set.add("book3");
+        set.add("book4");
 //        set.add("book5");
 
         StringBuilder stringBuilder = new StringBuilder();
